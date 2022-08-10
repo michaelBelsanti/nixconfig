@@ -8,8 +8,8 @@ pkgs: {
   dotDir = ".config/zsh/";
   shellAliases = {
     ls = "exa -al";
-    nixup = "pushd ~/.flake && doas nixos-rebuild switch --flake '.#' && popd && source ~/.config/zsh/.zshrc";
-    nixUp = "pushd ~/.flake && nix flake update --recreate-lock-file && doas nixos-rebuild switch --flake '.#' && popd && source ~/.config/zsh/.zshrc";
+    nixup = "doas nixos-rebuild switch --flake '/home/quasi/.flake/#framework' && source ~/.config/zsh/.zshrc";
+    nixUp = "nix flake update --recreate-lock-file && doas nixos-rebuild switch --flake '/home/quasi/.flake/#framework' && source ~/.config/zsh/.zshrc";
     dotconfig = "hx ~/.flake/user/quasi/";
     nixconfig = "hx ~/.flake/system";
     nix = "noglob nix";

@@ -31,10 +31,12 @@ in
 
   framework = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user protocol; };
+    specialArgs = { inherit inputs user protocol hyprland; };
     modules = [ 
       ./defaults
       ./framework
+        
+      hyprland.nixosModules.default
 
       nixos-hardware.nixosModules.framework
       home-manager.nixosModules.home-manager {

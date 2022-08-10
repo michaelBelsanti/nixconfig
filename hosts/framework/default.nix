@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, hyprland, ... }:
 
 {
 
@@ -16,15 +16,20 @@
 
   # Display shiz
   hardware.opengl.enable = true;
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = true;
-  programs.sway.enable = true;
-  services.xserver.windowManager.i3 = {
+  programs.hyprland.enable = true;
+  services.xserver = {
     enable = true;
-    package = pkgs.i3-gaps;
+    displayManager.gdm.enable = true;
+    displayManager.gdm.wayland = true;
+    displayManager.defaultSession = "xfce+i3";
+    desktopManager.xfce = {
+      enable = true;
+      noDesktop = false;
+      enableXfwm = false;
+    };
+    windowManager.i3.enable = true;
+    desktopManager.gnome.enable = true;
   };
-  services.xserver.desktopManager.gnome.enable = true;
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
 
   ### Packages and programs ###
