@@ -1,0 +1,22 @@
+pkgs: with pkgs; [
+  helix
+  vim
+  wget
+  git
+  firefox
+  librewolf
+  discord
+  rnix-lsp
+  unrar
+  unzip
+  bottles
+  gamemode
+  killall
+  virt-manager
+  libreoffice
+  tldr
+  lsof
+  dig 
+  fd
+  ripgrep
+]

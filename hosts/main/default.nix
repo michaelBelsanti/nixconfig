@@ -3,7 +3,9 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, user, ... }:
-
+let
+  packages = import ./packages.nix;
+in
 {
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -81,27 +83,7 @@
   };
 
   ### Packages and programs ###
-  environment.systemPackages = with pkgs; [
-    helix
-    vim
-    wget
-    git
-    firefox
-    librewolf
-    discord
-    rnix-lsp
-    unrar
-    unzip
-    bottles
-    gamemode
-    killall
-    virt-manager
-    libreoffice
-    tldr
-    lsof
-    dig 
-    hyprland
-  ];
+  environment.systemPackages = packages pkgs;
   
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })

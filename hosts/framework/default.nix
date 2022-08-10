@@ -28,6 +28,7 @@
       enableXfwm = false;
     };
     windowManager.i3.enable = true;
+    windowManager.i3.package = pkgs.i3-gaps;
     desktopManager.gnome.enable = true;
   };
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions

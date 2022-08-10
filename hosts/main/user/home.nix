@@ -46,8 +46,8 @@ in
     enable = true;
     platformTheme = "gtk";
   };
-  home.pointerCursor.package = pkgs.phinger-cursors;
-  home.pointerCursor.name = "Phinger Cursors";
+  # home.pointerCursor.package = pkgs.phinger-cursors;
+  # home.pointerCursor.name = "Phinger Cursors";
 
   # Zsh configuration
   programs.atuin.enable = true;
