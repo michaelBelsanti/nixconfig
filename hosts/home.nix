@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
-
-let
-  packages = import ./packages.nix;
-  zshsettings = import ./zsh.nix pkgs;
-in
 {
+  imports = 
+    [
+      ../packages/user.nix
+      ../modules/zsh.nix
+    ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -27,8 +27,6 @@ in
 
   home.file = { };
 
-  home.packages = packages pkgs;
-
   # Main system theming
   xresources.path = "$HOME/X11/xresources";
   gtk = {
@@ -48,12 +46,6 @@ in
   };
   # home.pointerCursor.package = pkgs.phinger-cursors;
   # home.pointerCursor.name = "Phinger Cursors";
-
-  # Zsh configuration
-  programs.atuin.enable = true;
-  programs.exa.enable = true;
-  programs.zoxide.enable = true;
-  programs.zsh = zshsettings;
 
   # Git
   programs.git = {

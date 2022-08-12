@@ -2,50 +2,41 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, hyprland, ... }:
+{ config, pkgs, ... }:
 
 {
-
   imports =
     [
-      # Include the results of the hardware scan.
+      ../../packages/desktop/system.nix
       ./hardware-configuration.nix
     ];
-
-  networking.hostName = "nix-fw"; # Define your hostname.
+  
+  networking.hostName = "nix";
 
   # Display shiz
   hardware.opengl.enable = true;
-  programs.hyprland.enable = true;
-  services.xserver = {
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.windowManager.i3 = {
     enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
-    displayManager.defaultSession = "xfce+i3";
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = false;
-      enableXfwm = false;
-    };
-    windowManager.i3.enable = true;
-    windowManager.i3.package = pkgs.i3-gaps;
-    desktopManager.gnome.enable = true;
+    package = pkgs.i3-gaps;
   };
+  services.xserver.desktopManager.gnome.enable = true;
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
 
-  ### Packages and programs ###
-  environment.systemPackages = with pkgs; [
-  ];
-  
-  ### Services and hardware ###
-  # Framework stuff
-  services.fprintd.enable = true; # Enable fingerprint scanner 
-  services.fwupd = {
-    enable = true; # Enable firmware updates with `fwupdmgr update`
-    enableTestRemote = true;
+  # VMs
+  virtualisation = {
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
   };
-  services.tlp.enable = true; # Battery optimization
-  services.power-profiles-daemon.enable = false;
+
+  services.openssh = {
+    enable = true;
+    ports = [ 42069 ];
+    banner = "You better be me. If you're not fuck off.\n";
+    passwordAuthentication = false;
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

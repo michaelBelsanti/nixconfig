@@ -13,16 +13,16 @@ in
     inherit system;
     specialArgs = { inherit inputs user protocol; };
     modules = [ 
-      ./main
-      ./desktop
+      ./configuration.nix
+      ./desktop/configuration.nix
         
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.users.${user}= {
           imports = [ 
-            ./main/user/home.nix
-            #./desktop/user/home.nix
+            ./home.nix
+            ./desktop/home.nix
           ];
         };
       }
@@ -33,8 +33,8 @@ in
     inherit system;
     specialArgs = { inherit inputs user protocol hyprland; };
     modules = [ 
-      ./main
-      ./framework
+      ./configuration.nix
+      ./framework/configuration.nix
         
       hyprland.nixosModules.default
 
@@ -44,8 +44,8 @@ in
         home-manager.useUserPackages = true;
         home-manager.users.${user} = {
           imports = [ 
-            ./main/user/home.nix
-            #./framework/user/home.nix
+            ./home.nix
+            ./framework/home.nix
           ];
         };
       }

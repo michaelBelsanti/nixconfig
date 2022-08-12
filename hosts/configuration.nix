@@ -3,11 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, user, ... }:
-let
-  packages = import ./packages.nix;
-in
 {
+  imports = 
+    [
+      ../packages/system.nix
+    ];
+
   # Use the systemd-boot EFI boot loader.
+  boot.kernelParams = [ "quiet" ];
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -82,15 +85,6 @@ in
     shell = pkgs.zsh;
   };
 
-  ### Packages and programs ###
-  environment.systemPackages = packages pkgs;
-  
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
-    montserrat
-  ];
-
-
   programs.zsh.enable = true;
   hardware.steam-hardware.enable = true;
   programs.steam.enable = true;
@@ -129,7 +123,7 @@ in
     enableSSHSupport = false;
   };
 
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   # Enable unfree repo
   nixpkgs.config.allowUnfree = true;
