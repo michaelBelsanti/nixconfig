@@ -58,5 +58,35 @@
       };
     };
   };
+  
+  home.sessionVariables = {
+    EDIR_EDITOR = "hx";
+    BROWSER = "librewolf";
+    FZF_DEFAULT_COMMAND = "'find .'";
+    
+    XDG_CONFIG_HOME = "\$HOME/.config";
+    XDG_CACHE_HOME = "\$HOME/.cache";
+    XDG_DATA_HOME = "\$HOME/.local/share";
+    XDG_STATE_HOME = "\$HOME/.local/state";
+    
+    __GL_SHADER_DISK_CACHE = 1;
+    __GL_SHADER_DISK_CACHE_PATH = "\$HOME/Games/cache";
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = 1;
+    
+    CARGO_HOME = "\$XDG_DATA_HOME/cargo";
+    CUDA_CACHE_PATH = "\$XDG_CACHE_HOME/nv";
+    GNUPGHOME = "\$XDG_DATA_HOME/gnupg";
+    GOPATH = "\$XDG_DATA_HOME/go";
+    LESSHISTFILE = "\$XDG_CACHE_HOME/less/history";
+    MPLAYER_HOME = "\$XDG_CONFIG_HOME/mplayer";
+    NUGET_PACKAGES = "\$XDG_CACHE_HOME/NuGetPackages";
+    OCTAVE_HISTFILE = "\$XDG_CACHE_HOME/octave-hsts";
+    OCTAVE_SITE_INITFILE = "\$XDG_CONFIG_HOME/octave/octaverc";
+    STACK_ROOT = "\$XDG_DATA_HOME/stack";
+    WGETRC = "\$XDG_CONFIG_HOME/wgetrc";
+    WINEPREFIX = "\$XDG_DATA_HOME/wineprefixes/default";
+    ZDOTDIR = "\$HOME/.config/zsh";
+    _Z_DATA = "\$XDG_DATA_HOME/z";
+  };
 
 }

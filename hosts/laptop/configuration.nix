@@ -9,7 +9,7 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ../../packages/framework/system.nix
+      ../../packages/laptop/system.nix
       ./hardware-configuration.nix
     ];
 

@@ -1,32 +1,47 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # Text editing
     helix
     vim
+    
+    # CLI Tools
     wget
     git
-    firefox
-    librewolf
-    discord
-    rnix-lsp
     unrar
     unzip
-    bottles
     gamemode
     killall
-    virt-manager
-    libreoffice
     tldr
     lsof
     dig 
     fd
     ripgrep
-    pavucontrol
     pamixer
-    gamescope
+    bat
+    
+    # GUI Tools
+    pavucontrol
+    virt-manager
 
-    #
+    # Web
+    librewolf
+    discord
+    
+    # Development
+    rnix-lsp
+    
+    # Office
+    libreoffice
+
+    # Wine
     wineWowPackages.staging
+    # pkgsi686Linux.vulkan-loader
+    bottles
+    
+    # Gaming
+    gamescope
+    vulkan-loader
     
     # JC dependencies
     dwarfs

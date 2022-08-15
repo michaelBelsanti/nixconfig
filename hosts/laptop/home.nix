@@ -3,7 +3,7 @@
 {
   imports = 
     [
-      ../../packages/framework/user.nix
+      ../../packages/laptop/user.nix
     ];
   home.file = { };
 }

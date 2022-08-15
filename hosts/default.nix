@@ -31,12 +31,12 @@ in
     ];
   };
 
-  framework = lib.nixosSystem {
+  laptop = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit inputs user protocol hyprland; };
     modules = [ 
       ./configuration.nix
-      ./framework/configuration.nix
+      ./laptop/configuration.nix
         
       hyprland.nixosModules.default
 
@@ -47,7 +47,7 @@ in
         home-manager.users.${user} = {
           imports = [ 
             ./home.nix
-            ./framework/home.nix
+            ./laptop/home.nix
           ];
         };
       }

@@ -1,5 +1,6 @@
 { config, pkgs, ...}:
 {
+  programs.bash.historyFileSize = 0;
   programs.atuin.enable = true;
   programs.exa.enable = true;
   programs.zoxide.enable = true;
@@ -13,8 +14,9 @@
     dotDir = ".config/zsh/";
     shellAliases = {
       ls = "exa -al";
-      nixup = "doas nixos-rebuild switch --flake '/home/quasi/.flake/#framework' && source ~/.config/zsh/.zshrc";
-      nixUp = "nix flake update ~/.flake && doas nixos-rebuild switch --flake '/home/quasi/.flake/#framework' && source ~/.config/zsh/.zshrc";
+      cat = "bat";
+      nixup = "doas nixos-rebuild switch --flake '/home/quasi/.flake/#laptop' && source ~/.config/zsh/.zshrc";
+      nixUp = "nix flake update ~/.flake && doas nixos-rebuild switch --flake '/home/quasi/.flake/#laptop' && source ~/.config/zsh/.zshrc";
       dotconfig = "hx ~/.flake/user/quasi/";
       nixconfig = "hx ~/.flake/system";
       nix = "noglob nix";
