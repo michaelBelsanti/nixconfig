@@ -26,7 +26,6 @@
 
     # Web
     librewolf
-    discord
     
     # Development
     rnix-lsp

@@ -26,9 +26,9 @@
   nixpkgs.config.allowUnfree = true;
 
   home.file = { };
-
+  
   # Main system theming
-  xresources.path = "$HOME/X11/xresources";
+  xresources.path = "${config.home.homeDirectory}/X11/xresources";
   gtk = {
     enable = true;
     font = {
@@ -83,7 +83,7 @@
     OCTAVE_HISTFILE = "\$XDG_CACHE_HOME/octave-hsts";
     OCTAVE_SITE_INITFILE = "\$XDG_CONFIG_HOME/octave/octaverc";
     STACK_ROOT = "\$XDG_DATA_HOME/stack";
-    WGETRC = "\$XDG_CONFIG_HOME/wgetrc";
+    # WGETRC = "\$XDG_CONFIG_HOME/wgetrc";
     WINEPREFIX = "\$XDG_DATA_HOME/wineprefixes/default";
     ZDOTDIR = "\$HOME/.config/zsh";
     _Z_DATA = "\$XDG_DATA_HOME/z";

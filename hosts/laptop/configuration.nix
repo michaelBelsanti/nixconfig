@@ -9,19 +9,18 @@
   imports =
     [
       # Include the results of the hardware scan.
-      ../../packages/laptop/system.nix
       ./hardware-configuration.nix
+      ../../modules/hyprland
+      ../../packages/laptop/system.nix
     ];
 
   networking.hostName = "nix-fw"; # Define your hostname.
 
-  boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ]; 
-  boot.kernelModules = [ "kvm-intel" ];
-  
+  boot.kernelParams = [ "acpi_backlight=native" ];
+  boot.blacklistedKernelModules = [ "hid_sensor_hub" ];
+
   # Display shiz
   hardware.opengl = {
-    enable = true;
-    driSupport = true;
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       vaapiIntel
@@ -31,8 +30,6 @@
       intel-media-driver
     ];
   };
-  hardware.opengl.driSupport32Bit = true;
-  programs.hyprland.enable = true;
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;

@@ -36,6 +36,13 @@
     keyMap = "us";
     #   useXkbConfig = true; # use xkbOptions in tty.
   };
+  
+  # Graphics
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
@@ -144,10 +151,10 @@
   };
   nix.settings.auto-optimise-store = true;
 
-  system.autoUpgrade = {
-    enable = true;
-    channel = "https://nixos.org/channels/nixos-unstable";
-  };
+  # system.autoupgrade = {
+  #   enable = true;
+  #   channel = "https://nixos.org/channels/nixos-unstable";
+  # };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
