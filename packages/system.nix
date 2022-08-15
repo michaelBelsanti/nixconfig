@@ -23,7 +23,15 @@
     ripgrep
     pavucontrol
     pamixer
+    gamescope
+
+    #
+    wineWowPackages.staging
+    
+    # JC dependencies
     dwarfs
+    fuse-overlayfs
+    aria2
   ];
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })

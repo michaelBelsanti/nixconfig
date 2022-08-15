@@ -16,6 +16,8 @@ in
       ./configuration.nix
       ./desktop/configuration.nix
         
+      nixos-hardware.nixosModules.common-gpu-nvidia
+      
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;

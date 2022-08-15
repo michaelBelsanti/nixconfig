@@ -15,21 +15,29 @@
 
   networking.hostName = "nix-fw"; # Define your hostname.
 
+  boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ]; 
+  boot.kernelModules = [ "kvm-intel" ];
+  
   # Display shiz
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ 
+      vaapiIntel
+      intel-media-driver
+    ];
+  };
+  hardware.opengl.driSupport32Bit = true;
   programs.hyprland.enable = true;
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
-    displayManager.defaultSession = "xfce+i3";
-    desktopManager.xfce = {
-      enable = true;
-      noDesktop = false;
-      enableXfwm = false;
-    };
-    windowManager.i3.enable = true;
-    windowManager.i3.package = pkgs.i3-gaps;
+    displayManager.defaultSession = "hyprland";
     desktopManager.gnome.enable = true;
   };
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions

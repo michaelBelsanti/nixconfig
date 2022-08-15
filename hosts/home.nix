@@ -37,7 +37,7 @@
       size = 12;
     };
     # iconTheme = "Adwaita";
-    theme.name = "Catppuccin-purple-dark";
+    theme.name = "Catppuccin-Purple-Dark";
     theme.package = pkgs.catppuccin-gtk;
   };
   qt = {
