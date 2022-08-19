@@ -3,7 +3,7 @@
   imports = 
     [
       ../packages/user.nix
-      ../modules/zsh.nix
+      ../modules/zsh
     ];
 
   # Home Manager needs a bit of information about you and the

@@ -19,6 +19,7 @@
     ripgrep
     pamixer
     bat
+    fzf
     
     # GUI Tools
     pavucontrol

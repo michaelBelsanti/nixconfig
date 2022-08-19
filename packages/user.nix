@@ -19,5 +19,6 @@
     mullvad-vpn
     wmctrl
     tetrio-desktop
+    selectdefaultapplication
   ];
 }
