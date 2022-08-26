@@ -10,16 +10,19 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.kernelParams = [ "quiet" ];
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    timeout = 3;
-    systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
+  boot = {
+    kernelParams = [ "quiet" ];
+    tmpOnTmpfs = true;
+    plymouth.enable = true;
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.consoleMode = "max";
+      efi.canTouchEfiVariables = true;
+      timeout = 3;
+      systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
+    };
   };
-
   # Cute boot animation
-  boot.plymouth.enable = true;
 
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   services.mullvad-vpn.enable = true;
@@ -83,6 +86,8 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  
+  zramSwap.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user}= {

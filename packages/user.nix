@@ -15,10 +15,13 @@
     jetbrains-mono
     clifm
     jetbrains.idea-community
+    jetbrains.jdk
     jellyfin-media-player
     mullvad-vpn
     wmctrl
     tetrio-desktop
     selectdefaultapplication
+    
+    nim
   ];
 }
