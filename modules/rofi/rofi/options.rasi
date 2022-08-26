@@ -1,0 +1,6 @@
+@theme "main"
+
+window {
+    height: 27%;
+    width: 30%;
+}
