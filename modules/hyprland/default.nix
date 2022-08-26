@@ -13,9 +13,4 @@
     swaybg
     waybar
   ];
-
-  xdg.configFile."hypr" = {
-    source = ./config;
-    recursive = true;
-  };
 }
