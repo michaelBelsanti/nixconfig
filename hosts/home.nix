@@ -3,8 +3,10 @@
   imports = 
     [
       ../packages/user.nix
-      ../modules/zsh
+      ../modules/alacritty
+      ../modules/helix
       ../modules/rofi
+      ../modules/zsh
     ];
 
   # Home Manager needs a bit of information about you and the
