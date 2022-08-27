@@ -2,28 +2,48 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports =
     [
       ../../packages/desktop/system.nix
       ./hardware-configuration.nix
+      # ./xorg.nix
     ];
   
   networking.hostName = "nix";
+  networking.nameservers = [ "192.168.1.152" ];
+
+  # NVIDIA
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiVdpau
+  ];
 
   # Display shiz
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;
-  services.xserver.windowManager.i3 = {
+  services.xserver = {
     enable = true;
-    package = pkgs.i3-gaps;
+    displayManager = {
+      gdm.enable = true;
+      gdm.wayland = false;
+      # setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+    };
+    windowManager.i3 = {
+      enable = true;
+      # package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [
+          dmenu #application launcher most people use
+          i3status # gives you the default i3 status bar
+          i3lock #default i3 screen locker
+          i3blocks #if you are planning on using i3blocks over i3status
+       ];
+    };
+    desktopManager.gnome.enable = true;
   };
-  services.xserver.desktopManager.gnome.enable = true;
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
-
+  environment.etc."xprofile".text = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+    
   # VMs
   virtualisation = {
     libvirtd.enable = true;

@@ -23,6 +23,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/run/media/quasi/hdd" =
+    { device = "/dev/disk/by-label/mainhdd";
+      fsType = "btrfs";
+    };
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

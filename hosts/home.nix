@@ -7,6 +7,7 @@
       ../modules/helix
       ../modules/rofi
       ../modules/zsh
+      ../modules/scripts
     ];
 
   # Home Manager needs a bit of information about you and the

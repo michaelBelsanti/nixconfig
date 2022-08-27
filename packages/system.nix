@@ -36,7 +36,7 @@
 
     # Wine
     wineWowPackages.staging
-    # pkgsi686Linux.vulkan-loader
+    pkgsi686Linux.vulkan-loader
     bottles
     
     # Gaming

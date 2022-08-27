@@ -21,7 +21,8 @@
     wmctrl
     tetrio-desktop
     selectdefaultapplication
-    
+    easyeffects
+    cider
     nim
   ];
 }
