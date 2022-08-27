@@ -44,6 +44,14 @@
     theme.name = "Catppuccin-Purple-Dark";
     theme.package = pkgs.catppuccin-gtk;
   };
+  xdg.configFile."gtk.css" = {
+    target = "gtk-3.0/gtk.css";
+    text = ''
+      decoration, window, window.background, window.titlebar, * {
+        border-radius: 0px;
+      }
+    '';
+  };
   qt = {
     enable = true;
     platformTheme = "gtk";

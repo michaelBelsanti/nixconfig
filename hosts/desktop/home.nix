@@ -10,4 +10,10 @@
       ../../modules/polybar
     ];
   home.file.".xprofile".text = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors";
+    gtk.enable = true;
+    x11.enable = true;
+  };
 }

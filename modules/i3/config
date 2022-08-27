@@ -6,8 +6,12 @@ set $bar
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id dunst
+# exec --no-startup-id dunst
 # exec --no-startup-id lxpolkit
+
+exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
+exec --no-startup-id xrdb merge ~/.config/X11/xresources
+
 
 # Awesome replay tool for Nvidia gpus, much more performant than obs
 # exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays
@@ -25,8 +29,7 @@ client.unfocused        $bg       $bg         $fg   $indicator
 client.focused_inactive $border   $bg         $fg   $indicator   
 client.urgent           $border   $bg         $fg   $indicator   
 
-
-font pango:JetBrains Mono 10
+font pango:JetBrainsMono Nerd Font 10
 
 #----------------------------- Window appearance -----------------------------#
 # Removes titlebars
@@ -55,7 +58,7 @@ bindsym $mod+n exec ~/.scripts/togdnd.sh -t
 bindsym $mod+shift+q exec xkill
 # start and kill compositor 
 bindsym $mod+c exec ~/.scripts/picom.sh
-bindsym $mod+shift+ctrl+e
+bindsym $mod+shift+ctrl+e exec ~/.scripts/eerestart.sh
 bindsym $mod+Escape exec betterlockscreen --off 20 -l dimblur
 bindsym $mod+v exec ~/.scripts/replay.sh
 
@@ -161,7 +164,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+x split h
 bindsym $mod+z split v
 # toggle fullscreen
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscrEEn toggle
 # toggle floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
@@ -173,7 +176,7 @@ bindsym $mod+a focus child
 
 #----------------------------------- i3 --------------------------------------#
 # refresh i3
-bindsym $mod+Shift+r exec "i3-msg restart && pkill -USR1 'sxhkd'"
+bindsym $mod+Shift+r exec "i3-msg restart"
 
 mode "resize" {
         # Vim keys

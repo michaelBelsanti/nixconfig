@@ -24,6 +24,6 @@
     easyeffects
     cider
     nim
-    grapejuice
+    # grapejuice
   ];
 }

@@ -9,7 +9,6 @@
     [
       ../../packages/desktop/system.nix
       ./hardware-configuration.nix
-      # ./xorg.nix
       ../../modules/libvirtd
     ];
   
@@ -28,17 +27,11 @@
     displayManager = {
       gdm.enable = true;
       gdm.wayland = false;
-      # setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+      # sessionCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     };
     windowManager.i3 = {
       enable = true;
-      # package = pkgs.i3-gaps;
-      extraPackages = with pkgs; [
-          dmenu #application launcher most people use
-          i3status # gives you the default i3 status bar
-          i3lock #default i3 screen locker
-          i3blocks #if you are planning on using i3blocks over i3status
-       ];
+      package = pkgs.i3-gaps;
     };
     desktopManager.gnome.enable = true;
   };
