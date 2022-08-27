@@ -10,11 +10,12 @@
       ../../packages/desktop/system.nix
       ./hardware-configuration.nix
       # ./xorg.nix
+      ../../modules/libvirtd
     ];
   
   networking.hostName = "nix";
   networking.nameservers = [ "192.168.1.152" ];
-
+  
   # NVIDIA
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.extraPackages = with pkgs; [
@@ -45,10 +46,6 @@
   environment.etc."xprofile".text = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     
   # VMs
-  virtualisation = {
-    libvirtd.enable = true;
-    spiceUSBRedirection.enable = true;
-  };
 
   services.openssh = {
     enable = true;

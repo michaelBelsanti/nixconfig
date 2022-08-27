@@ -18,18 +18,13 @@ echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 
 # read nvidia x config
-nvidia-xconfig --query-gpu-info > /dev/null 2>&1
+# nvidia-xconfig --query-gpu-info > /dev/null 2>&1
 
 # bind efi-framebuffer
 echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/bind
 
 # load
-modprobe nvidia_drm
-modprobe nvidia_modeset
-modprobe drm_kms_helper
-modprobe nvidia
-modprobe drm
-modprobe nvidia_uvm
+modprobe nvidia_drm nvidia_modeset drm_kms_helper nvidia drm nvidia_uvm
 
 # restart display service
 systemctl start lightdm.service

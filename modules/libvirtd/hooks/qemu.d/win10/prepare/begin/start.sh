@@ -4,8 +4,13 @@ set -x
 # load variables we defined
 source "/etc/libvirt/hooks/kvm.conf"
 
+# Isolate host to core 0
+systemctl set-property --runtime -- user.slice AllowedCPUs=0
+systemctl set-property --runtime -- system.slice AllowedCPUs=0
+systemctl set-property --runtime -- init.scope AllowedCPUs=0
+
 # stop display manager
-systemctl stop lightdm.service
+systemctl stop display-manager.service
 
 #unbind VTconsoles
 echo 0 > /sys/class/vtconsole/vtcon0/bind
@@ -15,16 +20,10 @@ echo 0 > /sys/class/vtconsole/vtcon1/bind
 echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
 
 # avoid race condition
-sleep 1
+sleep 5
 
 # unload nvidia
-modprobe -r nvidia_drm
-modprobe -r nvidia_modeset
-modprobe -r drm_kms_helper
-modprobe -r nvidia
-modprobe -r i2c_nvidia_gpu
-modprobe -r drm
-modprobe -r nvidia_uvm
+modprobe -r nvidia_drm nvidia_modeset drm_kms_helper nvidia i2c_nvidia_gpu drm nvidia_uvm
 
 #unbind GPU
 virsh nodedev-detach $VIRSH_GPU_VIDEO
