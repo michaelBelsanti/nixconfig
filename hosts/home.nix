@@ -6,7 +6,6 @@
       ../modules/alacritty
       ../modules/helix
       ../modules/rofi
-      ../modules/zsh
       ../modules/scripts
     ];
 
@@ -56,8 +55,12 @@
     enable = true;
     platformTheme = "gtk";
   };
-  # home.pointerCursor.package = pkgs.phinger-cursors;
-  # home.pointerCursor.name = "Phinger Cursors";
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors";
+    gtk.enable = true;
+    x11.enable = true;
+  };
 
   # Git
   programs.git = {

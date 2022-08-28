@@ -11,7 +11,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
-    kernelParams = [ "quiet"  "nomodeset" "splash" "vt.global_cursor_default=0" ];
+    kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation
     plymouth.enable = true;
@@ -36,7 +36,7 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
-    #   useXkbConfig = true; # use xkbOptions in tty.
+    # useXkbConfig = true; # use xkbOptions in tty.
   };
   
   # Graphics
@@ -55,9 +55,7 @@
 
   # Configure keymap in X11
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #    "caps:escape" # map caps to escape.
-  # };
+  # services.xserver.xkbOptions = "caps:escape"; # map caps to escape.
 
   # Enable CUPS to print documents.
   services = {

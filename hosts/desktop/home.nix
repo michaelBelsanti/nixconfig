@@ -9,6 +9,7 @@
       ../../modules/dunst
       ../../modules/polybar
     ];
+
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
