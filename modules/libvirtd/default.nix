@@ -45,8 +45,8 @@
   environment.etc = {
     "libvirt/hooks/kvm.conf".source = ./hooks/kvm.conf;
     "libvirt/hooks/qemu".source = ./hooks/qemu;
-    "libvirt/hooks/qemu.d/win10/prepare/begin/start.sh".source = ./hooks/qemu.d/win10/prepare/begin/start.sh;
-    "libvirt/hooks/qemu.d/win10/release/end/revert.sh".source = ./hooks/qemu.d/win10/release/end/revert.sh;
+    "libvirt/hooks/qemu.d/win10/prepare/begin/start.sh".source = ./hooks/start.sh;
+    "libvirt/hooks/qemu.d/win10/release/end/revert.sh".source = ./hooks/revert.sh;
   };
   
   # Link hooks to the correct directory

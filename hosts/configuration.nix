@@ -13,16 +13,15 @@
   boot = {
     kernelParams = [ "quiet"  "nomodeset" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
+    # Cute boot animation
     plymouth.enable = true;
     loader = {
       systemd-boot.enable = true;
-      systemd-boot.consoleMode = "max";
       efi.canTouchEfiVariables = true;
       timeout = 3;
       systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
     };
   };
-  # Cute boot animation
 
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
   services.mullvad-vpn.enable = true;

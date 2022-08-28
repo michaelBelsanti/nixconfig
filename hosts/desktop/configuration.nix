@@ -15,6 +15,9 @@
   networking.hostName = "nix";
   networking.nameservers = [ "192.168.1.152" ];
   
+  # Can't use 'max' cause shitty nvidia drivers
+  boot.loader.systemd-boot.consoleMode = "keep";
+  
   # NVIDIA
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.extraPackages = with pkgs; [

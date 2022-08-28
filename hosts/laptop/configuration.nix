@@ -18,6 +18,7 @@
 
   boot.kernelParams = [ "acpi_backlight=native" ];
   boot.blacklistedKernelModules = [ "hid_sensor_hub" ];
+  boot.loader.systemd-boot.consoleMode = "max";
 
   # Display shiz
   hardware.opengl = {
