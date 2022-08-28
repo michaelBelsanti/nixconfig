@@ -39,7 +39,6 @@
     desktopManager.gnome.enable = true;
   };
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
-  environment.etc."xprofile".text = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     
   # VMs
 

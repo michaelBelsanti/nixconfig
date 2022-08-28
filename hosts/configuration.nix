@@ -103,6 +103,12 @@
   programs.zsh.enable = true;
   hardware.steam-hardware.enable = true;
   programs.steam.enable = true;
+  
+  # Environment variables
+  environment.variables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
 
   ### Services and hardware ###
   # Framework stuff
