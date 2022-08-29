@@ -88,13 +88,14 @@
     #jack.enable = true;
   };
 
+  # XDG Desktop Portal
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
-      gtkUsePortal = true;
+      # Fails to build?
+      # extraPortals = with pkgs; [
+      #   xdg-desktop-portal-gtk
+      # ];
     };
   };
   
@@ -130,7 +131,6 @@
   
   # Flatpaks
   services.flatpak.enable = true;
-  xdg.portal.enable = true;
   services.packagekit.enable = true; # For guis such as GNOME Software
   appstream.enable = true;
   programs.dconf.enable = true;
