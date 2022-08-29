@@ -87,6 +87,16 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+      gtkUsePortal = true;
+    };
+  };
   
   zramSwap.enable = true;
 

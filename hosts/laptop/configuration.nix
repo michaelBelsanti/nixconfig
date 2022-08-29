@@ -50,6 +50,16 @@
   services.tlp.enable = true; # Battery optimization
   services.power-profiles-daemon.enable = false;
 
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+      ];
+      gtkUsePortal = true;
+    };
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
