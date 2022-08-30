@@ -4,5 +4,6 @@
     # Work
     slack
     thunderbird
+    brightnessctl
   ];
 }
