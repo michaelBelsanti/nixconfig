@@ -7,9 +7,9 @@
 {
   imports =
     [
-      ../../packages/desktop/system.nix
       ./hardware-configuration.nix
-      ../../modules/libvirtd
+      ../../packages/desktop/system.nix
+      ../../modules/vfio
     ];
   
   networking.hostName = "nix";

@@ -9,10 +9,10 @@
     shotgun
     hacksaw
     rofi
+    feh
     nitrogen
     sxhkd
     cinnamon.nemo
-    jetbrains-mono
     clifm
     jetbrains.idea-community
     jetbrains.jdk
@@ -25,5 +25,6 @@
     cider
     nim
     # grapejuice
+    lxsession
   ];
 }
