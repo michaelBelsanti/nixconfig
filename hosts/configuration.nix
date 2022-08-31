@@ -19,8 +19,9 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       timeout = 3;
-      systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
+      # systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
     };
+    supportedFilesystems = [ "ntfs" ];
   };
 
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.

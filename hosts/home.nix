@@ -63,10 +63,12 @@
   };
 
   # Git
+  services.gpg-agent.enable = true;
   programs.git = {
     enable = true;
     userName = "quasigod-io";
     userEmail = "quasigod-io@protonmail.com";
+    delta.enable = true;
     extraConfig = {
       init = {
         defaultBranch = "main";
@@ -88,20 +90,20 @@
     __GL_SHADER_DISK_CACHE_PATH = "\$HOME/Games/cache";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = 1;
     
-    CARGO_HOME = "\$XDG_DATA_HOME/cargo";
-    CUDA_CACHE_PATH = "\$XDG_CACHE_HOME/nv";
-    GNUPGHOME = "\$XDG_DATA_HOME/gnupg";
-    GOPATH = "\$XDG_DATA_HOME/go";
-    LESSHISTFILE = "\$XDG_CACHE_HOME/less/history";
-    MPLAYER_HOME = "\$XDG_CONFIG_HOME/mplayer";
-    NUGET_PACKAGES = "\$XDG_CACHE_HOME/NuGetPackages";
-    OCTAVE_HISTFILE = "\$XDG_CACHE_HOME/octave-hsts";
-    OCTAVE_SITE_INITFILE = "\$XDG_CONFIG_HOME/octave/octaverc";
-    STACK_ROOT = "\$XDG_DATA_HOME/stack";
-    # WGETRC = "\$XDG_CONFIG_HOME/wgetrc";
-    WINEPREFIX = "\$XDG_DATA_HOME/wineprefixes/default";
-    ZDOTDIR = "\$HOME/.config/zsh";
-    _Z_DATA = "\$XDG_DATA_HOME/z";
+    CARGO_HOME = "${config.xdg.dataHome}/cargo";
+    CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
+    GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+    GOPATH = "${config.xdg.dataHome}/go";
+    LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
+    MPLAYER_HOME = "${config.xdg.configHome}/mplayer";
+    NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
+    OCTAVE_HISTFILE = "${config.xdg.cacheHome}/octave-hsts";
+    OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
+    STACK_ROOT = "${config.xdg.dataHome}/stack";
+    # WGETRC = "${config.xdg.configHome}/wgetrc";
+    WINEPREFIX = "${config.xdg.dataHome}/wineprefixes/default";
+    ZDOTDIR = "${config.xdg.configHome}/zsh";
+    _Z_DATA = "${config.xdg.dataHome}/z";
   };
 
 }

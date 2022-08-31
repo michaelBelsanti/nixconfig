@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, nixos-hardware, home-manager, user, hyprland, protocol, ... }:
+{ lib, inputs, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, user, hyprland, protocol, ... }:
 
 let
   system = "x86_64-linux";

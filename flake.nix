@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
-    # my-nixpkgs.url = "github:quasigod-io/nixpkgs/master";
+    my-nixpkgs.url = "github:quasigod-io/nixpkgs/master";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 

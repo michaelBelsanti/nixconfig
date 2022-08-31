@@ -1,0 +1,263 @@
+#=============================== Applications ================================#
+#---------------------------- Default applications ---------------------------#
+set $bar        
+
+#----------------------------- Startup applications --------------------------#
+exec_always --no-startup-id $HOME/.config/polybar/i3.sh
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id nitrogen --restore
+# exec --no-startup-id dunst
+# exec --no-startup-id lxpolkit
+
+exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
+exec --no-startup-id xrdb merge ~/.config/X11/xresources
+
+
+# Awesome replay tool for Nvidia gpus, much more performant than obs
+# exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays
+
+#================================= Appearance ================================#
+#------------------------------- Colors & font -------------------------------#
+set $border     #F28FAD
+set $bg         #1E1D2F
+set $fg         #D9E0EE
+set $indicator  #96CDFB
+
+#                       border    background  text  indicator
+client.focused          $border   $border     $fg   $indicator  
+client.unfocused        $bg       $bg         $fg   $indicator   
+client.focused_inactive $border   $bg         $fg   $indicator   
+client.urgent           $border   $bg         $fg   $indicator   
+
+font pango:JetBrainsMono Nerd Font 10
+
+#----------------------------- Window appearance -----------------------------#
+# Removes titlebars
+for_window [class="^.*"] border pixel 3
+
+hide_edge_borders both
+# smart_borders on
+# gaps inner 6
+# gaps outer 0
+# smart_gaps on
+# border_radius 4
+# smart_gaps inverse_outer
+
+#================================= Keybinds ==================================#
+set $mod Mod4
+floating_modifier $mod
+
+bindsym $mod+Return     exec alacritty
+bindsym $mod+e          exec nemo
+bindsym $mod+b          exec librewolf
+bindsym $mod+shift+s    exec shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
+bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictures/screenshot.png
+bindsym $mod+d          exec flatpak run de.shorsh.discord-screenaudio
+
+bindsym $mod+n exec ~/.scripts/togdnd.sh -t
+bindsym $mod+shift+q exec xkill
+# start and kill compositor 
+bindsym $mod+c exec ~/.scripts/picom.sh
+bindsym $mod+shift+ctrl+e exec ~/.scripts/eerestart.sh
+bindsym $mod+Escape exec betterlockscreen --off 20 -l dimblur
+bindsym $mod+v exec ~/.scripts/replay.sh
+
+# popup launcher binds
+bindsym $mod+space      exec --no-startup-id ~/.config/rofi/wrapper.sh -r
+bindsym $mod+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
+bindsym Mod1+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
+bindsym $mod+o          exec --no-startup-id ~/.config/rofi/wrapper.sh -o
+
+#---------------------------- Workspace navigation ---------------------------#
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+ctrl+1 workspace number $ws11
+bindsym $mod+ctrl+2 workspace number $ws12
+bindsym $mod+ctrl+3 workspace number $ws13
+bindsym $mod+ctrl+4 workspace number $ws14
+bindsym $mod+ctrl+5 workspace number $ws15
+bindsym $mod+ctrl+6 workspace number $ws16
+bindsym $mod+ctrl+7 workspace number $ws17
+bindsym $mod+ctrl+8 workspace number $ws18
+bindsym $mod+ctrl+9 workspace number $ws19
+bindsym $mod+ctrl+0 workspace number $ws20
+
+
+# move focused container to workspace
+# bindsym $mod+s layout stacking
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+ctrl+Shift+1 move container to workspace number $ws11
+bindsym $mod+ctrl+Shift+2 move container to workspace number $ws12
+bindsym $mod+ctrl+Shift+3 move container to workspace number $ws13
+bindsym $mod+ctrl+Shift+4 move container to workspace number $ws14
+bindsym $mod+ctrl+Shift+5 move container to workspace number $ws15
+bindsym $mod+ctrl+Shift+6 move container to workspace number $ws16
+bindsym $mod+ctrl+Shift+7 move container to workspace number $ws17
+bindsym $mod+ctrl+Shift+8 move container to workspace number $ws18
+bindsym $mod+ctrl+Shift+9 move container to workspace number $ws19
+bindsym $mod+ctrl+Shift+0 move container to workspace number $ws20
+
+# move focused container and stay focues
+bindsym $mod+mod1+1 move container to workspace number $ws1; workspace $ws1
+bindsym $mod+mod1+2 move container to workspace number $ws2; workspace $ws2
+bindsym $mod+mod1+3 move container to workspace number $ws3; workspace $ws3
+bindsym $mod+mod1+4 move container to workspace number $ws4; workspace $ws4
+bindsym $mod+mod1+5 move container to workspace number $ws5; workspace $ws5
+bindsym $mod+mod1+6 move container to workspace number $ws6; workspace $ws6
+bindsym $mod+mod1+7 move container to workspace number $ws7; workspace $ws7
+bindsym $mod+mod1+8 move container to workspace number $ws8; workspace $ws8
+bindsym $mod+mod1+9 move container to workspace number $ws9; workspace $ws9
+bindsym $mod+mod1+0 move container to workspace number $ws10; workspace $ws10
+bindsym $mod+ctrl+mod1+1 move container to workspace number $ws11; workspace $ws11
+bindsym $mod+ctrl+mod1+2 move container to workspace number $ws12; workspace $ws12
+bindsym $mod+ctrl+mod1+3 move container to workspace number $ws13; workspace $ws13
+bindsym $mod+ctrl+mod1+4 move container to workspace number $ws14; workspace $ws14
+bindsym $mod+ctrl+mod1+5 move container to workspace number $ws15; workspace $ws15
+bindsym $mod+ctrl+mod1+6 move container to workspace number $ws16; workspace $ws16
+bindsym $mod+ctrl+mod1+7 move container to workspace number $ws17; workspace $ws17
+bindsym $mod+ctrl+mod1+8 move container to workspace number $ws18; workspace $ws18
+bindsym $mod+ctrl+mod1+9 move container to workspace number $ws19; workspace $ws19
+bindsym $mod+ctrl+mod1+0 move container to workspace number $ws20; workspace $ws20
+
+#--------------------------- Container manipulation --------------------------#
+# kill
+bindsym $mod+q kill
+# change focused window
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# alternatively, you can use the cursor keys (why would you tho)
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# horizontal and vertical splits
+bindsym $mod+x split h
+bindsym $mod+z split v
+# toggle fullscreen
+bindsym $mod+f fullscrEEn toggle
+# toggle floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+semicolon focus mode_toggle
+# focus the parent container
+bindsym $mod+Shift+a focus parent
+# focus the child container
+bindsym $mod+a focus child
+
+#----------------------------------- i3 --------------------------------------#
+# refresh i3
+bindsym $mod+Shift+r exec "i3-msg restart"
+
+mode "resize" {
+        # Vim keys
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+
+        # Arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Leave resize mode
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+#================================ Workspaces =================================#
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
+set $ws13 "13"
+set $ws14 "14"
+set $ws15 "15"
+set $ws16 "16"
+set $ws17 "17"
+set $ws18 "18"
+set $ws19 "19"
+set $ws20 "20"
+
+# monitor 1 workspaces
+workspace $ws1  output  DP-4
+workspace $ws2  output  DP-4
+workspace $ws3  output  DP-4
+workspace $ws4  output  DP-4
+workspace $ws5  output  DP-4
+workspace $ws11 output  DP-4
+workspace $ws12 output  DP-4
+workspace $ws13 output  DP-4
+workspace $ws14 output  DP-4
+workspace $ws15 output  DP-4
+
+# monitor 2 workspaces
+workspace $ws6  output  HDMI-0
+workspace $ws7  output  HDMI-0
+workspace $ws8  output  HDMI-0
+workspace $ws9  output  HDMI-0
+workspace $ws10 output  HDMI-0
+workspace $ws16 output  HDMI-0
+workspace $ws17 output  HDMI-0
+workspace $ws18 output  HDMI-0
+workspace $ws19 output  HDMI-0
+workspace $ws20 output  HDMI-0
+
+# floating applications
+for_window [instance="scrcpy"] floating enable
+for_window [instance="origin.exe"] floating enable
+for_window [instance="EADesktop.exe"] floating enable
+for_window [instance="rustdesk"] floating enable
+for_window [instance="pavucontrol"] floating enable
+for_window [instance="$scratchpad"] floating enable
+for_window [instance="TeamViewer"] floating enable
+for_window [instance="qalculate-gtk"] floating enable
+for_window [instance="yuzu"] floating enable
+for_window [instance="steamwebhelper"] floating enable
+for_window [instance="nvidia-settings"] floating enable
+for_window [instance="lxappearance"] floating enable
+for_window [instance="vibrantLinux"] floating enable
+for_window [instance="discord-screenaudio Stream Dialog"] floating enable
