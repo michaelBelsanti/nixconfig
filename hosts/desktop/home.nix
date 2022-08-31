@@ -5,7 +5,7 @@
       ../../packages/desktop/user.nix
       ../../modules/zsh/desktop
       ../../modules/easyeffects
-      ../../modules/i3
+      ../../modules/i3/config
       ../../modules/dunst
       ../../modules/polybar
     ];

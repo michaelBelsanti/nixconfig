@@ -1,8 +1,10 @@
-{ config, pkgs, ...}:
+{ lib, config, pkgs, ... }:
 {
-  xdg.configFile."i3" = {
-    source = ./config;
-    recursive = true;
-    target = "i3/config";
+  services.xserver = {
+    windowManager.i3 = {
+      enable = true;
+      package = pkgs.i3-gaps;
+    };
+    # displayManager.defaultSession = "none+i3";
   };
 }

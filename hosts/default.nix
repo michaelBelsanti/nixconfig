@@ -2,6 +2,7 @@
 
 let
   system = "x86_64-linux";
+  user = "quasi";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;

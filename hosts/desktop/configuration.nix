@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../packages/desktop/system.nix
       ../../modules/vfio
+      ../../modules/i3
     ];
   
   networking.hostName = "nix";
@@ -31,10 +32,6 @@
       gdm.enable = true;
       gdm.wayland = false;
       # sessionCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
-    };
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
     };
     desktopManager.gnome.enable = true;
   };

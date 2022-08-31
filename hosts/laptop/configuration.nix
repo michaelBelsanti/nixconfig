@@ -35,7 +35,7 @@
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
-    displayManager.defaultSession = "hyprland";
+    # displayManager.defaultSession = "hyprland";
     desktopManager.gnome.enable = true;
   };
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
