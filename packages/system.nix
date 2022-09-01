@@ -20,6 +20,7 @@
     pamixer
     bat
     fzf
+    btop
     
     # GUI Tools
     pavucontrol
@@ -38,10 +39,12 @@
     wineWowPackages.staging
     pkgsi686Linux.vulkan-loader
     bottles
+    winetricks
     
     # Gaming
     gamescope
     vulkan-loader
+    protontricks
     
     # JC dependencies
     dwarfs
