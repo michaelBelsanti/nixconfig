@@ -21,6 +21,8 @@
       lt = "exa -aT";
       cat = "bat";
       fm = "clifm";
+
+      cleanup = "doas nix-collect-garbage";
     };
     prezto = {
       enable = true;

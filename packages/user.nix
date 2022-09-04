@@ -24,6 +24,9 @@
     easyeffects
     cider
     nim
+    element-desktop
+    nsxiv
+    celluloid
     # grapejuice
     lxsession
   ];

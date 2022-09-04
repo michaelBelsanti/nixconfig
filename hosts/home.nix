@@ -7,6 +7,7 @@
       ../modules/helix
       ../modules/rofi
       ../modules/scripts
+      ../modules/btop
     ];
 
   # Home Manager needs a bit of information about you and the

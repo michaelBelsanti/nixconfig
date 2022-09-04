@@ -1,0 +1,111 @@
+{
+    "layer": "top", // Waybar at top layer
+    //"height": 5, // Waybar height (to be removed for auto height)
+    // "width": 20, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["custom/wmname", "wlr/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "cpu", 
+        "custom/separator",
+        "memory", 
+        "custom/separator",
+        "backlight", 
+        "custom/separator",
+        "pulseaudio",
+        "custom/separator",
+        "network",
+        "custom/separator",
+        "battery",
+        "custom/separator",
+        "clock",
+        "custom/separator",
+        "tray"],
+    "custom/wmname": {
+        "format": "",
+        "tooltip": false,
+        "on-scroll-down": "/usr/local/bin/hyprctl dispatch workspace m+1",
+        "on-scroll-up": "/usr/local/bin/hyprctl dispatch workspace m-1"
+    },
+    "wlr/workspaces": {
+        "sort-by-name": true
+    },
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 30,
+        "spacing": 6
+    },
+    "clock": {
+        "timezone": "America/New_York",
+        "format": " {time}", 
+        "format-alt": "{:%H:%M:%S %a %Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}",
+        "interval": 1
+    },
+    "cpu": {
+        "format": "&#8239;{usage}%",
+        "tooltip": false,
+        "on-click": "alacritty -e btop"
+    },
+    "memory": {
+        "format": " {}%"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}&#8239;{percent}%",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}&#8239;{capacity}%",
+        "format-charging": "🗲&#8239;{capacity}%",
+        "format-plugged": "🗲&#8239;{capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+        // "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+        "format-wifi": "直&#8239;({signalStrength}%)",
+        "format-ethernet": "&#8239;{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "&#8239;{ifname} (No IP)",
+        "format-disconnected": "睊&#8239;Disconnected",
+        "format-alt": "{essid}: {ipaddr}/{cidr}",
+        "tooltip": false,
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}&#8239;{volume}%",
+        "format-bluetooth": "&#8239;{volume}%",
+        "format-bluetooth-muted": "&#8239;{volume}%",
+        "format-muted": "ﱝ",
+        "format-source": "&#8239;{volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "default": ["墳", "墳", "墳"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format": "⏻&#8239;{}W",
+        "exec": "$HOME/.config/rofi/wrapper.sh -o",
+        "interval": 2
+    },
+}
