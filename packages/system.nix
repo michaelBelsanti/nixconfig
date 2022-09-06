@@ -21,6 +21,8 @@
     bat
     fzf
     btop
+    ncdu
+    edir
     
     # GUI Tools
     pavucontrol
@@ -34,6 +36,9 @@
     
     # Office
     libreoffice
+    
+    # Drivers
+    ntfs3g
 
     # Wine
     wineWowPackages.staging

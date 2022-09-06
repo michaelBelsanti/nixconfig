@@ -18,8 +18,8 @@
         C-l = "jump_view_right";
         # space.q = "buffer-close";
       };
-
     };
+    languages = [ { name = "nim"; scope = "source.nim"; injection-regex = "nim"; file-types = ["nim" "nims"]; shebangs = ["nim"]; comment-token = "#"; roots = []; } ];
   };
   xdg.configFile."themes" = {
     source = ./themes;

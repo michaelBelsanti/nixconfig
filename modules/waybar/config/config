@@ -56,11 +56,11 @@
     },
     "cpu": {
         "format": "&#8239;{usage}%",
-        "tooltip": false,
         "on-click": "alacritty -e btop"
     },
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
+        // "on-click": "alacritty -e btop"
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -69,18 +69,14 @@
     },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon}&#8239;{capacity}%",
-        "format-charging": "🗲&#8239;{capacity}%",
-        "format-plugged": "🗲&#8239;{capacity}%",
+        "format-charging": "&#8239;{capacity}%",
         "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
-        // "format-icons": ["", "", "", "", ""]
     },
     "network": {
         "format-wifi": "直&#8239;({signalStrength}%)",
@@ -95,7 +91,7 @@
         "format": "{icon}&#8239;{volume}%",
         "format-bluetooth": "&#8239;{volume}%",
         "format-bluetooth-muted": "&#8239;{volume}%",
-        "format-muted": "ﱝ",
+        "format-muted": "  ﱝ  ",
         "format-source": "&#8239;{volume}%",
         "format-source-muted": "",
         "format-icons": {

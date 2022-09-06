@@ -29,5 +29,6 @@
     celluloid
     # grapejuice
     lxsession
+    qbittorrent
   ];
 }
