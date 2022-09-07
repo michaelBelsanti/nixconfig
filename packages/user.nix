@@ -27,8 +27,15 @@
     element-desktop
     nsxiv
     celluloid
-    # grapejuice
+    grapejuice
     lxsession
     qbittorrent
+    
+    # Programming
+    
+    ## Rust
+    rustup
+    rust-analyzer
+    vscode-extensions.vadimcn.vscode-lldb
   ];
 }
