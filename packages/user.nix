@@ -14,8 +14,6 @@
     sxhkd
     cinnamon.nemo
     clifm
-    jetbrains.idea-community
-    jetbrains.jdk
     jellyfin-media-player
     mullvad-vpn
     wmctrl
@@ -37,15 +35,11 @@
     ## Rust
     rustup
     rust-analyzer
-    # vscode-extensions.vadimcn.vscode-lldb
+    
+    ## Java
+    eclipses.eclipse-java
+    jetbrains.idea-community
+    jetbrains.jdk
+    staruml
   ];
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      dracula-theme.theme-dracula
-      vscodevim.vim
-      vadimcn.vscode-lldb
-    ];
-  };
-
 }

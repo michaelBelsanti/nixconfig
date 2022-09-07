@@ -61,4 +61,5 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
     montserrat
   ];
+  programs.java.enable = true;
 }

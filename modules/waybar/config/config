@@ -59,7 +59,7 @@
         "on-click": "alacritty -e btop"
     },
     "memory": {
-        "format": " {}%",
+        "format": " {}%",
         // "on-click": "alacritty -e btop"
     },
     "backlight": {

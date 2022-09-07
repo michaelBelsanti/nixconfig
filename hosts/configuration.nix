@@ -92,10 +92,10 @@
   xdg = {
     portal = {
       enable = true;
-      # Fails to build?
-      # extraPortals = with pkgs; [
-      #   xdg-desktop-portal-gtk
-      # ];
+      # Fails to build when gnome
+      extraPortals = with pkgs; [
+        # xdg-desktop-portal-gtk
+      ];
     };
   };
   

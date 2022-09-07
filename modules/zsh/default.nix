@@ -1,7 +1,7 @@
 { config, pkgs, ...}:
 {
   programs.bash.historyFileSize = 0;
-  programs.atuin.enable = true;
+  programs.atuin.enable = false;
   programs.exa.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
