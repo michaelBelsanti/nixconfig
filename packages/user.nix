@@ -32,10 +32,20 @@
     qbittorrent
     
     # Programming
+    lldb
     
     ## Rust
     rustup
     rust-analyzer
-    vscode-extensions.vadimcn.vscode-lldb
+    # vscode-extensions.vadimcn.vscode-lldb
   ];
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      vadimcn.vscode-lldb
+    ];
+  };
+
 }

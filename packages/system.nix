@@ -23,6 +23,7 @@
     btop
     ncdu
     edir
+    gdu
     
     # GUI Tools
     pavucontrol
