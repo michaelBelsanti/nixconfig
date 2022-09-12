@@ -10,8 +10,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../packages/hosts/laptop
       ../../modules/hyprland
-      ../../packages/laptop/system.nix
     ];
 
   networking.hostName = "nix-fw"; # Define your hostname.

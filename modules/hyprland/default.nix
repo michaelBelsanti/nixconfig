@@ -12,5 +12,15 @@
   environment.systemPackages = with pkgs; [
     swaybg
     waybar
+    brightnessctl
+    wl-clipboard
+    alacritty
+    rofi
+    cinnamon.nemo
+    selectdefaultapplication
+    lxsession
+    nsxiv
+    pamixer
+    wmctrl
   ];
 }

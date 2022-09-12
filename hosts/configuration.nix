@@ -6,7 +6,7 @@
 {
   imports = 
     [
-      ../packages/system.nix
+      ./nix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -113,6 +113,12 @@
   hardware.steam-hardware.enable = true;
   programs.steam.enable = true;
   
+  # Best fonts
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    montserrat
+  ];
+  
   # Environment variables
   environment.variables = {
     EDITOR = "hx";
@@ -160,25 +166,6 @@
   };
 
   networking.firewall.enable = false;
-
-  # Enable unfree repo
-  nixpkgs.config.allowUnfree = true;
-  # Enable flakes
-  nix = {
-    package = pkgs.nixFlakes;
-    registry.nixpkgs.flake = inputs.nixpkgs;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
-  # Garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "-d";
-  };
-  nix.settings.auto-optimise-store = true;
 
   # system.autoupgrade = {
   #   enable = true;

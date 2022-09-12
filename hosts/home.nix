@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 {
   imports = 
     [
-      ../packages/user.nix
       ../modules/alacritty
       ../modules/helix
       ../modules/rofi
@@ -12,8 +11,8 @@
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "quasi";
-  home.homeDirectory = "/home/quasi";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

@@ -17,19 +17,30 @@
       url = "github:vaxerski/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
-  outputs = inputs @ { self, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, hyprland, ... }:
-    let
-      user = "quasi";
-      protocol = "x";
-    in
-    {
-      nixosConfigurations = (
-        import ./hosts {
-          inherit (nixpkgs) lib;
-          inherit inputs nixpkgs my-nixpkgs nixos-hardware home-manager user hyprland protocol;
-        }
-      );
-    };
+  outputs = inputs @ { self, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, hyprland, darwin, ... }:
+  let
+    user = "quasi";
+  in
+  {
+    nixosConfigurations = (
+      import ./hosts {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs my-nixpkgs nixos-hardware home-manager user hyprland;
+      }
+    );
+    
+    darwinConfigurations = (
+      import ./hosts/osx {
+        inherit (nixpkgs) lib;
+        inherit inputs nixpkgs home-manager darwin user;
+      }
+    );
+  };
 }

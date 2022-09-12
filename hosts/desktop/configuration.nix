@@ -8,7 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../packages/desktop/system.nix
+      ../../packages/hosts/desktop
       ../../modules/vfio
       ../../modules/i3
     ];
