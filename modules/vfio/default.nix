@@ -3,7 +3,7 @@
 
 { lib, config, pkgs, ...}:
 {
-  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" "vfio_pci" ];
+  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "kvm-amd" "vfio-pci" ];
   boot.extraModprobeConfig = "options kvm_amd nested=1\n";
   users.users.quasi.extraGroups = [ "libvirtd" ];

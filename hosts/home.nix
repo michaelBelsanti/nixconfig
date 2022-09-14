@@ -75,7 +75,7 @@
       size = 12;
     };
     # iconTheme = "Adwaita";
-    theme.name = "Catppuccin-Purple-Dark";
+    theme.name = "Catppuccin-Pink-Dark";
     theme.package = pkgs.catppuccin-gtk;
   };
   xdg.configFile."gtk.css" = {

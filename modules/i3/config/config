@@ -7,9 +7,9 @@ exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 exec --no-startup-id picom --experimental-backends
 exec --no-startup-id nitrogen --restore
 # exec --no-startup-id dunst
-# exec --no-startup-id lxpolkit
+exec --no-startup-id lxpolkit
 
-exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
+# exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
 exec --no-startup-id xrdb merge ~/.config/X11/xresources
 
 
@@ -37,8 +37,8 @@ for_window [class="^.*"] border pixel 3
 
 hide_edge_borders both
 # smart_borders on
-# gaps inner 6
-# gaps outer 0
+gaps inner 6
+gaps outer 0
 # smart_gaps on
 # border_radius 4
 # smart_gaps inverse_outer

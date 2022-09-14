@@ -19,8 +19,6 @@
   # Can't use 'max' cause shitty nvidia drivers
   boot.loader.systemd-boot.consoleMode = "keep";
   
-  # NVIDIA
-  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.extraPackages = with pkgs; [
     vaapiVdpau
   ];
@@ -28,6 +26,10 @@
   # Display shiz
   services.xserver = {
     enable = true;
+    videoDrivers = ["nvidia"];
+    screenSection = ''
+          Option "metamodes" "DP-4: 1920x1080_240 +1920+0, HDMI-0: 1920x1080_60 +0+0"
+      '';
     displayManager = {
       gdm.enable = true;
       gdm.wayland = false;
