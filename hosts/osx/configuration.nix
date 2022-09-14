@@ -11,6 +11,11 @@
   environment.systemPackages = [
   ];
 
+  fonts.fonts = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    montserrat
+  ];
+
   users.users.${user}.home = "/Users/${user}";
 
   # Use a custom configuration.nix location.

@@ -8,6 +8,8 @@ in
       ../../modules/helix
       ../../modules/btop
       ../../modules/zsh
+      ../../modules/zsh/osx
+      ../../modules/alacritty
     ];
 
   # Home Manager needs a bit of information about you and the
