@@ -67,6 +67,12 @@
       "bar.font" = "Montserrat 11";
     };
   };
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors";
+    x11.enable = true;
+    gtk.enable = true;
+  };
   gtk = {
     enable = true;
     font = {
@@ -89,12 +95,6 @@
   qt = {
     enable = true;
     platformTheme = "gtk";
-  };
-  home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors";
-    gtk.enable = true;
-    x11.enable = true;
   };
 
   # Git

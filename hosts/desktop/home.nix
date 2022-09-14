@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 {
   imports = 
     [
@@ -8,11 +8,4 @@
       ../../modules/dunst
       ../../modules/polybar
     ];
-
-  home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors";
-    gtk.enable = true;
-    x11.enable = true;
-  };
 }

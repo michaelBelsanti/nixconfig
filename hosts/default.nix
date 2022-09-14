@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, user, hyprland, protocol, ... }:
+{ lib, inputs, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, user, hyprland, ... }:
 
 let
   system = "x86_64-linux";
@@ -12,7 +12,7 @@ in
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit lib inputs user protocol; };
+    specialArgs = { inherit lib inputs user; };
     modules = [ 
       ./configuration.nix
       ./desktop/configuration.nix
@@ -24,6 +24,7 @@ in
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user}= {
           imports = [ 
             ./home.nix
@@ -36,7 +37,7 @@ in
 
   laptop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user protocol hyprland; };
+    specialArgs = { inherit inputs user hyprland; };
     modules = [ 
       ./configuration.nix
       ./laptop/configuration.nix
@@ -48,6 +49,7 @@ in
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
           imports = [ 
             ./home.nix

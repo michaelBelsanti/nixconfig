@@ -110,8 +110,6 @@
   };
 
   programs.zsh.enable = true;
-  hardware.steam-hardware.enable = true;
-  programs.steam.enable = true;
   
   # Best fonts
   fonts.fonts = with pkgs; [

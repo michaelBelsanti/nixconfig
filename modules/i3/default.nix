@@ -27,5 +27,5 @@
     lxsession
     nsxiv
     pamixer
-  }
+  ];
 }
