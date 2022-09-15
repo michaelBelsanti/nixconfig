@@ -15,7 +15,6 @@
     defaultKeymap = "emacs";
     dotDir = ".config/zsh/";
     envExtra = "PATH=$HOME/.local/bin:$PATH";
-    initExtra = "nitch";
     shellAliases = {
       ls = "exa -al";
       lt = "exa -aT";

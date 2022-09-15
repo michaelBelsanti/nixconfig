@@ -24,5 +24,7 @@
     # Development
     rnix-lsp
     lldb
+    
+    jdk11
   ];
 }
