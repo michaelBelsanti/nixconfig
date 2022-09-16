@@ -20,6 +20,7 @@
     ncdu
     edir
     gdu
+    tldr
     
     # Development
     rnix-lsp

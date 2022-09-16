@@ -4,5 +4,6 @@
     rustc
     cargo
     rust-analyzer
+    taplo
   ];
 }
