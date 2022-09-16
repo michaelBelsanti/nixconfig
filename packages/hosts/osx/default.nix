@@ -21,7 +21,8 @@
     edir
     gdu
     tldr
-    
+    rg
+        
     # Development
     rnix-lsp
     lldb
