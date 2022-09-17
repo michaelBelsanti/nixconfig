@@ -11,6 +11,7 @@
 
   # Use the systemd-boot EFI boot loader.
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation
@@ -139,13 +140,6 @@
   appstream.enable = true;
   programs.dconf.enable = true;
 
-  # Uniform qt theming
-  qt5 = {
-    enable = true;
-    style = "gtk2";
-    platformTheme = "gtk2";
-  };
-  environment.systemPackages = [pkgs.libsForQt5.qtstyleplugins ];
 
   security = {
     sudo.enable = false;

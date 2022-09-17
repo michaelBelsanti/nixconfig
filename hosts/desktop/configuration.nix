@@ -35,9 +35,10 @@
       gdm.wayland = false;
       # sessionCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     };
-    desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = false;
   };
-  services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
+  services.gnome.chrome-gnome-shell.enable = false; # gnome extensions
     
   # VMs
 

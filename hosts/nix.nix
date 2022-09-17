@@ -6,16 +6,13 @@
   nix = {
     package = pkgs.nixFlakes;
     registry.nixpkgs.flake = inputs.nixpkgs;
+    settings.auto-optimise-store = true;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+    gc = {
+      automatic = true;
+      options = "-d";
+    };
   };
-
-  # Garbage collection
-  nix.gc = {
-    automatic = true;
-    # interval = "weekly";
-    options = "-d";
-  };
-  nix.settings.auto-optimise-store = true;
 }

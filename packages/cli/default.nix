@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # Text editing
-    helix
+    helix wl-clipboard xclip
     
     # CLI Tools
     wget
@@ -23,6 +23,7 @@
     edir
     gdu
     clifm
+    aria2
     
     # Development
     rnix-lsp

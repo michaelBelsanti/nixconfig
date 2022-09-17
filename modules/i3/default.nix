@@ -27,5 +27,9 @@
     lxsession
     nsxiv
     pamixer
+    xdotool
+    xorg.xkill
+    autotiling
+    autotiling-rs
   ];
 }

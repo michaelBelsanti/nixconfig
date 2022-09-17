@@ -4,10 +4,12 @@ set $bar
 
 #----------------------------- Startup applications --------------------------#
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
-exec --no-startup-id picom --experimental-backends
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id picom --experimental-backends
+exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png
 # exec --no-startup-id dunst
 exec --no-startup-id lxpolkit
+
+exec --no-startup-id autotiling
 
 # exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
 exec --no-startup-id xrdb merge ~/.config/X11/xresources
@@ -55,7 +57,8 @@ bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictu
 bindsym $mod+d          exec flatpak run de.shorsh.discord-screenaudio
 
 bindsym $mod+n exec ~/.scripts/togdnd.sh -t
-bindsym $mod+shift+q exec xkill
+bindsym $mod+shift+q exec xdotool getwindowfocus windowkill
+bindsym $mod+ctrl+shift+q exec xkill
 # start and kill compositor 
 bindsym $mod+c exec ~/.scripts/picom.sh
 bindsym $mod+shift+ctrl+e exec ~/.scripts/eerestart.sh
@@ -161,8 +164,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # horizontal and vertical splits
-bindsym $mod+x split h
-bindsym $mod+z split v
+# bindsym $mod+x split h
+# bindsym $mod+z split v
 # toggle fullscreen
 bindsym $mod+f fullscrEEn toggle
 # toggle floating
