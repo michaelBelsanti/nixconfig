@@ -27,21 +27,30 @@
   services.xserver = {
     enable = true;
     videoDrivers = ["nvidia"];
-    screenSection = ''
-          Option "metamodes" "DP-4: 1920x1080_240 +1920+0, HDMI-0: 1920x1080_60 +0+0"
-      '';
+    xrandrHeads = [
+      {
+        output = "HDMI-1";
+      }
+      {
+        output = "DP-4";
+        primary = true;
+        monitorConfig = ''
+            ModelName    "BenQ ZOWIE XL LCD"
+            HorizSync    255.0 - 255.0
+            VertRefresh  48.0 - 240.0
+            Option "Primary" "true"
+        '';
+      }
+    ];
     displayManager = {
       gdm.enable = true;
       gdm.wayland = false;
-      # sessionCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+      sessionCommands = "xrandr --output DP-4";
     };
-    desktopManager.gnome.enable = false;
   };
   xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
-  services.gnome.chrome-gnome-shell.enable = false; # gnome extensions
-    
-  # VMs
 
+    
   services.openssh = {
     enable = true;
     ports = [ 42069 ];

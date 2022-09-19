@@ -33,6 +33,7 @@
   # Main system theming
   xresources = {
     path = "${config.xdg.configHome}/X11/xresources";
+    # path = "${config.home.homeDirectory}/.Xresources";
     properties = {
       "*background" = "#1E1D2F";
       "*foreground" = "#D9E0EE";
@@ -67,12 +68,18 @@
       "bar.font" = "Montserrat 11";
     };
   };
+  
+  xsession = {
+    enable = true;
+    initExtra = "xrdb merge ~/.config/X11/xresources";
+  };
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
     x11.enable = true;
     gtk.enable = true;
   };
+
   gtk = {
     enable = true;
     font = {
@@ -94,7 +101,11 @@
   };
   qt = {
     enable = true;
-    # platformTheme = "gtk";
+    platformTheme = "gtk";
+    style = {
+      package = pkgs.libsForQt5.qtstyleplugin-kvantum;  
+      name = "kvantum";
+    }; 
   };
 
   # Git
@@ -136,7 +147,6 @@
     OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
     STACK_ROOT = "${config.xdg.dataHome}/stack";
     # WGETRC = "${config.xdg.configHome}/wgetrc";
-    WINEPREFIX = "${config.xdg.dataHome}/wineprefixes/default";
     _Z_DATA = "${config.xdg.dataHome}/z";
   };
 }

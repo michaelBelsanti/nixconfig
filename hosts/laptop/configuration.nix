@@ -39,7 +39,7 @@
     desktopManager.gnome.enable = true;
   };
   services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
-
+  
   ### Services and hardware ###
   # Framework stuff
   services.fprintd.enable = true; # Enable fingerprint scanner 

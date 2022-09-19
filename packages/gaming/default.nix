@@ -2,13 +2,10 @@
 {
   environment.systemPackages = with pkgs; [
     gamescope
-    vulkan-loader
     protontricks
     grapejuice
     gamemode
     lutris
-    bottles
-    pkgs.driversi686Linux.mesa
   ];
 
   programs.steam.enable = true;

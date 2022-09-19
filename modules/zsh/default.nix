@@ -21,19 +21,35 @@
       cat = "bat";
       fm = "clifm";
 
-      cleanup = "doas nix-collect-garbage";
+      cleanup = "doas nix-collect-garbage -d";
     };
     prezto = {
       enable = true;
       pmodules = [ "archive" "autosuggestions" "git" "ssh" "syntax-highlighting" "environment" "terminal" "editor" "history" "directory" "spectrum" "utility" "prompt" ];
       prompt.theme = "smiley";
     };
-    # zplug = {
-    #   enable = true;
-    #   # zplugHome = ~/.config/zsh;
-    #   plugins = [
-    #     { name = "Aloxaf/fzf-tab"; }
-    #   ];
-    # };
+    plugins = [
+      #                  Broken
+      # { 
+      #   name = "fzf-tab"; 
+      #   file = "fzf-tab.plugin.zsh";
+      #   src = pkgs.fetchFromGitHub { 
+      #     owner = "Aloxaf"; 
+      #     repo = "fzf-tab";
+      #     rev = "938eef72e93ddb0609205a663bf0783f4e1b5fae";
+      #     sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+      #   };
+      # }
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.5.0";
+          sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
+        };
+      }
+    ];
   };
 }

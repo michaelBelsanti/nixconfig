@@ -3,6 +3,15 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, user, ... }:
+let catppuccin-grub-theme = pkgs.fetchFromGitHub
+  {
+    owner = "catppuccin";
+    repo = "grub";
+    rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
+    sparseCheckout = "src";
+    sha256 = "sha256-MnIhLcI+1QEnkWzJ9Z5viANezKIv+hvw07+JYYtBzAE=";
+  };
+in
 {
   imports = 
     [
@@ -17,7 +26,13 @@
     # Cute boot animation
     plymouth.enable = true;
     loader = {
-      systemd-boot.enable = true;
+      # systemd-boot.enable = true;
+      grub = {
+        enable = true;
+        # theme = "${catppuccin-grub-theme}/catppuccin-mocha-grub-theme/theme.txt";
+        device = "nodev";
+        efiSupport = true;
+      };
       efi.canTouchEfiVariables = true;
       timeout = 3;
       # systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
@@ -46,13 +61,6 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput = {
-    enable = true;
-    mouse.accelProfile = "flat";
-    touchpad.accelProfile = "flat";
   };
 
   # Configure keymap in X11
@@ -99,7 +107,7 @@
       ];
     };
   };
-  
+    
   zramSwap.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -127,6 +135,17 @@
   ### Services and hardware ###
   # Framework stuff
   hardware.bluetooth.enable = true; # Enable bluetooth (duh)
+
+  services.xserver.libinput = {
+    enable = true;
+    mouse = {
+      accelProfile = "flat";
+      middleEmulation = false;
+    };
+    touchpad = {
+      accelProfile = "adaptive";
+    };
+  };
 
   # VMs
   virtualisation = {

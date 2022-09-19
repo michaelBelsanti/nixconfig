@@ -28,8 +28,5 @@
     # Development
     rnix-lsp
     lldb
-    
-    # Wine
-    wineWowPackages.staging
   ];
 }

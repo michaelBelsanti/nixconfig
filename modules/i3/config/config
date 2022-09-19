@@ -4,9 +4,10 @@ set $bar
 
 #----------------------------- Startup applications --------------------------#
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
-# exec --no-startup-id picom --experimental-backends
+exec --no-startup-id picom --experimental-backends
 exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png
 # exec --no-startup-id dunst
+# exec --no-startup-id lxsession
 exec --no-startup-id lxpolkit
 
 exec --no-startup-id autotiling
@@ -35,14 +36,14 @@ font pango:JetBrainsMono Nerd Font 10
 
 #----------------------------- Window appearance -----------------------------#
 # Removes titlebars
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4
 
 hide_edge_borders both
 # smart_borders on
 gaps inner 6
 gaps outer 0
 # smart_gaps on
-# border_radius 4
+# border_radius 6
 # smart_gaps inverse_outer
 
 #================================= Keybinds ==================================#
