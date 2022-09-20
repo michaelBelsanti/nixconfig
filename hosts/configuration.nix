@@ -41,7 +41,6 @@ in
   };
 
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  services.mullvad-vpn.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Set your time zone.
@@ -158,6 +157,12 @@ in
   services.packagekit.enable = true; # For guis such as GNOME Software
   appstream.enable = true;
   programs.dconf.enable = true;
+  
+  # Other services
+  services = {
+    mullvad-vpn.enable = true;
+    greenclip.enable = true;
+  };
 
 
   security = {
