@@ -18,12 +18,13 @@
     pamixer
     bat
     fzf
-    btop
+    btop bottom
     ncdu
     edir
     gdu
     clifm
     aria2
+    du-dust
     
     # Development
     rnix-lsp

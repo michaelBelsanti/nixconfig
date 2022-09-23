@@ -3,7 +3,7 @@
 {
   imports = 
     [
-      ../../modules/hyprland/config.nix
+      ../../modules/hyprland/config
       ../../modules/zsh/laptop
     ];
   home.file = { };

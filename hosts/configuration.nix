@@ -3,20 +3,22 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, user, ... }:
-let catppuccin-grub-theme = pkgs.fetchFromGitHub
-  {
-    owner = "catppuccin";
-    repo = "grub";
-    rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-    sparseCheckout = "src";
-    sha256 = "sha256-MnIhLcI+1QEnkWzJ9Z5viANezKIv+hvw07+JYYtBzAE=";
-  };
+let 
+  catppuccin-grub-theme = pkgs.fetchFromGitHub
+    {
+      owner = "catppuccin";
+      repo = "grub";
+      rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
+      # sparseCheckout = "src/catppuccin-macchiato-grub-theme"; # Not working as expected
+      sha256 = "sha256-MnIhLcI+1QEnkWzJ9Z5viANezKIv+hvw07+JYYtBzAE=";
+    };
 in
 {
   imports = 
     [
       ./nix.nix
     ];
+    
 
   # Use the systemd-boot EFI boot loader.
   boot = {
@@ -29,9 +31,11 @@ in
       # systemd-boot.enable = true;
       grub = {
         enable = true;
-        # theme = "${catppuccin-grub-theme}/catppuccin-mocha-grub-theme/theme.txt";
         device = "nodev";
         efiSupport = true;
+        # extraConfig = ''
+        #   set theme=/boot/grub/themes/catppuccin-mocha-grub-theme/theme.txt
+        # '';
       };
       efi.canTouchEfiVariables = true;
       timeout = 3;

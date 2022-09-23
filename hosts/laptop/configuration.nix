@@ -1,17 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, hyprland, ... }:
 
 {
-
   imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../packages/hosts/laptop
-      ../../modules/hyprland
+      ../../packages/hosts/laptop ../../modules/hyprland
     ];
 
   networking.hostName = "nix-fw"; # Define your hostname.
@@ -26,20 +20,32 @@
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       vaapiIntel
     ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [ 
+    extraPackages32 = with pkgs.pkgsi686Linux; [
       vaapiIntel
       intel-media-driver
     ];
   };
+
+  # services.xserver.displayManager.sddm = {
+  #   enable = true;
+  #   theme = "sugar-candy";
+  #   settings = {
+  #     General = {
+  #       DisplayServer = "wayland";
+  #     };
+  #   };
+  # };
+
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
     # displayManager.defaultSession = "hyprland";
     desktopManager.gnome.enable = true;
+    windowManager.i3.enable = true;
   };
-  services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
-  
+  # services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
+
   ### Services and hardware ###
   # Framework stuff
   services.fprintd.enable = true; # Enable fingerprint scanner 
