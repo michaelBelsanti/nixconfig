@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 {
   programs.hyprland.enable = true;
+  programs.hyprland.recommendedEnvironment = true;
   services.xserver.displayManager.defaultSession = "hyprland";
   nixpkgs.overlays = [
     (self: super: {
@@ -22,5 +23,7 @@
     nsxiv
     pamixer
     wmctrl
+    grim
+    slurp
   ];
 }
