@@ -41,7 +41,7 @@
     displayManager.gdm.enable = true;
     displayManager.gdm.wayland = true;
     # displayManager.defaultSession = "hyprland";
-    desktopManager.gnome.enable = true;
+    # desktopManager.gnome.enable = true;
     windowManager.i3.enable = true;
   };
   # services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
@@ -58,9 +58,8 @@
 
   xdg = {
     portal = {
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
-      ];
+      enable = true;
+      wlr.enable = true;
     };
   };
 
