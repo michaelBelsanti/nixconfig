@@ -17,7 +17,10 @@
   networking.nameservers = [ "192.168.1.152" ];
   
   # Can't use 'max' cause shitty nvidia drivers
-  boot.loader.systemd-boot.consoleMode = "keep";
+  boot = {
+    kernelParams = [ "nomodeset" ];
+    loader.systemd-boot.consoleMode = "keep";
+  };
   
   # Causes librewolf to crash occasionally
   hardware.opengl.extraPackages = with pkgs; [

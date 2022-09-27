@@ -22,7 +22,7 @@ in
   # Boot options
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "quiet" "splash" "nomodeset" "vt.global_cursor_default=0" ];
+    kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation
     plymouth.enable = true;
