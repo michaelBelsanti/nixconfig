@@ -2,11 +2,11 @@
 {
   imports = 
     [
+      ../home.nix
       ../../modules/zsh/desktop
       ../../modules/easyeffects
       ../../modules/i3/config
-      ../../modules/dunst
-      ../../modules/polybar
+      # ../../modules/dunst
     ];
     
     xsession.initExtra = ''

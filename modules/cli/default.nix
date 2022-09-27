@@ -4,7 +4,4 @@
     ./btop
     ./helix
   ];
-  xdg.configFile.test = {
-    text = "${hostname}";
-  };
 }
