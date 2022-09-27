@@ -6,6 +6,9 @@
     grapejuice
     gamemode
     lutris
+    heroic
+    goverlay
+    mangohud
   ];
 
   programs.steam.enable = true;

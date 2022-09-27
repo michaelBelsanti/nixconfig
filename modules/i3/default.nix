@@ -28,7 +28,7 @@
   environment.systemPackages = with pkgs; [
     alacritty
     polybar
-    picom
+    # picom
     betterlockscreen
     shotgun
     hacksaw

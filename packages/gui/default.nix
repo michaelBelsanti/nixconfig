@@ -30,8 +30,10 @@ in
     celluloid
     qbittorrent
     discord-canary
-    spotify-qt
-    spotifywm
+    spotify
+    
+    # Theming
+    libsForQt5.qtstyleplugin-kvantum
     
     # Wine
     bottles

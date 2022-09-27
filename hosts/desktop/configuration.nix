@@ -19,6 +19,7 @@
   # Can't use 'max' cause shitty nvidia drivers
   boot.loader.systemd-boot.consoleMode = "keep";
   
+  # Causes librewolf to crash occasionally
   hardware.opengl.extraPackages = with pkgs; [
     vaapiVdpau
   ];
@@ -27,28 +28,15 @@
   services.xserver = {
     enable = true;
     videoDrivers = ["nvidia"];
-    xrandrHeads = [
-      {
-        output = "HDMI-1";
-      }
-      {
-        output = "DP-4";
-        primary = true;
-        monitorConfig = ''
-            ModelName    "BenQ ZOWIE XL LCD"
-            HorizSync    255.0 - 255.0
-            VertRefresh  48.0 - 240.0
-            Option "Primary" "true"
-        '';
-      }
-    ];
     displayManager = {
       gdm.enable = true;
       gdm.wayland = false;
-      sessionCommands = "xrandr --output DP-4";
+      # setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     };
+    desktopManager.gnome.enable = true;
+    exportConfiguration = true;
   };
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
+  # xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
 
     
   services.openssh = {

@@ -71,7 +71,9 @@
   
   xsession = {
     enable = true;
-    initExtra = "xrdb merge ~/.config/X11/xresources";
+    initExtra = ''
+      xrdb merge ~/.config/X11/xresources
+    '';
   };
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
@@ -127,6 +129,8 @@
     EDIR_EDITOR = "hx";
     BROWSER = "librewolf";
     FZF_DEFAULT_COMMAND = "find .";
+    
+    MANGOHUD = "0";
     
     XDG_CONFIG_HOME = "\$HOME/.config";
     XDG_CACHE_HOME = "\$HOME/.cache";

@@ -23,7 +23,7 @@ in
   # Use the systemd-boot EFI boot loader.
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
+    kernelParams = [ "quiet" "splash" "nomodeset" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation
     plymouth.enable = true;
@@ -144,9 +144,15 @@ in
     mouse = {
       accelProfile = "flat";
       middleEmulation = false;
+      additionalOptions = ''
+          Option "MiddleEmulation" "off"
+      '';
     };
     touchpad = {
-      accelProfile = "adaptive";
+      accelProfile = "flat";
+      additionalOptions = ''
+          Option "MiddleEmulation" "off"
+      '';
     };
   };
 
