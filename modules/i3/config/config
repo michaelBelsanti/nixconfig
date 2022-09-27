@@ -69,8 +69,8 @@ bindsym $mod+v exec ~/.scripts/replay.sh
 
 # popup launcher binds
 bindsym $mod+space      exec --no-startup-id ~/.config/rofi/wrapper.sh -r
-bindsym $mod+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
-bindsym Mod1+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
+# bindsym $mod+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
+# bindsym Mod1+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
 bindsym $mod+o          exec --no-startup-id ~/.config/rofi/wrapper.sh -o
 
 #---------------------------- Workspace navigation ---------------------------#

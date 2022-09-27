@@ -1,5 +1,6 @@
 configuration{
-    modi: "run,drun,window";
+    // removed window temporarily
+    modi: "run,drun";
     lines: 5;
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
