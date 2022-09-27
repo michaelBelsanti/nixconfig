@@ -11,7 +11,7 @@
   nixpkgs.overlays = [
     (self: super: # Polybar built with i3Gaps and pulse audio support for functionality of some modules
       { polybar = super.polybar.override { i3GapsSupport = true; pulseSupport = true; }; })
-    (self: super: # ibhagwan fork of polybar for nice round borders
+    (self: super: # Jonaburg fork of picom for nice round borders
       {
         picom = super.picom.override {
           src = fetchFromGitHub {
