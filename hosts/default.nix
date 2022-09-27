@@ -27,7 +27,6 @@ in
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user}= {
           imports = [ 
-            ./home.nix
             ./desktop/home.nix
           ];
         };
@@ -52,7 +51,6 @@ in
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
           imports = [ 
-            ./home.nix
             ./laptop/home.nix
           ];
         };
