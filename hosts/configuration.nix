@@ -19,8 +19,7 @@ in
       ./nix.nix
     ];
     
-
-  # Use the systemd-boot EFI boot loader.
+  # Boot options
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "quiet" "splash" "nomodeset" "vt.global_cursor_default=0" ];
@@ -33,85 +32,66 @@ in
         enable = true;
         device = "nodev";
         efiSupport = true;
+        # Borked
         # extraConfig = ''
         #   set theme=/boot/grub/themes/catppuccin-mocha-grub-theme/theme.txt
         # '';
       };
       efi.canTouchEfiVariables = true;
       timeout = 3;
-      # systemd-boot.configurationLimit = 3; # 3 generations maximum on boot screen
     };
-    supportedFilesystems = [ "ntfs" ];
+    supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
   };
 
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
+    networkmanager.enable = true;
+    firewall.enable = false;
+  };
 
-  # Set your time zone.
+  # Locale
   time.timeZone = "America/New_York";
-
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "us";
-    # useXkbConfig = true; # use xkbOptions in tty.
+    # keyMap = "us";
+    useXkbConfig = true;
   };
   
-  # Graphics
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  # Configure keymap in X11
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "caps:escape"; # map caps to escape.
-
-  # Enable CUPS to print documents.
-  services = {
-    printing.enable = true;
-    avahi = {
+  # Xserver input
+  services.xserver = {
+    layout = "us";
+    xkbOptions = "caps:escape";
+    libinput = {
       enable = true;
-      nssmdns = true;
-      publish = {
-        enable = true;
-        addresses = true;
-        userServices = true;
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        additionalOptions = ''
+            Option "MiddleEmulation" "off"
+        '';
+      };
+      touchpad = {
+        accelProfile = "adaptive";
       };
     };
   };
-
   # Enable sound.
   sound = {
     enable = true;
     mediaKeys.enable = true;
   };
 
-  # Use pipewire
-  hardware.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
-
-  # XDG Desktop Portal
-  xdg = {
-    portal = {
+  # Hardware settings
+  hardware = {
+    # Graphics
+    opengl = {
       enable = true;
-      # Fails to build when gnome
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-gtk
-      ];
+      driSupport = true;
+      driSupport32Bit = true;
     };
+    pulseaudio.enable = false; # Disabled cause Pipewire exists
+    bluetooth.enable = true; # Enable bluetooth (duh)
   };
-    
-  zramSwap.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user}= {
@@ -121,9 +101,7 @@ in
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
-  
-  # Best fonts
+  # Best fonts (Especially JetBrains Mono)
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
     montserrat
@@ -136,23 +114,68 @@ in
   };
 
   ### Services and hardware ###
-  # Framework stuff
-  hardware.bluetooth.enable = true; # Enable bluetooth (duh)
 
-  services.xserver.libinput = {
-    enable = true;
-    mouse = {
-      accelProfile = "flat";
-      middleEmulation = false;
-      additionalOptions = ''
-          Option "MiddleEmulation" "off"
-      '';
+  # Others (things that for some reason aren't in services, hardware, or programs)
+  appstream.enable = true;
+  xdg.portal.enable = true;
+  zramSwap.enable = true;
+
+  # Services
+  services = {
+
+    # Pipewire
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
     };
-    touchpad = {
-      accelProfile = "flat";
-      additionalOptions = ''
-          Option "MiddleEmulation" "off"
-      '';
+    
+    # Flatpaks
+    flatpak.enable = true;
+    packagekit.enable = true; # For guis such as GNOME Software
+
+    # Printing
+    printing.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        userServices = true;
+      };
+    };
+
+    # VPN
+    mullvad-vpn.enable = true;
+    
+    # Clipboard daemon (for rofi clipboard)
+    greenclip.enable = true;
+  };
+
+ 
+  programs = {
+    zsh.enable = true; # I <3 Zsh
+    
+    # KDE Connect (mobile integration)
+    kdeconnect.enable = true;
+    
+    # For flatpak
+    dconf.enable = true;
+
+    # Automatically add ssh-keys
+    ssh.startAgent = true;
+
+    # I don't know what this is, but I've had it enabled since my first install
+    # (now I'm scared to disable it)
+    mtr.enable = true;
+
+    # Keys and stuff
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = false;
     };
   };
 
@@ -161,19 +184,6 @@ in
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
-  
-  # Flatpaks
-  services.flatpak.enable = true;
-  services.packagekit.enable = true; # For guis such as GNOME Software
-  appstream.enable = true;
-  programs.dconf.enable = true;
-  
-  # Other services
-  services = {
-    mullvad-vpn.enable = true;
-    greenclip.enable = true;
-  };
-
 
   security = {
     sudo.enable = false;
@@ -183,20 +193,9 @@ in
       keepEnv = true;
       persist = true;
     }];
+    # For allowing SSH keys
+    pam.enableSSHAgentAuth = true;
   };
-
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = false;
-  };
-
-  networking.firewall.enable = false;
-
-  # system.autoupgrade = {
-  #   enable = true;
-  #   channel = "https://nixos.org/channels/nixos-unstable";
-  # };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
@@ -210,5 +209,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

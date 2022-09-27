@@ -35,6 +35,14 @@
     };
     desktopManager.gnome.enable = true;
     exportConfiguration = true;
+    # Needed because it thinks my mouse is a touchpad :|
+    libinput.touchpad = {
+      accelProfile = "flat";
+      middleEmulation = false;
+      additionalOptions = ''
+          Option "MiddleEmulation" "off"
+      '';
+    };
   };
   # xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
 

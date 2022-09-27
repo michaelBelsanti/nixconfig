@@ -83,7 +83,7 @@
         "format-wifi": "直&#8239;({signalStrength}%)",
         "format-ethernet": "&#8239;{ifname}: {ipaddr}/{cidr}",
         "format-linked": "&#8239;{ifname} (No IP)",
-        "format-disconnected": "睊&#8239;Disconnected",
+        "format-disconnected": "睊 Disconnected",
         "format-alt": "{essid}: {ipaddr}/{cidr}",
         "tooltip": false,
     },

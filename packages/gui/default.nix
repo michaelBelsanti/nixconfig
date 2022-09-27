@@ -41,7 +41,7 @@ in
     wineWowPackages.staging
 
     gnome.file-roller
-    
+
     # Custom
     sddm-theme.sugar-candy libsForQt5.qt5.qtquickcontrols2  libsForQt5.qt5.qtgraphicaleffects  libsForQt5.qt5.qtsvg 
   ];

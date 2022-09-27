@@ -43,6 +43,9 @@
     # displayManager.defaultSession = "hyprland";
     # desktopManager.gnome.enable = true;
     windowManager.i3.enable = true;
+    libinput.touchpad = {
+      accelProfile = "adaptive";
+    };
   };
   # services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
 
