@@ -19,7 +19,7 @@
       ls = "exa -al";
       lt = "exa -aT";
       cat = "bat";
-      fm = "clifm";
+      fm = "clifm .";
 
       cleanup = "doas nix-collect-garbage -d";
     };

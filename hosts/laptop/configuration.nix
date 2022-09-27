@@ -63,7 +63,7 @@
     portal = {
       enable = true;
       wlr.enable = true;
-      gtkUsePortal = true;
+      # gtkUsePortal = true;
     };
   };
 

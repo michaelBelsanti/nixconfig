@@ -1,11 +1,15 @@
 { config, pkgs, ...}:
 {
+  imports = [
+    ../../rofi    
+  ];
+
   xdg.configFile = {
-    "hypr/hyprland.conf" = {
+    hyprland = {
       source = ./hyprland.conf;
-      recursive = true;
+      target = "hypr/hyprland.conf";
     };
-    "waybar" = {
+    waybar = {
       source = ./waybar;
       recursive = true;
     };

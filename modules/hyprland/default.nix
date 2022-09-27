@@ -16,7 +16,7 @@
     brightnessctl
     wl-clipboard
     alacritty
-    rofi
+    rofi-wayland
     cinnamon.nemo
     selectdefaultapplication
     lxsession
