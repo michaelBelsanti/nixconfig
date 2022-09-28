@@ -1,6 +1,6 @@
 { config, pkgs, user, ... }:
 {
-  imports = 
+  imports =
     [
       ../home.nix
       ../../modules/hyprland/config

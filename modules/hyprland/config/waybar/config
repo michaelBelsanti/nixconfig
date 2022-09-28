@@ -55,11 +55,11 @@
         "interval": 1
     },
     "cpu": {
-        "format": "&#8239; {usage}%",
+        "format": " {usage}%",
         "on-click": "alacritty -e btop"
     },
     "memory": {
-        "format": " {}%",
+        "format": "&#8239;{}%",
         // "on-click": "alacritty -e btop"
     },
     "backlight": {

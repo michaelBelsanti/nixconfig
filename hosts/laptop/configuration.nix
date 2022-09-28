@@ -5,7 +5,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../packages/hosts/laptop 
+      ../../packages/hosts/laptop
       ../../modules/hyprland
     ];
 
@@ -15,56 +15,49 @@
   boot.blacklistedKernelModules = [ "hid_sensor_hub" ];
   boot.loader.systemd-boot.consoleMode = "max";
 
-  # Display shiz
+
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
+    libinput.touchpad = {
+      accelProfile = "adaptive";
+    };
+  };
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      # gtkUsePortal = false;
+    };
+  };
+
+
+  # Graphics drivers
   hardware.opengl = {
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
       vaapiIntel
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
-      vaapiIntel
       intel-media-driver
+      vaapiIntel
     ];
   };
 
-  # services.xserver.displayManager.sddm = {
-  #   enable = true;
-  #   theme = "sugar-candy";
-  #   settings = {
-  #     General = {
-  #       DisplayServer = "wayland";
-  #     };
-  #   };
-  # };
-
-  services.xserver = {
-    enable = true;
-    displayManager.gdm.enable = true;
-    displayManager.gdm.wayland = true;
-    # displayManager.defaultSession = "hyprland";
-    # desktopManager.gnome.enable = true;
-    windowManager.i3.enable = true;
-    libinput.touchpad = {
-      accelProfile = "adaptive";
-    };
-  };
-  # services.gnome.chrome-gnome-shell.enable = true; # gnome extensions
-
   ### Services and hardware ###
   # Framework stuff
-  services.fprintd.enable = true; # Enable fingerprint scanner 
-  services.fwupd = {
-    enable = true; # Enable firmware updates with `fwupdmgr update`
-    enableTestRemote = true;
-  };
-  services.tlp.enable = true; # Battery optimization
-  services.power-profiles-daemon.enable = false;
-
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      # gtkUsePortal = true;
+  services = {
+    tlp.enable = true; # Battery optimization
+    power-profiles-daemon.enable = false;
+    fprintd.enable = true; # Enable fingerprint scanner 
+    fwupd = {
+      enable = true; # Enable firmware updates with `fwupdmgr update`
+      enableTestRemote = true;
     };
   };
 

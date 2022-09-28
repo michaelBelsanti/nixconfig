@@ -57,6 +57,9 @@ in
     wineWowPackages.staging
 
     gnome.file-roller
+    
+    # VM
+    virglrenderer
 
     # Custom
     # catppuccin-mocha-lavender-kvantum 

@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
@@ -14,18 +15,21 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXROOT";
+    {
+      device = "/dev/disk/by-label/NIXROOT";
       fsType = "btrfs";
     };
 
   fileSystems."/nix/store" =
-    { device = "/nix/store";
+    {
+      device = "/nix/store";
       fsType = "none";
       options = [ "bind" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXBOOT";
+    {
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
 

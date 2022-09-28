@@ -45,4 +45,11 @@
     autotiling
     autotiling-rs
   ];
+
+  # Good defaults for standalone apps
+  # xdg.mime.defaultApplications = {
+    # application/pdf = "librewolf.desktop";
+    # x-scheme-handler/http = "librewolf.desktop"
+    # x-scheme-handler/https = "librewolf.desktop"
+  # }
 }

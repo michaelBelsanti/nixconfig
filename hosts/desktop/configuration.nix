@@ -12,28 +12,25 @@
       ../../modules/vfio
       ../../modules/i3
     ];
-  
-  networking.hostName = "nix";
-  networking.nameservers = [ "192.168.1.152" ];
-  
+
+  networking = {
+    hostName = "nix";
+    nameservers = [ "192.168.1.152" ];
+  };
+
   # Can't use 'max' cause shitty nvidia drivers
   boot = {
     kernelParams = [ "nomodeset" ];
     loader.systemd-boot.consoleMode = "keep";
   };
-  
-  # Causes librewolf to crash occasionally
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiVdpau
-  ];
 
   # Display shiz
   services.xserver = {
     enable = true;
-    videoDrivers = ["nvidia"];
-    displayManager = {
-      gdm.enable = true;
-      gdm.wayland = false;
+    videoDrivers = [ "nvidia" ];
+    displayManager.gdm = {
+      enable = true;
+      wayland = false;
       # setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
     };
     desktopManager.gnome.enable = true;
@@ -43,13 +40,16 @@
       accelProfile = "flat";
       middleEmulation = false;
       additionalOptions = ''
-          Option "MiddleEmulation" "off"
+        Option "MiddleEmulation" "off"
       '';
     };
   };
-  # xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]; # Comment out when enabling gnome
 
-    
+  # Causes librewolf to crash occasionally
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiVdpau
+  ];
+
   services.openssh = {
     enable = true;
     ports = [ 42069 ];
@@ -69,5 +69,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

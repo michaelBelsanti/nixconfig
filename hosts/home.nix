@@ -1,85 +1,30 @@
 { config, pkgs, user, ... }:
 {
-  imports = 
+  imports =
     [
       ../modules/alacritty
       ../modules/scripts
       ../modules/cli
     ];
 
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "${user}";
-  home.homeDirectory = "/home/${user}";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "22.05";
+  # Home Manager Setup
+  home = {
+    username = "${user}";
+    homeDirectory = "/home/${user}";
+    stateVersion = "22.05";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
-  home.file = { };
-  
   # Main system theming
-  xresources = {
-    path = "${config.xdg.configHome}/X11/xresources";
-    # path = "${config.home.homeDirectory}/.Xresources";
-    properties = {
-      "*background" = "#1E1D2F";
-      "*foreground" = "#D9E0EE";
-      "*lightbg" = "#2F2F4C";
-      # Grey
-      "*color0" =  "#6E6C7E";
-      "*color8" =  "#988BA2";
-      # Red
-      "*color1" =  "#F28FAD";
-      "*color9" =  "#F28FAD";
-      # Green
-      "*color2" =  "#ABE9B3";
-      "*color10" = "#ABE9B3";
-      # Yellow
-      "*color3" =  "#FAE3B0";
-      "*color11" = "#FAE3B0";
-      # Blue
-      "*color4" =  "#96CDFB";
-      "*color12" = "#96CDFB";
-      # Maguve
-      "*color5" =  "#DDB6F2";
-      "*color13" = "#DDB6F2";
-      # Pink
-      "*color6" =  "#F5C2E7";
-      "*color14" = "#F5C2E7";
-      # Whites
-      "*color7" =  "#C3BAC6";
-      "*color15" = "#D9E0EE";
-      # Other (really just for nsxiv)
-      "window.background" = "#1E1D2F";
-      "window.foreground" = "#DADAE8";
-      "bar.font" = "Montserrat 11";
-    };
-  };
-  
   xsession = {
     enable = true;
     initExtra = ''
       xrdb merge ~/.config/X11/xresources
     '';
   };
-  home.pointerCursor = {
-    package = pkgs.phinger-cursors;
-    name = "phinger-cursors";
-    x11.enable = true;
-    gtk.enable = true;
-  };
-
   gtk = {
     enable = true;
     font = {
@@ -90,22 +35,70 @@
     # iconTheme = "Adwaita";
     theme.name = "Catppuccin-Pink-Dark";
     theme.package = pkgs.catppuccin-gtk;
-  };
-  xdg.configFile."gtk.css" = {
-    target = "gtk-3.0/gtk.css";
-    text = ''
-      decoration, window, window.background, window.titlebar, * {
-        border-radius: 0px;
-      }
-    '';
+    gtk3 = {
+      bookmarks = [
+        "file:///home/quasi/Downloads Downloads"
+        "file:///home/quasi/Documents Documents"
+        "file:///home/quasi/Pictures Pictures"
+        "file:///home/quasi/Videos Videos"
+        "file:///home/quasi/Games Games"
+      ];
+      extraCss = ''
+        decoration, window, window.background, window.titlebar, * {
+          border-radius: 0px;
+        }
+      '';
+    };
   };
   qt = {
     enable = true;
     platformTheme = "gtk";
     style = {
-      package = pkgs.libsForQt5.qtstyleplugin-kvantum;  
+      package = pkgs.libsForQt5.qtstyleplugin-kvantum;
       name = "kvantum";
-    }; 
+    };
+  };
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors";
+    x11.enable = true;
+    gtk.enable = true;
+  };
+  xresources = {
+    path = "${config.xdg.configHome}/X11/xresources";
+    properties = {
+      "*background" = "#1E1D2F";
+      "*foreground" = "#D9E0EE";
+      "*lightbg" = "#2F2F4C";
+      # Grey
+      "*color0" = "#6E6C7E";
+      "*color8" = "#988BA2";
+      # Red
+      "*color1" = "#F28FAD";
+      "*color9" = "#F28FAD";
+      # Green
+      "*color2" = "#ABE9B3";
+      "*color10" = "#ABE9B3";
+      # Yellow
+      "*color3" = "#FAE3B0";
+      "*color11" = "#FAE3B0";
+      # Blue
+      "*color4" = "#96CDFB";
+      "*color12" = "#96CDFB";
+      # Maguve
+      "*color5" = "#DDB6F2";
+      "*color13" = "#DDB6F2";
+      # Pink
+      "*color6" = "#F5C2E7";
+      "*color14" = "#F5C2E7";
+      # Whites
+      "*color7" = "#C3BAC6";
+      "*color15" = "#D9E0EE";
+      # Other (really just for nsxiv)
+      "window.background" = "#1E1D2F";
+      "window.foreground" = "#DADAE8";
+      "bar.font" = "Montserrat 11";
+    };
   };
 
   # Git
@@ -122,23 +115,23 @@
       };
     };
   };
-  
+
   home.sessionVariables = {
     EDIR_EDITOR = "hx";
     BROWSER = "librewolf";
     FZF_DEFAULT_COMMAND = "find .";
-    
+
     MANGOHUD = "0";
-    
+
     XDG_CONFIG_HOME = "\$HOME/.config";
     XDG_CACHE_HOME = "\$HOME/.cache";
     XDG_DATA_HOME = "\$HOME/.local/share";
     XDG_STATE_HOME = "\$HOME/.local/state";
-    
+
     __GL_SHADER_DISK_CACHE = 1;
     __GL_SHADER_DISK_CACHE_PATH = "\$HOME/Games/cache";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = 1;
-    
+
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
     GOPATH = "${config.xdg.dataHome}/go";

@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, inputs, user, ... }:
-let 
+let
   catppuccin-grub-theme = pkgs.fetchFromGitHub
     {
       owner = "catppuccin";
@@ -14,11 +14,11 @@ let
     };
 in
 {
-  imports = 
+  imports =
     [
       ./nix.nix
     ];
-    
+
   # Boot options
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -56,7 +56,7 @@ in
     # keyMap = "us";
     useXkbConfig = true;
   };
-  
+
   # Xserver input
   services.xserver = {
     layout = "us";
@@ -67,7 +67,7 @@ in
         accelProfile = "flat";
         middleEmulation = false;
         additionalOptions = ''
-            Option "MiddleEmulation" "off"
+          Option "MiddleEmulation" "off"
         '';
       };
       touchpad = {
@@ -94,7 +94,7 @@ in
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user}= {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
     initialPassword = "lol";
@@ -106,7 +106,7 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
     montserrat
   ];
-  
+
   # Environment variables
   environment.variables = {
     EDITOR = "hx";
@@ -131,7 +131,7 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
-    
+
     # Flatpaks
     flatpak.enable = true;
     packagekit.enable = true; # For guis such as GNOME Software
@@ -150,18 +150,20 @@ in
 
     # VPN
     mullvad-vpn.enable = true;
-    
+
     # Clipboard daemon (for rofi clipboard)
     greenclip.enable = true;
+
+    qemuGuest.enable = true;
   };
 
- 
+
   programs = {
     zsh.enable = true; # I <3 Zsh
-    
+
     # KDE Connect (mobile integration)
     kdeconnect.enable = true;
-    
+
     # For flatpak
     dconf.enable = true;
 
@@ -184,6 +186,7 @@ in
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
+  # virtualisation.qemu.guestAgent.enable = true;
 
   security = {
     sudo.enable = false;
