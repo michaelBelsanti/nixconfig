@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
   # Enable flakes
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings.auto-optimise-store = true;
     extraOptions = ''

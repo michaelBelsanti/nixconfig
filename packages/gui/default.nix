@@ -30,6 +30,8 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    nitch
+
     helix-desktop
     
     librewolf

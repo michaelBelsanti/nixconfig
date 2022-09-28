@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    nitch
     # Text editing
     helix wl-clipboard xclip
     
