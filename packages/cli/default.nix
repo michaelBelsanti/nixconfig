@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nitch
+    # nitch
     # Text editing
-    helix wl-clipboard xclip
+    helix
     
     # CLI Tools
     wget
@@ -23,12 +23,11 @@
     ncdu
     edir
     gdu
-    clifm
+    # clifm
     aria2
     du-dust
     
-    # Development
+    # Nix
     rnix-lsp
-    lldb
   ];
 }

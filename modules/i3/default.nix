@@ -42,6 +42,8 @@
     pamixer
     xdotool
     xorg.xkill
+    xclip
+
     autotiling
     autotiling-rs
   ];

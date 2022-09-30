@@ -4,4 +4,8 @@
     ./rust
     ./java
   ];
+  
+  environment.systemPackages = with pkgs; [
+    lldb
+  ];
 }

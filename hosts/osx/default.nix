@@ -1,7 +1,7 @@
 { lib, inputs, nixpkgs, home-manager, darwin, user, ...}:
 let
-  system = "aarch64-darwin";
-  user = "michaelbelsanti";
+  system = "x86_64-darwin";
+  user = "tech4";
 in
 {
   osx = darwin.lib.darwinSystem {

@@ -1,13 +1,8 @@
 { config, pkgs, user, ... }:
-let
-  user = "michaelbelsanti";
-in
 {
   imports = 
     [
-      ../../modules/helix
-      ../../modules/btop
-      ../../modules/zsh
+      ../../modules/cli
       ../../modules/zsh/osx
       ../../modules/alacritty
     ];
