@@ -5,6 +5,7 @@
     ../../packages/hosts/osx
     ../nix.nix
     # ../../modules/yabai
+    ../../modules/noyabai
   ];
   
   # List packages installed in system profile. To search by name, run:
@@ -33,6 +34,14 @@
       done
     ''
   );
+  
+  system.defaults = {
+    finder = {
+      AppleShowAllExtensions = true;
+      QuitMenuItem = true;
+      FXEnableExtensionChangeWarning = true;
+    };
+  };
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
@@ -52,25 +61,4 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
-  system.defaults = {
-    dock = {
-      autohide = false;
-      showhidden = true;
-      mru-spaces = true;
-    };
-    finder = {
-      AppleShowAllExtensions = true;
-      QuitMenuItem = true;
-      FXEnableExtensionChangeWarning = true;
-    };
-    NSGlobalDomain = {
-      AppleKeyboardUIMode = 3;
-      ApplePressAndHoldEnabled = true;
-      AppleFontSmoothing = 2;
-      _HIHideMenuBar = false;
-      KeyRepeat = 1;
-      "com.apple.mouse.tapBehavior" = 1;
-      "com.apple.swipescrolldirection" = false;
-    };
-  };
 }

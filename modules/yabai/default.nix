@@ -122,13 +122,14 @@
       showhidden = true;
       mru-spaces = false;
     };
-    finder = {
-      AppleShowAllExtensions = true;
-      QuitMenuItem = true;
-      FXEnableExtensionChangeWarning = true;
-    };
     NSGlobalDomain = {
       _HIHideMenuBar = true;
+      AppleKeyboardUIMode = 3;
+      ApplePressAndHoldEnabled = true;
+      AppleFontSmoothing = 2;
+      KeyRepeat = 1;
+      "com.apple.mouse.tapBehavior" = 1;
+      "com.apple.swipescrolldirection" = false;
     };
   };
 }
