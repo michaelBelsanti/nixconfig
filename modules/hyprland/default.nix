@@ -18,7 +18,7 @@
     alacritty
     rofi-wayland
     cinnamon.nemo
-    xfce.thunar xfce.thunar-volman xfce.thunar-archive-plugin
+    xfce.thunar xfce.thunar-volman xfce.thunar-archive-plugin gvfs
     selectdefaultapplication
     lxsession
     nsxiv
@@ -26,6 +26,7 @@
     wmctrl
     grim
     slurp
+    swaylock
   ];
 
   # Good defaults for standalone apps

@@ -18,24 +18,21 @@
 
   services.xserver = {
     enable = true;
-    windowManager.i3.enable = true;
+    # videoDrivers = [ "intel" ];
+    # desktopManager.gnome.enable = true;
+    desktopManager.plasma5.enable = true;
+    displayManager.xserverArgs = [ "-logfile '/var/log/X.log'" ];
     displayManager.gdm = {
       enable = true;
       wayland = true;
     };
-    libinput.touchpad = {
-      accelProfile = "adaptive";
-    };
+    # displayManager.lightdm = {
+    #   enable = true;
+    # };
+    # libinput.touchpad = {
+      # accelProfile = "adaptive";
+    # };
   };
-
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      # gtkUsePortal = false;
-    };
-  };
-
 
   # Graphics drivers
   hardware.opengl = {
@@ -50,6 +47,15 @@
   };
 
   ### Services and hardware ###
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      # gtkUsePortal = false;
+    };
+  };
+
   # Framework stuff
   services = {
     tlp.enable = true; # Battery optimization
@@ -73,5 +79,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

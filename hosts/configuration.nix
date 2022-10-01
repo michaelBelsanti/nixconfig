@@ -9,7 +9,7 @@ let
       owner = "catppuccin";
       repo = "grub";
       rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-      # sparseCheckout = "src/catppuccin-macchiato-grub-theme"; # Not working as expected
+      sparseCheckout = "src/catppuccin-macchiato-grub-theme";
       sha256 = "sha256-MnIhLcI+1QEnkWzJ9Z5viANezKIv+hvw07+JYYtBzAE=";
     };
 in
@@ -54,27 +54,29 @@ in
   console = {
     font = "Lat2-Terminus16";
     # keyMap = "us";
-    useXkbConfig = true;
+    # useXkbConfig = true;
   };
 
   # Xserver input
   services.xserver = {
     layout = "us";
-    xkbOptions = "caps:escape";
+    # xkbOptions = "caps:escape";
     libinput = {
-      enable = true;
-      mouse = {
-        accelProfile = "flat";
-        middleEmulation = false;
-        additionalOptions = ''
-          Option "MiddleEmulation" "off"
-        '';
-      };
-      touchpad = {
-        accelProfile = "adaptive";
-      };
+      enable = false;
+      # mouse = {
+      #   accelProfile = "flat";
+      #   middleEmulation = false;
+      #   # Set becuase `middleEmulation` is not functioning as expected
+      #   additionalOptions = ''
+      #     Option "MiddleEmulation" "off"
+      #   '';
+      # };
+      # touchpad = {
+      #   accelProfile = "adaptive";
+      # };
     };
   };
+
   # Enable sound.
   sound = {
     enable = true;
@@ -155,6 +157,9 @@ in
     greenclip.enable = true;
 
     qemuGuest.enable = true;
+
+    # Idk but thunar wants it
+    gvfs.enable = true;
   };
 
 
@@ -196,6 +201,7 @@ in
       keepEnv = true;
       persist = true;
     }];
+    polkit.enable = true;
     # For allowing SSH keys
     pam.enableSSHAgentAuth = true;
   };
