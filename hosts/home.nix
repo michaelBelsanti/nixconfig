@@ -1,4 +1,4 @@
-{ config, pkgs, user, ... }:
+{ lib, config, pkgs, user, ... }:
 {
   imports =
     [
@@ -52,8 +52,10 @@
   };
   qt = {
     enable = true;
-    # platformTheme = "qt5ct";
+    # platformTheme = lib.mkForce "qt5ct";
     style = {
+      package = pkgs.lightly-qt;
+      name = "Lightly";
       # package = pkgs.libsForQt5.qtstyleplugin-kvantum;
       # name = "kvantum";
     };
