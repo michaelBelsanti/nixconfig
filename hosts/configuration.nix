@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, user, ... }:
 let
   catppuccin-grub-theme = pkgs.fetchFromGitHub
@@ -9,8 +5,8 @@ let
       owner = "catppuccin";
       repo = "grub";
       rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-      sparseCheckout = "src/catppuccin-macchiato-grub-theme";
-      sha256 = "sha256-MnIhLcI+1QEnkWzJ9Z5viANezKIv+hvw07+JYYtBzAE=";
+      sparseCheckout = "src/catppuccin-mocha-grub-theme";
+      sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
     };
 in
 {
@@ -18,6 +14,10 @@ in
     [
       ./nix.nix
     ];
+
+  environment.systemPackages = [
+    catppuccin-grub-theme
+  ];
 
   # Boot options
   boot = {
@@ -32,10 +32,12 @@ in
         enable = true;
         device = "nodev";
         efiSupport = true;
-        # Borked
-        # extraConfig = ''
-        #   set theme=/boot/grub/themes/catppuccin-mocha-grub-theme/theme.txt
-        # '';
+        # Theming
+        theme = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme";
+        font = "${pkgs.montserrat}/share/fonts/otf/Montserrat-Regular.otf";
+        fontSize = 24;
+        splashImage = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme/background.png";
+        backgroundColor = "#1E1E2E";
       };
       efi.canTouchEfiVariables = true;
       timeout = 3;
@@ -105,7 +107,7 @@ in
 
   # Best fonts (Especially JetBrains Mono)
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     montserrat
   ];
 

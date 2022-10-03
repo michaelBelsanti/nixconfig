@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # nitch
+    nitch
     # Text editing
     helix
     
@@ -23,7 +23,7 @@
     ncdu
     edir
     gdu
-    # clifm
+    clifm
     aria2
     du-dust
     bottom

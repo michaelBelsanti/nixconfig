@@ -21,7 +21,11 @@
   # Can't use 'max' cause shitty nvidia drivers
   boot = {
     kernelParams = [ "nomodeset" ];
-    loader.systemd-boot.consoleMode = "keep";
+    # Setting resolution manually because nvidia
+    loader.grub = {
+      gfxmodeEfi = "1920x1080";
+      gfxpayloadEfi = "keep";
+    };
   };
 
   # Display shiz
