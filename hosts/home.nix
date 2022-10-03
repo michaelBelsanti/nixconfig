@@ -52,10 +52,10 @@
   };
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    # platformTheme = "qt5ct";
     style = {
-      package = pkgs.libsForQt5.qtstyleplugin-kvantum;
-      name = "kvantum";
+      # package = pkgs.libsForQt5.qtstyleplugin-kvantum;
+      # name = "kvantum";
     };
   };
   home.pointerCursor = {

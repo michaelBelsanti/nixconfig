@@ -35,7 +35,7 @@ in
         # Theming
         theme = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme";
         font = "${pkgs.montserrat}/share/fonts/otf/Montserrat-Regular.otf";
-        fontSize = 24;
+        fontSize = 48;
         splashImage = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme/background.png";
         backgroundColor = "#1E1E2E";
       };
@@ -110,6 +110,11 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     montserrat
   ];
+  
+  qt5 = {
+    platformTheme = "qt5ct";
+    style = "Lightly";
+  };
 
   # Environment variables
   environment.variables = {
@@ -166,8 +171,9 @@ in
 
 
   programs = {
-    zsh.enable = true; # I <3 Zsh
-
+    # I <3 Zsh
+    zsh.enable = true; 
+    
     # KDE Connect (mobile integration)
     kdeconnect.enable = true;
 
