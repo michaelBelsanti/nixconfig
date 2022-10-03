@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, fetchFromGitHub, ... }:
 {
   services.xserver = {
     windowManager.i3 = {

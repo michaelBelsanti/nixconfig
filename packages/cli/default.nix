@@ -26,6 +26,7 @@
     # clifm
     aria2
     du-dust
+    bottom
     
     # Nix
     rnix-lsp

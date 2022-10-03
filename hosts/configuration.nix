@@ -63,17 +63,17 @@ in
     # xkbOptions = "caps:escape";
     libinput = {
       enable = false;
-      # mouse = {
-      #   accelProfile = "flat";
-      #   middleEmulation = false;
-      #   # Set becuase `middleEmulation` is not functioning as expected
-      #   additionalOptions = ''
-      #     Option "MiddleEmulation" "off"
-      #   '';
-      # };
-      # touchpad = {
-      #   accelProfile = "adaptive";
-      # };
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        # Set becuase `middleEmulation` is not functioning as expected
+        additionalOptions = ''
+          Option "MiddleEmulation" "off"
+        '';
+      };
+      touchpad = {
+        accelProfile = "adaptive";
+      };
     };
   };
 
