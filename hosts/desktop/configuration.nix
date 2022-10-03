@@ -38,12 +38,21 @@
     desktopManager.gnome.enable = true;
     exportConfiguration = true;
     # Needed because it thinks my mouse is a touchpad :|
-    libinput.touchpad = {
-      accelProfile = "flat";
-      middleEmulation = false;
-      additionalOptions = ''
-        Option "MiddleEmulation" "off"
-      '';
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        additionalOptions = ''
+          Option "MiddleEmulation" "off"
+        '';
+      };
+      touchpad = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        additionalOptions = ''
+          Option "MiddleEmulation" "off"
+        '';
+      };
     };
   };
 

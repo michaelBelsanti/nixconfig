@@ -29,9 +29,18 @@
     # displayManager.lightdm = {
     #   enable = true;
     # };
-    # libinput.touchpad = {
-      # accelProfile = "adaptive";
-    # };
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        additionalOptions = ''
+          Option "MiddleEmulation" "off"
+        '';
+      };
+      touchpad = {
+        accelProfile = "adaptive";
+      };
+    };
   };
 
   # Graphics drivers
