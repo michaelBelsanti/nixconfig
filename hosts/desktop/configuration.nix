@@ -17,6 +17,7 @@
   # Can't use 'max' cause shitty nvidia drivers
   boot = {
     kernelParams = [ "nomodeset" ];
+    extraModprobeConfig = "options nvidia_drm modeset=1";
     # Setting resolution manually because nvidia
     loader.grub = {
       gfxmodeEfi = "1920x1080";

@@ -57,6 +57,7 @@
 
   ### Services and hardware ###
 
+  flatpak.enable = true;
   xdg = {
     portal = {
       enable = true;

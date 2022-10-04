@@ -50,16 +50,16 @@
       '';
     };
   };
-  qt = {
-    enable = true;
+  # qt = {
+  #   enable = true;
     # platformTheme = lib.mkForce "qt5ct";
-    style = {
-      package = pkgs.lightly-qt;
-      name = "Lightly";
+    # style = {
+    #   package = pkgs.lightly-qt;
+    #   name = "Lightly";
       # package = pkgs.libsForQt5.qtstyleplugin-kvantum;
       # name = "kvantum";
-    };
-  };
+    # };
+  # };
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";

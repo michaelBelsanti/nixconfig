@@ -1,13 +1,13 @@
 { config, pkgs, inputs, user, ... }:
 let
-  catppuccin-grub-theme = pkgs.fetchFromGitHub
-    {
-      owner = "catppuccin";
-      repo = "grub";
-      rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-      sparseCheckout = "src/catppuccin-mocha-grub-theme";
-      sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
-    };
+catppuccin-grub-theme = pkgs.fetchFromGitHub
+  {
+    owner = "catppuccin";
+    repo = "grub";
+    rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
+    sparseCheckout = "src/catppuccin-mocha-grub-theme";
+    sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
+  };
 in
 {
   imports =
@@ -113,7 +113,6 @@ in
 
   # Others (things that for some reason aren't in services, hardware, or programs)
   appstream.enable = true;
-  xdg.portal.enable = true;
   zramSwap.enable = true;
 
   # Services
@@ -127,10 +126,6 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
-
-    # Flatpaks
-    flatpak.enable = true;
-    packagekit.enable = true; # For guis such as GNOME Software
 
     # Printing
     printing.enable = true;
