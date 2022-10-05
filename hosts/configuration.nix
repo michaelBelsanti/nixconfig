@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, user, ... }:
+{ config, lib, pkgs, inputs, user, ... }:
 let
 catppuccin-grub-theme = pkgs.fetchFromGitHub
   {
@@ -115,7 +115,12 @@ in
   appstream.enable = true;
   zramSwap.enable = true;
   xdg.portal.enable = true;
+<<<<<<< Updated upstream
 
+
+=======
+  
+>>>>>>> Stashed changes
   # Services
   services = {
     flatpak.enable = true;

@@ -29,11 +29,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1664783440,
-        "narHash": "sha256-KlMwR7mUf5h8MPnzV7nGFUAt6ih/euW5xgvZ5x+hwvI=",
+        "lastModified": 1664983332,
+        "narHash": "sha256-KyQvgFRwk3qW3Qr+lO5UDqfpST/HaCJY1yB7wPgPUqo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e4e639dd4dc3e431aa5b5f95325f9a66ac7e0dd9",
+        "rev": "1a8e35d2e53ed2ccd9818fad9c9478d56c655661",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1664916401,
-        "narHash": "sha256-ziFhht4PWo+ptrX8KllwU8lfxHQzjGq26Plru+D7JJI=",
+        "lastModified": 1665003520,
+        "narHash": "sha256-CIEXnmwTjf8AkfhFcGaGZHzFTvNyLe2ucG0DoM5wVmY=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "60c414ccadd0e2ff6be22bb880f605a164f451d5",
+        "rev": "32e8eda40a93f9c4a304faa54a3996087eae86e4",
         "type": "github"
       },
       "original": {
@@ -63,31 +63,29 @@
         "type": "github"
       }
     },
-    "nix-gaming": {
-      "inputs": {
-        "nixpkgs": "nixpkgs"
-      },
+    "my-nixpkgs": {
       "locked": {
-        "lastModified": 1664735521,
-        "narHash": "sha256-+IWo/yZJB29y1ySijHM5qqmN0d5/BmyJpe9CCAEHM80=",
-        "owner": "fufexan",
-        "repo": "nix-gaming",
-        "rev": "e1c0c8935e7f278f137be83718735348136962fa",
+        "lastModified": 1663807699,
+        "narHash": "sha256-2fP5/HpLHOup5f3zyUPA33jRzWXN4KfM3t/h8CRWpAM=",
+        "owner": "quasigod-io",
+        "repo": "nixpkgs",
+        "rev": "06f0bf5c038b4054c53a76f5f0a0e8991d02d497",
         "type": "github"
       },
       "original": {
-        "owner": "fufexan",
-        "repo": "nix-gaming",
+        "owner": "quasigod-io",
+        "ref": "master",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1664628729,
-        "narHash": "sha256-A1J0ZPhBfZZiWI6ipjKJ8+RpMllzOMu/An/8Tk3t4oo=",
+        "lastModified": 1664985631,
+        "narHash": "sha256-jUEvSieNzI0h/9ZZkeFIdx3ch7+7geRdiBZ6guxjSvA=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "3024c67a2e9a35450558426c42e7419ab37efd95",
+        "rev": "2b61d6502a38c00d72dc427ccac6c3df2ba28cb0",
         "type": "github"
       },
       "original": {
@@ -98,22 +96,6 @@
       }
     },
     "nixpkgs": {
-      "locked": {
-        "lastModified": 1663491030,
-        "narHash": "sha256-MVsfBhE9US5DvLtBAaTRjwYdv1tLO8xjahM8qLXTgTo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "767542707d394ff15ac1981e903e005ba69528b5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
       "locked": {
         "lastModified": 1664780719,
         "narHash": "sha256-Oxe6la5dSqRfJogjtY4sRzJjDDqvroJIVkcGEOT87MA=",
@@ -134,9 +116,9 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "nix-gaming": "nix-gaming",
+        "my-nixpkgs": "my-nixpkgs",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs"
       }
     },
     "utils": {

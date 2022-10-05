@@ -11,17 +11,19 @@
 
   networking.hostName = "nix-fw"; # Define your hostname.
 
-  boot.kernelParams = [ "acpi_backlight=native" ];
-  boot.blacklistedKernelModules = [ "hid_sensor_hub" ];
-  boot.loader.systemd-boot.consoleMode = "max";
+  boot = {
+    kernelParams = [ "acpi_backlight=native" ];
+    blacklistedKernelModules = [ "hid_sensor_hub" ];
+    loader.systemd-boot.consoleMode = "max";
+  };
 
 
   services.xserver = {
     enable = true;
-    # videoDrivers = [ "intel" ];
+    videoDrivers = [ "intel" ];
     # desktopManager.gnome.enable = true;
-    desktopManager.plasma5.enable = true;
-    displayManager.xserverArgs = [ "-logfile '/var/log/X.log'" ];
+    # desktopManager.plasma5.enable = true;
+    # displayManager.xserverArgs = [ "-logfile '/var/log/X.log'" ];
     displayManager.gdm = {
       enable = true;
       wayland = true;

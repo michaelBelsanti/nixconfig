@@ -55,7 +55,7 @@
         "interval": 1
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "&#8239;&#8239;{usage}%",
         "on-click": "alacritty -e btop"
     },
     "memory": {
@@ -64,8 +64,8 @@
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon}&#8239;{percent}%",
-        "format-icons": ["", ""]
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
     },
     "battery": {
         "states": {
