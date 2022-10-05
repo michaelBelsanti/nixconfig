@@ -4,9 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
-    my-nixpkgs.url = "github:quasigod-io/nixpkgs/master";
-
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,7 +24,7 @@
     };
 
   };
-  outputs = inputs @ { self, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, hyprland, darwin, ... }:
+  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, ... }:
   let
     user = "quasi";
   in
@@ -32,7 +32,7 @@
     nixosConfigurations = (
       import ./hosts {
         inherit (nixpkgs) lib;
-        inherit inputs nixpkgs my-nixpkgs nixos-hardware home-manager user hyprland;
+        inherit inputs nixpkgs nix-gaming nixos-hardware home-manager user hyprland;
       }
     );
     

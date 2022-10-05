@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, my-nixpkgs, nixos-hardware, home-manager, user, hyprland, ... }:
+{ lib, inputs, nixpkgs, nix-gaming, nixos-hardware, home-manager, user, hyprland, ... }:
 
 let
   system = "x86_64-linux";
@@ -12,12 +12,13 @@ in
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit lib inputs user; };
+    specialArgs = { inherit inputs user; };
     modules = [ 
       ./configuration.nix
       ./desktop/configuration.nix
         
-      #nixos-hardware.nixosModules.common-gpu-nvidia
+      nix-gaming.nixosModules.pipewireLowLatency 
+        
       nixos-hardware.nixosModules.common-cpu-amd
       nixos-hardware.nixosModules.common-pc-ssd
       

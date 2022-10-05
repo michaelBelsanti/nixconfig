@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -12,6 +12,8 @@
   networking = {
     hostName = "nix";
     nameservers = [ "192.168.1.152" ];
+    networkmanager.dns = "none";
+    dhcpcd.extraConfig = "nohook resolv.conf";
   };
 
   # Can't use 'max' cause shitty nvidia drivers
@@ -67,11 +69,19 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
-  services.openssh = {
-    enable = true;
-    ports = [ 42069 ];
-    banner = "You better be me. If you're not fuck off.\n";
-    passwordAuthentication = false;
+  services = {
+    pipewire.lowLatency.enable = true;
+    openssh = {
+      enable = true;
+      ports = [ 42069 ];
+      banner = "You better be me. If you're not fuck off.\n";
+      passwordAuthentication = false;
+    };
+  };
+  
+  nix.settings = {
+    substituters = [ "https://nix-gaming.cachix.org" ];
+    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system

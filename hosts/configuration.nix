@@ -21,7 +21,7 @@ in
 
   # Boot options
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_xanmod_latest;
     kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation
@@ -114,9 +114,11 @@ in
   # Others (things that for some reason aren't in services, hardware, or programs)
   appstream.enable = true;
   zramSwap.enable = true;
+  xdg.portal.enable = true;
 
   # Services
   services = {
+    flatpak.enable = true;
 
     # Pipewire
     pipewire = {
@@ -153,6 +155,7 @@ in
 
 
   programs = {
+  
     # I <3 Zsh
     zsh.enable = true; 
     

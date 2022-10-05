@@ -31,6 +31,11 @@
       device = "/dev/disk/by-label/mainhdd";
       fsType = "btrfs";
     };
+  # fileSystems."/run/media/quasi/nfs" = 
+  #   {
+  #     device = "sidious.quasi.ml:/zfsa/nfs";
+  #     fsType = "nfs";
+  #   };
 
   swapDevices = [ ];
 
@@ -40,6 +45,10 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
+  networking = {
+    hostName = "nix";
+    nameservers = [ "192.168.1.152" ];
+  };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
