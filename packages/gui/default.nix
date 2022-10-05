@@ -29,6 +29,11 @@ let
   # };
 in
 {
+  nixpkgs.overlays = [
+    (self: super: 
+      {discord-canary = super.discord-canary.override { withOpenASAR = true; }; })
+  ];
+
   environment.systemPackages = with pkgs; [
     helix-desktop
     
