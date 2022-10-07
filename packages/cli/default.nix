@@ -4,31 +4,37 @@
     nitch
     # Text editing
     helix
-    
-    # CLI Tools
-    wget
+
+    ## CLI Tools
     git
+    lazygit
+
+    wget
+    aria2
     unrar
     unzip
     killall
+    bat
     tldr
     lsof
-    dig 
+    dig
     fd
     ripgrep
-    pamixer
-    bat
     fzf
-    btop bottom
     ncdu
+
+    # File Management
     edir
-    gdu
     clifm
-    aria2
+    gdu
     du-dust
+
+    # Process managers
+    btop
     bottom
-    
+
     # Nix
     rnix-lsp
+    nix-tree
   ];
 }

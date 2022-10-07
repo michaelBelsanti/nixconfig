@@ -29,11 +29,6 @@ let
   # };
 in
 {
-  nixpkgs.overlays = [
-    (self: super: 
-      {discord-canary = super.discord-canary.override { withOpenASAR = true; }; })
-  ];
-
   environment.systemPackages = with pkgs; [
     helix-desktop
     
@@ -46,11 +41,10 @@ in
     mullvad-vpn
     tetrio-desktop
     easyeffects
-    cider
     element-desktop
     celluloid
     qbittorrent
-    discord-canary
+    (discord-canary.override { withOpenASAR = true; }) # Enable OpenASAR (https://openasar.dev/)
     spotify
     
     # Theming
