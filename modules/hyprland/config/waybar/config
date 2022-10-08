@@ -56,11 +56,11 @@
     },
     "cpu": {
         "format": "&#8239;&#8239;{usage}%",
-        "on-click": "alacritty -e btop"
+        "on-click": "wezterm start btop"
     },
     "memory": {
         "format": "&#8239;{}%",
-        // "on-click": "alacritty -e btop"
+        // "on-click": "wezterm start btop"
     },
     "backlight": {
         // "device": "acpi_video1",

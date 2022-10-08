@@ -5,7 +5,7 @@ configuration{
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
     icon-theme: "Catppuccin";
-    terminal: "alacritty";
+    terminal: "wezterm";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;

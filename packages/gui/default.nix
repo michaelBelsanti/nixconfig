@@ -4,7 +4,7 @@ let
     name = "helix";
     desktopName = "Helix (TUI)";
     genericName = "Helix";
-    exec = "alacritty -e hx %F";
+    exec = "wezterm start hx %F";
     mimeTypes = [ "text/plain" "inode/directory" ];
     categories = [ "Utility" "TextEditor" "Development" ];
   };

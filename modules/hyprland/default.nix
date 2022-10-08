@@ -8,6 +8,7 @@
     (waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
     brightnessctl
     wl-clipboard
+    wezterm
     alacritty
     rofi-wayland
     cinnamon.nemo

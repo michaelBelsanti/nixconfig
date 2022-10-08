@@ -3,7 +3,7 @@
   imports =
     [
       ../modules/alacritty
-      ../modules/scripts
+      ../modules/wezterm
       ../modules/cli
     ];
 

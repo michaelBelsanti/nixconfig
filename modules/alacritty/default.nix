@@ -70,6 +70,13 @@
         }
       ];
     };
+    key-bindings = [
+      {
+        key = "Return";
+        mods = "Control";
+        action = "SpawnNewInstance";
+      }
+    ];
   };
   # xdg.configFile."alacritty" = {
   #   source = ./config;
