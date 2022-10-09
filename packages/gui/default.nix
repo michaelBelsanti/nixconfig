@@ -44,7 +44,7 @@ in
     element-desktop
     celluloid
     qbittorrent
-    (discord-canary.override { withOpenASAR = true; }) # Enable OpenASAR (https://openasar.dev/)
+    (discord-canary.override { nss = nss_latest; withOpenASAR = true; }) # Enable OpenASAR (https://openasar.dev/)
     spotify
     
     # Theming

@@ -4,17 +4,14 @@ set $bar
 
 #----------------------------- Startup applications --------------------------#
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
-exec --no-startup-id picom --experimental-backends
+# exec --no-startup-id xrdb merge ~/.config/X11/xresources
 exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png
-# exec --no-startup-id dunst
-# exec --no-startup-id lxsession
+exec --no-startup-id autotiling
+exec --no-startup-id picom --experimental-backends
+exec --no-startup-id dunst
 exec --no-startup-id lxpolkit
 
-exec --no-startup-id autotiling
-
-# exec --no-startup-id xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
-exec --no-startup-id xrdb merge ~/.config/X11/xresources
-
+exec --no-startup-id easyeffects --gapplication-service
 
 # Awesome replay tool for Nvidia gpus, much more performant than obs
 # exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays
@@ -68,10 +65,10 @@ bindsym $mod+Escape exec betterlockscreen --off 20 -l dimblur
 bindsym $mod+v exec ~/.scripts/replay.sh
 
 # popup launcher binds
-bindsym $mod+space      exec --no-startup-id ~/.config/rofi/wrapper.sh -r
-# bindsym $mod+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
-# bindsym Mod1+Tab        exec --no-startup-id ~/.config/rofi/wrapper.sh -w
-bindsym $mod+o          exec --no-startup-id ~/.config/rofi/wrapper.sh -o
+bindsym $mod+space      exec --no-startup-id rofi-wrapper -r
+# bindsym $mod+Tab        exec --no-startup-id rofi-wrapper -w
+# bindsym Mod1+Tab        exec --no-startup-id rofi-wrapper -w
+bindsym $mod+o          exec --no-startup-id rofi-wrapper -o
 
 #---------------------------- Workspace navigation ---------------------------#
 # switch to workspace

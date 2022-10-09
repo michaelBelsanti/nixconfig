@@ -11,6 +11,17 @@
     heroic
     goverlay
     mangohud
+    polymc
+    
+    # For use with gamemode. Hugepages can increase performance in some games
+    (writeShellScriptBin "gmstart" ''
+      echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+      polybar-msg action gamemode module_show
+    '')
+    (writeShellScriptBin "gmstop" ''
+      echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+      polybar-msg action gamemode module_hide
+    '')
   ];
 
   programs.steam.enable = true;
