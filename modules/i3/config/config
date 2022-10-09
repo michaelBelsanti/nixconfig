@@ -55,14 +55,14 @@ bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictu
 #bindsym $mod+d          exec flatpak run de.shorsh.discord-screenaudio
 bindsym $mod+d          exec DiscordCanary
 
-bindsym $mod+n exec ~/.scripts/togdnd.sh -t
+bindsym $mod+n exec togdnd -t
 bindsym $mod+shift+q exec xdotool getwindowfocus windowkill
 bindsym $mod+ctrl+shift+q exec xkill
 # start and kill compositor 
-bindsym $mod+c exec ~/.scripts/picom.sh
-bindsym $mod+shift+ctrl+e exec ~/.scripts/eerestart.sh
+bindsym $mod+c exec togdnd
+bindsym $mod+shift+ctrl+e exec eerestart
 bindsym $mod+Escape exec betterlockscreen --off 20 -l dimblur
-bindsym $mod+v exec ~/.scripts/replay.sh
+# bindsym $mod+v exec ~/.scripts/replay.sh
 
 # popup launcher binds
 bindsym $mod+space      exec --no-startup-id rofi-wrapper -r
