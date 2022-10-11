@@ -46,14 +46,15 @@
   };
 
   # Graphics drivers
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "iHD";
+  };
   hardware.opengl = {
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
       intel-media-driver
-      vaapiIntel
     ];
   };
 

@@ -14,6 +14,7 @@
     nameservers = [ "192.168.1.152" ];
     networkmanager.dns = "none";
     dhcpcd.extraConfig = "nohook resolv.conf";
+    firewall.enable = false; # I live life on the edge
   };
 
   # Can't use 'max' cause shitty nvidia drivers

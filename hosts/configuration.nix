@@ -47,7 +47,7 @@ in
 
   networking = {
     networkmanager.enable = true;
-    firewall.enable = false;
+    wireguard.enable = true;
   };
 
   # Locale
