@@ -7,7 +7,7 @@ exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 # exec --no-startup-id xrdb merge ~/.config/X11/xresources
 exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png
 exec --no-startup-id autotiling
-exec --no-startup-id picom --experimental-backends
+exec --no-startup-id picom --experimental-backends --unredir-if-possible
 exec --no-startup-id dunst
 exec --no-startup-id lxpolkit
 
@@ -50,8 +50,10 @@ floating_modifier $mod
 bindsym $mod+Return     exec wezterm
 bindsym $mod+e          exec nemo
 bindsym $mod+b          exec librewolf
+bindsym $mod+s        exec shotgun -s - | xclip -t 'image/png' -selection clipboard
+bindsym $mod+ctrl+s    exec shotgun -s - > ~/Pictures/Screenshots/$(date "+%Y-%m-%dT%H:%M:%SZ").png
 bindsym $mod+shift+s    exec shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
-bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictures/screenshot.png
+bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictures/screenclip.png
 #bindsym $mod+d          exec flatpak run de.shorsh.discord-screenaudio
 bindsym $mod+d          exec DiscordCanary
 

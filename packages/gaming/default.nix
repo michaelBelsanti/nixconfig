@@ -17,10 +17,12 @@
     (writeShellScriptBin "gmstart" ''
       echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
       polybar-msg action gamemode module_show
+      togdnd -p
     '')
     (writeShellScriptBin "gmstop" ''
       echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
       polybar-msg action gamemode module_hide
+      togdnd -u
     '')
   ];
 
