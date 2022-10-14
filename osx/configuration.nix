@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../packages/hosts/osx
+    ../../osx/hosts/osx
     ../nix.nix
     # ../../modules/yabai
     ../../modules/noyabai

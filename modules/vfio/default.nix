@@ -1,4 +1,4 @@
-# Imported by hosts/desktop/configuration.nix
+# Imported by nixos/desktop/configuration.nix
 # Allows kvms and pcie passthrough
 
 { lib, config, pkgs, ...}:

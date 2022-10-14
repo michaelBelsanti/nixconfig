@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../packages/hosts/desktop
+      ../../packages/nixos/desktop
       ../../modules/vfio
       ../../modules/i3
     ];

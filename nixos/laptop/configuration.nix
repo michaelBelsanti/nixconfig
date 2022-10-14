@@ -5,7 +5,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../packages/hosts/laptop
+      ../../packages/nixos/laptop
       ../../modules/hyprland
     ];
 

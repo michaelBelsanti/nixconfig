@@ -30,14 +30,14 @@
   in
   {
     nixosConfigurations = (
-      import ./hosts {
+      import ./nixos {
         inherit (nixpkgs) lib;
         inherit inputs nixpkgs nix-gaming nixos-hardware home-manager user hyprland;
       }
     );
     
     darwinConfigurations = (
-      import ./hosts/osx {
+      import ./osx {
         inherit (nixpkgs) lib;
         inherit inputs nixpkgs home-manager darwin user;
       }

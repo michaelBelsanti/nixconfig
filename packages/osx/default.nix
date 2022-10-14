@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../cli
+    ../cli
   ];
   
   environment.systemPackages = with pkgs; [
