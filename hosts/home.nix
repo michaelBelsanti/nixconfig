@@ -65,6 +65,7 @@
     name = "phinger-cursors";
     x11.enable = true;
     gtk.enable = true;
+    size = 32;
   };
   xresources = {
     path = "${config.xdg.configHome}/X11/xresources";
