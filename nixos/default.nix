@@ -12,11 +12,13 @@ in
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user; };
+    specialArgs = { inherit inputs user hyprland; };
     modules = [ 
       ./configuration.nix
       ./desktop/configuration.nix
         
+      hyprland.nixosModules.default
+      
       nix-gaming.nixosModules.pipewireLowLatency 
         
       nixos-hardware.nixosModules.common-cpu-amd
