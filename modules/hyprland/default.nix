@@ -2,7 +2,7 @@
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 #
 
-{ config, pkgs, isNvidia ? false, ... }:
+{ lib, config, pkgs, isNvidia ? false, ... }:
 let
   xwayland = { self, super, package }: {
     package = pkgs.symlinkJoin {
@@ -78,7 +78,7 @@ in
   ];
 
   # hardware.nvidia.modesetting.enable = true;
-  environment.variables = lib.mkIf (services.xserver.videoDrivers == [ "nvidia" ]) {
+  environment.variables = lib.mkIf (config.services.xserver.videoDrivers == [ "nvidia" ]) {
     LIBVA_DRIVER_NAME = "nvidia";
 		CLUTTER_BACKEND = "wayland";
 		XDG_SESSION_TYPE = "wayland";
