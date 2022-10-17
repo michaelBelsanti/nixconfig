@@ -1,13 +1,16 @@
 { config, pkgs, inputs, ... }:
+let 
+  wine-tkg = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg;
+in
 {
   environment.systemPackages = with pkgs; [
-    inputs.nix-gaming.packages.${pkgs.system}.wine-tkg
+    wine-tkg
     gamescope
     winetricks
     protontricks
     grapejuice
     gamemode
-    (lutris.override {extraLibraries = pkgs: [pkgs.libunwind ];})
+    (lutris.override {lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; }; extraLibraries = pkgs: [pkgs.libunwind ];})
     heroic
     goverlay
     mangohud

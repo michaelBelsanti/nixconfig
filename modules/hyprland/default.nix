@@ -3,6 +3,18 @@
 #
 
 { config, pkgs, isNvidia ? false, ... }:
+let
+  xwayland = { self, super, package }: {
+    package = pkgs.symlinkJoin {
+      name = "${package}";
+      paths = [ super.package ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/${package} --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+      '';
+    };
+  };
+in
 {
   programs.hyprland.enable = true;
   programs.hyprland.recommendedEnvironment = true;
@@ -26,14 +38,6 @@
     grim
     slurp
     swaylock
-    # (pkgs.symlinkJoin {
-    #   name = "jetbrains.idea-community";
-    #   paths = [ pkgs.jetbrains.idea-community ];
-    #   buildInputs = [ pkgs.makeWrapper ];
-    #   postBuild = ''
-    #     wrapProgram $out/bin/idea-community --set GDK_SCALE 2 --set XCURSOR_SIZE 64
-    #   '';
-    # })
    ];
   
   nixpkgs.overlays = [
@@ -47,7 +51,7 @@
         '';
       };
     })
-    (self: super: {
+    # (self: super: {
       jetbrains = super.jetbrains // {
         idea-community = pkgs.symlinkJoin {
           name = "idea-community";
@@ -70,18 +74,22 @@
       };
     })
   ];
-  
-  # environment.variables = if isNvidia then 
-  #   {
-  #     LIBVA_DRIVER_NAME = "nvidia";
-  #     XDG_SESSION_TYPE = "wayland";
-  #     GBM_BACKEND = "nvidia-drm";
-  #     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  #     WLR_NO_HARDWARE_CURSORS = 1;
-  #   }
-  #   else
-  #   {};
-  
+
+  # hardware.nvidia.modesetting.enable = true;
+  # environment.variables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+		# CLUTTER_BACKEND = "wayland";
+		# XDG_SESSION_TYPE = "wayland";
+		# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+		# MOZ_ENABLE_WAYLAND = "1";
+		# GBM_BACKEND = "nvidia-drm";
+		# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+		# WLR_NO_HARDWARE_CURSORS = "1";
+		# WLR_BACKEND = "vulkan";
+		# QT_QPA_PLATFORM = "wayland";
+		# GDK_BACKEND = "wayland";
+  # };
+
   # Good defaults for standalone apps
   xdg.mime.defaultApplications = {
     # Browser

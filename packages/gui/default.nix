@@ -27,6 +27,7 @@ in
     qbittorrent
     discord-canary-openasar
     spotify
+    spicetify-cli
     
     # Theming
     # lightly-qt

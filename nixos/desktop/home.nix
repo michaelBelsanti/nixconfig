@@ -5,7 +5,6 @@
       ../home.nix
       ../../modules/zsh/desktop
       ../../modules/i3/config
-      # ../../modules/dunst
     ];
 
   xsession.initExtra = ''

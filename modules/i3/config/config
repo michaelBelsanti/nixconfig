@@ -10,6 +10,7 @@ exec --no-startup-id autotiling
 exec --no-startup-id picom --experimental-backends --unredir-if-possible
 exec --no-startup-id dunst
 exec --no-startup-id lxpolkit
+exec betterlockscreen -u ~/.flake/etc/bg.png
 
 exec --no-startup-id easyeffects --gapplication-service
 
@@ -63,7 +64,7 @@ bindsym $mod+ctrl+shift+q exec xkill
 # start and kill compositor 
 bindsym $mod+c exec togdnd
 bindsym $mod+shift+ctrl+e exec eerestart
-bindsym $mod+Escape exec betterlockscreen --off 20 -l dimblur
+bindsym $mod+Escape exec betterlockscreen --off 30 -l dim
 # bindsym $mod+v exec ~/.scripts/replay.sh
 
 # popup launcher binds
