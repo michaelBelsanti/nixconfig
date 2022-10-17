@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ lib, config, pkgs, ...}:
 {
   imports = [
     ../../rofi    
@@ -13,5 +13,17 @@
       source = ./waybar;
       recursive = true;
     };
+    xsettingds = {
+      target = "xsettingsd/xsettingsd.conf";
+      text = ''
+        Xft/Hinting 1
+        Xft/HintStyle "hintslight"
+        Xft/Antialias 1
+        Xft/RGBA "rgb"
+      '';
+    };
+  };
+  xresources.properties = {
+    "Xcursor.size" = lib.mkForce "64";
   };
 }

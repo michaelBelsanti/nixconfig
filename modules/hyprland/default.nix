@@ -1,4 +1,8 @@
-{ config, pkgs, ...}:
+# System configuration module for Hyprland using official flake
+# Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
+#
+
+{ config, pkgs, isNvidia ? false, ... }:
 {
   programs.hyprland.enable = true;
   programs.hyprland.recommendedEnvironment = true;
@@ -15,14 +19,69 @@
     xfce.thunar xfce.thunar-volman xfce.thunar-archive-plugin gvfs
     selectdefaultapplication
     lxsession
+    xsettingsd
     nsxiv
     pamixer
     wmctrl
     grim
     slurp
     swaylock
+    # (pkgs.symlinkJoin {
+    #   name = "jetbrains.idea-community";
+    #   paths = [ pkgs.jetbrains.idea-community ];
+    #   buildInputs = [ pkgs.makeWrapper ];
+    #   postBuild = ''
+    #     wrapProgram $out/bin/idea-community --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+    #   '';
+    # })
+   ];
+  
+  nixpkgs.overlays = [
+    (self: super: {
+      discord-canary-openasar = pkgs.symlinkJoin {
+        name = "discord-canary-openasar";
+        paths = [ super.discord-canary-openasar];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/opt/DiscordCanary/DiscordCanary --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+        '';
+      };
+    })
+    (self: super: {
+      jetbrains = super.jetbrains // {
+        idea-community = pkgs.symlinkJoin {
+          name = "idea-community";
+          paths = [ super.jetbrains.idea-community ];
+          buildInputs = [ pkgs.makeWrapper ];
+          postBuild = ''
+            wrapProgram $out/bin/idea-community --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+          '';
+        };
+      };
+    })
+    (self: super: {
+      jflap = pkgs.symlinkJoin {
+        name = "jflap";
+        paths = [ super.jflap ];
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = ''
+          wrapProgram $out/bin/jflap --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+        '';
+      };
+    })
   ];
-
+  
+  # environment.variables = if isNvidia then 
+  #   {
+  #     LIBVA_DRIVER_NAME = "nvidia";
+  #     XDG_SESSION_TYPE = "wayland";
+  #     GBM_BACKEND = "nvidia-drm";
+  #     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #     WLR_NO_HARDWARE_CURSORS = 1;
+  #   }
+  #   else
+  #   {};
+  
   # Good defaults for standalone apps
   xdg.mime.defaultApplications = {
     # Browser
