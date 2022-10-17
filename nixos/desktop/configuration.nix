@@ -1,5 +1,4 @@
 { lib, config, pkgs, inputs, ... }:
-
 {
   imports =
     [
@@ -39,7 +38,6 @@
         wayland = false;
       };
     };
-    desktopManager.gnome.enable = true;
     exportConfiguration = true;
     # Needed because it thinks my mouse is a touchpad :|
     libinput = {
@@ -69,6 +67,11 @@
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
+
+  xdg.portal.extraPortals = with pkgs; 
+    lib.mkIf (config.services.xserver.desktopManager.gnome.enable == false) [
+      xdg-desktop-portal-kde
+    ];
 
   services = {
     pipewire.lowLatency.enable = true;

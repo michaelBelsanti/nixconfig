@@ -10,7 +10,7 @@ in
     protontricks
     grapejuice
     gamemode
-    (lutris.override {lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; }; extraLibraries = pkgs: [pkgs.libunwind ];})
+    (lutris.override {lutris-unwrapped = lutris-unwrapped.override {wine = wine-tkg;};})
     heroic
     goverlay
     mangohud

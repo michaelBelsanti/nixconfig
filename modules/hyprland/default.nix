@@ -14,6 +14,8 @@ let
       '';
     };
   };
+  
+  # isNvidia = if services.xserver.videoDrivers == [ "nvidia" ] then true else false
 in
 {
   programs.hyprland.enable = true;
@@ -51,7 +53,7 @@ in
         '';
       };
     })
-    # (self: super: {
+    (self: super: {
       jetbrains = super.jetbrains // {
         idea-community = pkgs.symlinkJoin {
           name = "idea-community";
@@ -76,49 +78,17 @@ in
   ];
 
   # hardware.nvidia.modesetting.enable = true;
-  # environment.variables = {
-  #   LIBVA_DRIVER_NAME = "nvidia";
-		# CLUTTER_BACKEND = "wayland";
-		# XDG_SESSION_TYPE = "wayland";
-		# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-		# MOZ_ENABLE_WAYLAND = "1";
-		# GBM_BACKEND = "nvidia-drm";
-		# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-		# WLR_NO_HARDWARE_CURSORS = "1";
-		# WLR_BACKEND = "vulkan";
-		# QT_QPA_PLATFORM = "wayland";
-		# GDK_BACKEND = "wayland";
-  # };
-
-  # Good defaults for standalone apps
-  xdg.mime.defaultApplications = {
-    # Browser
-    "application/pdf" = "librewolf.desktop";
-    "x-scheme-handler/http" = "librewolf.desktop";
-    "x-scheme-handler/https" = "librewolf.desktop";
-
-    # Images
-    "image/bmp" = "nsxiv.desktop";
-    "image/x-portable-anymap" = "nsxiv.desktop";
-    "image/tiff" = "nsxiv.desktop";
-    "image/png" = "nsxiv.desktop";
-    "image/x-eps" = "nsxiv.desktop";
-    "image/gif" = "nsxiv.desktop";
-    "image/avif" = "nsxiv.desktop";
-    "image/x-portable-pixmap" = "nsxiv.desktop";
-    "image/jpeg" = "nsxiv.desktop";
-    "image/jp2" = "nsxiv.desktop";
-    "image/webp" = "nsxiv.desktop";
-    "image/x-xpixmap" = "nsxiv.desktop";
-    "image/x-tga" = "nsxiv.desktop";
-    "image/jxl" = "nsxiv.desktop";
-    "image/heif" = "nsxiv.desktop";
-    "image/x-portable-graymap" = "nsxiv.desktop";
-    "image/svg+xml" = "nsxiv.desktop";
-    "image/x-portable-bitmap" = "nsxiv.desktop";
-    
-    # Text
-    "text/plain" = "helix.desktop";
-    "text/x-patch" = "helix.desktop";
+  environment.variables = lib.mkIf (services.xserver.videoDrivers == [ "nvidia" ]) {
+    LIBVA_DRIVER_NAME = "nvidia";
+		CLUTTER_BACKEND = "wayland";
+		XDG_SESSION_TYPE = "wayland";
+		QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+		MOZ_ENABLE_WAYLAND = "1";
+		GBM_BACKEND = "nvidia-drm";
+		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+		WLR_NO_HARDWARE_CURSORS = "1";
+		WLR_BACKEND = "vulkan";
+		QT_QPA_PLATFORM = "wayland";
+		GDK_BACKEND = "wayland";
   };
 }
