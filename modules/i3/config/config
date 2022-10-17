@@ -6,7 +6,7 @@ set $bar
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 # exec --no-startup-id xrdb merge ~/.config/X11/xresources
 exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png
-exec --no-startup-id autotiling
+exec_always --no-startup-id autotiling
 exec --no-startup-id picom --experimental-backends --unredir-if-possible
 exec --no-startup-id dunst
 exec --no-startup-id lxpolkit
