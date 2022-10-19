@@ -14,7 +14,9 @@ in
     heroic
     goverlay
     mangohud
+    # TODO - Replace PolyMC with PrismLauncher
     polymc
+    # prismlauncher
     
     # For use with gamemode. Hugepages can increase performance in some games
     (writeShellScriptBin "gmstart" ''

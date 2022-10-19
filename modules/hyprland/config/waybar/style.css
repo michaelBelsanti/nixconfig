@@ -1,6 +1,6 @@
 @define-color bg #1e1d2f;  
 @define-color fg #d9e0ee;  
-@define-color lightbg #1e1d2f;
+@define-color lightbg #2F2F4C;
 
 /* CATPPUCCIN */
 @define-color black #6e6c7e;
@@ -147,7 +147,9 @@ window#waybar.chromium {
 
 #battery.critical:not(.charging) {
     background-color: @red;
-    color: @fg;
+    color: @bg;
+    margin: 4px 0px;
+    padding: 0px 12px;
 }
 
 label:focus {
@@ -171,8 +173,10 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: @red;
-    color: @fg;
+    background-color: @cyan;
+    color: @bg;
+    margin: 4px 0px;
+    padding: 0px 12px;
 }
 
 #network {

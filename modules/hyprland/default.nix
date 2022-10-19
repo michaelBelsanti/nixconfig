@@ -3,20 +3,6 @@
 #
 
 { lib, config, pkgs, isNvidia ? false, ... }:
-let
-  xwayland = { self, super, package }: {
-    package = pkgs.symlinkJoin {
-      name = "${package}";
-      paths = [ super.package ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/${package} --set GDK_SCALE 2 --set XCURSOR_SIZE 64
-      '';
-    };
-  };
-  
-  # isNvidia = if services.xserver.videoDrivers == [ "nvidia" ] then true else false
-in
 {
   programs.hyprland.enable = true;
   programs.hyprland.recommendedEnvironment = true;

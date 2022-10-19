@@ -25,7 +25,8 @@
         "format": "",
         "tooltip": false,
         "on-scroll-down": "/usr/local/bin/hyprctl dispatch workspace m+1",
-        "on-scroll-up": "/usr/local/bin/hyprctl dispatch workspace m-1"
+        "on-scroll-up": "/usr/local/bin/hyprctl dispatch workspace m-1",
+        "disable-click": true
     },
     "wlr/workspaces": {
         "sort-by-name": true
@@ -92,7 +93,7 @@
         "format": "{icon}&#8239;{volume}%",
         "format-bluetooth": "&#8239;{volume}%",
         "format-bluetooth-muted": "&#8239;{volume}%",
-        "format-muted": "  ﱝ  ",
+        "format-muted": "ﱝ",
         "format-source": "&#8239;{volume}%",
         "format-source-muted": "",
         "format-icons": {
