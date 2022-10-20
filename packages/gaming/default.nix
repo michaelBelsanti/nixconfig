@@ -1,8 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let 
   wine-tkg = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg;
 in
 {
+  # Using mkForce because lib.mkDefault can't be used in nixos/configuration.nix
+  boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
   environment.systemPackages = with pkgs; [
     wine-tkg
     gamescope
