@@ -93,10 +93,22 @@ in
   };
 
   # Best fonts (Especially JetBrains Mono)
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    montserrat
-  ];
+  fonts = {
+    fonts = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      montserrat
+      eb-garamond
+      twemoji-color-font
+    ];
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+    fontconfig.defaultFonts = {
+      serif = [ "EB Garamond" ];
+      sansSerif = [ "Montserrat" ];
+      monospace = [ "JetBrainsMono Nerd Font" ];
+      emoji = [ "Twitter Color Emoji" "Noto Color Emoji" ];
+    };
+  };
   
   qt5 = {
     platformTheme = "qt5ct";
