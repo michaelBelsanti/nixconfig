@@ -4,6 +4,7 @@
     nitch
     # Text editing
     helix
+    neovim
 
     ## CLI Tools
     git
