@@ -195,6 +195,7 @@ in
   virtualisation = {
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
+    podman.enable = true;
   };
   # virtualisation.qemu.guestAgent.enable = true;
 

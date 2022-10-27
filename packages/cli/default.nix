@@ -37,5 +37,7 @@
     # Nix
     rnix-lsp
     nix-tree
+    
+    distrobox
   ];
 }
