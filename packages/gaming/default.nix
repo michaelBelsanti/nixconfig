@@ -6,7 +6,6 @@ in
   # Using mkForce because lib.mkDefault can't be used in nixos/configuration.nix
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
   environment.systemPackages = with pkgs; [
-    wine-tkg
     gamescope
     winetricks
     protontricks
