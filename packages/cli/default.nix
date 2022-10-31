@@ -10,6 +10,8 @@
     git
     lazygit
 
+    cachix
+
     wget
     aria2
     unrar
