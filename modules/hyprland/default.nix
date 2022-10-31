@@ -38,8 +38,6 @@
           wrapProgram $out/opt/DiscordCanary/DiscordCanary --set GDK_SCALE 2 --set XCURSOR_SIZE 64
         '';
       };
-    })
-    (self: super: {
       jetbrains = super.jetbrains // {
         idea-community = pkgs.symlinkJoin {
           name = "idea-community";
@@ -50,8 +48,6 @@
           '';
         };
       };
-    })
-    (self: super: {
       jflap = pkgs.symlinkJoin {
         name = "jflap";
         paths = [ super.jflap ];

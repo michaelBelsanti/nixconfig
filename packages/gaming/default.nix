@@ -5,12 +5,12 @@ in
 {
   # Using mkForce because lib.mkDefault can't be used in nixos/configuration.nix
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
+  programs.gamemode.enable = true;
   environment.systemPackages = with pkgs; [
     gamescope
     winetricks
     protontricks
     grapejuice
-    gamemode
     (lutris.override {lutris-unwrapped = lutris-unwrapped.override {wine = wine-tkg;};})
     heroic
     goverlay

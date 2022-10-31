@@ -18,6 +18,12 @@
         C-l = "jump_view_right";
         # space.q = "buffer-close";
       };
+      editor.statusline = {
+        left = [ "mode" "spinner" "file-type" "diagnostics" ];
+        center = [ "file-name" ];
+        right = [ "selections" "position" "separator" "spacer" "position-percentage" ];
+        separator = "|";
+      };
     };
     languages = [ { name = "nim"; scope = "source.nim"; injection-regex = "nim"; file-types = ["nim" "nims"]; shebangs = ["nim"]; comment-token = "#"; roots = []; } ];
   };
