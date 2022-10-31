@@ -6,7 +6,10 @@
   nix = {
     package = pkgs.nixVersions.unstable;
     registry.nixpkgs.flake = inputs.nixpkgs;
-    settings.auto-optimise-store = true;
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = [ "root" "quasi" ];
+    };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
