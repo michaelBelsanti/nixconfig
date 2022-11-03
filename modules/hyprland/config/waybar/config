@@ -3,31 +3,18 @@
     //"height": 5, // Waybar height (to be removed for auto height)
     // "width": 20, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["custom/wmname", "wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": [ "wlr/workspaces"],
+    // "modules-center": ["hyprland/window"],
     "modules-right": [
-        "cpu", 
-        "custom/separator",
-        "memory", 
-        "custom/separator",
         "backlight", 
-        "custom/separator",
+        // "custom/separator",
+        "cpu", 
+        "memory", 
         "pulseaudio",
-        "custom/separator",
         "network",
-        "custom/separator",
         "battery",
-        "custom/separator",
         "clock",
-        "custom/separator",
         "tray"],
-    "custom/wmname": {
-        "format": "",
-        "tooltip": false,
-        "on-scroll-down": "/usr/local/bin/hyprctl dispatch workspace m+1",
-        "on-scroll-up": "/usr/local/bin/hyprctl dispatch workspace m-1",
-        "disable-click": true
-    },
     "wlr/workspaces": {
         "sort-by-name": true
     },
@@ -35,13 +22,6 @@
         "format": "|",
         "interval": "once",
         "tooltip": false
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "tray": {
         "icon-size": 30,
@@ -55,18 +35,18 @@
         "format": "{:%H:%M}",
         "interval": 1
     },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
     "cpu": {
         "format": "&#8239;&#8239;{usage}%",
         "on-click": "wezterm start btop"
     },
     "memory": {
         "format": "&#8239;{}%",
-        // "on-click": "wezterm start btop"
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", ""]
+        "on-click": "wezterm start btop"
     },
     "battery": {
         "states": {
@@ -78,15 +58,16 @@
         // "format": "{icon} {capacity}%",
         "format-charging": "&#8239;{capacity}%",
         "format-alt": "{icon}  {time}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
     },
     "network": {
         "format-wifi": "直&#8239;({signalStrength}%)",
-        "format-ethernet": "&#8239;{ifname}: {ipaddr}/{cidr}",
-        "format-linked": "&#8239;{ifname} (No IP)",
-        "format-disconnected": "睊 Disconnected",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "睊",
         "format-alt": "{essid}: {ipaddr}/{cidr}",
-        "tooltip": false,
+        "tooltip": true,
+        "tooltip-format": "{essid}",
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -102,8 +83,8 @@
         "on-click": "pavucontrol"
     },
     "custom/power": {
-        "format": "⏻&#8239;{}W",
-        "exec": "$HOME/.config/rofi/wrapper.sh -o",
-        "interval": 2
+        "format": "⏻&#8239;",
+        "on-click": "$HOME/.config/rofi/wrapper.sh -o",
+        "interval": "once",
     },
 }
