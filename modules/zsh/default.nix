@@ -21,6 +21,7 @@
       cat = "bat";
       fm = "clifm .";
       cleanup = "doas nix-collect-garbage -d";
+      open = "xdg-open";
     };
     prezto = {
       enable = true;
