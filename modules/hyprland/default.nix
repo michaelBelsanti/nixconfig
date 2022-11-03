@@ -30,12 +30,12 @@
   
   nixpkgs.overlays = [
     (self: super: {
-      discord-canary-openasar = pkgs.symlinkJoin {
-        name = "discord-canary-openasar";
-        paths = [ super.discord-canary-openasar];
+      discord-openasar = pkgs.symlinkJoin {
+        name = "discord-openasar";
+        paths = [ super.discord-openasar];
         buildInputs = [ pkgs.makeWrapper ];
         postBuild = ''
-          wrapProgram $out/opt/DiscordCanary/DiscordCanary --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+          wrapProgram $out/opt/Discord/Discord --set GDK_SCALE 2 --set XCURSOR_SIZE 64
         '';
       };
       jetbrains = super.jetbrains // {

@@ -25,7 +25,7 @@ in
     element-desktop
     celluloid
     qbittorrent
-    discord-canary-openasar
+    discord-openasar
     spotify
     spicetify-cli
     
@@ -47,7 +47,7 @@ in
   ];
   nixpkgs.overlays = [
     (self: super: {
-      discord-canary-openasar = super.discord-canary.override { 
+      discord-openasar = super.discord.override { 
         nss = pkgs.nss_latest; withOpenASAR = true; };
     })
   ];
