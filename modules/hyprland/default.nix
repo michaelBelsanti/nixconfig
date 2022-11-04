@@ -1,6 +1,7 @@
 # System configuration module for Hyprland using official flake
+
+# TODO
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
-#
 
 { lib, config, pkgs, isNvidia ? false, ... }:
 {
@@ -58,19 +59,19 @@
       };
     })
   ];
-
+  
   # hardware.nvidia.modesetting.enable = true;
-  environment.variables = lib.mkIf (config.services.xserver.videoDrivers == [ "nvidia" ]) {
-    LIBVA_DRIVER_NAME = "nvidia";
-		CLUTTER_BACKEND = "wayland";
-		XDG_SESSION_TYPE = "wayland";
-		QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-		MOZ_ENABLE_WAYLAND = "1";
-		GBM_BACKEND = "nvidia-drm";
-		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
-		WLR_NO_HARDWARE_CURSORS = "1";
-		WLR_BACKEND = "vulkan";
-		QT_QPA_PLATFORM = "wayland";
-		GDK_BACKEND = "wayland";
-  };
+  # environment.variables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+		# CLUTTER_BACKEND = "wayland";
+		# XDG_SESSION_TYPE = "wayland";
+		# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+		# MOZ_ENABLE_WAYLAND = "1";
+		# GBM_BACKEND = "nvidia-drm";
+		# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+		# WLR_NO_HARDWARE_CURSORS = "1";
+		# WLR_BACKEND = "vulkan";
+		# QT_QPA_PLATFORM = "wayland";
+		# GDK_BACKEND = "wayland";
+  # };
 }
