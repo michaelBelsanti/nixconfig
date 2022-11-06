@@ -22,6 +22,8 @@
       fm = "clifm .";
       cleanup = "doas nix-collect-garbage -d";
       open = "xdg-open";
+      nix = "noglob nix";
+      nixos-rebuild = "noglob nixos-rebuild";
     };
     prezto = {
       enable = true;
@@ -29,7 +31,7 @@
       prompt.theme = "smiley";
     };
     plugins = [
-      #                  Broken
+      # Broken
       # { 
       #   name = "fzf-tab"; 
       #   file = "fzf-tab.plugin.zsh";

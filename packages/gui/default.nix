@@ -13,6 +13,8 @@ in
   environment.systemPackages = with pkgs; [
     helix-desktop
     
+    networkmanagerapplet
+    
     librewolf
     libreoffice
     pavucontrol
