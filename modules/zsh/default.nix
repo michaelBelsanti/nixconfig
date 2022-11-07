@@ -19,8 +19,9 @@
       ls = "exa -al";
       lt = "exa -aT";
       cat = "bat";
-      fm = "clifm .";
       cleanup = "doas nix-collect-garbage -d";
+      fm = "clifm .";
+      lg = "lazygit";
       open = "xdg-open";
       nix = "noglob nix";
       nixos-rebuild = "noglob nixos-rebuild";

@@ -16,7 +16,6 @@
     firewall.enable = false; # I live life on the edge
   };
 
-  # Can't use 'max' cause shitty nvidia drivers
   boot = {
     kernelParams = [ "nomodeset" ];
     extraModprobeConfig = "options nvidia_drm modeset=1";

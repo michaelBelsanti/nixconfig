@@ -12,7 +12,7 @@ in
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user hyprland; };
+    specialArgs = { inherit inputs user; };
     modules = [ 
       ./configuration.nix
       ./desktop/configuration.nix
@@ -39,7 +39,7 @@ in
 
   laptop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user hyprland; };
+    specialArgs = { inherit inputs user; };
     modules = [ 
       ./configuration.nix
       ./laptop/configuration.nix
