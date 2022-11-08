@@ -1,8 +1,8 @@
-{ lib, system, user, inputs, home-manager, ... }:
+{ lib, system, user, flakePath, inputs, home-manager, ... }:
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user; };
+    specialArgs = { inherit inputs user flakePath; };
     modules = [
       ./configuration.nix
       ./desktop/configuration.nix
@@ -19,7 +19,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };
+        home-manager.extraSpecialArgs = { inherit user flakePath; };
         home-manager.users.${user} = {
           imports = [
             ./desktop/home.nix
@@ -31,7 +31,7 @@
 
   laptop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user; };
+    specialArgs = { inherit inputs user flakePath; };
     modules = [
       ./configuration.nix
       ./laptop/configuration.nix
@@ -44,7 +44,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };
+        home-manager.extraSpecialArgs = { inherit user flakePath; };
         home-manager.users.${user} = {
           imports = [
             ./laptop/home.nix

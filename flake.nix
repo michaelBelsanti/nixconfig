@@ -27,6 +27,8 @@
     let
       system = "x86_64-linux";
       user = "quasi";
+      flakePath = "/home/${user}/.flake"; # Used for commands and aliases
+      lib = nixpkgs.lib;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -36,7 +38,7 @@
       nixosConfigurations = (
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit system user inputs home-manager;
+          inherit system user flakePath inputs home-manager;
         }
       );
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, user, ... }:
+{ config, lib, pkgs, inputs, user, flakePath, ... }:
 let
 catppuccin-grub-theme = pkgs.fetchFromGitHub
   {
@@ -216,6 +216,10 @@ in
     # For allowing SSH keys
     pam.enableSSHAgentAuth = true;
   };
+  
+  system.activationScripts.registryAdd.text = ''
+    ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
+  '';
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

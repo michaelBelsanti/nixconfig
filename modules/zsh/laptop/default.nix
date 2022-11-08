@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, flakePath, ...}:
 {
   imports = [
     ../default.nix
@@ -8,8 +8,8 @@
   programs.zsh = {
     initExtra = "nitch";
     shellAliases = {
-      nixup = "doas nixos-rebuild switch --flake '/home/quasi/.flake/#laptop' && source ~/.config/zsh/.zshrc";
-      nixUp = "nix flake update ~/.flake && doas nixos-rebuild switch --flake '/home/quasi/.flake/#laptop' && source ~/.config/zsh/.zshrc";
+      nixup = "doas nixos-rebuild switch --flake '${flakePath}#laptop' && source ~/.config/zsh/.zshrc";
+      nixUp = "nix flake update ~/.flake && doas nixos-rebuild switch --flake '${flakePath}#laptop' && source ~/.config/zsh/.zshrc";
     };
   };
  }
