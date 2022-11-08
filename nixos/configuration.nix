@@ -196,6 +196,11 @@ in
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     podman.enable = true;
+    # For running a nixos-vm
+    vmVariant.virtualisation = {
+      memorySize = 4096;
+      cores = 4;
+    };
   };
   # virtualisation.qemu.guestAgent.enable = true;
 

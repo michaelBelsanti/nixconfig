@@ -39,6 +39,8 @@
     # Nix
     rnix-lsp
     nix-tree
+    nix-template
+    nix-index
     
     distrobox
   ];
