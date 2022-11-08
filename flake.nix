@@ -3,9 +3,9 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    
+
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     home-manager = {
@@ -17,30 +17,36 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     darwin = {
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
   outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, ... }:
-  let
-    user = "quasi";
-  in
-  {
-    nixosConfigurations = (
-      import ./nixos {
-        inherit (nixpkgs) lib;
-        inherit inputs nixpkgs nix-gaming nixos-hardware home-manager user hyprland;
-      }
-    );
-    
-    darwinConfigurations = (
-      import ./osx {
-        inherit (nixpkgs) lib;
-        inherit inputs nixpkgs home-manager darwin user;
-      }
-    );
-  };
+    let
+      system = "x86_64-linux";
+      user = "quasi";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
+    {
+      nixosConfigurations = (
+        import ./nixos {
+          inherit (nixpkgs) lib;
+          inherit system user inputs home-manager;
+        }
+      );
+
+      darwinConfigurations = (
+        import ./osx {
+          inherit (nixpkgs) lib;
+          inherit system inputs home-manager darwin user;
+        }
+      );
+
+      devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgs; };
+    };
 }

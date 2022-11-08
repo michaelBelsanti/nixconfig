@@ -1,35 +1,27 @@
-{ lib, inputs, nixpkgs, nix-gaming, nixos-hardware, home-manager, user, hyprland, ... }:
-
-let
-  system = "x86_64-linux";
-  user = "quasi";
-  pkgs = import nixpkgs {
-    inherit system;
-    config.allowUnfree = true;
-  };
-  lib = nixpkgs.lib;
-in
+{ lib, system, user, inputs, home-manager, ... }:
 {
   desktop = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit inputs user; };
-    modules = [ 
+    modules = [
       ./configuration.nix
       ./desktop/configuration.nix
-        
-      hyprland.nixosModules.default
-      
-      nix-gaming.nixosModules.pipewireLowLatency 
-        
-      nixos-hardware.nixosModules.common-cpu-amd
-      nixos-hardware.nixosModules.common-pc-ssd
-      
-      home-manager.nixosModules.home-manager {
+
+
+      inputs.hyprland.nixosModules.default
+
+      inputs.nix-gaming.nixosModules.pipewireLowLatency
+
+      inputs.nixos-hardware.nixosModules.common-cpu-amd
+      inputs.nixos-hardware.nixosModules.common-pc-ssd
+
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };
-        home-manager.users.${user}= {
-          imports = [ 
+        home-manager.users.${user} = {
+          imports = [
             ./desktop/home.nix
           ];
         };
@@ -40,25 +32,26 @@ in
   laptop = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit inputs user; };
-    modules = [ 
+    modules = [
       ./configuration.nix
       ./laptop/configuration.nix
-        
-      hyprland.nixosModules.default
 
-      nixos-hardware.nixosModules.framework-12th-gen-intel
+      inputs.hyprland.nixosModules.default
 
-      home-manager.nixosModules.home-manager {
+      inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+
+      home-manager.nixosModules.home-manager
+      {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
-          imports = [ 
+          imports = [
             ./laptop/home.nix
           ];
         };
       }
     ];
   };
-     
+
 }

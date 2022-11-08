@@ -1,4 +1,4 @@
-{ lib, inputs, nixpkgs, home-manager, darwin, user, ...}:
+{ lib, user, inputs, nixpkgs, home-manager, darwin, ...}:
 let
   system = "x86_64-darwin";
   user = "tech4";
