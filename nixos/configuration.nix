@@ -10,14 +10,15 @@ catppuccin-grub-theme = pkgs.fetchFromGitHub
   };
 in
 {
-  imports =
-    [
-      ./nix.nix
-    ];
+  imports = [ ./nix.nix ];
 
-  environment.systemPackages = [
-    catppuccin-grub-theme
-  ];
+  environment = {
+    binsh = "${pkgs.dash}/bin/dash";
+    shells = with pkgs; [ zsh ];
+    systemPackages = [
+      catppuccin-grub-theme
+    ];
+  };
 
   # Boot options
   boot = {
