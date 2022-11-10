@@ -25,6 +25,7 @@
     ripgrep
     fzf
     ncdu
+    imagemagick
 
     # File Management
     edir
