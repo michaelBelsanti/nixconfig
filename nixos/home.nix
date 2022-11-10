@@ -1,3 +1,5 @@
+# Main NixOS home-manager configuration, imported by all NixOS configs
+
 { lib, config, pkgs, user, ... }:
 {
   imports =

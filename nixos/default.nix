@@ -1,3 +1,5 @@
+# Contains all my NixOS configurations and their imports
+
 { lib, system, user, flakePath, inputs, home-manager, ... }:
 {
   desktop = lib.nixosSystem {

@@ -1,3 +1,5 @@
+# Main universal NixOS configuration, imported by all NixOS configs.
+
 { config, lib, pkgs, inputs, user, flakePath, ... }:
 let
 catppuccin-grub-theme = pkgs.fetchFromGitHub
