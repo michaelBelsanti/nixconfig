@@ -9,6 +9,9 @@
     settings = {
       auto-optimise-store = true;
       trusted-users = [ "root" "quasi" ];
+      trusted-substituters = [
+        "https://quasigod.cachix.org"
+      ];
     };
     extraOptions = ''
       experimental-features = nix-command flakes
