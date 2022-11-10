@@ -18,6 +18,7 @@
   };
 
 
+  programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
   services.xserver = {
     enable = true;
     videoDrivers = [ "intel" ];

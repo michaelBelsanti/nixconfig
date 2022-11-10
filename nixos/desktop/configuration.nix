@@ -30,6 +30,7 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
+    windowManager.i3.enable = true; # Configured by ../../modules/i3 import
     displayManager = {
       setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
       gdm = {
