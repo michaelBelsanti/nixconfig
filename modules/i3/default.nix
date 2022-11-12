@@ -14,9 +14,13 @@
       feh
       dunst
       cinnamon.nemo
+      gnome.nautilus
       wmctrl
       selectdefaultapplication
-      lxsession
+      (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''
+        mkdir $out/bin
+        ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
+      '';})) # So polkit-gnome is in my path
       nsxiv
       pamixer
       xdotool

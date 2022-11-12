@@ -22,9 +22,11 @@
 
   # Main system theming
   xsession = {
+    # profilePath = "${config.xdg.configHome}/X11/xsession";
     enable = true;
     initExtra = ''
       xrdb merge ~/.config/X11/xresources
+      ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
     '';
   };
   gtk = {
@@ -34,9 +36,13 @@
       package = pkgs.montserrat;
       size = 12;
     };
-    # iconTheme = "Adwaita";
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
     theme.name = "Catppuccin-Pink-Dark";
     theme.package = pkgs.catppuccin-gtk;
+    gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk3 = {
       bookmarks = [
         "file:///home/quasi/Downloads Downloads"
@@ -108,19 +114,26 @@
 
   # Git
   services.gpg-agent.enable = true;
-  programs.gpg.homedir = "${config.xdg.dataHome}/gnupg";
-  programs.git = {
-    enable = true;
-    userName = "quasigod-io";
-    userEmail = "quasigod-io@protonmail.com";
-    delta.enable = true;
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
+  programs = {
+    bash = {
+      enable = true;
+      historyFile = "${config.xdg.dataHome}/bash/history";
+    };
+    gpg.homedir = "${config.xdg.dataHome}/gnupg";
+    git = {
+      enable = true;
+      userName = "quasigod-io";
+      userEmail = "quasigod-io@protonmail.com";
+      delta.enable = true;
+      extraConfig = {
+        init = {
+          defaultBranch = "main";
+        };
       };
     };
   };
 
+  # Cleaning up ~
   home.sessionVariables = {
     EDIR_EDITOR = "hx";
     BROWSER = "librewolf";
@@ -128,15 +141,16 @@
 
     MANGOHUD = "0";
 
-    XDG_CONFIG_HOME = "\$HOME/.config";
-    XDG_CACHE_HOME = "\$HOME/.cache";
-    XDG_DATA_HOME = "\$HOME/.local/share";
-    XDG_STATE_HOME = "\$HOME/.local/state";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
 
     __GL_SHADER_DISK_CACHE = 1;
-    __GL_SHADER_DISK_CACHE_PATH = "\$HOME/Games/cache";
+    __GL_SHADER_DISK_CACHE_PATH = "$HOME/Games/cache";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = 1;
 
+    ANDROID_HOME = "${config.xdg.dataHome}/android";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
     GOPATH = "${config.xdg.dataHome}/go";
@@ -146,7 +160,7 @@
     OCTAVE_HISTFILE = "${config.xdg.cacheHome}/octave-hsts";
     OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
     STACK_ROOT = "${config.xdg.dataHome}/stack";
-    # WGETRC = "${config.xdg.configHome}/wgetrc";
     _Z_DATA = "${config.xdg.dataHome}/z";
+    # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
   };
 }

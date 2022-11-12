@@ -1,7 +1,6 @@
 { config, pkgs, ...}:
 {
   programs.bash.historyFileSize = 0;
-  programs.atuin.enable = false;
   programs.exa.enable = true;
   programs.zoxide.enable = true;
   programs.fzf.enable = true;
@@ -14,6 +13,11 @@
     autocd = true;
     defaultKeymap = "emacs";
     dotDir = ".config/zsh/";
+    history = {
+      path = "${config.xdg.configHome}/zsh/history";
+      size = 10000;
+      expireDuplicatesFirst = true;
+    };
     envExtra = "PATH=$HOME/.local/bin:$PATH";
     shellAliases = {
       ls = "exa -al";

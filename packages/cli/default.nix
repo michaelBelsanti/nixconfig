@@ -12,13 +12,12 @@
 
     cachix
 
-    wget
     aria2
     unrar
     unzip
     killall
     bat
-    tldr
+    tealdeer
     lsof
     dig
     fd
@@ -32,6 +31,7 @@
     clifm
     gdu
     du-dust
+    lf
 
     # Process managers
     btop

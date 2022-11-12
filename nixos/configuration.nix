@@ -67,6 +67,10 @@ in
     layout = "us";
     # xkbOptions = "caps:escape";
     libinput.enable = true;
+    desktopManager.gnome.extraGSettingsOverrides = ''
+      [com.ubuntu.login-screen]
+      background-color='#1e1e2e'
+    '';
   };
 
   # Enable sound.
