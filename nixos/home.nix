@@ -4,6 +4,7 @@
 {
   imports =
     [
+      ../modules/catppuccin
       ../modules/alacritty
       ../modules/wezterm
       ../modules/cli
@@ -40,8 +41,6 @@
       name = "Adwaita";
       package = pkgs.gnome.adwaita-icon-theme;
     };
-    theme.name = "Catppuccin-Pink-Dark";
-    theme.package = pkgs.catppuccin-gtk;
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk3 = {
       bookmarks = [
