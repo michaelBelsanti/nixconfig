@@ -5,6 +5,6 @@
   ];
   
   environment.systemPackages = with pkgs; [
-    alacritty
+    # alacritty
   ];
 }

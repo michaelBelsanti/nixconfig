@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../osx/hosts/osx
-    ../nix.nix
+    ../nixos/nix.nix
+    ../packages/osx
     # ../../modules/yabai
-    ../../modules/noyabai
+    # ../../modules/noyabai
   ];
   
   # List packages installed in system profile. To search by name, run:

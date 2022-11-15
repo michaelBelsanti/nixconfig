@@ -2,9 +2,9 @@
 {
   imports = 
     [
-      ../../modules/cli
-      ../../modules/zsh/osx
-      ../../modules/alacritty
+      ../modules/cli
+      ../modules/zsh/osx
+      ../modules/wezterm
     ];
 
   # Home Manager needs a bit of information about you and the

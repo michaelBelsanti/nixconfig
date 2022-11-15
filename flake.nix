@@ -22,8 +22,11 @@
       url = "github:lnl7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    devenv.url = "github:cachix/devenv/v0.2";
+
   };
-  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, ... }:
+  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, devenv, ... }:
     let
       system = "x86_64-linux";
       user = "quasi";
@@ -38,14 +41,14 @@
       nixosConfigurations = (
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit system user flakePath inputs home-manager;
+          inherit system user flakePath inputs home-manager devenv;
         }
       );
 
       darwinConfigurations = (
         import ./osx {
           inherit (nixpkgs) lib;
-          inherit system inputs home-manager darwin user;
+          inherit system user inputs home-manager darwin devenv;
         }
       );
 

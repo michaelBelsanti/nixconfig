@@ -1,13 +1,14 @@
 # Contains all my NixOS configurations and their imports
 
-{ lib, system, user, flakePath, inputs, home-manager, ... }:
+{ lib, system, user, flakePath, inputs, home-manager, devenv, ... }:
 {
   desktop = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit inputs user flakePath; };
+    specialArgs = { inherit inputs user flakePath devenv; };
     modules = [
       ./configuration.nix
       ./desktop/configuration.nix
+      ../packages/nixos/desktop
 
 
       inputs.hyprland.nixosModules.default
@@ -37,6 +38,7 @@
     modules = [
       ./configuration.nix
       ./laptop/configuration.nix
+      ../packages/nixos/laptop
 
       inputs.hyprland.nixosModules.default
 

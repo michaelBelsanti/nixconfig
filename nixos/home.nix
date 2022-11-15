@@ -5,7 +5,7 @@
   imports =
     [
       ../modules/catppuccin
-      ../modules/alacritty
+      # ../modules/alacritty
       ../modules/wezterm
       ../modules/cli
     ];

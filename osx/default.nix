@@ -1,14 +1,15 @@
-{ lib, user, inputs, nixpkgs, home-manager, darwin, ...}:
+{ lib, user, inputs, home-manager, darwin, devenv, ...}:
 let
   system = "x86_64-darwin";
-  user = "tech4";
+  user = "michaelbelsanti";
 in
 {
   osx = darwin.lib.darwinSystem {
     inherit system;
-    specialArgs = { inherit inputs user; };
+    specialArgs = { inherit inputs user devenv; };
     modules = [
       ./configuration.nix
+      ../packages/osx
       
       home-manager.darwinModules.home-manager {
         home-manager.useGlobalPkgs = true;
