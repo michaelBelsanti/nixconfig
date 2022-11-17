@@ -31,6 +31,7 @@
     enable = true;
     videoDrivers = [ "nvidia" ];
     windowManager.i3.enable = true; # Configured by ../../modules/i3 import
+    # desktopManager.gnome.enable = true;
     displayManager = {
       setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
       gdm = {
@@ -70,7 +71,7 @@
 
   xdg.portal.extraPortals = with pkgs; 
     lib.mkIf (config.services.xserver.desktopManager.gnome.enable == false) [
-      xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
     ];
 
   services = {

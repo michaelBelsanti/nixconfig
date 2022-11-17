@@ -4,7 +4,7 @@
     [
       ../home.nix
       ../../modules/hyprland/config
-      ../../modules/zsh/laptop
+      ../../modules/shell/laptop
     ];
   home.file = { };
 }

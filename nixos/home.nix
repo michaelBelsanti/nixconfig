@@ -50,11 +50,6 @@
         "file:///home/quasi/Videos Videos"
         "file:///home/quasi/Games Games"
       ];
-      extraCss = ''
-        decoration, window, window.background, window.titlebar, * {
-          border-radius: 0px;
-        }
-      '';
     };
   };
   # qt = {
@@ -112,7 +107,12 @@
   };
 
   # Git
-  services.gpg-agent.enable = true;
+  services = {
+    gpg-agent = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
+    };
   programs = {
     bash = {
       enable = true;

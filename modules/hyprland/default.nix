@@ -16,7 +16,6 @@
       wezterm
       alacritty
       rofi-wayland
-      cinnamon.nemo
       gnome.nautilus
       selectdefaultapplication
       (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''

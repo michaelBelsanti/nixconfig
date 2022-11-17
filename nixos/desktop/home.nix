@@ -3,7 +3,7 @@
   imports =
     [
       ../home.nix
-      ../../modules/zsh/desktop
+      ../../modules/shell/desktop
       ../../modules/i3/config
     ];
 

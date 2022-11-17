@@ -13,7 +13,6 @@
       rofi
       feh
       dunst
-      cinnamon.nemo
       gnome.nautilus
       wmctrl
       selectdefaultapplication
