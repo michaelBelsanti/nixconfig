@@ -8,9 +8,10 @@
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = true;
-      trusted-users = [ "root" "quasi" ];
+      trusted-users = [ "root" "quasi" "michaelbelsanti" ];
       trusted-substituters = [
         "https://quasigod.cachix.org"
+        "https://devenv.cachix.org"
       ];
     };
     extraOptions = ''

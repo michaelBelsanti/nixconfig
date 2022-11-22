@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, devenv, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nitch
+    # nitch
     # Text editing
     helix
     neovim
@@ -28,7 +28,7 @@
 
     # File Management
     edir
-    clifm
+    # clifm
     gdu
     du-dust
     lf
@@ -44,5 +44,7 @@
     nix-index
     
     distrobox
+    
+    devenv.packages.${pkgs.system}.devenv
   ];
 }
