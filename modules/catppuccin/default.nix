@@ -15,10 +15,6 @@
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;
-    "helix/themes" = {
-      source = ./helix-themes;
-      recursive = true;
-    };
   };
   programs.helix.settings.theme = "catppuccin_macchiato";
   programs.alacritty.settings = {
