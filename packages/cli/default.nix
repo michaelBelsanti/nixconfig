@@ -44,6 +44,8 @@
     nix-index
     
     distrobox
+
+    so
     
     devenv
   ];

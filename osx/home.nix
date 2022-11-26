@@ -3,7 +3,7 @@
   imports = 
     [
       ../modules/cli
-      ../modules/zsh/osx
+      ../modules/shell/osx
       ../modules/wezterm
     ];
 
