@@ -23,7 +23,7 @@
   
   
   # Make apps installed with Nix appear in spotlight
-  system.activationScripts.applications.text = pkgs.lib.mkForce (
+  system.activationScripts.applications.text = pkgs.lib.mkForce 
     ''
       echo "setting up ~/Applications..." >&2
       rm -rf ~/Applications/Nix\ Apps
@@ -32,8 +32,7 @@
         src="$(/usr/bin/stat -f%Y "$app")"
         cp -r "$src" ~/Applications/Nix\ Apps
       done
-    ''
-  );
+    '';
   
   system.defaults = {
     finder = {

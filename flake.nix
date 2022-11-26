@@ -31,26 +31,24 @@
       system = "x86_64-linux";
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-      lib = nixpkgs.lib;
+      # lib = nixpkgs.lib;
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
     in
     {
-      nixosConfigurations = (
+      nixosConfigurations =
         import ./nixos {
           inherit (nixpkgs) lib;
           inherit system user flakePath inputs home-manager devenv;
-        }
-      );
+        };
 
-      darwinConfigurations = (
+      darwinConfigurations =
         import ./osx {
           inherit (nixpkgs) lib;
           inherit system user inputs home-manager darwin devenv;
-        }
-      );
+        };
 
       devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgs; };
     };

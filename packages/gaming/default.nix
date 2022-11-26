@@ -1,16 +1,16 @@
 { config, pkgs, lib, inputs, ... }:
 let 
-  wine-tkg = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg;
-  gmstart = (pkgs.writeShellScriptBin "gmstart" ''
+  inherit (inputs.nix-gaming.packages.${pkgs.system}) wine-tkg;
+  gmstart = pkgs.writeShellScriptBin "gmstart" ''
       echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
       polybar-msg action gamemode module_show
       togdnd -p
-    '');
-  gmstop = (pkgs.writeShellScriptBin "gmstop" ''
+    '';
+  gmstop = pkgs.writeShellScriptBin "gmstop" ''
       echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
       polybar-msg action gamemode module_hide
       togdnd -u
-    '');
+    '';
 in
 {
   # Using mkForce because lib.mkDefault can't be used in nixos/configuration.nix
