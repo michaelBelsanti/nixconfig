@@ -31,7 +31,6 @@
     enable = true;
     videoDrivers = [ "nvidia" ];
     windowManager.i3.enable = true; # Configured by ../../modules/i3 import
-    # desktopManager.gnome.enable = true;
     displayManager = {
       setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
       gdm = {
@@ -69,10 +68,9 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
-  xdg.portal.extraPortals = with pkgs; 
-    lib.mkIf (config.services.xserver.desktopManager.gnome.enable == false) [
-      xdg-desktop-portal-gnome
-    ];
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gnome
+  ];
 
   services = {
     pipewire.lowLatency.enable = true;
@@ -86,7 +84,6 @@
   
   nix.settings = {
     substituters = [ "https://nix-gaming.cachix.org" ];
-    trusted-public-keys = [ "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4=" ];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system

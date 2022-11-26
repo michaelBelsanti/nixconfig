@@ -7,7 +7,7 @@ catppuccin-grub-theme = pkgs.fetchFromGitHub
     owner = "catppuccin";
     repo = "grub";
     rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-    sparseCheckout = "src/catppuccin-mocha-grub-theme";
+    sparseCheckout = [ "src/catppuccin-mocha-grub-theme" ];
     sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
   };
 in

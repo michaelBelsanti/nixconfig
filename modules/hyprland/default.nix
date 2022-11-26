@@ -30,37 +30,37 @@
       slurp
       swaylock
      ];
-  
-    nixpkgs.overlays = [
-      (self: super: {
-        discord-openasar = pkgs.symlinkJoin {
-          name = "discord-openasar";
-          paths = [ super.discord-openasar];
-          buildInputs = [ pkgs.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/opt/Discord/Discord --set GDK_SCALE 2 --set XCURSOR_SIZE 64
-          '';
-        };
-        jetbrains = super.jetbrains // {
-          idea-community = pkgs.symlinkJoin {
-            name = "idea-community";
-            paths = [ super.jetbrains.idea-community ];
-            buildInputs = [ pkgs.makeWrapper ];
-            postBuild = ''
-              wrapProgram $out/bin/idea-community --set GDK_SCALE 2 --set XCURSOR_SIZE 64
-            '';
-          };
-        };
-        jflap = pkgs.symlinkJoin {
-          name = "jflap";
-          paths = [ super.jflap ];
-          buildInputs = [ pkgs.makeWrapper ];
-          postBuild = ''
-            wrapProgram $out/bin/jflap --set GDK_SCALE 2 --set XCURSOR_SIZE 64
-          '';
-        };
-      })
-    ];
+
+   # nixpkgs.overlays = [
+    #   (self: super: {
+    #     discord-openasar = pkgs.symlinkJoin {
+    #       name = "discord-openasar";
+    #       paths = [ super.discord-openasar];
+    #       buildInputs = [ pkgs.makeWrapper ];
+    #       postBuild = ''
+    #         wrapProgram $out/opt/Discord/Discord --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+    #       '';
+    #     };
+    #     jetbrains = super.jetbrains // {
+    #       idea-community = pkgs.symlinkJoin {
+    #         name = "idea-community";
+    #         paths = [ super.jetbrains.idea-community ];
+    #         buildInputs = [ pkgs.makeWrapper ];
+    #         postBuild = ''
+    #           wrapProgram $out/bin/idea-community --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+    #         '';
+    #       };
+    #     };
+    #     jflap = pkgs.symlinkJoin {
+    #       name = "jflap";
+    #       paths = [ super.jflap ];
+    #       buildInputs = [ pkgs.makeWrapper ];
+    #       postBuild = ''
+    #         wrapProgram $out/bin/jflap --set GDK_SCALE 2 --set XCURSOR_SIZE 64
+    #       '';
+    #     };
+    #   })
+    # ];
   
     # hardware.nvidia.modesetting.enable = true;
     # environment.variables = {

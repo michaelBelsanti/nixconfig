@@ -1,7 +1,7 @@
-{ config, pkgs, devenv, ... }:
+{ config, pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # nitch
+    nitch
     # Text editing
     helix
     neovim
@@ -45,6 +45,6 @@
     
     distrobox
     
-    devenv.packages.${pkgs.system}.devenv
+    devenv
   ];
 }

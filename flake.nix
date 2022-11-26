@@ -23,25 +23,36 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    devenv.url = "github:cachix/devenv/v0.2";
+    devenv.url = "github:cachix/devenv";
+    helix.url = "github:helix-editor/helix";
 
   };
-  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, devenv, ... }:
+  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, devenv, helix, ... }:
     let
       system = "x86_64-linux";
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-      # lib = nixpkgs.lib;
-      pkgs = import nixpkgs {
+
+      localOverlays = import ./packages/overlays.nix;
+      inputOverlays = [
+        (final: prev: {
+          inherit (helix.packages.${system}) helix; 
+          inherit (devenv.packages.${system}) devenv;
+          inherit (nix-gaming.packages.${pkgs.system}) wine-tkg;
+        })
+      ];
+      pkgsConfig = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = inputOverlays ++ [ localOverlays ];
       };
+      pkgs = pkgsConfig;
     in
     {
       nixosConfigurations =
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit system user flakePath inputs home-manager devenv;
+          inherit pkgs system user flakePath inputs home-manager devenv;
         };
 
       darwinConfigurations =

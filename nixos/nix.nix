@@ -12,6 +12,7 @@
       trusted-substituters = [
         "https://quasigod.cachix.org"
         "https://devenv.cachix.org"
+        "https://helix.cachix.org"
       ];
     };
     extraOptions = ''

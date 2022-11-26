@@ -1,6 +1,5 @@
 { config, pkgs, lib, inputs, ... }:
 let 
-  inherit (inputs.nix-gaming.packages.${pkgs.system}) wine-tkg;
   gmstart = pkgs.writeShellScriptBin "gmstart" ''
       echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
       polybar-msg action gamemode module_show
@@ -26,18 +25,6 @@ in
     mangohud
     prismlauncher
     minetest
-    
-    # For use with gamemode. Hugepages can increase performance in some games
-    # (writeShellScriptBin "gmstart" ''
-    #   echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-    #   polybar-msg action gamemode module_show
-    #   togdnd -p
-    # '')
-    # (writeShellScriptBin "gmstop" ''
-    #   echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-    #   polybar-msg action gamemode module_hide
-    #   togdnd -u
-    # '')
   ];
 
   hardware.steam-hardware.enable = true;

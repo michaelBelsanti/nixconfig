@@ -1,10 +1,10 @@
 # Contains all my NixOS configurations and their imports
 
-{ lib, system, user, flakePath, inputs, home-manager, devenv, ... }:
+{ lib, pkgs, system, user, flakePath, inputs, home-manager, ... }:
 {
   desktop = lib.nixosSystem {
-    inherit system;
-    specialArgs = { inherit inputs user flakePath devenv; };
+    inherit system pkgs;
+    specialArgs = { inherit inputs user flakePath; };
     modules = [
       ./configuration.nix
       ./desktop/configuration.nix

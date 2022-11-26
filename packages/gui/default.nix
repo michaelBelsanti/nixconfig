@@ -47,10 +47,4 @@ in
 
     jflap
   ];
-  nixpkgs.overlays = [
-    (self: super: {
-      discord-openasar = super.discord.override { 
-        nss = pkgs.nss_latest; withOpenASAR = true; };
-    })
-  ];
 }

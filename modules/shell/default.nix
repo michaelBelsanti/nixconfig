@@ -1,7 +1,6 @@
 { config, pkgs, ...}:
 {
   programs = {
-    bash.historyFileSize = 0;
     exa.enable = true;
     zoxide.enable = true;
     fzf = {
@@ -12,6 +11,7 @@
     bash = {
       enable = true;
       enableVteIntegration = true;
+      historyFileSize = 0;
       shellAliases = {
         ls = "exa -al";
         lt = "exa -aT";
