@@ -54,8 +54,8 @@
   # programs.fish.enable = true;
   
   # 
-  nixpkgs.config.allowUnsupportedSystem = true;
-  nixpkgs.config.allowBroken = true;
+  # nixpkgs.config.allowUnsupportedSystem = true;
+  # nixpkgs.config.allowBroken = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

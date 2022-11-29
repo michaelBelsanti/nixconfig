@@ -28,38 +28,40 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
-  outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, devenv, helix, ... }:
+  outputs = inputs @ { nixpkgs, nix-gaming, home-manager, darwin, devenv, helix, ... }:
     let
       system = "x86_64-linux";
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
       localOverlays = import ./packages/overlays.nix;
-      inputOverlays = [
-        (final: prev: {
+      inputOverlays = system: [
+        (_: _: {
           inherit (helix.packages.${system}) helix; 
           inherit (devenv.packages.${system}) devenv;
           inherit (nix-gaming.packages.${pkgs.system}) wine-tkg;
         })
       ];
-      pkgsConfig = import nixpkgs {
+      pkgsConfig = system: import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = inputOverlays ++ [ localOverlays ];
+        overlays = inputOverlays system ++ [ localOverlays ];
       };
-      pkgs = pkgsConfig;
+      pkgs = pkgsConfig system;
+      osxPkgs = pkgsConfig "aarch64-darwin";
     in
     {
       nixosConfigurations =
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit pkgs system user flakePath inputs home-manager devenv;
+          inherit pkgs system user flakePath inputs home-manager;
         };
 
       darwinConfigurations =
         import ./osx {
+          inherit osxPkgs;
           inherit (nixpkgs) lib;
-          inherit system user inputs home-manager darwin devenv;
+          inherit pkgsConfig system user inputs home-manager darwin devenv;
         };
 
       devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgs; };

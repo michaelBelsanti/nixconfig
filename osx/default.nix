@@ -1,12 +1,13 @@
-{ lib, user, inputs, home-manager, darwin, devenv, ...}:
+{ lib, pkgsConfig, inputs, home-manager, darwin, ...}:
 let
-  system = "x86_64-darwin";
+  system = "aarch64-darwin";
   user = "michaelbelsanti";
+  pkgs = pkgsConfig system;
 in
 {
   osx = darwin.lib.darwinSystem {
-    inherit system;
-    specialArgs = { inherit inputs user devenv; };
+    inherit system pkgs;
+    specialArgs = { inherit inputs user; };
     modules = [
       ./configuration.nix
       ../packages/osx
