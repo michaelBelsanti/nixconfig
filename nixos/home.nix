@@ -1,6 +1,6 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
 
-{ lib, config, pkgs, user, ... }:
+{ config, pkgs, user, ... }:
 {
   imports =
     [

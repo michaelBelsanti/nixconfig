@@ -1,7 +1,7 @@
 # Imported by nixos/desktop/configuration.nix
 # Allows kvms and pcie passthrough
 
-{ lib, config, pkgs, ...}:
+{ pkgs, ...}:
 {
   boot.kernelParams = [ "amd_iommu=on" "iommu=pt" ];
   boot.kernelModules = [ "kvm-amd" "vfio-pci" ];

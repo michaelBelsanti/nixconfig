@@ -1,5 +1,5 @@
 # Imported by home-manager, sets catppuccin system theming
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   gtk = {
     theme = {

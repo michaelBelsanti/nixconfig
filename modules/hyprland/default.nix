@@ -3,7 +3,7 @@
 # TODO
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 
-{ lib, config, pkgs, isNvidia ? false, ... }:
+{ lib, config, pkgs, ... }:
 {
   config = lib.mkIf config.programs.hyprland.enable {
     programs.hyprland.recommendedEnvironment = true;
@@ -20,7 +20,7 @@
       nautilus-open-any-terminal
       gnome.file-roller
       selectdefaultapplication
-      (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''
+      (polkit_gnome.overrideAttrs (_oldAttrs: { postFixup = ''
         mkdir $out/bin
         ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
       '';})) # Puts polkit-gnome in my path

@@ -1,7 +1,5 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, ... }:
 {
-  # Enable unfree repo
-  # nixpkgs.config.allowUnfree = true;
   # Enable flakes
   nix = {
     package = pkgs.nixVersions.unstable;

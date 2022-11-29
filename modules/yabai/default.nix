@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ...}: {
+{ config, pkgs, ...}: {
   services.yabai = {
     enable = true;
     # enableScriptingAddition = true;

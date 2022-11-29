@@ -1,4 +1,4 @@
-{ lib, config, pkgs, fetchFromGitHub, ... }:
+{ lib, config, pkgs, ... }:
 {
   config = lib.mkIf config.services.xserver.windowManager.i3.enable {
     services.xserver.windowManager.i3.package = pkgs.i3-gaps;
@@ -18,7 +18,7 @@
       gnome.file-roller
       wmctrl
       selectdefaultapplication
-      (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''
+      (polkit_gnome.overrideAttrs (_oldAttrs: { postFixup = ''
         mkdir $out/bin
         ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
       '';})) # So polkit-gnome is in my path

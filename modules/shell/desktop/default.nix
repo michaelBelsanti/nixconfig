@@ -1,4 +1,4 @@
-{ config, pkgs, flakePath, ...}:
+{ flakePath, ...}:
 {
   imports = [
     ../default.nix

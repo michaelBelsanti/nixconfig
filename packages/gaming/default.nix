@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, lib, ... }:
 let 
   gmstart = pkgs.writeShellScriptBin "gmstart" ''
       echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
