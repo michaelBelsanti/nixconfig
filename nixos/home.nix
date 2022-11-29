@@ -135,6 +135,8 @@
 
   # Cleaning up ~
   home.sessionVariables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
     EDIR_EDITOR = "hx";
     BROWSER = "librewolf";
     FZF_DEFAULT_COMMAND = "find .";
