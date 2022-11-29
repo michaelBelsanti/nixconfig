@@ -16,7 +16,7 @@ in
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ zsh ];
+    shells = with pkgs; [ nushell zsh ];
     systemPackages = [
       catppuccin-grub-theme
     ];
@@ -96,7 +96,7 @@ in
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
     initialPassword = "lol";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   # Best fonts (Especially JetBrains Mono)

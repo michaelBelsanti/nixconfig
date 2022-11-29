@@ -160,6 +160,7 @@
     OCTAVE_HISTFILE = "${config.xdg.cacheHome}/octave-hsts";
     OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
     STACK_ROOT = "${config.xdg.dataHome}/stack";
+    XCOMPOSECACHE="${config.xdg.cacheHome}/X11/xcompose";
     _Z_DATA = "${config.xdg.dataHome}/z";
     # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
   };
