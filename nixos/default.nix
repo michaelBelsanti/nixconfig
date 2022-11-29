@@ -26,6 +26,7 @@
         home-manager.users.${user} = {
           imports = [
             ./desktop/home.nix
+            inputs.hyprland.homeManagerModules.default
           ];
         };
       }
@@ -52,6 +53,7 @@
         home-manager.users.${user} = {
           imports = [
             ./laptop/home.nix
+            inputs.hyprland.homeManagerModules.default
           ];
         };
       }
