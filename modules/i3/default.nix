@@ -14,6 +14,8 @@
       feh
       dunst
       gnome.nautilus
+      nautilus-open-any-terminal
+      gnome.file-roller
       wmctrl
       selectdefaultapplication
       (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''
@@ -28,6 +30,8 @@
       pamixer
       autotiling
       (polybar.override { i3GapsSupport = true; pulseSupport = true; })
+      networkmanagerapplet
+      pavucontrol
     ];
   };
 }

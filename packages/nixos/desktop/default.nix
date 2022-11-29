@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    ../../cli
-    ../../gui
+    ../system
+    ../home
     ../../gaming
     ../../programming
   ];

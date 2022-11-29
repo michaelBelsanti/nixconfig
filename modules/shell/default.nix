@@ -8,6 +8,9 @@
       enableZshIntegration = true;
       enableBashIntegration = true;
     };
+    nushell = {
+      enable = true;
+    };
     bash = {
       enable = true;
       enableVteIntegration = true;

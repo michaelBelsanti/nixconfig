@@ -1,17 +1,16 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nitch
+    librewolf
+    libreoffice
+
     # Text editing
     helix
     neovim
 
     ## CLI Tools
     git
-    lazygit
-
     cachix
-
     aria2
     unrar
     unzip
@@ -25,22 +24,19 @@
     fzf
     ncdu
     imagemagick
-
     # File Management
     edir
-    # clifm
+    clifm
     gdu
     du-dust
     lf
 
     # Process managers
-    btop
     bottom
 
     # Nix
     rnix-lsp
     nix-tree
-    nix-template
     nix-index
     
     distrobox

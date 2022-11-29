@@ -26,7 +26,7 @@
         home-manager.users.${user} = {
           imports = [
             ./desktop/home.nix
-            inputs.hyprland.homeManagerModules.default
+            inputs.spicetify-nix.homeManagerModule
           ];
         };
       }

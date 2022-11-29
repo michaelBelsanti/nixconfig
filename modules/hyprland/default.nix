@@ -17,11 +17,13 @@
       alacritty
       rofi-wayland
       gnome.nautilus
+      nautilus-open-any-terminal
+      gnome.file-roller
       selectdefaultapplication
       (polkit_gnome.overrideAttrs (oldAttrs: { postFixup = ''
         mkdir $out/bin
         ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
-      '';})) # So polkit-gnome is in my path
+      '';})) # Puts polkit-gnome in my path
       xsettingsd
       nsxiv
       pamixer
@@ -29,7 +31,9 @@
       grim
       slurp
       swaylock
-    ];
+      networkmanagerapplet
+      pavucontrol
+     ];
 
    # nixpkgs.overlays = [
     #   (self: super: {
