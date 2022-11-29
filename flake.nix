@@ -25,6 +25,7 @@
     
     devenv.url = "github:cachix/devenv";
     helix.url = "github:helix-editor/helix";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
   outputs = inputs @ { self, nixpkgs, nix-gaming, nixos-hardware, home-manager, hyprland, darwin, devenv, helix, ... }:

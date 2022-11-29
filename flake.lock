@@ -450,6 +450,21 @@
         "type": "github"
       }
     },
+    "nixpkgs_7": {
+      "locked": {
+        "lastModified": 1655043425,
+        "narHash": "sha256-A+oT+aQGhW5lXy8H0cqBLsYtgcnT5glmGOXWQDcGw6I=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "914ef51ffa88d9b386c71bdc88bffc5273c08ada",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -478,7 +493,8 @@
         "hyprland": "hyprland",
         "nix-gaming": "nix-gaming",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_6",
+        "spicetify-nix": "spicetify-nix"
       }
     },
     "rust-overlay": {
@@ -500,6 +516,24 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "spicetify-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1666059600,
+        "narHash": "sha256-ceVk8Yeg1jwrToeGReF3aphq0JPHykla6FjgVP0+d3s=",
+        "owner": "the-argus",
+        "repo": "spicetify-nix",
+        "rev": "56f9397313b1f97ba94b1b2f947133fff4a12cee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "the-argus",
+        "repo": "spicetify-nix",
         "type": "github"
       }
     },
