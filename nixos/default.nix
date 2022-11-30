@@ -1,6 +1,6 @@
 # Contains all my NixOS configurations and their imports
 
-{ lib, pkgsForSystem, system, user, flakePath, inputs, home-manager, ... }:
+{ lib, pkgsForSystem, user, flakePath, inputs, home-manager, ... }:
 let
   system = "x86_64-linux";
   pkgs = pkgsForSystem system;

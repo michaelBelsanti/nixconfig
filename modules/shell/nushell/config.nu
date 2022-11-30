@@ -1,5 +1,10 @@
 # Nushell Config File
 
+alias ls = ls -a
+alias lg = lazygit
+alias nixup = doas nixos-rebuild switch --flake '~/.flake#desktop'
+alias nixUp = nix flake update ~/.flake && doas nixos-rebuild switch --flake '~/.flake#desktop'
+
 module completions {
   # Custom completions for external commands (those outside of Nushell)
   # Each completions has two parts: the form of the external command, including its flags and parameters
@@ -13,12 +18,6 @@ module completions {
   def "nu-complete git remotes" [] {
     ^git remote | lines | each { |line| $line | str trim }
   }
-
-  alias ls = ls -a
-  alias lg = lazygit
-  alias nixup = doas nixos-rebuild switch --flake '~/.flake#desktop'
-  alias nixUp = nix flake update ~/.flake && doas nixos-rebuild switch --flake '~/.flake#desktop'
-
 
   # Download objects and refs from another repository
   export extern "git fetch" [
