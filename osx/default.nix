@@ -1,8 +1,8 @@
-{ lib, pkgsConfig, inputs, home-manager, darwin, ...}:
+{ lib, pkgsForSystem, inputs, home-manager, darwin, ...}:
 let
-  system = "aarch64-darwin";
   user = "michaelbelsanti";
-  pkgs = pkgsConfig system;
+  system = "aarch64-darwin";
+  pkgs = pkgsForSystem system;
 in
 {
   osx = darwin.lib.darwinSystem {

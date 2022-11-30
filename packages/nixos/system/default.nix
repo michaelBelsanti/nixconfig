@@ -35,7 +35,7 @@
     bottom
 
     # Nix
-    rnix-lsp
+    nil
     nix-tree
     nix-index
     

@@ -28,42 +28,39 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
-  outputs = inputs @ { nixpkgs, nix-gaming, home-manager, darwin, devenv, helix, ... }:
+  outputs = inputs @ { nixpkgs, nix-gaming, home-manager, hyprland, darwin, devenv, helix, ... }:
     let
-      system = "x86_64-linux";
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlays = import ./packages/overlays.nix;
-      inputOverlays = system: [
-        (_: _: {
-          inherit (helix.packages.${system}) helix; 
-          inherit (devenv.packages.${system}) devenv;
-          inherit (nix-gaming.packages.${pkgs.system}) wine-tkg;
+      localOverlays = import ./packages/overlays.nix {inherit inputs;} ;
+      inputOverlays = [
+        (_: super: {
+          inherit (hyprland.packages.${super.system}) hyprland;
+          inherit (helix.packages.${super.system}) helix; 
+          inherit (devenv.packages.${super.system}) devenv;
+          inherit (nix-gaming.packages.${super.system}) wine-tkg;
         })
       ];
-      pkgsConfig = system: import nixpkgs {
+      pkgsForSystem = system: import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = inputOverlays system ++ [ localOverlays ];
+        overlays = inputOverlays ++ [ localOverlays ];
       };
-      pkgs = pkgsConfig system;
-      osxPkgs = pkgsConfig "aarch64-darwin";
     in
     {
       nixosConfigurations =
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit pkgs system user flakePath inputs home-manager;
+          inherit pkgsForSystem user flakePath inputs home-manager;
         };
 
       darwinConfigurations =
         import ./osx {
-          inherit osxPkgs;
           inherit (nixpkgs) lib;
-          inherit pkgsConfig system user inputs home-manager darwin devenv;
-        };
+          inherit pkgsForSystem user inputs home-manager darwin devenv;
+      };
 
-      devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgs; };
+      devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgsForSystem; };
     };
 }

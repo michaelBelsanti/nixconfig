@@ -14,6 +14,12 @@ module completions {
     ^git remote | lines | each { |line| $line | str trim }
   }
 
+  alias ls = ls -a
+  alias lg = lazygit
+  alias nixup = doas nixos-rebuild switch --flake '~/.flake#desktop'
+  alias nixUp = nix flake update ~/.flake && doas nixos-rebuild switch --flake '~/.flake#desktop'
+
+
   # Download objects and refs from another repository
   export extern "git fetch" [
     repository?: string@"nu-complete git remotes" # name of the repository to fetch

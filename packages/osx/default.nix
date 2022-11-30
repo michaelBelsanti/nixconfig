@@ -20,7 +20,7 @@
     distrobox
     so
     
-    rnix-lsp
+    nil
     nix-tree
     nix-index
   ];
