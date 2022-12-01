@@ -1,4 +1,4 @@
-{ system, pkgs, ... }:
+{ pkgs, ... }:
 {
   rust = ./rust.nix;
 }

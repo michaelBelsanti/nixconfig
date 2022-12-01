@@ -42,25 +42,35 @@
           inherit (nix-gaming.packages.${super.system}) wine-tkg;
         })
       ];
-      pkgsForSystem = system: import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = inputOverlays ++ [ localOverlays ];
-      };
+      genSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+
+      pkgsFor = system: 
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = inputOverlays ++ [ localOverlays ];
+        };
     in
     {
       nixosConfigurations =
         import ./nixos {
           inherit (nixpkgs) lib;
-          inherit pkgsForSystem user flakePath inputs home-manager;
+          inherit pkgsFor user flakePath inputs home-manager;
         };
 
       darwinConfigurations =
         import ./osx {
           inherit (nixpkgs) lib;
-          inherit pkgsForSystem user inputs home-manager darwin devenv;
+          inherit pkgsFor user inputs home-manager darwin devenv;
       };
 
-      devShells."x86_64-linux".rust = import ./shells/rust.nix { inherit pkgsForSystem; };
-    };
+      devShells = genSystems (system: {
+        rust = import ./shells/rust.nix { pkgs = pkgsFor system; };
+      });
+  };
 }

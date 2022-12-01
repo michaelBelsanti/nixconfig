@@ -1,6 +1,6 @@
 { pkgs }:
 
-pkgs.mkShell rec {
+pkgs.mkShell {
   # include any libraries or programs in buildInputs
   buildInputs = with pkgs; [
     rustc
@@ -11,6 +11,6 @@ pkgs.mkShell rec {
   ];
 
   # shell commands to be ran upon entering shell
-  shellHook = ''
-  '';
+  # shellHook = ''
+  # '';
 }
