@@ -4,6 +4,7 @@
     git
     cachix
     aria2
+    tealdeer
     unrar
     unzip
     bat
