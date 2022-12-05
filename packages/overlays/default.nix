@@ -18,4 +18,5 @@ inputs: _: super: {
       wrapProgram $out/bin/Hyprland --set GDK_SCALE 2 --set XCURSOR_SIZE 64
     '';
   };
+  latencyflex = super.callPackage ./latencyflex { };
 }
