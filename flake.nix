@@ -33,7 +33,7 @@
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlays = import ./packages/overlays.nix {inherit inputs;} ;
+      localOverlays = import ./packages/overlays {inherit inputs;} ;
       inputOverlays = [
         (_: super: {
           inherit (hyprland.packages.${super.system}) hyprland;
