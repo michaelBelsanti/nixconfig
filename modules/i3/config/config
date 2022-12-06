@@ -265,4 +265,5 @@ for_window [instance="steamwebhelper"] floating enable
 for_window [instance="nvidia-settings"] floating enable
 for_window [instance="lxappearance"] floating enable
 for_window [instance="vibrantLinux"] floating enable
+for_window [instance="eww"] floating enable
 for_window [instance="discord-screenaudio Stream Dialog"] floating enable
