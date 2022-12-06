@@ -38,7 +38,7 @@ in
   };
 
   laptop = lib.nixosSystem {
-    inherit system;
+    inherit system pkgs;
     specialArgs = { inherit inputs user flakePath; };
     modules = [
       ./configuration.nix
@@ -58,6 +58,7 @@ in
           imports = [
             ./laptop/home.nix
             inputs.hyprland.homeManagerModules.default
+            inputs.spicetify-nix.homeManagerModule
           ];
         };
       }
