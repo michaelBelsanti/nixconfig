@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    devenv.url = "github:cachix/devenv";
+    devenv.url = "github:cachix/devenv/v0.4";
     helix.url = "github:helix-editor/helix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
@@ -55,6 +55,7 @@
           config.allowUnfree = true;
           overlays = inputOverlays ++ [ localOverlays ];
         };
+           
     in
     {
       nixosConfigurations =
