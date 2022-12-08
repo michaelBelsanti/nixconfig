@@ -329,9 +329,9 @@ let-env config = {
             col_padding: 2
         }
         style: {
-            text: green
-            selected_text: green_reverse
-            description_text: yellow
+            text: blue
+            selected_text: blue_reverse
+            description_text: cyan
         }
       }
       {
@@ -343,9 +343,9 @@ let-env config = {
             page_size: 10
         }
         style: {
-            text: green
-            selected_text: green_reverse
-            description_text: yellow
+            text: blue
+            selected_text: blue_reverse
+            description_text: cyan
         }
       }
       {
@@ -361,9 +361,9 @@ let-env config = {
             description_rows: 10
         }
         style: {
-            text: green
-            selected_text: green_reverse
-            description_text: yellow
+            text: blue
+            selected_text: blue_reverse
+            description_text: cyan
         }
       }
       # Example of extra menus created using a nushell source

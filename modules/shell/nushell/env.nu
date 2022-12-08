@@ -4,7 +4,7 @@ def create_left_prompt [] {
     let path_segment = if (is-admin) {
         $"(ansi red_bold)($env.PWD)"
     } else {
-        $"(ansi purple_bold)($env.PWD)"
+        $"(ansi purple_bold)(echo $env.PWD | split row "/" | last 3 | str join "/")"
     }
 
     $path_segment
