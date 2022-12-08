@@ -24,7 +24,6 @@ in
 
   # Boot options
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
     tmpOnTmpfs = true;
     # Cute boot animation

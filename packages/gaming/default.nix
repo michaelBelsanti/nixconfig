@@ -20,8 +20,8 @@ in
     protontricks
     grapejuice
     (lutris.override {
-      extraLibraries = pkgs: [ latencyflex ];
       lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; }; 
+      extraLibraries = pkgs: [ latencyflex ];
     })
     heroic
     goverlay
