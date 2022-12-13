@@ -27,7 +27,7 @@
     pgrep -x picom
     if [ $? -ne 0 ]
     then
-        picom --unredir-if-possible --experimental-backends
+        picom --unredir-if-possible
     else
         pkill picom
     fi;
