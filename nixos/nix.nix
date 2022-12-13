@@ -1,5 +1,4 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   # Enable flakes
   nix = {
     package = pkgs.nixVersions.unstable;

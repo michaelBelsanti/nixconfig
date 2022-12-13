@@ -2,24 +2,20 @@
 
 { pkgs, user, flakePath, ... }:
 let
-catppuccin-grub-theme = pkgs.fetchFromGitHub
-  {
+  catppuccin-grub-theme = pkgs.fetchFromGitHub {
     owner = "catppuccin";
     repo = "grub";
     rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
     sparseCheckout = [ "src/catppuccin-mocha-grub-theme" ];
     sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
   };
-in
-{
+in {
   imports = [ ./nix.nix ];
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ nushell zsh ];
-    systemPackages = [
-      catppuccin-grub-theme
-    ];
+    systemPackages = [ catppuccin-grub-theme ];
   };
 
   # Boot options
@@ -38,7 +34,8 @@ in
         theme = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme";
         font = "${pkgs.montserrat}/share/fonts/otf/Montserrat-Regular.otf";
         fontSize = 48;
-        splashImage = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme/background.png";
+        splashImage =
+          "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme/background.png";
         backgroundColor = "#1E1E2E";
       };
       efi.canTouchEfiVariables = true;
@@ -115,7 +112,7 @@ in
       emoji = [ "Twitter Color Emoji" "Noto Color Emoji" ];
     };
   };
-  
+
   qt5 = {
     platformTheme = "qt5ct";
     style = "Lightly";
@@ -171,12 +168,11 @@ in
     gvfs.enable = true;
   };
 
-
   programs = {
-  
+
     # I <3 Zsh
-    zsh.enable = true; 
-    
+    zsh.enable = true;
+
     # KDE Connect (mobile integration)
     kdeconnect.enable = true;
 
@@ -222,7 +218,7 @@ in
     # For allowing SSH keys
     pam.enableSSHAgentAuth = true;
   };
-  
+
   system.activationScripts.registryAdd.text = ''
     ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
   '';

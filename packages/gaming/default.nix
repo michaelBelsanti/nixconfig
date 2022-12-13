@@ -1,17 +1,16 @@
 { pkgs, lib, ... }:
-let 
+let
   gmstart = pkgs.writeShellScriptBin "gmstart" ''
-      echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-      polybar-msg action gamemode module_show
-      togdnd -p
-    '';
+    echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+    polybar-msg action gamemode module_show
+    togdnd -p
+  '';
   gmstop = pkgs.writeShellScriptBin "gmstop" ''
-      echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-      polybar-msg action gamemode module_hide
-      togdnd -u
-    '';
-in
-{
+    echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+    polybar-msg action gamemode module_hide
+    togdnd -u
+  '';
+in {
   # Using mkForce because lib.mkDefault can't be used in nixos/configuration.nix
   boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
   environment.systemPackages = with pkgs; [
@@ -20,7 +19,7 @@ in
     protontricks
     grapejuice
     (lutris.override {
-      lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; }; 
+      lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; };
       extraLibraries = pkgs: [ latencyflex ];
     })
     heroic
@@ -43,7 +42,7 @@ in
           defaultgov = "performance";
           softrealtime = "auto";
           renice = 0;
-          ioprio = 0;          
+          ioprio = 0;
         };
         gpu = {
           apply_gpu_optimisations = "accept-responsibility";

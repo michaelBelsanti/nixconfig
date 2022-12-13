@@ -4,33 +4,28 @@
 { config, lib, modulesPath, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-label/NIXROOT";
-      fsType = "btrfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/NIXROOT";
+    fsType = "btrfs";
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-label/NIXBOOT";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/NIXBOOT";
+    fsType = "vfat";
+  };
 
-  fileSystems."/run/media/quasi/hdd" =
-    {
-      device = "/dev/disk/by-label/mainhdd";
-      fsType = "btrfs";
-    };
+  fileSystems."/run/media/quasi/hdd" = {
+    device = "/dev/disk/by-label/mainhdd";
+    fsType = "btrfs";
+  };
   # fileSystems."/run/media/quasi/nfs" = 
   #   {
   #     device = "sidious.quasi.ml:/zfsa/nfs";
@@ -50,5 +45,6 @@
     nameservers = [ "192.168.1.152" ];
   };
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

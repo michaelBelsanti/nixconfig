@@ -1,6 +1,5 @@
 # Imported by home-manager, sets catppuccin system theming
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   gtk = {
     theme = {
       name = "Catppuccin-Pink-Dark";
@@ -20,11 +19,8 @@
     spicetify = {
       enable = true;
       theme = "catppuccin-mocha";
-      enabledExtensions = [
-        "fullAppDisplay.js"
-        "shuffle+.js"
-        "hidePodcasts.js"
-      ];
+      enabledExtensions =
+        [ "fullAppDisplay.js" "shuffle+.js" "hidePodcasts.js" ];
     };
     helix.settings.theme = "catppuccin_macchiato";
     alacritty.settings = {
@@ -37,25 +33,25 @@
           text = "0x1E1D2F";
           cursor = "0xF5E0DC";
         };
-        normal = {      
-          black =   "0x6E6C7E";
-          red =     "0xF28FAD";
-          green =   "0xABE9B3";
-          yellow =  "0xFAE3B0";
-          blue =    "0x96CDFB";
+        normal = {
+          black = "0x6E6C7E";
+          red = "0xF28FAD";
+          green = "0xABE9B3";
+          yellow = "0xFAE3B0";
+          blue = "0x96CDFB";
           magenta = "0xF5C2E7";
-          cyan =    "0x89DCEB";
-          white =   "0xD9E0EE";
+          cyan = "0x89DCEB";
+          white = "0xD9E0EE";
         };
         bright = {
-          black =   "0x988BA2";
-          red =     "0xF28FAD";
-          green =   "0xABE9B3";
-          yellow =  "0xFAE3B0";
-          blue =    "0x96CDFB";
+          black = "0x988BA2";
+          red = "0xF28FAD";
+          green = "0xABE9B3";
+          yellow = "0xFAE3B0";
+          blue = "0x96CDFB";
           magenta = "0xF5C2E7";
-          cyan =    "0x89DCEB";
-          white =   "0xD9E0EE";
+          cyan = "0x89DCEB";
+          white = "0xD9E0EE";
         };
         indexed_colors = [
           {

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     librewolf
     libreoffice
@@ -38,11 +37,11 @@
     nil
     nix-tree
     nix-index
-    
+
     distrobox
 
     so
-    
+
     devenv
   ];
 }

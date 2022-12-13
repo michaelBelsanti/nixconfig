@@ -1,5 +1,4 @@
-{ ...}:
-{
+{ ... }: {
   programs.helix = {
     enable = true;
     settings = {
@@ -21,10 +20,24 @@
       editor.statusline = {
         left = [ "mode" "spinner" "file-type" "diagnostics" ];
         center = [ "file-name" ];
-        right = [ "selections" "position" "separator" "spacer" "position-percentage" ];
+        right = [
+          "selections"
+          "position"
+          "separator"
+          "spacer"
+          "position-percentage"
+        ];
         separator = "|";
       };
     };
-    languages = [ { name = "nim"; scope = "source.nim"; injection-regex = "nim"; file-types = ["nim" "nims"]; shebangs = ["nim"]; comment-token = "#"; roots = []; } ];
+    languages = [{
+      name = "nim";
+      scope = "source.nim";
+      injection-regex = "nim";
+      file-types = [ "nim" "nims" ];
+      shebangs = [ "nim" ];
+      comment-token = "#";
+      roots = [ ];
+    }];
   };
 }

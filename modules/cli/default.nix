@@ -1,7 +1,1 @@
-{ ...}:
-{
-  imports = [
-    ./btop
-    ./helix
-  ];
-}
+{ ... }: { imports = [ ./btop ./helix ]; }

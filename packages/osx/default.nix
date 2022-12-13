@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     git
     cachix
@@ -20,7 +19,7 @@
     lazygit
     distrobox
     so
-    
+
     nil
     nix-tree
     nix-index

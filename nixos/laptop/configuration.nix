@@ -1,13 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../packages/nixos/laptop
-      ../../modules/hyprland
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../packages/nixos/laptop
+    ../../modules/hyprland
+  ];
 
   networking.hostName = "nix-fw"; # Define your hostname.
 
@@ -16,7 +15,6 @@
     blacklistedKernelModules = [ "hid_sensor_hub" ];
     loader.systemd-boot.consoleMode = "max";
   };
-
 
   programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
   services.xserver = {
@@ -40,23 +38,18 @@
           Option "MiddleEmulation" "off"
         '';
       };
-      touchpad = {
-        accelProfile = "adaptive";
-      };
+      touchpad = { accelProfile = "adaptive"; };
     };
   };
 
   # Graphics drivers
-  environment.variables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
+  environment.variables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.opengl = {
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [
-      intel-media-driver
-    ];
+    extraPackages = with pkgs;
+      [
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
   };
 
   ### Services and hardware ###
@@ -73,7 +66,7 @@
   services = {
     tlp.enable = true; # Battery optimization
     power-profiles-daemon.enable = false;
-    fprintd.enable = true; # Enable fingerprint scanner 
+    fprintd.enable = true; # Enable fingerprint scanner
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
       enableTestRemote = true;

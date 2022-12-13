@@ -1,14 +1,12 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
 
-{ config, pkgs, user, ... }:
-{
-  imports =
-    [
-      ../modules/catppuccin
-      # ../modules/alacritty
-      ../modules/wezterm
-      ../modules/cli
-    ];
+{ config, pkgs, user, ... }: {
+  imports = [
+    ../modules/catppuccin
+    # ../modules/alacritty
+    ../modules/wezterm
+    ../modules/cli
+  ];
 
   # Home Manager Setup
   home = {
@@ -54,13 +52,13 @@
   };
   # qt = {
   #   enable = true;
-    # platformTheme = lib.mkForce "qt5ct";
-    # style = {
-    #   package = pkgs.lightly-qt;
-    #   name = "Lightly";
-      # package = pkgs.libsForQt5.qtstyleplugin-kvantum;
-      # name = "kvantum";
-    # };
+  # platformTheme = lib.mkForce "qt5ct";
+  # style = {
+  #   package = pkgs.lightly-qt;
+  #   name = "Lightly";
+  # package = pkgs.libsForQt5.qtstyleplugin-kvantum;
+  # name = "kvantum";
+  # };
   # };
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
@@ -125,11 +123,7 @@
       userName = "quasigod-io";
       userEmail = "quasigod-io@protonmail.com";
       delta.enable = true;
-      extraConfig = {
-        init = {
-          defaultBranch = "main";
-        };
-      };
+      extraConfig = { init = { defaultBranch = "main"; }; };
     };
   };
 
@@ -162,7 +156,7 @@
     OCTAVE_HISTFILE = "${config.xdg.cacheHome}/octave-hsts";
     OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
     STACK_ROOT = "${config.xdg.dataHome}/stack";
-    XCOMPOSECACHE="${config.xdg.cacheHome}/X11/xcompose";
+    XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
     _Z_DATA = "${config.xdg.dataHome}/z";
     # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
   };

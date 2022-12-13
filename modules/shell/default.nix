@@ -1,5 +1,4 @@
-{ config, pkgs, ...}:
-{
+{ config, pkgs, ... }: {
   programs = {
     exa.enable = true;
     zoxide.enable = true;
@@ -56,7 +55,21 @@
       };
       prezto = {
         enable = true;
-        pmodules = [ "archive" "autosuggestions" "git" "ssh" "syntax-highlighting" "environment" "terminal" "editor" "history" "directory" "spectrum" "utility" "prompt" ];
+        pmodules = [
+          "archive"
+          "autosuggestions"
+          "git"
+          "ssh"
+          "syntax-highlighting"
+          "environment"
+          "terminal"
+          "editor"
+          "history"
+          "directory"
+          "spectrum"
+          "utility"
+          "prompt"
+        ];
         prompt.theme = "smiley";
       };
       plugins = [

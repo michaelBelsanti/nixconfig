@@ -1,12 +1,11 @@
-{ stdenvNoCC
-, fetchzip
-}:
+{ stdenvNoCC, fetchzip }:
 stdenvNoCC.mkDerivation {
   pname = "latencyflex";
   version = "0.1.1";
 
   src = fetchzip {
-    url = "https://github.com/ishitatsuyuki/LatencyFleX/releases/download/v0.1.1/latencyflex-v0.1.1.tar.xz";
+    url =
+      "https://github.com/ishitatsuyuki/LatencyFleX/releases/download/v0.1.1/latencyflex-v0.1.1.tar.xz";
     sha256 = "c/o0wcTZ8TJwLzUHlvmS/kcoOPlfCPHupWFABTVXtok=";
   };
 

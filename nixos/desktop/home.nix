@@ -1,11 +1,5 @@
-{ ... }:
-{
-  imports =
-    [
-      ../home.nix
-      ../../modules/shell/desktop
-      ../../modules/i3/config
-    ];
+{ ... }: {
+  imports = [ ../home.nix ../../modules/shell/desktop ../../modules/i3/config ];
 
   xsession.initExtra = ''
     easyeffects --gapplication-service &

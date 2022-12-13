@@ -1,12 +1,10 @@
-{ pkgs, ... }:
-{
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../packages/nixos/desktop
-      ../../modules/vfio
-      ../../modules/i3
-    ];
+{ pkgs, ... }: {
+  imports = [
+    ./hardware-configuration.nix
+    ../../packages/nixos/desktop
+    ../../modules/vfio
+    ../../modules/i3
+  ];
 
   networking = {
     hostName = "nix";
@@ -32,7 +30,8 @@
     videoDrivers = [ "nvidia" ];
     windowManager.i3.enable = true; # Configured by ../../modules/i3 import
     displayManager = {
-      setupCommands = "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+      setupCommands =
+        "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
       gdm = {
         enable = true;
         wayland = false;
@@ -59,32 +58,28 @@
   };
 
   # Causes librewolf to crash occasionally
-  hardware.opengl.extraPackages = with pkgs; [
-    nvidia-vaapi-driver
-  ];
-  
+  hardware.opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
-  xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gnome
-  ];
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
 
   services = {
     pipewire.lowLatency.enable = true;
     openssh = {
       enable = true;
       ports = [ 42069 ];
-      banner = "You better be me. If you're not fuck off.\n";
+      banner = ''
+        You better be me. If you're not fuck off.
+      '';
       passwordAuthentication = false;
     };
   };
-  
-  nix.settings = {
-    substituters = [ "https://nix-gaming.cachix.org" ];
-  };
+
+  nix.settings = { substituters = [ "https://nix-gaming.cachix.org" ]; };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

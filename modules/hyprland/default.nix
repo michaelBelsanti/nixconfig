@@ -3,14 +3,15 @@
 # TODO
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 
-{ lib, config, pkgs, ... }:
-{
+{ lib, config, pkgs, ... }: {
   config = lib.mkIf config.programs.hyprland.enable {
     programs.hyprland.recommendedEnvironment = true;
     services.xserver.displayManager.defaultSession = "hyprland";
     environment.systemPackages = with pkgs; [
       swaybg
-      (waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"]; }))
+      (waybar.overrideAttrs (oldAttrs: {
+        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      }))
       brightnessctl
       wl-clipboard
       wezterm
@@ -20,10 +21,12 @@
       nautilus-open-any-terminal
       gnome.file-roller
       selectdefaultapplication
-      (polkit_gnome.overrideAttrs (_oldAttrs: { postFixup = ''
-        mkdir $out/bin
-        ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
-      '';})) # Puts polkit-gnome in my path
+      (polkit_gnome.overrideAttrs (_oldAttrs: {
+        postFixup = ''
+          mkdir $out/bin
+          ln -s $out/libexec/polkit-gnome-authentication-agent-1 $out/bin/polkit-gnome
+        '';
+      })) # Puts polkit-gnome in my path
       xsettingsd
       nsxiv
       pamixer
@@ -33,9 +36,9 @@
       swaylock
       networkmanagerapplet
       pavucontrol
-     ];
+    ];
 
-   # nixpkgs.overlays = [
+    # nixpkgs.overlays = [
     #   (self: super: {
     #     discord-openasar = pkgs.symlinkJoin {
     #       name = "discord-openasar";
@@ -65,20 +68,20 @@
     #     };
     #   })
     # ];
-  
+
     # hardware.nvidia.modesetting.enable = true;
     # environment.variables = {
     #   LIBVA_DRIVER_NAME = "nvidia";
-  		# CLUTTER_BACKEND = "wayland";
-  		# XDG_SESSION_TYPE = "wayland";
-  		# QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-  		# MOZ_ENABLE_WAYLAND = "1";
-  		# GBM_BACKEND = "nvidia-drm";
-  		# __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  		# WLR_NO_HARDWARE_CURSORS = "1";
-  		# WLR_BACKEND = "vulkan";
-  		# QT_QPA_PLATFORM = "wayland";
-  		# GDK_BACKEND = "wayland";
+    # CLUTTER_BACKEND = "wayland";
+    # XDG_SESSION_TYPE = "wayland";
+    # QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    # MOZ_ENABLE_WAYLAND = "1";
+    # GBM_BACKEND = "nvidia-drm";
+    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_BACKEND = "vulkan";
+    # QT_QPA_PLATFORM = "wayland";
+    # GDK_BACKEND = "wayland";
     # };
   };
 }

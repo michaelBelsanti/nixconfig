@@ -1,8 +1,5 @@
-{ lib, ...}:
-{
-  imports = [
-    ../../rofi    
-  ];
+{ lib, ... }: {
+  imports = [ ../../rofi ];
 
   xdg.configFile = {
     hyprland = {
@@ -23,10 +20,8 @@
       '';
     };
   };
-  xresources.properties = {
-    "Xcursor.size" = lib.mkForce "64";
-  };
-  
+  xresources.properties = { "Xcursor.size" = lib.mkForce "64"; };
+
   # Good defaults for standalone apps
   xdg.mimeApps.defaultApplications = {
     # Browser
@@ -53,7 +48,7 @@
     "image/x-portable-graymap" = "nsxiv.desktop";
     "image/svg+xml" = "nsxiv.desktop";
     "image/x-portable-bitmap" = "nsxiv.desktop";
-    
+
     # Text
     "text/plain" = "helix.desktop";
     "text/x-patch" = "helix.desktop";

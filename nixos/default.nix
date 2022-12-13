@@ -4,8 +4,7 @@
 let
   system = "x86_64-linux";
   pkgs = pkgsFor system;
-in
-{
+in {
   desktop = lib.nixosSystem {
     inherit system pkgs;
     specialArgs = { inherit inputs user flakePath; };
@@ -13,7 +12,6 @@ in
       ./configuration.nix
       ./desktop/configuration.nix
       ../packages/nixos/desktop
-
 
       inputs.hyprland.nixosModules.default
 
@@ -28,10 +26,8 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user flakePath; };
         home-manager.users.${user} = {
-          imports = [
-            ./desktop/home.nix
-            inputs.spicetify-nix.homeManagerModule
-          ];
+          imports =
+            [ ./desktop/home.nix inputs.spicetify-nix.homeManagerModule ];
         };
       }
     ];

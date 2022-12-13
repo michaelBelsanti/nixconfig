@@ -1,11 +1,5 @@
-{ config, user, ... }:
-{
-  imports = 
-    [
-      ../modules/cli
-      ../modules/shell/osx
-      ../modules/wezterm
-    ];
+{ config, user, ... }: {
+  imports = [ ../modules/cli ../modules/shell/osx ../modules/wezterm ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -27,20 +21,16 @@
   nixpkgs.config.allowUnfree = true;
 
   home.file = { };
-  
+
   # Git
   programs.git = {
     enable = true;
     userName = "quasigod-io";
     userEmail = "quasigod-io@protonmail.com";
     delta.enable = true;
-    extraConfig = {
-      init = {
-        defaultBranch = "main";
-      };
-    };
+    extraConfig = { init = { defaultBranch = "main"; }; };
   };
-  
+
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";

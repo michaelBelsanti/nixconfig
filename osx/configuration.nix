@@ -7,7 +7,7 @@
     # ../../modules/yabai
     # ../../modules/noyabai
   ];
-  
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
 
@@ -20,20 +20,18 @@
   };
 
   users.users.${user}.home = "/Users/${user}";
-  
-  
+
   # Make apps installed with Nix appear in spotlight
-  system.activationScripts.applications.text = pkgs.lib.mkForce 
-    ''
-      echo "setting up ~/Applications..." >&2
-      rm -rf ~/Applications/Nix\ Apps
-      mkdir -p ~/Applications/Nix\ Apps
-      for app in $(find ${config.system.build.applications}/Applications -maxdepth 1 -type l); do
-        src="$(/usr/bin/stat -f%Y "$app")"
-        cp -r "$src" ~/Applications/Nix\ Apps
-      done
-    '';
-  
+  system.activationScripts.applications.text = pkgs.lib.mkForce ''
+    echo "setting up ~/Applications..." >&2
+    rm -rf ~/Applications/Nix\ Apps
+    mkdir -p ~/Applications/Nix\ Apps
+    for app in $(find ${config.system.build.applications}/Applications -maxdepth 1 -type l); do
+      src="$(/usr/bin/stat -f%Y "$app")"
+      cp -r "$src" ~/Applications/Nix\ Apps
+    done
+  '';
+
   system.defaults = {
     finder = {
       AppleShowAllExtensions = true;
@@ -50,9 +48,9 @@
   # nix.package = pkgs.nix;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;  # default shell on catalina
+  programs.zsh.enable = true; # default shell on catalina
   # programs.fish.enable = true;
-  
+
   # 
   # nixpkgs.config.allowUnsupportedSystem = true;
   # nixpkgs.config.allowBroken = true;

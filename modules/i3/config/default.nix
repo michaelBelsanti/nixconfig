@@ -1,9 +1,6 @@
-{ pkgs, ...}:
-{
-  imports = [
-    ../../rofi
-  ];
-  
+{ pkgs, ... }: {
+  imports = [ ../../rofi ];
+
   xdg.configFile = {
     i3 = {
       source = ./config;
@@ -23,14 +20,14 @@
     };
   };
   home.packages = with pkgs; [
-  (writeScriptBin "togpicom" ''
-    pgrep -x picom
-    if [ $? -ne 0 ]
-    then
-        picom --unredir-if-possible
-    else
-        pkill picom
-    fi;
+    (writeScriptBin "togpicom" ''
+      pgrep -x picom
+      if [ $? -ne 0 ]
+      then
+          picom --unredir-if-possible
+      else
+          pkill picom
+      fi;
     '')
 
     (writeShellScriptBin "togdnd" ''
@@ -89,7 +86,7 @@
     "image/x-portable-graymap" = "nsxiv.desktop";
     "image/svg+xml" = "nsxiv.desktop";
     "image/x-portable-bitmap" = "nsxiv.desktop";
-    
+
     # Text
     "text/plain" = "helix.desktop";
     "text/x-patch" = "helix.desktop";
