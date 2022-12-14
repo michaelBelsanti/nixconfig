@@ -1,13 +1,10 @@
 {
   description = "Quasigod's NixOS config";
-
-  inputs = {
+ inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
-
     nix-gaming.url = "github:fufexan/nix-gaming";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,48 +25,75 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
-  outputs = inputs@{ nixpkgs, nix-gaming, home-manager, hyprland, darwin, devenv
-    , helix, ... }:
+  outputs = inputs @ { self, nixpkgs, utils, nix-gaming, home-manager, hyprland, darwin, devenv, helix, ... }:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlays = import ./packages/overlays { inherit inputs; };
-      inputOverlays = [
-        (_: super: {
-          inherit (hyprland.packages.${super.system}) hyprland;
-          inherit (helix.packages.${super.system}) helix;
-          inherit (devenv.packages.${super.system}) devenv;
-          inherit (nix-gaming.packages.${super.system}) wine-tkg;
-        })
-      ];
-      genSystems = nixpkgs.lib.genAttrs [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      pkgsFor = system:
-        import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-          overlays = inputOverlays ++ [ localOverlays ];
-        };
-
-    in {
-      nixosConfigurations = import ./nixos {
-        inherit (nixpkgs) lib;
-        inherit pkgsFor user flakePath inputs home-manager;
+      localOverlays = import ./packages/overlays {inherit inputs;};
+      inputOverlays = _: super: {
+        inherit (hyprland.packages.${super.system}) hyprland;
+        inherit (helix.packages.${super.system}) helix;
+        inherit (devenv.packages.${super.system}) devenv;
+        inherit (nix-gaming.packages.${super.system}) wine-tkg;
       };
 
-      darwinConfigurations = import ./osx {
-        inherit (nixpkgs) lib;
-        inherit pkgsFor user inputs home-manager darwin devenv;
+    in utils.lib.mkFlake {
+      inherit self inputs user flakePath;
+
+      channelsConfig.allowUnfree = true;
+      sharedOverlays = [ inputOverlays localOverlays ];
+
+      hostDefaults = {
+        extraArgs = { inherit inputs user flakePath; };
       };
 
-      devShells = genSystems (system: {
-        rust = import ./shells/rust.nix { pkgs = pkgsFor system; };
-      });
-    };
+      hostDefaults.modules = [
+        ./nixos/configuration.nix
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit user flakePath; };
+          home-manager.users.${user}.imports = [
+            ./nixos/home.nix
+          ];
+        }
+      ];
+
+      hosts = {
+        nix-desktop.modules = [
+          ./nixos/desktop/configuration.nix
+          ./packages/nixos/desktop
+
+          inputs.hyprland.nixosModules.default
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
+          inputs.nixos-hardware.nixosModules.common-cpu-amd
+          inputs.nixos-hardware.nixosModules.common-pc-ssd
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.${user}.imports = [
+              ./nixos/desktop/home.nix
+              inputs.spicetify-nix.homeManagerModule
+            ];
+          }
+        ];
+
+        nix-laptop.modules = [
+          ./nixos/laptop/configuration.nix
+          ./packages/nixos/laptop
+
+          inputs.hyprland.nixosModules.default
+          inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+          
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.users.${user}.imports = [
+              ./nixos/desktop/home.nix
+              inputs.spicetify-nix.homeManagerModule
+            ];
+          }
+        ];
+      };
+  };
 }

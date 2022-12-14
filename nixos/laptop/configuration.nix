@@ -8,7 +8,7 @@
     ../../modules/hyprland
   ];
 
-  networking.hostName = "nix-fw"; # Define your hostname.
+  networking.hostName = "nix-laptop"; # Define your hostname.
 
   boot = {
     kernelParams = [ "acpi_backlight=native" ];

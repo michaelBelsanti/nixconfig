@@ -41,7 +41,7 @@
   networking.useDHCP = lib.mkDefault true;
   networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
   networking = {
-    hostName = "nix";
+    hostName = "nix-desktop";
     nameservers = [ "192.168.1.152" ];
   };
 

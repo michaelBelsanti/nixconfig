@@ -7,7 +7,6 @@
   ];
 
   networking = {
-    hostName = "nix";
     nameservers = [ "192.168.1.152" ];
     networkmanager.dns = "none";
     dhcpcd.extraConfig = "nohook resolv.conf";
