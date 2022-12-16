@@ -1,6 +1,6 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
 
-{ config, pkgs, user, ... }: {
+{ lib, config, pkgs, user, ... }: {
   imports = [
     ../modules/catppuccin
     # ../modules/alacritty
@@ -13,6 +13,9 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "22.05";
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
   };
 
   # Let Home Manager install and manage itself.
@@ -63,9 +66,8 @@
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
-    x11.enable = true;
     gtk.enable = true;
-    size = 32;
+    size = lib.mkDefault 32;
   };
   xresources = {
     path = "${config.xdg.configHome}/X11/xresources";
@@ -127,6 +129,7 @@
     };
   };
 
+  systemd.user.sessionVariables = config.home.sessionVariables;
   # Cleaning up ~
   home.sessionVariables = {
     EDITOR = "hx";

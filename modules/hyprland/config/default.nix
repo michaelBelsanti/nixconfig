@@ -20,7 +20,14 @@
       '';
     };
   };
-  xresources.properties = { "Xcursor.size" = lib.mkForce "64"; };
+  xresources.properties = { "Xcursor.size" = "64"; };
+
+  home.pointerCursor.x11.enable = false;
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+    GDK_SCALE = 2;
+    XCURSOR_SIZE = 64;
+  };
 
   # Good defaults for standalone apps
   xdg.mimeApps.defaultApplications = {
