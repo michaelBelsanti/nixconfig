@@ -16,6 +16,12 @@
     loader.systemd-boot.consoleMode = "max";
   };
 
+  # Make fingerprint sensor work at boot
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
+
   programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
   services.xserver = {
     enable = true;

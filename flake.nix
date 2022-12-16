@@ -24,7 +24,7 @@
     };
 
     devenv.url = "github:cachix/devenv/v0.4";
-    helix.url = "github:helix-editor/helix";
+    # helix.url = "github:helix-editor/helix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
