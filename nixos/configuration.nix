@@ -122,6 +122,7 @@ in {
   environment.variables = {
     EDITOR = "hx";
     VISUAL = "hx";
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
   };
 
   ### Services and hardware ###

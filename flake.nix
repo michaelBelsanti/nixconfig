@@ -1,6 +1,6 @@
 {
   description = "Quasigod's NixOS config";
- inputs = {
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
@@ -21,7 +21,7 @@
     };
 
     devenv.url = "github:cachix/devenv/v0.4";
-    # helix.url = "github:helix-editor/helix";
+    helix.url = "github:helix-editor/helix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };

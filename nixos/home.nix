@@ -145,9 +145,7 @@
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
 
-    __GL_SHADER_DISK_CACHE = 1;
     __GL_SHADER_DISK_CACHE_PATH = "$HOME/Games/cache";
-    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = 1;
 
     ANDROID_HOME = "${config.xdg.dataHome}/android";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
