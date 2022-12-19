@@ -1,10 +1,20 @@
-{ pkgs, ... }: {
+{ pkgs, user, ... }: {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ../../packages/nixos/desktop
     ../../modules/vfio
     ../../modules/i3
   ];
+
+  home-manager.users.${user} = { ... }: {
+    imports = [ ../../modules/i3/config ];
+
+    home.pointerCursor.x11.enable = true;
+    xsession.initExtra = ''
+      easyeffects --gapplication-service &
+      xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4
+    '';
+  };
 
   networking = {
     nameservers = [ "192.168.1.152" ];

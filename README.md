@@ -17,4 +17,3 @@ The flake uses a very modular structure, allowing different configs to share as 
   - Generally imported by a configuration.nix file, but some are only imported by home-manager
   - Some contain a config folder that is imported by home-manager 
 - etc -  Random assets
-- shells - General per language development shells (Very WIP)

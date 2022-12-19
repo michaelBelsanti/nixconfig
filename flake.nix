@@ -54,43 +54,30 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit user flakePath; };
-          home-manager.users.${user}.imports = [ ./nixos/home.nix ];
+          home-manager.users.${user}.imports = [ 
+            ./nixos/home.nix
+            inputs.spicetify-nix.homeManagerModule
+          ];
         }
       ];
 
       hosts = {
         nix-desktop.modules = [
-          ./nixos/desktop/configuration.nix
-          ./packages/nixos/desktop
+          ./nixos/desktop
+          ./packages/nixos/desktop.nix
 
           inputs.hyprland.nixosModules.default
           inputs.nix-gaming.nixosModules.pipewireLowLatency
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-ssd
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.${user}.imports = [
-              ./nixos/desktop/home.nix
-              inputs.spicetify-nix.homeManagerModule
-            ];
-          }
         ];
 
         nix-laptop.modules = [
-          ./nixos/laptop/configuration.nix
-          ./packages/nixos/laptop
+          ./nixos/laptop
+          ./packages/nixos/laptop.nix
 
           inputs.hyprland.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.users.${user}.imports = [
-              ./nixos/laptop/home.nix
-              inputs.spicetify-nix.homeManagerModule
-            ];
-          }
         ];
       };
     };

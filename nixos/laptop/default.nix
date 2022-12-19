@@ -1,12 +1,14 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, user, ... }:
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    ../../packages/nixos/laptop
+    ./hardware.nix
     ../../modules/hyprland
   ];
+
+  home-manager.users.${user} = { ... }: {
+    imports = [ ../../modules/hyprland/config ];
+  };
 
   networking.hostName = "nix-laptop"; # Define your hostname.
 
