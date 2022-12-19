@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [
@@ -69,6 +69,11 @@
   };
 
   # Framework stuff
+  environment.etc."fwupd/uefi_capsule.conf".text = lib.mkForce ''
+    [uefi_capsule]
+    OverrideESPMountPoint=${config.boot.loader.efi.efiSysMountPoint}
+    DisableCapsuleUpdateOnDisk=true
+  '';
   services = {
     tlp.enable = true; # Battery optimization
     power-profiles-daemon.enable = false;
@@ -76,6 +81,7 @@
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
       enableTestRemote = true;
+      extraRemotes = [ "lvfs-testing" ];
     };
   };
 
