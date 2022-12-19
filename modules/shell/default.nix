@@ -1,4 +1,6 @@
 { config, pkgs, flakePath, ... }: {
+  # Nushell requires more in-depth configuration
+  imports = [ ./nushell ];
   programs = {
     exa.enable = true;
     zoxide.enable = true;
@@ -6,11 +8,6 @@
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-    };
-    nushell = {
-      enable = true;
-      envFile.source = ./nushell/env.nu;
-      configFile.source = ./nushell/config.nu;
     };
     bash = {
       enable = true;

@@ -1,11 +1,5 @@
 # Nushell Config File
 
-nitch
-
-alias ls = ls -a
-alias lg = lazygit
-alias nixup = doas nixos-rebuild switch --flake '~/.flake#desktop'
-alias nixUp = nix flake update ~/.flake && doas nixos-rebuild switch --flake '~/.flake#desktop'
 
 module completions {
   # Custom completions for external commands (those outside of Nushell)
