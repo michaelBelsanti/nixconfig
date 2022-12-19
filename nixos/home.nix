@@ -5,6 +5,7 @@
     ../modules/catppuccin
     # ../modules/alacritty
     ../modules/wezterm
+    ../modules/shell
     ../modules/cli
   ];
 
@@ -13,9 +14,7 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "22.05";
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
   # Let Home Manager install and manage itself.

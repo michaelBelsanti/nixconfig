@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, flakePath, ... }: {
   programs = {
     exa.enable = true;
     zoxide.enable = true;
@@ -43,6 +43,11 @@
       };
       envExtra = "PATH=$HOME/.local/bin:$PATH";
       shellAliases = {
+        nixup =
+          "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
+        nixUp =
+          "nix flake update ${flakePath} && doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
+
         ls = "exa -al";
         lt = "exa -aT";
         cat = "bat";

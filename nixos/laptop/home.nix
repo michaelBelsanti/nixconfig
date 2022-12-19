@@ -1,5 +1,4 @@
 { ... }: {
-  imports =
-    [ ../home.nix ../../modules/hyprland/config ../../modules/shell/laptop ];
+  imports = [ ../../modules/hyprland/config ];
   home.file = { };
 }
