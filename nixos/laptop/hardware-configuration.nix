@@ -4,27 +4,30 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c3fde0b2-d7da-4109-b4cb-27c7a2e53e4b";
-      fsType = "btrfs";
-      options = [ "subvol=nixos" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/c3fde0b2-d7da-4109-b4cb-27c7a2e53e4b";
+    fsType = "btrfs";
+    options = [ "subvol=nixos" ];
+  };
 
-  boot.initrd.luks.devices."nixroot".device = "/dev/disk/by-uuid/02eca0c6-bf0c-4bbb-93c7-687719bbf1fa";
+  boot.initrd.luks.devices."nixroot" = {
+    device = "/dev/disk/by-uuid/02eca0c6-bf0c-4bbb-93c7-687719bbf1fa";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/0001-9657";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/0001-9657";
+    fsType = "vfat";
+  };
 
   swapDevices = [ ];
 
@@ -37,6 +40,7 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.video.hidpi.enable = lib.mkDefault true;
 }

@@ -25,12 +25,13 @@
     spicetify-nix.url = "github:the-argus/spicetify-nix";
 
   };
-  outputs = inputs @ { self, nixpkgs, utils, nix-gaming, home-manager, hyprland, darwin, devenv, helix, ... }:
+  outputs = inputs@{ self, nixpkgs, utils, nix-gaming, home-manager, hyprland
+    , darwin, devenv, helix, ... }:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlays = import ./packages/overlays {inherit inputs;};
+      localOverlays = import ./packages/overlays { inherit inputs; };
       inputOverlays = _: super: {
         inherit (hyprland.packages.${super.system}) hyprland;
         inherit (helix.packages.${super.system}) helix;
@@ -44,19 +45,16 @@
       channelsConfig.allowUnfree = true;
       sharedOverlays = [ inputOverlays localOverlays ];
 
-      hostDefaults = {
-        extraArgs = { inherit inputs user flakePath; };
-      };
+      hostDefaults = { extraArgs = { inherit inputs user flakePath; }; };
 
       hostDefaults.modules = [
         ./nixos/configuration.nix
-        home-manager.nixosModules.home-manager {
+        home-manager.nixosModules.home-manager
+        {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit user flakePath; };
-          home-manager.users.${user}.imports = [
-            ./nixos/home.nix
-          ];
+          home-manager.users.${user}.imports = [ ./nixos/home.nix ];
         }
       ];
 
@@ -85,15 +83,15 @@
 
           inputs.hyprland.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
-          
+
           home-manager.nixosModules.home-manager
           {
             home-manager.users.${user}.imports = [
-              ./nixos/desktop/home.nix
+              ./nixos/laptop/home.nix
               inputs.spicetify-nix.homeManagerModule
             ];
           }
         ];
       };
-  };
+    };
 }
