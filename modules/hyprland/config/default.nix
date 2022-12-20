@@ -5,10 +5,12 @@
     hyprland = {
       source = ./hyprland.conf;
       target = "hypr/hyprland.conf";
+      onChange = "hyprctl reload";
     };
     waybar = {
       source = ./waybar;
       recursive = true;
+      onChange = "hyprctl reload";
     };
     xsettingds = {
       target = "xsettingsd/xsettingsd.conf";

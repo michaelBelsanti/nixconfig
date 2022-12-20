@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./btop ./helix ]; }
+{ ... }: { imports = [ ./btop ./helix ./zellij ]; }

@@ -126,6 +126,11 @@
       delta.enable = true;
       extraConfig = { init = { defaultBranch = "main"; }; };
     };
+    spicetify = {
+      enable = true;
+      enabledExtensions = 
+        [ "fullAppDisplay.js" "shuffle+.js" "hidePodcasts.js" ];
+    };
     tealdeer.settings = {
       updates = { auto_update = true; };
     };

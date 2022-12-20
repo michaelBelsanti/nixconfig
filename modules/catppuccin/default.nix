@@ -16,12 +16,7 @@
     "gtk-4.0/gtk.css".source = ./gtk.css;
   };
   programs = {
-    spicetify = {
-      enable = true;
-      theme = "catppuccin-mocha";
-      enabledExtensions =
-        [ "fullAppDisplay.js" "shuffle+.js" "hidePodcasts.js" ];
-    };
+    spicetify.theme = "catppuccin-mocha";
     helix.settings.theme = "catppuccin_macchiato";
     alacritty.settings = {
       colors = {
