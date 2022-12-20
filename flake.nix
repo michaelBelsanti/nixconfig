@@ -10,10 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
 
     darwin = {
       url = "github:lnl7/nix-darwin/master";
@@ -46,7 +43,6 @@
         inherit (devenv.packages.${super.system}) devenv;
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
       };
-
     in
     utils.lib.mkFlake {
       inherit self inputs user flakePath;
