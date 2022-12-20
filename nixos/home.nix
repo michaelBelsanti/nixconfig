@@ -126,6 +126,9 @@
       delta.enable = true;
       extraConfig = { init = { defaultBranch = "main"; }; };
     };
+    tealdeer.settings = {
+      updates = { auto_update = true; };
+    };
   };
 
   systemd.user.sessionVariables = config.home.sessionVariables;
