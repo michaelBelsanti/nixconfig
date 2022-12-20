@@ -83,7 +83,17 @@
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };
-      outputsBuilder = channels: {
+      outputsBuilder = channels: 
+        let
+          lib = devenv.lib;
+          pkgs = channels.nixpkgs;
+        in
+        {
+          devShells.default = lib.mkShell {
+            inherit pkgs;
+            languages.nix.enable = true;
+        };
+
         formatter = channels.nixpkgs.nixpkgs-fmt;
       };
     };
