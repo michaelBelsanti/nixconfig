@@ -38,7 +38,6 @@
         size = 10000;
         expireDuplicatesFirst = true;
       };
-      envExtra = "PATH=$HOME/.local/bin:$PATH";
       shellAliases = {
         nixup =
           "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
