@@ -147,12 +147,12 @@
 
     MANGOHUD = "0";
 
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
+    XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+    XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
+    XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
+    XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
 
-    __GL_SHADER_DISK_CACHE_PATH = "$HOME/Games/cache";
+    __GL_SHADER_DISK_CACHE_PATH = "${config.home.homeDirectory}/Games/cache";
 
     ANDROID_HOME = "${config.xdg.dataHome}/android";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";

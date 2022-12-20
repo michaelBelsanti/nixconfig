@@ -1,7 +1,6 @@
 { pkgs, user, ... }: {
   imports = [
     ./hardware.nix
-    ../../packages/nixos/desktop
     ../../modules/vfio
     ../../modules/i3
   ];

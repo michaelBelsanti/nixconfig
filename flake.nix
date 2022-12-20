@@ -23,7 +23,6 @@
     devenv.url = "github:cachix/devenv/v0.4";
     helix.url = "github:helix-editor/helix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
-
   };
   outputs = inputs@{ self, nixpkgs, utils, nix-gaming, home-manager, hyprland
     , darwin, devenv, helix, ... }:
@@ -33,7 +32,6 @@
 
       localOverlays = import ./packages/overlays { inherit inputs; };
       inputOverlays = _: super: {
-        inherit (hyprland.packages.${super.system}) hyprland;
         inherit (helix.packages.${super.system}) helix;
         inherit (devenv.packages.${super.system}) devenv;
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
@@ -49,6 +47,7 @@
 
       hostDefaults.modules = [
         ./nixos/configuration.nix
+        inputs.hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -57,6 +56,7 @@
           home-manager.users.${user}.imports = [ 
             ./nixos/home.nix
             inputs.spicetify-nix.homeManagerModule
+            inputs.hyprland.homeManagerModules.default
           ];
         }
       ];
@@ -65,8 +65,6 @@
         nix-desktop.modules = [
           ./nixos/desktop
           ./packages/nixos/desktop.nix
-
-          inputs.hyprland.nixosModules.default
           inputs.nix-gaming.nixosModules.pipewireLowLatency
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-ssd
@@ -75,8 +73,6 @@
         nix-laptop.modules = [
           ./nixos/laptop
           ./packages/nixos/laptop.nix
-
-          inputs.hyprland.nixosModules.default
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };
