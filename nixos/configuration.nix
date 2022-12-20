@@ -93,7 +93,7 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
     initialPassword = "lol";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   # Best fonts (Especially JetBrains Mono)
