@@ -9,7 +9,8 @@ let
     sparseCheckout = [ "src/catppuccin-mocha-grub-theme" ];
     sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
   };
-in {
+in
+{
   imports = [ ./nix.nix ];
 
   environment = {

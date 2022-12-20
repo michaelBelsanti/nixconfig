@@ -65,6 +65,7 @@
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
+    x11.enable = false;
     gtk.enable = true;
     size = lib.mkDefault 32;
   };
@@ -128,7 +129,7 @@
     };
     spicetify = {
       enable = true;
-      enabledExtensions = 
+      enabledExtensions =
         [ "fullAppDisplay.js" "shuffle+.js" "hidePodcasts.js" ];
     };
     tealdeer.settings = {

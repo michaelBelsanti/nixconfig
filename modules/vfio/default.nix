@@ -27,12 +27,14 @@
 
   # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
-    path = let
-      env = pkgs.buildEnv {
-        name = "qemu-hook-env";
-        paths = with pkgs; [ bash libvirt kmod systemd ripgrep sd ];
-      };
-    in [ env ];
+    path =
+      let
+        env = pkgs.buildEnv {
+          name = "qemu-hook-env";
+          paths = with pkgs; [ bash libvirt kmod systemd ripgrep sd ];
+        };
+      in
+      [ env ];
   };
 
   environment.etc = {

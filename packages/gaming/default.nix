@@ -10,7 +10,8 @@ let
     polybar-msg action gamemode module_hide
     togdnd -u
   '';
-in {
+in
+{
   environment.systemPackages = with pkgs; [
     gamescope
     winetricks

@@ -24,8 +24,18 @@
     helix.url = "github:helix-editor/helix";
     spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
-  outputs = inputs@{ self, nixpkgs, utils, nix-gaming, home-manager, hyprland
-    , darwin, devenv, helix, ... }:
+  outputs =
+    inputs@{ self
+    , nixpkgs
+    , utils
+    , nix-gaming
+    , home-manager
+    , hyprland
+    , darwin
+    , devenv
+    , helix
+    , ...
+    }:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
@@ -37,7 +47,8 @@
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
       };
 
-    in utils.lib.mkFlake {
+    in
+    utils.lib.mkFlake {
       inherit self inputs user flakePath;
 
       channelsConfig.allowUnfree = true;
@@ -53,7 +64,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit user flakePath; };
-          home-manager.users.${user}.imports = [ 
+          home-manager.users.${user}.imports = [
             ./nixos/home.nix
             inputs.spicetify-nix.homeManagerModule
             inputs.hyprland.homeManagerModules.default
@@ -75,6 +86,9 @@
           ./packages/nixos/laptop.nix
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
+      };
+      outputsBuilder = channels: {
+        formatter = channels.nixpkgs.nixpkgs-fmt;
       };
     };
 }

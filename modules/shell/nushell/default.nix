@@ -1,4 +1,4 @@
-{config, pkgs, lib, flakePath, ... }: 
+{ config, pkgs, lib, flakePath, ... }:
 let
   loadEnvVars = n: v: ''"${n}": "${toString v}"'';
 

@@ -3,7 +3,8 @@ let
   user = "michaelbelsanti";
   system = "aarch64-darwin";
   pkgs = pkgsFor system;
-in {
+in
+{
   osx = darwin.lib.darwinSystem {
     inherit system pkgs;
     specialArgs = { inherit inputs user; };
