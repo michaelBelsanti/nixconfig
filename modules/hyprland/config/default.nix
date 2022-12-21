@@ -28,7 +28,7 @@
   home.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     GDK_SCALE = 2;
-    XCURSOR_SIZE = 64;
+    XCURSOR_SIZE = lib.mkForce 64;
   };
 
   # Good defaults for standalone apps

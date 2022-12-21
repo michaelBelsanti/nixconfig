@@ -17,9 +17,10 @@
     celluloid
     qbittorrent
     (discord.override { withOpenASAR = true; nss = pkgs.nss_latest; })
-    libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5ct
 
-    jflap
+    libsForQt5.qt5ct
+    libsForQt5.lightly
+    libsForQt5.breeze-icons
+
   ];
 }

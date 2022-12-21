@@ -14,6 +14,10 @@
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;
+    "qt5ct" = {
+      recursive = true;
+      source = ./qt5ct;
+    };
   };
   programs = {
     spicetify.theme = "catppuccin-mocha";

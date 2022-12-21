@@ -17,9 +17,8 @@
       wezterm
       alacritty
       rofi-wayland
-      gnome.nautilus
-      nautilus-open-any-terminal
-      gnome.file-roller
+      dolphin
+      libsForQt5.ark
       selectdefaultapplication
       (polkit_gnome.overrideAttrs (_oldAttrs: {
         postFixup = ''

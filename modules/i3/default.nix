@@ -12,9 +12,8 @@
       rofi
       feh
       dunst
-      gnome.nautilus
-      nautilus-open-any-terminal
-      gnome.file-roller
+      dolphin
+      libsForQt5.ark
       wmctrl
       selectdefaultapplication
       (polkit_gnome.overrideAttrs (_oldAttrs: {

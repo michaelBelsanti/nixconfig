@@ -28,16 +28,11 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "intel" ];
-    # desktopManager.gnome.enable = true;
-    # desktopManager.plasma5.enable = true;
-    # displayManager.xserverArgs = [ "-logfile '/var/log/X.log'" ];
+    desktopManager.plasma5.enable = false;
     displayManager.gdm = {
       enable = true;
       wayland = true;
     };
-    # displayManager.lightdm = {
-    #   enable = true;
-    # };
     libinput = {
       mouse = {
         accelProfile = "flat";
