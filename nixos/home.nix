@@ -1,6 +1,6 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
 
-{ lib, config, pkgs, user, ... }: {
+{ lib, config, pkgs, user, inputs, ... }: {
   imports = [
     ../modules/catppuccin
     # ../modules/alacritty

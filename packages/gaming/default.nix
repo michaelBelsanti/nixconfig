@@ -1,16 +1,4 @@
 { pkgs, lib, ... }:
-let
-  gmstart = pkgs.writeShellScriptBin "gmstart" ''
-    echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-    polybar-msg action gamemode module_show
-    togdnd -p
-  '';
-  gmstop = pkgs.writeShellScriptBin "gmstop" ''
-    echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-    polybar-msg action gamemode module_hide
-    togdnd -u
-  '';
-in
 {
   environment.systemPackages = with pkgs; [
     gamescope
@@ -50,8 +38,18 @@ in
           amd_performance_level = "high";
         };
         custom = {
-          start = "${gmstart}/bin/gmstart";
-          end = "${gmstop}/bin/gmstop";
+          start = ''
+            echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+            polybar-msg action gamemode module_show
+            togdnd -p
+            togpicom -p
+          '';
+          end = ''
+            echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+            polybar-msg action gamemode module_hide
+            togdnd -u
+            togpicom -u
+          '';
         };
       };
     };

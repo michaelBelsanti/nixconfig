@@ -17,10 +17,5 @@
     celluloid
     qbittorrent
     (discord.override { withOpenASAR = true; nss = pkgs.nss_latest; })
-
-    libsForQt5.qt5ct
-    libsForQt5.lightly
-    libsForQt5.breeze-icons
-
   ];
 }

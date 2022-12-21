@@ -4,7 +4,7 @@ def create_left_prompt [] {
     let path_segment = if (is-admin) {
         $"(ansi red_bold)($env.PWD)"
     } else {
-        $"(ansi p)(ansi pr)(echo $env.PWD | split row '/' | last 3 | str join '/')(ansi reset)" + $"(ansi p)"
+        $"(ansi purple)(ansi purple_reverse)(echo $env.PWD | split row '/' | last 3 | str join '/')(ansi reset)(ansi purple)"
     }
 
     $path_segment
@@ -12,7 +12,7 @@ def create_left_prompt [] {
 
 def create_right_prompt [] {
     let time_segment = ([
-        $"(ansi p)(ansi pr)(date now | date format '%m/%d/%Y %r')(ansi reset)(ansi p)"
+        $"(ansi purple)(ansi purple_reverse)(date now | date format '%m/%d/%Y %r')(ansi reset)(ansi purple)"
     ] | str join)
 
     $time_segment

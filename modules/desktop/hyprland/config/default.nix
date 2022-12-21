@@ -12,23 +12,14 @@
       recursive = true;
       onChange = "hyprctl reload";
     };
-    xsettingds = {
-      target = "xsettingsd/xsettingsd.conf";
-      text = ''
-        Xft/Hinting 1
-        Xft/HintStyle "hintslight"
-        Xft/Antialias 1
-        Xft/RGBA "rgb"
-      '';
-    };
   };
   xresources.properties = { "Xcursor.size" = "64"; };
 
   home.pointerCursor.x11.enable = false;
-  home.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
+  home.sessionVariables = lib.mkForce {
+    # QT_QPA_PLATFORM = "wayland";
     GDK_SCALE = 2;
-    XCURSOR_SIZE = lib.mkForce 64;
+    XCURSOR_SIZE = "64";
   };
 
   # Good defaults for standalone apps

@@ -20,14 +20,29 @@
     };
   };
   home.packages = with pkgs; [
-    (writeScriptBin "togpicom" ''
+    (writeShellScriptBin "togpicom" ''
+      stop () {
+        killall picom
+      }
+      start () {
+        picom --unredir-if-possible
+      }
+
       pgrep -x picom
-      if [ $? -ne 0 ]
-      then
-          picom --unredir-if-possible
-      else
-          pkill picom
+      if [ $? -ne 0 ] 
+        then ALIVE=0
+        else ALIVE=1
       fi;
+
+      if getopts 'tpu' flag; then
+        case "$flag" in 
+          t) if [ $ALIVE -eq 1 ]; then stop; else start; fi; exit;;
+          p) stop exit;;
+          u) start exit;;
+        esac
+      else
+        echo "Usage: -p 'pause', -u 'unpause' -t 'toggle'"
+      fi
     '')
 
     (writeShellScriptBin "togdnd" ''

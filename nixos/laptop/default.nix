@@ -3,11 +3,11 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/hyprland
+    ../../modules/desktop/hyprland
   ];
 
   home-manager.users.${user} = { ... }: {
-    imports = [ ../../modules/hyprland/config ];
+    imports = [ ../../modules/desktop/hyprland/config ];
   };
 
   networking.hostName = "nix-laptop"; # Define your hostname.

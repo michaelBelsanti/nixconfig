@@ -2,11 +2,11 @@
   imports = [
     ./hardware.nix
     ../../modules/vfio
-    ../../modules/i3
+    ../../modules/desktop/i3
   ];
 
   home-manager.users.${user} = { ... }: {
-    imports = [ ../../modules/i3/config ];
+    imports = [ ../../modules/desktop/i3/config ];
 
     # home.pointerCursor.x11.enable = true;
     xsession.initExtra = ''
@@ -37,6 +37,7 @@
     enable = true;
     videoDrivers = [ "nvidia" ];
     windowManager.i3.enable = true; # Configured by ../../modules/i3 import
+    # desktopManager.plasma5.enable = true;
     displayManager = {
       setupCommands =
         "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
@@ -45,7 +46,6 @@
         wayland = false;
       };
     };
-    exportConfiguration = true;
     # Needed because it thinks my mouse is a touchpad :|
     libinput = {
       mouse = {
@@ -73,7 +73,7 @@
     MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-gnome ];
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
 
   services = {
     pipewire.lowLatency.enable = true;
