@@ -4,7 +4,7 @@ def create_left_prompt [] {
     let path_segment = if (is-admin) {
         $"(ansi red_bold)($env.PWD)"
     } else {
-        $"(ansi purple_bold)(echo $env.PWD | split row "/" | last 3 | str join "/")"
+        $"(ansi p)(ansi pr)(echo $env.PWD | split row '/' | last 3 | str join '/')(ansi reset)" + $"(ansi p)"
     }
 
     $path_segment
@@ -12,7 +12,7 @@ def create_left_prompt [] {
 
 def create_right_prompt [] {
     let time_segment = ([
-        (date now | date format '%m/%d/%Y %r')
+        $"(ansi p)(ansi pr)(date now | date format '%m/%d/%Y %r')(ansi reset)(ansi p)"
     ] | str join)
 
     $time_segment
@@ -24,7 +24,7 @@ let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-let-env PROMPT_INDICATOR = { "> " }
+let-env PROMPT_INDICATOR = { " " }
 let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
 let-env PROMPT_INDICATOR_VI_NORMAL = { "> " }
 let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
