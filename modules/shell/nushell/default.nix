@@ -1,9 +1,4 @@
 { config, pkgs, lib, flakePath, ... }:
-let
-  loadEnvVars = n: v: ''"${n}": "${toString v}"'';
-
-  loadEnv = vars: ''load-env { ${lib.concatStringsSep ", " (lib.mapAttrsToList loadEnvVars vars)} }'';
-in
 {
   programs = {
     nushell = {
@@ -18,7 +13,9 @@ in
         alias nixup = doas nixos-rebuild switch --flake '${flakePath}'
         alias nixUp = nix flake update ${flakePath} && doas nixos-rebuild switch --flake '${flakePath}'
       '';
-      extraEnv = ''${loadEnv config.home.sessionVariables}'';
+      extraEnv = ''
+        sh -c ". ~/.profile"
+      '';
     };
   };
 }
