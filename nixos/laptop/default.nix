@@ -3,12 +3,8 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/desktop/hyprland
+    ../../modules/desktop/hyprland/laptop.nix
   ];
-
-  home-manager.users.${user} = {
-    imports = [ ../../modules/desktop/hyprland/config ];
-  };
 
   networking.hostName = "nix-laptop"; # Define your hostname.
 
@@ -57,12 +53,9 @@
 
   ### Services and hardware ###
 
-  xdg = {
-    portal = {
-      enable = true;
-      wlr.enable = true;
-      # gtkUsePortal = false;
-    };
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
   };
 
   # Framework stuff
