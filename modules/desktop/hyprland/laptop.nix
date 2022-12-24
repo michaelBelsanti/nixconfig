@@ -1,4 +1,4 @@
-{ pkgs, user, ... }: {
+{ lib, pkgs, user, ... }: {
   imports = [ ./default.nix ];
   environment.variables = {
     QT_QPA_PLATFORM = "wayland";
