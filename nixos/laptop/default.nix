@@ -6,7 +6,7 @@
     ../../modules/desktop/hyprland
   ];
 
-  home-manager.users.${user} = { ... }: {
+  home-manager.users.${user} = {
     imports = [ ../../modules/desktop/hyprland/config ];
   };
 

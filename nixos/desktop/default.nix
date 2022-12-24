@@ -5,7 +5,7 @@
     ../../modules/desktop/i3
   ];
 
-  home-manager.users.${user} = { ... }: {
+  home-manager.users.${user} = {
     imports = [ ../../modules/desktop/i3/config ];
 
     # home.pointerCursor.x11.enable = true;
