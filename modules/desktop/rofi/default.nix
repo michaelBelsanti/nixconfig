@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   xdg.configFile = {
     "rofi" = {
-      source = ./config;
+      source = ./rofi;
       recursive = true;
     };
     "greenclip.toml" = {
