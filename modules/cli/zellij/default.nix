@@ -1,14 +1,11 @@
 { user, ... }: {
   xdg.configFile = {
-    "zellij/themes" = {
+    "zellij" = {
       recursive = true;
-      source = ./themes;
+      source = ./zellij;
     };
   };
   programs.zellij = {
     enable = true;
-    settings = {
-      theme = "catppuccin-mocha";
-    };
   };
 }
