@@ -19,5 +19,5 @@
     slurp
     swaylock
   ];
-  home-manager.users.${user}.imports = [ ../rofi ];
+  home-manager.users.${user}.imports = [ ../rofi ../../foot ];
 }

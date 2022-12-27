@@ -3,8 +3,6 @@
 { lib, config, pkgs, user, inputs, ... }: {
   imports = [
     ../modules/catppuccin
-    # ../modules/alacritty
-    ../modules/wezterm
     ../modules/shell
     ../modules/cli
   ];

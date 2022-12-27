@@ -48,7 +48,7 @@ gaps outer 0
 set $mod Mod4
 floating_modifier $mod
 
-bindsym $mod+Return     exec wezterm
+bindsym $mod+Return     exec alacritty
 bindsym $mod+e          exec nautilus
 bindsym $mod+b          exec librewolf
 bindsym $mod+s        exec shotgun -s - | xclip -t 'image/png' -selection clipboard

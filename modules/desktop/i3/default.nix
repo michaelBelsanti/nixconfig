@@ -19,7 +19,7 @@
     })
   ];
   home-manager.users.${user} = {
-    imports = [ ../../rofi ];
+    imports = [ ../rofi ../../alacritty ];
     xdg.configFile = {
       i3 = {
         source = ./i3;
