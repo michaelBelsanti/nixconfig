@@ -14,7 +14,8 @@
         alias nixUp = nix flake update ${flakePath} && doas nixos-rebuild switch --flake '${flakePath}'
       '';
       extraEnv = ''
-        sh -c ". ~/.profile"
+        sh -c "source /etc/profile"
+        sh -c "source ~/.profile"
       '';
     };
   };
