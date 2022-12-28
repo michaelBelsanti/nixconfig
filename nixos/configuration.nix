@@ -137,7 +137,8 @@ in
   # Services
   services = {
     flatpak.enable = true;
-
+    fstrim.enable = true;
+    btrfs.autoScrub.enable = true;
     # Pipewire
     pipewire = {
       enable = true;
@@ -146,7 +147,6 @@ in
       pulse.enable = true;
       jack.enable = true;
     };
-
     # Printing
     printing.enable = true;
     avahi = {
@@ -158,17 +158,11 @@ in
         userServices = true;
       };
     };
-
     # VPN
     mullvad-vpn.enable = true;
-
     # Clipboard daemon (for rofi clipboard)
     greenclip.enable = true;
-
     qemuGuest.enable = true;
-
-    # Idk but thunar wants it
-    gvfs.enable = true;
   };
 
   programs = {
@@ -195,6 +189,12 @@ in
       enableSSHSupport = false;
     };
   };
+  systemd.extraConfig = ''
+    DefaultTimeoutStartSec=10s
+    DefaultTimeoutStopSec=10s
+    DefaultTimeoutAbortSec=10s
+    DefaultDeviceTimeoutSec=10s
+  '';
 
   # VMs
   virtualisation = {
