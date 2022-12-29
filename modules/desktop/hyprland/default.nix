@@ -6,6 +6,9 @@
 { pkgs, user, ... }: {
   imports = [ ../. ];
   programs.hyprland.recommendedEnvironment = true;
+  environment.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+  };
   # services.xserver.displayManager.defaultSession = "hyprland";
   environment.systemPackages = with pkgs; [
     swaybg
@@ -19,5 +22,8 @@
     slurp
     swaylock
   ];
-  home-manager.users.${user}.imports = [ ../rofi ../../foot ];
+  home-manager.users.${user} = {
+    imports = [ ../rofi ../../foot ];
+    programs.mako.enable = true;
+  };
 }

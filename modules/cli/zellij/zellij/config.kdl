@@ -29,20 +29,6 @@ theme "catppuccin-mocha"
 //
 // default_layout "compact"
 
-// Choose the mode that zellij uses when starting up.
-// Default: normal
-//
-// default_mode "locked"
-
-// Toggle enabling the mouse mode.
-// On certain configurations, or terminals this could
-// potentially interfere with copying text.
-// Options:
-//   - true (default)
-//   - false
-//
-// mouse_mode false
-
 // Configure the scroll back buffer size
 // This is the number of lines zellij stores for each pane in the scroll back
 // buffer. Excess number of lines are discarded in a FIFO fashion.
@@ -55,3 +41,13 @@ theme "catppuccin-mocha"
 // Default: true
 //
 // copy_on_select false
+
+keybinds {
+	shared_except "locked" {
+		bind "Alt q" { CloseFocus; }
+	}
+	shared_except "move" "locked" {
+	    bind "Ctrl m" { SwitchToMode "move"; }
+		// unbind "Ctrl h"
+	}
+}

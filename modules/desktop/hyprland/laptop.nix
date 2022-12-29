@@ -1,7 +1,6 @@
 { lib, pkgs, user, ... }: {
   imports = [ ./default.nix ];
   environment.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
     GDK_SCALE = "2";
     XCURSOR_SIZE = "64";
   };
