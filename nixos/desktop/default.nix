@@ -6,8 +6,6 @@
   ];
 
   home-manager.users.${user} = {
-    imports = [ ../../modules/desktop/i3/config ];
-
     # home.pointerCursor.x11.enable = true;
     xsession.initExtra = ''
       easyeffects --gapplication-service &
