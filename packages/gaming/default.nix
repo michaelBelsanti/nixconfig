@@ -13,6 +13,7 @@
     goverlay
     mangohud
     prismlauncher
+    lunar-client
     minetest
   ];
 

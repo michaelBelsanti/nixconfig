@@ -26,11 +26,11 @@
     device = "/dev/disk/by-label/mainhdd";
     fsType = "btrfs";
   };
-  # fileSystems."/run/media/quasi/nfs" = 
-  #   {
-  #     device = "sidious.quasi.ml:/zfsa/nfs";
-  #     fsType = "nfs";
-  #   };
+
+  # fileSystems."/run/media/quasi/nfs" = {
+  #   device = "sidious.quasi.ml:/zfsa/nfs";
+  #   fsType = "nfs";
+  # };
 
   swapDevices = [ ];
 
