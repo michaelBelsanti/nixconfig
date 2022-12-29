@@ -2,6 +2,10 @@
   # Nushell requires more in-depth configuration
   imports = [ ./nushell ];
   programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     exa.enable = true;
     zoxide.enable = true;
     fzf = {
