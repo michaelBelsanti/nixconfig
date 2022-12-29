@@ -19,7 +19,7 @@
 
     devenv.url = "github:cachix/devenv/v0.4";
     helix.url = "github:helix-editor/helix";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
+    spicetify.url = "github:the-argus/spicetify-nix";
   };
   outputs =
     inputs@{ self
@@ -31,6 +31,7 @@
     , darwin
     , devenv
     , helix
+    , spicetify
     , ...
     }:
     let
@@ -42,6 +43,7 @@
         inherit (helix.packages.${super.system}) helix;
         inherit (devenv.packages.${super.system}) devenv;
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
+        spicePkgs = spicetify.packages.${super.system}.default;
       };
 
     in
@@ -63,7 +65,7 @@
           home-manager.extraSpecialArgs = { inherit user flakePath; };
           home-manager.users.${user}.imports = [
             ./nixos/home.nix
-            inputs.spicetify-nix.homeManagerModule
+            inputs.spicetify.homeManagerModule
             inputs.hyprland.homeManagerModules.default
           ];
         }

@@ -1,6 +1,6 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
 
-{ lib, config, pkgs, user, inputs, ... }: {
+{ lib, config, pkgs, user, spicePkgs, ... }: {
   imports = [
     ../modules/catppuccin
     ../modules/shell
@@ -127,8 +127,8 @@
     };
     spicetify = {
       enable = true;
-      enabledExtensions =
-        [ "fullAppDisplay.js" "shuffle+.js" "hidePodcasts.js" ];
+      enabledExtensions = with pkgs.spicePkgs.extensions;
+        [ fullAppDisplay featureShuffle hidePodcasts ];
     };
     tealdeer.settings = {
       updates = { auto_update = true; };

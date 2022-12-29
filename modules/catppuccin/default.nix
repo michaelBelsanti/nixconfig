@@ -20,7 +20,7 @@
     };
   };
   programs = {
-    spicetify.theme = "catppuccin-mocha";
+    spicetify.theme = pkgs.spicePkgs.themes.catppuccin-mocha;
     helix.settings.theme = "catppuccin_macchiato";
     alacritty.settings = {
       colors = {
