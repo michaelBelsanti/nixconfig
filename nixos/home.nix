@@ -120,10 +120,13 @@
     gpg.homedir = "${config.xdg.dataHome}/gnupg";
     git = {
       enable = true;
-      userName = "quasigod-io";
+      userName = "michaelBelsanti";
       userEmail = "quasigod-io@protonmail.com";
       delta.enable = true;
-      extraConfig = { init = { defaultBranch = "main"; }; };
+      extraConfig = {
+        init = { defaultBranch = "main"; };
+        pull = { rebase = true; };
+      };
     };
     spicetify = {
       enable = true;
