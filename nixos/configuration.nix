@@ -163,6 +163,7 @@ in
     # Clipboard daemon (for rofi clipboard)
     greenclip.enable = true;
     qemuGuest.enable = true;
+    gvfs.enable = true;
   };
 
   programs = {
