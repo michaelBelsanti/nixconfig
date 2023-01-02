@@ -56,7 +56,7 @@
       hostDefaults = { extraArgs = { inherit inputs user flakePath; }; };
 
       hostDefaults.modules = [
-        ./nixos/configuration.nix
+        ./nixos
         inputs.hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {

@@ -54,11 +54,11 @@ in
   # Locale
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    # keyMap = "us";
-    # useXkbConfig = true;
-  };
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true;
+  # };
 
   # Xserver input
   services.xserver = {
@@ -115,10 +115,10 @@ in
     };
   };
 
-  qt5 = {
-    platformTheme = "qt5ct";
-    style = "Lightly";
-  };
+  # qt5 = {
+  #   platformTheme = "qt5ct";
+  #   style = "Lightly";
+  # };
 
   # Environment variables
   environment = {
