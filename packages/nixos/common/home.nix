@@ -16,6 +16,6 @@
     element-desktop
     celluloid
     qbittorrent
-    (discord.override { withOpenASAR = true; nss = pkgs.nss_latest; })
+    kate
   ];
 }

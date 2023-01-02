@@ -1,6 +1,6 @@
 inputs: _: super: {
   discord-openasar = super.discord.override {
-    nss = super.nss_latest;
+    # nss = super.nss_latest;
     withOpenASAR = true;
   };
   helix-desktop = super.makeDesktopItem {
@@ -12,4 +12,5 @@ inputs: _: super: {
     categories = [ "Utility" "TextEditor" "Development" ];
   };
   latencyflex = super.callPackage ./latencyflex { };
+  nss = super.nss_latest;
 }

@@ -23,6 +23,7 @@
     fzf
     ncdu
     imagemagick
+
     # File Management
     edir
     clifm
@@ -43,5 +44,7 @@
     so
 
     devenv
+
+    discord-openasar
   ];
 }
