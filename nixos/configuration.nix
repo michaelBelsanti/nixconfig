@@ -121,10 +121,13 @@ in
   };
 
   # Environment variables
-  environment.variables = {
-    EDITOR = "hx";
-    VISUAL = "hx";
-    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+  environment = {
+    defaultPackages = with pkgs; [ micro git perl rsync strace ];
+    variables = {
+      EDITOR = "micro";
+      VISUAL = "kate";
+      __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+    };
   };
 
   ### Services and hardware ###
