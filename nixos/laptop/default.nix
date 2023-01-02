@@ -24,7 +24,6 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "intel" ];
-    desktopManager.plasma5.enable = false;
     displayManager.gdm = {
       enable = true;
       wayland = true;

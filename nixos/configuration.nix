@@ -62,8 +62,8 @@ in
 
   # Xserver input
   services.xserver = {
+    desktopManager.plasma5.enable = true;
     layout = "us";
-    # xkbOptions = "caps:escape";
     libinput.enable = true;
     desktopManager.gnome.extraGSettingsOverrides = ''
       [com.ubuntu.login-screen]
