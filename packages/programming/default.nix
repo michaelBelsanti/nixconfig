@@ -6,7 +6,7 @@
 }:
 
 let
-  rustPkgs = pkgs: with pkgs; [ rustc cargo gcc rust-analyzer taplo ];
+  rustPkgs = pkgs: with pkgs; [ rustc cargo gcc rust-analyzer taplo clippy ];
   javaPkgs = pkgs: with pkgs; [ jetbrains.idea-community jdk11 ];
 in
 
