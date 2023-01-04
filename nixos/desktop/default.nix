@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
     ../../modules/vfio
-    ../../modules/desktop/i3
+    # ../../modules/desktop/i3
   ];
 
   home-manager.users.${user} = {
@@ -34,13 +34,12 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
-    windowManager.i3.enable = true; # Configured by ../../modules/i3 import
+    # windowManager.i3.enable = true; # Configured by ../../modules/i3 import
     displayManager = {
       setupCommands =
         "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
-      gdm = {
+      sddm = {
         enable = true;
-        wayland = false;
       };
     };
     # Needed because it thinks my mouse is a touchpad :|

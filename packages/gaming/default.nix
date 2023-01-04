@@ -15,8 +15,13 @@
     prismlauncher
     lunar-client
     minetest
+    protonup-qt
   ];
 
+  hardware = {
+    xone.enable = true;
+    # xpadneo.enable = true;
+  };
   programs = {
     steam = {
       enable = true;

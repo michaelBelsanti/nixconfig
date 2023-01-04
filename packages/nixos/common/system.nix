@@ -38,6 +38,7 @@
     nil
     nix-tree
     nix-index
+    nurl
 
     distrobox
 

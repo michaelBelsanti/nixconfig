@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager.url = "github:pjones/plasma-manager";
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     darwin = {
@@ -27,7 +29,9 @@
     , utils
     , nix-gaming
     , home-manager
+    , plasma-manager
     , hyprland
+    , nixos-hardware
     , darwin
     , devenv
     , helix
@@ -57,7 +61,7 @@
 
       hostDefaults.modules = [
         ./nixos
-        inputs.hyprland.nixosModules.default
+        hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -65,8 +69,9 @@
           home-manager.extraSpecialArgs = { inherit user flakePath; };
           home-manager.users.${user}.imports = [
             ./nixos/home.nix
-            inputs.spicetify.homeManagerModule
-            inputs.hyprland.homeManagerModules.default
+            spicetify.homeManagerModule
+            hyprland.homeManagerModules.default
+            plasma-manager.homeManagerModules.plasma-manager
           ];
         }
       ];
@@ -75,9 +80,9 @@
         nix-desktop.modules = [
           ./nixos/desktop
           ./packages/nixos/desktop.nix
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
-          inputs.nixos-hardware.nixosModules.common-cpu-amd
-          inputs.nixos-hardware.nixosModules.common-pc-ssd
+          nix-gaming.nixosModules.pipewireLowLatency
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
         ];
 
         nix-laptop.modules = [

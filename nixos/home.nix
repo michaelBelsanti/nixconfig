@@ -5,6 +5,7 @@
     ../modules/catppuccin
     ../modules/shell
     ../modules/cli
+    ../modules/wezterm
   ];
 
   # Home Manager Setup
@@ -155,8 +156,6 @@
     XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
 
     __GL_SHADER_DISK_CACHE_PATH = "${config.home.homeDirectory}/Games/cache";
-
-    QT_QPA_PLATFORMTHEME = "qt5ct";
 
     ANDROID_HOME = "${config.xdg.dataHome}/android";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";

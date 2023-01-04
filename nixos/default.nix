@@ -11,7 +11,7 @@ let
   };
 in
 {
-  imports = [ ./nix.nix ];
+  imports = [ ./nix.nix ../modules/desktop/kde ];
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";

@@ -12,5 +12,7 @@ inputs: _: super: {
     categories = [ "Utility" "TextEditor" "Development" ];
   };
   latencyflex = super.callPackage ./latencyflex { };
+  protonup-qt = super.callPackage ./protonup-qt { };
+  catppuccin-kde = super.callPackage ./catppuccin-kde { };
   # nss = super.nss_latest;
 }
