@@ -11,6 +11,7 @@
       }
     ''; # Fixes bugged context menus
   };
+  home.file.".background-image".source = ../../etc/bg.png;
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;

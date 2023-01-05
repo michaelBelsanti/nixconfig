@@ -7,7 +7,7 @@
       auto-optimise-store = true;
       trusted-users = [ "root" "quasi" "michaelbelsanti" ];
       substituters = [
-        "https://quasigod.cachix.org"
+        # "https://quasigod.cachix.org"
         "https://helix.cachix.org"
         "https://hyprland.cachix.org"
         "https://devenv.cachix.org"

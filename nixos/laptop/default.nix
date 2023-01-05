@@ -3,7 +3,7 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/desktop/hyprland/laptop.nix
+    # ../../modules/desktop/hyprland/laptop.nix
   ];
 
   networking.hostName = "nix-laptop"; # Define your hostname.
@@ -20,13 +20,16 @@
     serviceConfig.Type = "simple";
   };
 
-  programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
+  # programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
   services.xserver = {
     enable = true;
     videoDrivers = [ "intel" ];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    displayManager = {
+      defaultSession = "plasmawayland";
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
     };
     libinput = {
       mouse = {

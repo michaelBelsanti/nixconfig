@@ -11,5 +11,7 @@
 
     wezterm
     ark
+    wl-clipboard
+    xclip
   ];
 }
