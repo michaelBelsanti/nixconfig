@@ -36,15 +36,15 @@
 
     # Nix
     nil
+    nurl
     nix-tree
     nix-index
-    nurl
+    nix-alien
+    devenv
 
     distrobox
 
     so
-
-    devenv
 
     discord-openasar
   ];
