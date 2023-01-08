@@ -26,6 +26,9 @@
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
+      package = pkgs.steam.override {
+        extraLibraries = pkgs: [ pkgs.latencyflex ];
+      };
     };
     gamemode = {
       enable = true;
