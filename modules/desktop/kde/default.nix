@@ -11,6 +11,7 @@
 
     wezterm
     ark
+    krusader
     wl-clipboard
     xclip
   ];

@@ -39,7 +39,7 @@
     nurl
     nix-tree
     nix-index
-    nix-alien
+    # nix-alien
     devenv
 
     distrobox
