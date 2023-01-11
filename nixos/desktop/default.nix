@@ -3,6 +3,7 @@
     ./hardware.nix
     ../../modules/vfio
     # ../../modules/desktop/i3
+    ../../modules/desktop/kde/desktop.nix
   ];
 
   home-manager.users.${user} = {

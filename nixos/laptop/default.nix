@@ -4,6 +4,7 @@
   imports = [
     ./hardware.nix
     # ../../modules/desktop/hyprland/laptop.nix
+    ../../modules/desktop/kde/laptop.nix
   ];
 
   networking.hostName = "nix-laptop"; # Define your hostname.
