@@ -2,7 +2,6 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_macchiato";
       keys.normal = {
         C-h = "jump_view_left";
         C-j = "jump_view_down";
