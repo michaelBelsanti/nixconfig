@@ -2,7 +2,7 @@ local wezterm = require "wezterm"
 local act = wezterm.action
 
 return {
-	color_scheme = "Catppuccin Mocha",
+	color_scheme = "Catppuccin Macchiato",
   font = wezterm.font("JetBrainsMono Nerd Font"),
   font_size = 12.0,
   harfbuzz_features = {"zero"},
@@ -12,26 +12,11 @@ return {
   use_fancy_tab_bar = false,
 
   keys = {
-      { key = 't', mods = 'SHIFT|ALT', action = act.SpawnTab 'CurrentPaneDomain' },
-      { key = 'w', mods = 'CTRL|SHIFT', action = act.CloseCurrentTab{ confirm = true } },
-      { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-      { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
       { key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
       { key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
       { key = '0', mods = 'ALT', action = act.ResetFontSize },
-      { key = '1', mods = 'ALT', action = act.ActivateTab(0) },
-      { key = '2', mods = 'ALT', action = act.ActivateTab(1) },
-      { key = '3', mods = 'ALT', action = act.ActivateTab(2) },
-      { key = '4', mods = 'ALT', action = act.ActivateTab(3) },
-      { key = '5', mods = 'ALT', action = act.ActivateTab(4) },
-      { key = '6', mods = 'ALT', action = act.ActivateTab(5) },
-      { key = '7', mods = 'ALT', action = act.ActivateTab(6) },
-      { key = '8', mods = 'ALT', action = act.ActivateTab(7) },
-      { key = '9', mods = 'ALT', action = act.ActivateTab(-1) },
       { key = 'c', mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
       { key = 'f', mods = 'SHIFT|ALT', action = act.Search 'CurrentSelectionOrEmptyString' },
-      -- { key = 'k', mods = 'SHIFT|ALT', action = act.ClearScrollback 'ScrollbackOnly' },
-      -- { key = 'l', mods = 'SHIFT|ALT', action = act.ShowDebugOverlay },
       { key = 'Return', mods = 'ALT', action = act.SpawnWindow },
       { key = 'r', mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
       { key = 'e', mods = 'CTRL|SHIFT', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
