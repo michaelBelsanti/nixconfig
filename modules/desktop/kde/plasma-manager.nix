@@ -963,11 +963,13 @@
       "kwinrc"."Desktops"."Id_7" = "e9295011-4d8b-4b1e-9ad7-35d7204b4e8c";
       "kwinrc"."Desktops"."Id_8" = "02cd108a-ad18-4755-bf75-b8996553887e";
       "kwinrc"."Desktops"."Id_9" = "a356cc63-c717-4408-8604-f54a7b00a17f";
+      "kwinrc"."Desktops"."Name_1" = 1;
       "kwinrc"."Desktops"."Name_10" = 10;
       "kwinrc"."Desktops"."Name_2" = 2;
       "kwinrc"."Desktops"."Name_3" = 3;
       "kwinrc"."Desktops"."Name_4" = 4;
       "kwinrc"."Desktops"."Name_5" = 5;
+      "kwinrc"."Desktops"."Name_6" = 6;
       "kwinrc"."Desktops"."Name_7" = 7;
       "kwinrc"."Desktops"."Name_8" = 8;
       "kwinrc"."Desktops"."Name_9" = 9;
@@ -992,9 +994,10 @@
       "kwinrc"."Script-bismuth"."tileLayoutGap" = 6;
       "kwinrc"."TabBox"."LayoutName" = "informative";
       "kwinrc"."Windows"."BorderSnapZone" = 20;
+      "kwinrc"."Windows"."DelayFocusInterval" = 0;
       "kwinrc"."Windows"."FocusPolicy" = "FocusFollowsMouse";
       "kwinrc"."Windows"."WindowSnapZone" = 20;
-      "kwinrc"."Xwayland"."Scale" = 1.5;
+      "kwinrc"."Xwayland"."Scale" = 1.500000;
       "plasma-localerc"."Formats"."LANG" = "en_US.UTF-8";
       "plasmarc"."Theme"."name" = "lightly-plasma-v4";
       "plasmarc"."Wallpapers"."usersWallpapers" = "/home/quasi/.flake/etc/bg.png";
