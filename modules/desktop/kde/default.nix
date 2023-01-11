@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     # Theming / Customization
     catppuccin-kde
+    lightly-qt
     libsForQt5.lightly
     libsForQt5.bismuth
 

@@ -11,6 +11,7 @@
     git
     cachix
     aria2
+    ouch
     unrar
     unzip
     killall
