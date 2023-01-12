@@ -163,6 +163,7 @@ in
     greenclip.enable = true;
     qemuGuest.enable = true;
     gvfs.enable = true;
+    input-remapper.enable = true;
   };
 
   programs = {

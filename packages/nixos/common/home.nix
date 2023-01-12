@@ -14,7 +14,6 @@
     tetrio-desktop
     easyeffects
     element-desktop
-    celluloid
     qbittorrent
     kate
   ];
