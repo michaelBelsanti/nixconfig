@@ -20,7 +20,7 @@ stdenvNoCC.mkDerivation rec {
     find . -type f -name "Catppuccin*.colors" -exec cp "{}" $out/share/color-schemes \;
     cp -R Catppuccin-* $out/share/plasma/look-and-feel
   '';
-  
+
   meta = with lib; {
     description = "🌻 Soothing pastel theme for KDE";
     homepage = "https://github.com/catppuccin/kde";

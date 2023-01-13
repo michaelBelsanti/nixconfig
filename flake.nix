@@ -54,7 +54,7 @@
 
       channelsConfig.allowUnfree = true;
       sharedOverlays = [ inputOverlay localOverlay ];
-      hostDefaults = { 
+      hostDefaults = {
         extraArgs = { inherit inputs user flakePath; };
       };
 

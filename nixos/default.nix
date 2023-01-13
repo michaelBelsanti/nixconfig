@@ -192,7 +192,7 @@ in
 
     # For running non-Nix binaries
     nix-ld.enable = true;
-    
+
   };
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=10s

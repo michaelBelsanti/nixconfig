@@ -13,7 +13,7 @@
         cursorline = true;
         cursorcolumn = true;
         color-modes = true;
-        file-picker.hidden = false; 
+        file-picker.hidden = false;
         line-number = "relative";
         lsp.display-messages = true;
         cursor-shape = {

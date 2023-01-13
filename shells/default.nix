@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: 
+{ pkgs, inputs, ... }:
 let
   mkShell = inputs.devenv.lib.mkShell;
 in
