@@ -3,38 +3,36 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
-    nix-gaming.url = "github:fufexan/nix-gaming";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    plasma-manager.url = "github:pjones/plasma-manager";
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nix-gaming.url = "github:fufexan/nix-gaming";
 
+    plasma-manager.url = "github:pjones/plasma-manager";
     hyprland.url = "github:hyprwm/Hyprland";
 
-    darwin = {
-      url = "github:lnl7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    devenv.url = "github:cachix/devenv/v0.4";
     helix.url = "github:helix-editor/helix";
+    devenv.url = "github:cachix/devenv/v0.4";
     spicetify.url = "github:the-argus/spicetify-nix";
+    # darwin = {
+    #   url = "github:lnl7/nix-darwin/master";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
   outputs =
     inputs@{ self
     , nixpkgs
     , utils
-    , nix-gaming
     , home-manager
+    , nix-gaming
+    , nixos-hardware
     , plasma-manager
     , hyprland
-    , nixos-hardware
-    , darwin
-    , devenv
     , helix
+    , devenv
     , spicetify
     , ...
     }:
@@ -50,15 +48,15 @@
         inherit (plasma-manager.packages.${super.system}) rc2nix;
         spicePkgs = spicetify.packages.${super.system}.default;
       };
-
     in
     utils.lib.mkFlake {
       inherit self inputs user flakePath;
 
       channelsConfig.allowUnfree = true;
       sharedOverlays = [ inputOverlay localOverlay ];
-
-      hostDefaults = { extraArgs = { inherit inputs user flakePath; }; };
+      hostDefaults = { 
+        extraArgs = { inherit inputs user flakePath; };
+      };
 
       hostDefaults.modules = [
         ./nixos
@@ -70,7 +68,6 @@
           home-manager.users.${user}.imports = [
             ./nixos/home.nix
             spicetify.homeManagerModule
-            hyprland.homeManagerModules.default
             plasma-manager.homeManagerModules.plasma-manager
           ];
         }
