@@ -93,15 +93,14 @@
       };
       outputsBuilder = channels:
         let
-          lib = devenv.lib;
           pkgs = channels.nixpkgs;
         in
         {
-          devShells.default = lib.mkShell {
-            inherit pkgs;
-            languages.nix.enable = true;
-          };
-
+          # DevShells currently broken
+          # Feature requires devenv v0.5 to work
+          # With versions above v0.4 my system fails to build with this error:
+          # error: anonymous function at /nix/store/x070biyjfvlvkf7qpypmfspxzy9a3y3n-source/pkgs/tools/networking/curl/default.nix:1:1 called with unexpected argument 'patchNetrcRegression'
+          devShells = import ./shells/default.nix { inherit pkgs inputs; };
           formatter = channels.nixpkgs.nixpkgs-fmt;
         };
     };
