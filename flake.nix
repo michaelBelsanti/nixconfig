@@ -42,11 +42,12 @@
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlays = import ./packages/overlays { inherit inputs; };
-      inputOverlays = _: super: {
+      localOverlay = import ./packages/overlays { inherit inputs; };
+      inputOverlay = _: super: {
         inherit (helix.packages.${super.system}) helix;
         inherit (devenv.packages.${super.system}) devenv;
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
+        inherit (plasma-manager.packages.${super.system}) rc2nix;
         spicePkgs = spicetify.packages.${super.system}.default;
       };
 
@@ -55,13 +56,12 @@
       inherit self inputs user flakePath;
 
       channelsConfig.allowUnfree = true;
-      sharedOverlays = [ inputOverlays localOverlays ];
+      sharedOverlays = [ inputOverlay localOverlay ];
 
       hostDefaults = { extraArgs = { inherit inputs user flakePath; }; };
 
       hostDefaults.modules = [
         ./nixos
-        hyprland.nixosModules.default
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

@@ -1,7 +1,7 @@
 { pkgs, user, ... }:
 {
   # Import automatically generated plasma-manager config
-  # Generated using `nix run github:pjones/plasma-manager`
+  # Generated using 'rc2nix' or `nix run github:pjones/plasma-manager`
   home-manager.users.${user}.imports = [ ./plasma-manager.nix ../../wezterm ];
   environment.systemPackages = with pkgs; [
     # Theming / Customization
@@ -14,5 +14,7 @@
     ark
     krusader
     haruna
+
+    rc2nix
   ];
 }
