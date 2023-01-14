@@ -2,10 +2,10 @@
 
 { lib, config, pkgs, user, spicePkgs, ... }: {
   imports = [
-    ../modules/catppuccin
     ../modules/shell
     ../modules/cli
     ../modules/wezterm
+    ../modules/themes/catppuccin
   ];
 
   # Home Manager Setup
