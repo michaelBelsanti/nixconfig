@@ -14,6 +14,7 @@
     ark
     krusader
     haruna
+    yakuake
 
     rc2nix
   ];

@@ -13,6 +13,7 @@
     ''; # Fixes bugged context menus
   };
   home.file.".background-image".source = ./background.png;
+  xdg.dataFile."konsole/Catppuccin.colorscheme".source = ./Catppuccin-Macchiato.colorscheme;
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;
