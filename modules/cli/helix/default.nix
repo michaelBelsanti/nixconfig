@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       keys.normal = {
+        X = "extend_line_above";
         C-h = "jump_view_left";
         C-j = "jump_view_down";
         C-k = "jump_view_up";
