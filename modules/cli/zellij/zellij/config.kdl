@@ -43,11 +43,15 @@ theme "catppuccin-mocha"
 // copy_on_select false
 
 keybinds {
+	unbind "Ctrl h"
+	unbind "Ctrl b"
 	shared_except "locked" {
 		bind "Alt q" { CloseFocus; }
 	}
+	move {
+	    bind "Ctrl b" { SwitchToMode "normal"; }
+	}
 	shared_except "move" "locked" {
-	    bind "Ctrl m" { SwitchToMode "move"; }
-		// unbind "Ctrl h"
+	    bind "Ctrl b" { SwitchToMode "move"; }
 	}
 }
