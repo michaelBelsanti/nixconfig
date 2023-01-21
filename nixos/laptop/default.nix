@@ -68,6 +68,8 @@
     DisableCapsuleUpdateOnDisk=true
   '';
   services = {
+    auto-cpufreq.enable = true;
+    thermald.enable = true;
     tlp.enable = true; # Battery optimization
     power-profiles-daemon.enable = false;
     fprintd.enable = true; # Enable fingerprint scanner
