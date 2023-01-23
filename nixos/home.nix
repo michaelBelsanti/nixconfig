@@ -4,7 +4,7 @@
   imports = [
     ../modules/shell
     ../modules/cli
-    ../modules/terminal/wezterm
+    ../modules/terminal/kitty
     ../modules/themes/catppuccin
   ];
 

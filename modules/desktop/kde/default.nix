@@ -2,7 +2,7 @@
 {
   # Import automatically generated plasma-manager config
   # Generated using 'rc2nix' or `nix run github:pjones/plasma-manager`
-  home-manager.users.${user}.imports = [ ./plasma-manager.nix ../../wezterm ];
+  home-manager.users.${user}.imports = [ ./plasma-manager.nix ];
   environment.systemPackages = with pkgs; [
     # Theming / Customization
     catppuccin-kde
