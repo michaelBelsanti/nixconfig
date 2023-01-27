@@ -1,4 +1,7 @@
 { config, pkgs, flakePath, ... }:
+  let 
+    nuprompt = pkgs.writeText "nuprompt" "${builtins.readFile ./panache-git.nu}";
+  in
 {
   home.packages = with pkgs; [ carapace ];
   programs = {
@@ -18,6 +21,10 @@
       extraEnv = ''
         sh -c "source /etc/profile"
         sh -c "source ~/.profile"
+
+        use ${nuprompt} panache-git
+        let-env PROMPT_COMMAND = { panache-git }
+        let-env PROMPT_INDICATOR = { "" }
       '';
     };
   };

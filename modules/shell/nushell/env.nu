@@ -1,33 +1,33 @@
 # Nushell Environment Config File
 
-def create_left_prompt [] {
-    let path_segment = if (is-admin) {
-        $"(ansi red_bold)($env.PWD)"
-    } else {
-        $"(ansi purple)(ansi purple_reverse)(echo $env.PWD | split row '/' | last 3 | str join '/')(ansi reset)(ansi purple)"
-    }
+# def create_left_prompt [] {
+#     let path_segment = if (is-admin) {
+#         $"(ansi red_bold)($env.PWD)"
+#     } else {
+#         $"(ansi purple)(ansi purple_reverse)(echo $env.PWD | split row '/' | last 3 | str join '/')(ansi reset)(ansi purple)"
+#     }
 
-    $path_segment
-}
+#     $path_segment
+# }
 
-def create_right_prompt [] {
-    let time_segment = ([
-        $"(ansi purple)(ansi purple_reverse)(date now | date format '%m/%d/%Y %r')(ansi reset)(ansi purple)"
-    ] | str join)
+# def create_right_prompt [] {
+#     let time_segment = ([
+#         $"(ansi purple)(ansi purple_reverse)(date now | date format '%m/%d/%Y %r')(ansi reset)(ansi purple)"
+#     ] | str join)
 
-    $time_segment
-}
+#     $time_segment
+# }
 
 # Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND = { create_left_prompt }
-let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
+# let-env PROMPT_COMMAND = { create_left_prompt }
+# let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt
-let-env PROMPT_INDICATOR = { " " }
-let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
-let-env PROMPT_INDICATOR_VI_NORMAL = { "> " }
-let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
+# let-env PROMPT_INDICATOR = { " " }
+# let-env PROMPT_INDICATOR_VI_INSERT = { ": " }
+# let-env PROMPT_INDICATOR_VI_NORMAL = { "> " }
+# let-env PROMPT_MULTILINE_INDICATOR = { "::: " }
 
 # Specifies how environment variables are:
 # - converted from a string to a value on Nushell startup (from_string)
