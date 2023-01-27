@@ -47,6 +47,6 @@
 
     so
 
-    discord-openasar
+    discord
   ];
 }

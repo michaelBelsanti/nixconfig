@@ -1,5 +1,5 @@
 inputs: _: super: {
-  discord-openasar = super.discord.override {
+  discord = super.discord.override {
     nss = super.nss_latest;
     withOpenASAR = true;
   };
