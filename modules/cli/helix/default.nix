@@ -11,6 +11,7 @@
         # space.q = "buffer-close";
       };
       editor = {
+        shell = [ "nu" "-c" ];
         cursorline = true;
         cursorcolumn = true;
         color-modes = true;
