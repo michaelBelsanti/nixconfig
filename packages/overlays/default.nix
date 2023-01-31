@@ -13,6 +13,4 @@ inputs: _: super: {
   };
   latencyflex = super.callPackage ./latencyflex { };
   protonup-qt = super.callPackage ./protonup-qt { };
-  catppuccin-kde = super.callPackage ./catppuccin-kde { };
-  # nss = super.nss_latest;
 }

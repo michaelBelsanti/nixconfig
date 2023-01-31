@@ -80,7 +80,9 @@
       banner = ''
         You better be me. If you're not fuck off.
       '';
-      passwordAuthentication = false;
+      settings = {
+        PasswordAuthentication = false;
+      };
     };
   };
 

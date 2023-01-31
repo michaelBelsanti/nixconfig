@@ -3,8 +3,11 @@
 { pkgs, ... }: {
   gtk = {
     theme = {
-      name = "Catppuccin-Pink-Dark";
-      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
+      package = pkgs.catppuccin-gtk.override { 
+        accents = [ "mauve" ];
+        variant = "macchiato";
+      };
     };
     gtk3.extraCss = ''
       decoration, window, window.background, window.titlebar, * {

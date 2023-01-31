@@ -10,7 +10,6 @@
     libsForQt5.lightly
     libsForQt5.bismuth
 
-    wezterm
     ark
     krusader
     haruna
