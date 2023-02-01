@@ -118,7 +118,6 @@
       enable = true;
       historyFile = "${config.xdg.dataHome}/bash/history";
     };
-    gpg.homedir = "${config.xdg.dataHome}/gnupg";
     git = {
       enable = true;
       userName = "michaelBelsanti";

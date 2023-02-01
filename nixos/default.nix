@@ -187,7 +187,7 @@ in
     # Keys and stuff
     gnupg.agent = {
       enable = true;
-      enableSSHSupport = false;
+      pinentryFlavor = "curses";
     };
 
     # For running non-Nix binaries
