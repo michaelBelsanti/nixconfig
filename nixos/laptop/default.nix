@@ -70,7 +70,13 @@
   services = {
     auto-cpufreq.enable = true;
     thermald.enable = true;
-    tlp.enable = true; # Battery optimization
+    # tlp = {
+    #   enable = true; # Battery optimization
+    #   settings = {
+    #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
+    #     CPU_SCALING_GOVERNOR_ON_BAT = "balance_performance";
+    #   };
+    # };
     power-profiles-daemon.enable = false;
     fprintd.enable = true; # Enable fingerprint scanner
     fwupd = {
