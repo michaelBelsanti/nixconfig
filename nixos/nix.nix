@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }: {
   # Enable flakes
   nix = {
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = true;
