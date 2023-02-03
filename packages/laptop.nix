@@ -10,6 +10,6 @@
 
   home-manager.users.${user}.imports = [
     ./common/home.nix
-    ../programming
+    ./programming
   ];
 }

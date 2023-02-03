@@ -157,10 +157,7 @@ in
         userServices = true;
       };
     };
-    # VPN
     mullvad-vpn.enable = true;
-    # Clipboard daemon (for rofi clipboard)
-    greenclip.enable = true;
     qemuGuest.enable = true;
     gvfs.enable = true;
     input-remapper.enable = true;

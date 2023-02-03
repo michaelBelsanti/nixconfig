@@ -76,7 +76,7 @@
       hosts = {
         nix-desktop.modules = [
           ./nixos/desktop
-          ./packages/nixos/desktop.nix
+          ./packages/desktop.nix
           nix-gaming.nixosModules.pipewireLowLatency
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
@@ -84,7 +84,7 @@
 
         nix-laptop.modules = [
           ./nixos/laptop
-          ./packages/nixos/laptop.nix
+          ./packages/laptop.nix
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
       };

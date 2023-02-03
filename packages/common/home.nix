@@ -15,6 +15,7 @@
     easyeffects
     element-desktop
     qbittorrent
-    kate
+    glow
+    so
   ];
 }

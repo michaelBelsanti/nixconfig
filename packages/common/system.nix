@@ -1,7 +1,8 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     librewolf
-    # libreoffice
+    # libreoffice-qt
+    discord
 
     # Text editing
     helix
@@ -40,13 +41,9 @@
     nurl
     nix-tree
     nix-index
-    # nix-alien
     devenv
 
+    # Containers
     distrobox
-
-    so
-
-    discord
   ];
 }
