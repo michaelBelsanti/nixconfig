@@ -2,13 +2,14 @@
   programs.helix = {
     enable = true;
     settings = {
+      keys.normal.space.q = ":quit";
       keys.normal = {
         X = "extend_line_above";
         C-h = "jump_view_left";
         C-j = "jump_view_down";
         C-k = "jump_view_up";
         C-l = "jump_view_right";
-        # space.q = "buffer-close";
+        C-q = ":bc";
       };
       editor = {
         shell = [ "nu" "-c" ];
@@ -18,6 +19,7 @@
         file-picker.hidden = false;
         line-number = "relative";
         lsp.display-messages = true;
+        soft-wrap.enable = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";
@@ -34,6 +36,10 @@
             "position-percentage"
           ];
           separator = "|";
+        };
+        indent-guides = {
+          render = true;
+          skip-levels = 1;
         };
       };
     };
