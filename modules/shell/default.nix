@@ -17,17 +17,6 @@
       enable = true;
       enableVteIntegration = true;
       historyFileSize = 0;
-      shellAliases = {
-        ls = "exa -al";
-        lt = "exa -aT";
-        cat = "bat";
-        cleanup = "doas nix-collect-garbage -d";
-        fm = "clifm .";
-        lg = "lazygit";
-        open = "xdg-open";
-        nix = "noglob nix";
-        nixos-rebuild = "noglob nixos-rebuild";
-      };
     };
     zsh = {
       enable = true;
