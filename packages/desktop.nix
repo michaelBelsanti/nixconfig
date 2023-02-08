@@ -1,5 +1,5 @@
 { pkgs, user, ... }: {
-  imports = [ ./common/system.nix ../gaming ];
+  imports = [ ./common/system.nix ./gaming ];
 
   environment.systemPackages = with pkgs; [ pciutils ];
   home-manager.users.${user}.imports = [
