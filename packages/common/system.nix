@@ -26,6 +26,11 @@
     ncdu
     imagemagick
 
+    # Networking
+    traceroute
+    whois
+    nmap
+
     # File Management
     edir
     clifm
