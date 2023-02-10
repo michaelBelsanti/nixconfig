@@ -1,4 +1,4 @@
-{ pkgs, user, ... }: {
+{ config, pkgs, user, ... }: {
   imports = [
     ./hardware.nix
     ../../modules/vfio
@@ -22,8 +22,7 @@
   };
 
   boot = {
-    kernelParams = [ "nomodeset" ];
-    extraModprobeConfig = "options nvidia_drm modeset=1";
+    # kernelParams = [ "nomodeset" ];
     # Setting resolution manually because nvidia
     loader.grub = {
       gfxmodeEfi = "1920x1080";
@@ -63,7 +62,13 @@
   };
 
   # Causes librewolf to crash occasionally
-  hardware.opengl.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+  hardware = {
+    opengl.extraPackages = [ pkgs.nvidia-vaapi-driver ];
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      modesetting.enable = true;
+    };
+  };
 
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
