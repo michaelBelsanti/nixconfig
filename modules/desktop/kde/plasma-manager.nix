@@ -53,11 +53,11 @@
       "kmix"."decrease_volume" = "Volume Down";
       "kmix"."increase_microphone_volume" = "Microphone Volume Up";
       "kmix"."increase_volume" = "Volume Up";
-      "kmix"."mic_mute" = ["Microphone Mute" "Meta+Volume Mute"];
+      "kmix"."mic_mute" = [ "Microphone Mute" "Meta+Volume Mute" ];
       "kmix"."mute" = "Volume Mute";
       "ksmserver"."Halt Without Confirmation" = [ ];
-      "ksmserver"."Lock Session" = ["Meta+Esc" "Screensaver"];
-      "ksmserver"."Log Out" = ["Ctrl+Alt+Del" "Meta+Del"];
+      "ksmserver"."Lock Session" = [ "Meta+Esc" "Screensaver" ];
+      "ksmserver"."Log Out" = [ "Ctrl+Alt+Del" "Meta+Del" ];
       "ksmserver"."Log Out Without Confirmation" = [ ];
       "ksmserver"."Reboot Without Confirmation" = [ ];
       "kwin"."Activate Window Demanding Attention" = "Meta+A";

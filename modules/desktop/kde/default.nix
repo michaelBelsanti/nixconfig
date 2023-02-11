@@ -5,7 +5,7 @@
   home-manager.users.${user}.imports = [ ./plasma-manager.nix ];
   environment.systemPackages = with pkgs; [
     # Theming / Customization
-    (catppuccin-kde.override { flavour = ["macchiato"]; accents = ["mauve"]; })
+    (catppuccin-kde.override { flavour = [ "macchiato" ]; accents = [ "mauve" ]; })
     lightly-qt
     libsForQt5.lightly
     libsForQt5.bismuth
