@@ -27,7 +27,6 @@ in
     # Cute boot animation
     plymouth.enable = true;
     loader = {
-      # systemd-boot.enable = true;
       grub = {
         enable = true;
         device = "nodev";
@@ -54,14 +53,10 @@ in
   # Locale
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true;
-  # };
 
   # Xserver input
   services.xserver = {
+    enable = true;
     desktopManager.plasma5.enable = true;
     layout = "us";
     libinput.enable = true;
@@ -82,7 +77,7 @@ in
       driSupport32Bit = true;
     };
     pulseaudio.enable = false; # Disabled cause Pipewire exists
-    bluetooth.enable = true; # Enable bluetooth (duh)
+    bluetooth.enable = true; # Enable bluetooth
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -110,11 +105,6 @@ in
       emoji = [ "Twitter Color Emoji" "Noto Color Emoji" ];
     };
   };
-
-  # qt5 = {
-  #   platformTheme = "qt5ct";
-  #   style = "Lightly";
-  # };
 
   # Environment variables
   environment = {
@@ -164,32 +154,16 @@ in
   };
 
   programs = {
-
-    # I <3 Zsh
     zsh.enable = true;
-
-    # KDE Connect (mobile integration)
     kdeconnect.enable = true;
-
-    # For flatpak
     dconf.enable = true;
-
-    # Automatically add ssh-keys
     ssh.startAgent = true;
-
-    # I don't know what this is, but I've had it enabled since my first install
-    # (now I'm scared to disable it)
     mtr.enable = true;
-
-    # Keys and stuff
     gnupg.agent = {
       enable = true;
       pinentryFlavor = "curses";
     };
-
-    # For running non-Nix binaries
     nix-ld.enable = true;
-
   };
   systemd.extraConfig = ''
     DefaultTimeoutStartSec=10s
@@ -203,13 +177,11 @@ in
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     podman.enable = true;
-    # For running a nixos-vm
     vmVariant.virtualisation = {
       memorySize = 4096;
       cores = 4;
     };
   };
-  # virtualisation.qemu.guestAgent.enable = true;
 
   security = {
     sudo.enable = false;
@@ -220,7 +192,6 @@ in
       persist = true;
     }];
     polkit.enable = true;
-    # For allowing SSH keys
     pam.enableSSHAgentAuth = true;
   };
 
@@ -228,16 +199,5 @@ in
     ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
   '';
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 }

@@ -17,10 +17,6 @@
     helix.url = "github:helix-editor/helix";
     devenv.url = "github:cachix/devenv/v0.4";
     spicetify.url = "github:the-argus/spicetify-nix";
-    # darwin = {
-    #   url = "github:lnl7/nix-darwin/master";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   outputs =
     inputs@{ self
