@@ -23,6 +23,7 @@
   environment.systemPackages = with pkgs; [
     virt-manager
     libguestfs # needed to virt-sparsify qcow2 files
+    pciutils
   ];
 
   # Add binaries to path so that hooks can use it
