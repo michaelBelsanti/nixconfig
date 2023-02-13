@@ -1,22 +1,12 @@
 # Main universal NixOS configuration, imported by all NixOS configs.
 
 { pkgs, user, flakePath, ... }:
-let
-  catppuccin-grub-theme = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "grub";
-    rev = "fc5fba2896db095aee7b0d6442307c3035a24fa7";
-    sparseCheckout = [ "src/catppuccin-mocha-grub-theme" ];
-    sha256 = "sha256-ePhMQLn39fuEvT097XvjugWKqHivXhZPbqsD+LBXOwE=";
-  };
-in
 {
   imports = [ ./nix.nix ];
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ nushell zsh ];
-    systemPackages = [ catppuccin-grub-theme ];
   };
 
   # Boot options
@@ -31,12 +21,6 @@ in
         enable = true;
         device = "nodev";
         efiSupport = true;
-        # Theming
-        theme = "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme";
-        font = "${pkgs.montserrat}/share/fonts/otf/Montserrat-Regular.otf";
-        fontSize = 48;
-        splashImage =
-          "${catppuccin-grub-theme}/src/catppuccin-mocha-grub-theme/background.png";
         backgroundColor = "#1E1E2E";
       };
       efi.canTouchEfiVariables = true;
