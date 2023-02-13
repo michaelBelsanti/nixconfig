@@ -14,6 +14,7 @@
     krusader
     haruna
     yakuake
+    partition-manager
 
     rc2nix
   ];
