@@ -134,7 +134,8 @@
         [ fullAppDisplay featureShuffle hidePodcasts ];
     };
     tealdeer.settings = {
-      updates = { auto_update = true; };
+      enable = true;
+      updates.auto_update = true;
     };
   };
 
