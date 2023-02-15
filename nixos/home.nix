@@ -107,6 +107,7 @@
 
   # Git
   services = {
+    pueue.enable = true;
     gpg-agent = {
       enable = true;
       enableBashIntegration = true;

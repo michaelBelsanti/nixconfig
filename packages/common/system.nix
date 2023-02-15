@@ -25,6 +25,9 @@
     fzf
     ncdu
     imagemagick
+    edir
+    dog
+    lnav
 
     # Networking
     traceroute
