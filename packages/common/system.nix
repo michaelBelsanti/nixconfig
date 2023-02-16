@@ -53,5 +53,8 @@
 
     # Containers
     distrobox
+
+    # NFS
+    nfs-utils
   ];
 }
