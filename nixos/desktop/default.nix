@@ -18,7 +18,12 @@
     nameservers = [ "192.168.1.152" ];
     networkmanager.dns = "none";
     dhcpcd.extraConfig = "nohook resolv.conf";
-    firewall.enable = true;
+    firewall = {
+      enable = true;
+      allowedUDPPorts = [
+        3074 # BO2
+      ];
+    };
   };
 
   boot = {
@@ -79,6 +84,10 @@
 
   services = {
     pipewire.lowLatency.enable = true;
+    # miniupnpd = {
+    #   enable = true;
+    #   upnp = true;
+    # };
     openssh = {
       enable = true;
       ports = [ 42069 ];
