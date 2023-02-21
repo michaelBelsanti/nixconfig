@@ -124,7 +124,10 @@
       jack.enable = true;
     };
     # Printing
-    printing.enable = true;
+    printing = {
+      enable = true;
+      drivers = [ pkgs.hplip ];
+    };
     avahi = {
       enable = true;
       nssmdns = true;
