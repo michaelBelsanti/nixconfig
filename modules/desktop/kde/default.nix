@@ -2,6 +2,10 @@
 {
   # Import automatically generated plasma-manager config
   # Generated using 'rc2nix' or `nix run github:pjones/plasma-manager`
+  services.xserver.desktopManager.plasma5 = {
+    enable = true;
+    useQtScaling = true;
+  };
   home-manager.users.${user}.imports = [ ./plasma-manager.nix ];
   environment.systemPackages = with pkgs; [
     # Theming / Customization
