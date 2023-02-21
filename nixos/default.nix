@@ -12,7 +12,10 @@
   # Boot options
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
-    kernelParams = [ "quiet" "splash" "vt.global_cursor_default=0" ];
+    kernelParams = [
+      "quiet" "splash" "vt.global_cursor_default=0"
+      "transparent_hugepage=always" "default_hugepagez=1G" "hugepagesz=1G"
+    ];
     tmpOnTmpfs = true;
     # Cute boot animation
     plymouth.enable = true;
