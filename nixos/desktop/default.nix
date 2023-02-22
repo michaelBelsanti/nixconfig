@@ -36,33 +36,22 @@
   };
 
   # Display shiz
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "nvidia" ];
-    # windowManager.i3.enable = true; # Configured by ../../modules/i3 import
-    displayManager = {
-      setupCommands =
-        "xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
-      sddm = {
-        enable = true;
+  services = {
+    pipewire.lowLatency.enable = true;
+    udev.packages = with pkgs; [ qmk-udev-rules ];
+    xserver = {
+      enable = true;
+      videoDrivers = [ "nvidia" ];
+      displayManager.sddm.enable = true;
+      libinput.mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
       };
     };
-    # Needed because it thinks my mouse is a touchpad :|
-    libinput = {
-      mouse = {
-        accelProfile = "flat";
-        middleEmulation = false;
-        additionalOptions = ''
-          Option "MiddleEmulation" "off"
-        '';
-      };
-      touchpad = {
-        accelProfile = "flat";
-        middleEmulation = false;
-        additionalOptions = ''
-          Option "MiddleEmulation" "off"
-        '';
-      };
+    openssh = {
+      enable = true;
+      ports = [ 42069 ];
+      settings.PasswordAuthentication = false;
     };
   };
 
@@ -83,21 +72,6 @@
   xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
 
   services = {
-    pipewire.lowLatency.enable = true;
-    # miniupnpd = {
-    #   enable = true;
-    #   upnp = true;
-    # };
-    openssh = {
-      enable = true;
-      ports = [ 42069 ];
-      banner = ''
-        You better be me. If you're not fuck off.
-      '';
-      settings = {
-        PasswordAuthentication = false;
-      };
-    };
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
