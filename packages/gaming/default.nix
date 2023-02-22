@@ -46,20 +46,6 @@
           nv_powermizer_mode = 1;
           amd_performance_level = "high";
         };
-        custom = {
-          start = ''
-            echo 'always' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-            polybar-msg action gamemode module_show
-            togdnd -p
-            togpicom -p
-          '';
-          end = ''
-            echo 'madvise' | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-            polybar-msg action gamemode module_hide
-            togdnd -u
-            togpicom -u
-          '';
-        };
       };
     };
   };
