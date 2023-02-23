@@ -13,8 +13,6 @@ in
 {
   # inherit rustSupport javaSupport;
   home.packages = with pkgs; [ lldb so ]
-    ++ rustPkgs pkgs
-    ++ javaPkgs pkgs;
-  # ++ lib.optional rust rustPkgs pkgs
-  # ++ lib.optional java javaPkgs pkgs;
+    ++ rustPkgs pkgs;
+    # ++ javaPkgs pkgs;
 }
