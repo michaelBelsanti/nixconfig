@@ -2,7 +2,6 @@
   programs.helix = {
     enable = true;
     settings = {
-      keys.normal.space.q = ":quit";
       keys.normal = {
         X = "extend_line_above";
         C-h = "jump_view_left";
@@ -10,6 +9,7 @@
         C-k = "jump_view_up";
         C-l = "jump_view_right";
         C-q = ":bc";
+        space.q = ":quit"; 
       };
       editor = {
         shell = [ "nu" "-c" ];
