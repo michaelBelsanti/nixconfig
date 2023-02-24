@@ -130,8 +130,8 @@
     };
   };
 
-  systemd.user.sessionVariables = config.home.sessionVariables;
   # Cleaning up ~
+  xdg.enable = true;
   home.sessionVariables = {
     EDITOR = "hx";
     VISUAL = "hx";
@@ -140,12 +140,6 @@
     FZF_DEFAULT_COMMAND = "find .";
 
     MANGOHUD = "0";
-
-    XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
-    XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
-    XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
-    XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
-
     __GL_SHADER_DISK_CACHE_PATH = "${config.home.homeDirectory}/Games/cache";
 
     ANDROID_HOME = "${config.xdg.dataHome}/android";
@@ -160,6 +154,5 @@
     STACK_ROOT = "${config.xdg.dataHome}/stack";
     XCOMPOSECACHE = "${config.xdg.cacheHome}/X11/xcompose";
     _Z_DATA = "${config.xdg.dataHome}/z";
-    # XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority";
   };
 }
