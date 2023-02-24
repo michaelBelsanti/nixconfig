@@ -13,8 +13,10 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
-      "quiet" "splash" "vt.global_cursor_default=0"
-      "transparent_hugepage=always" "default_hugepagez=1G" "hugepagesz=1G"
+      # "quiet" "splash" "vt.global_cursor_default=0"
+      # Memory optimizations
+      "transparent_hugepage=always" "vm.nr_hugepages_defrag=0" "ipcs_shm=1"
+      "default_hugepagez=1G" "hugepagesz=1G" "vm.swappiness=1" "vm.compact_memory=0"
     ];
     tmpOnTmpfs = true;
     # Cute boot animation
