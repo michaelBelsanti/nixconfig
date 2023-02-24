@@ -54,9 +54,8 @@
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
-    x11.enable = false;
+    x11.enable = true;
     gtk.enable = true;
-    size = lib.mkDefault 32;
   };
   xresources = {
     path = "${config.xdg.configHome}/X11/xresources";
