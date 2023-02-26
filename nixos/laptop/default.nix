@@ -1,5 +1,18 @@
 { config, lib, pkgs, user, ... }:
-
+let
+  tomlFormat = pkgs.formats.toml { };
+  settings = {
+    background = "${../../modules/themes/catppuccin/background.png}";
+    background_fit = "Contain";
+    gtk = {
+      application_prefer_dark_theme = true;
+      cursor_theme_name = "Adwaita";
+      font_name = "Montserrat 16";
+      icon_theme_name = "Adwaita";
+      theme_name = "Adwaita";
+    };
+  };
+in
 {
   imports = [
     ./hardware.nix
@@ -22,25 +35,46 @@
   };
 
   # programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
-  services.xserver = {
-    enable = true;
-    videoDrivers = [ "intel" ];
-    displayManager = {
-      defaultSession = "plasmawayland";
-      gdm = {
-        enable = true;
-        wayland = true;
+  services = {
+    greetd = {
+      # enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.cage}/bin/cage -s -- ${pkgs.regreet}/bin/regreet -c ${tomlFormat.generate "regreet.toml" settings}";
+          user = "greeter";
+        };
       };
     };
-    libinput = {
-      mouse = {
-        accelProfile = "flat";
-        middleEmulation = false;
-        additionalOptions = ''
-          Option "MiddleEmulation" "off"
-        '';
+    xserver = {
+      enable = true;
+      videoDrivers = [ "intel" ];
+      displayManager = {
+        defaultSession = "plasmawayland";
+        lightdm.enable = false;
+        gdm = {
+          enable = true;
+          wayland = true;
+        };
       };
-      touchpad = { accelProfile = "adaptive"; };
+      libinput = {
+        mouse = {
+          accelProfile = "flat";
+          middleEmulation = false;
+          additionalOptions = ''
+            Option "MiddleEmulation" "off"
+          '';
+        };
+        touchpad = { accelProfile = "adaptive"; };
+      };
+    };
+    auto-cpufreq.enable = true;
+    thermald.enable = true;
+    power-profiles-daemon.enable = false;
+    fprintd.enable = true; # Enable fingerprint scanner
+    fwupd = {
+      enable = true; # Enable firmware updates with `fwupdmgr update`
+      enableTestRemote = true;
+      extraRemotes = [ "lvfs-testing" ];
     };
   };
 
@@ -67,24 +101,6 @@
     OverrideESPMountPoint=${config.boot.loader.efi.efiSysMountPoint}
     DisableCapsuleUpdateOnDisk=true
   '';
-  services = {
-    auto-cpufreq.enable = true;
-    thermald.enable = true;
-    # tlp = {
-    #   enable = true; # Battery optimization
-    #   settings = {
-    #     CPU_SCALING_GOVERNOR_ON_AC = "performance";
-    #     CPU_SCALING_GOVERNOR_ON_BAT = "balance_performance";
-    #   };
-    # };
-    power-profiles-daemon.enable = false;
-    fprintd.enable = true; # Enable fingerprint scanner
-    fwupd = {
-      enable = true; # Enable firmware updates with `fwupdmgr update`
-      enableTestRemote = true;
-      extraRemotes = [ "lvfs-testing" ];
-    };
-  };
 
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.05";
 }
