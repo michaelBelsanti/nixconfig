@@ -26,13 +26,9 @@
     };
   };
 
-  boot = {
-    # kernelParams = [ "nomodeset" ];
-    # Setting resolution manually because nvidia
-    loader.grub = {
-      gfxmodeEfi = "1920x1080";
-      gfxpayloadEfi = "keep";
-    };
+  boot.loader.grub = {
+    gfxmodeEfi = "1920x1080";
+    gfxpayloadEfi = "keep";
   };
 
   # Display shiz
@@ -72,11 +68,6 @@
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
-  };
-
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
-
-  services = {
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
