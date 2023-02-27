@@ -17,5 +17,6 @@
     qbittorrent
     glow
     so
+    marksman
   ];
 }
