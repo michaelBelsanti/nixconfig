@@ -52,7 +52,7 @@
   home-manager.users.${user} = {
     programs.obs-studio = {
       enable = true;
-      plugins = with pkgs.obs-studio-plugins; [ obs-nvfbc obs-vkcapture ];
+      plugins = with pkgs.obs-studio-plugins; [ obs-nvfbc obs-vkcapture obs-pipewire-audio-capture obs-gstreamer input-overlay ];
     };
   };
 }
