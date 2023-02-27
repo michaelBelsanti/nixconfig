@@ -57,13 +57,18 @@
 
   # Causes librewolf to crash occasionally
   hardware = {
-    opengl.extraPackages = [ pkgs.nvidia-vaapi-driver ];
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
     };
+    opengl.extraPackages = with pkgs; [
+      vaapiVdpau
+      libvdpau-va-gl
+      nvidia-vaapi-driver
+    ];
   };
 
+  # Use VA-API
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
