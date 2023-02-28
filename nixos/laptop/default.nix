@@ -25,7 +25,7 @@ in
   boot = {
     kernelParams = [ "acpi_backlight=native" ];
     blacklistedKernelModules = [ "hid_sensor_hub" ];
-    loader.systemd-boot.consoleMode = "max";
+    loader.grub.theme = pkgs.framework-grub-theme;
   };
 
   # Make fingerprint sensor work at boot

@@ -26,7 +26,6 @@
         enable = true;
         device = "nodev";
         efiSupport = true;
-        theme = pkgs.nixos-grub2-theme;
       };
       efi.canTouchEfiVariables = true;
       timeout = 3;

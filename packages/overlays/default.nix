@@ -15,4 +15,5 @@ inputs: _: super: {
   protonup-qt = super.callPackage ./protonup-qt { };
   catppuccin-kde = super.callPackage ./catppuccin-kde { };
   regreet = super.callPackage ./greetd/regreet { };
+  framework-grub-theme = super.callPackage ./framework-grub-theme { };
 }
