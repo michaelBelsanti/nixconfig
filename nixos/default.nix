@@ -156,11 +156,14 @@
     };
     nix-ld.enable = true;
   };
+  # systemd.extraConfig = ''
+  #   DefaultTimeoutStartSec=10s
+  #   DefaultTimeoutStopSec=10s
+  #   DefaultTimeoutAbortSec=10s
+  #   DefaultDeviceTimeoutSec=10s
+  # '';
   systemd.extraConfig = ''
-    DefaultTimeoutStartSec=10s
     DefaultTimeoutStopSec=10s
-    DefaultTimeoutAbortSec=10s
-    DefaultDeviceTimeoutSec=10s
   '';
 
   # VMs
