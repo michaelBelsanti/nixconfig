@@ -27,8 +27,9 @@
   };
 
   boot.loader.grub = {
-    gfxmodeEfi = "1920x1080";
-    gfxpayloadEfi = "keep";
+    # gfxmodeEfi = "1920x1080";
+    # gfxpayloadEfi = "keep";
+    theme = pkgs.minegrub;
   };
 
   # Display shiz

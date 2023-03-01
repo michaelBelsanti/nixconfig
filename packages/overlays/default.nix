@@ -16,4 +16,5 @@ inputs: _: super: {
   catppuccin-kde = super.callPackage ./catppuccin-kde { };
   regreet = super.callPackage ./greetd/regreet { };
   framework-grub-theme = super.callPackage ./framework-grub-theme { };
+  minegrub = super.callPackage ./minegrub { };
 }
