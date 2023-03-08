@@ -6,7 +6,7 @@
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ nushell zsh ];
+    shells = with pkgs; [ nushell zsh fish ];
   };
 
   # Boot options
@@ -145,6 +145,7 @@
   };
 
   programs = {
+    fish.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true;
