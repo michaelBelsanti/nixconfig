@@ -16,7 +16,7 @@
         cursorline = true;
         cursorcolumn = true;
         color-modes = true;
-        file-picker.hidden = false;
+        file-picker.hidden = true;
         line-number = "relative";
         lsp.display-messages = true;
         soft-wrap.enable = true;
