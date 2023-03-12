@@ -69,6 +69,7 @@
   environment.variables = {
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
+    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?

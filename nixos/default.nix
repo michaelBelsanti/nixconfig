@@ -100,7 +100,7 @@
     variables = {
       EDITOR = "micro";
       VISUAL = "kate";
-      __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+      WINEDLLOVERRIDES = "winemenubuilder.exe=d";
     };
   };
 
