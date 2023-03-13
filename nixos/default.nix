@@ -6,7 +6,7 @@
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ nushell zsh fish ];
+    shells = with pkgs; [ nushell zsh fish ion ];
   };
 
   # Boot options
@@ -73,7 +73,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
     initialPassword = "lol";
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 
   # Best fonts (Especially JetBrains Mono)
