@@ -19,11 +19,7 @@
         nixUp =
           "nix flake update ${flakePath} && doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
 
-        ls = "exa -al";
-        lt = "exa -aT";
-        cat = "bat";
         cleanup = "doas nix-collect-garbage -d";
-        fm = "clifm .";
         lg = "lazygit";
         open = "xdg-open";
         nix = "noglob nix";
