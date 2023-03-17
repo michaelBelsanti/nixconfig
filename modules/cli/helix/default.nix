@@ -12,7 +12,7 @@
         space.q = ":quit"; 
       };
       editor = {
-        shell = [ "nu" "-c" ];
+        shell = [ "fish" "-c" ];
         cursorline = true;
         cursorcolumn = true;
         color-modes = true;
