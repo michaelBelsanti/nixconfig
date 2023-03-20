@@ -1,12 +1,17 @@
 # Imported by home-manager,
 # Sets catppuccin theming for any apps that can easily have their theming seperated from the rest of the config
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+ flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
+ Flavour = "Macchiato"; # For captilized case sensitive usages
+in
+{
   gtk = {
     theme = {
-      name = "Catppuccin-Macchiato-Standard-Mauve-Dark";
+      name = "Catppuccin-${Flavour}-Standard-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
-        variant = "macchiato";
+        variant = "${flavour}";
       };
     };
     gtk3.extraCss = ''
@@ -16,7 +21,7 @@
     ''; # Fixes bugged context menus
   };
   home.file.".background-image".source = ./background.png;
-  xdg.dataFile."konsole/Catppuccin.colorscheme".source = ./Catppuccin-Macchiato.colorscheme;
+  xdg.dataFile."konsole/Catppuccin.colorscheme".source = ./Catppuccin-${Flavour}.colorscheme;
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;
@@ -26,8 +31,19 @@
     };
   };
   programs = {
-    spicetify.theme = pkgs.spicePkgs.themes.catppuccin-mocha;
-    helix.settings.theme = "catppuccin_macchiato";
+    starship = {
+      settings = {
+        # Other config here
+        format = "$all"; # Remove this line to disable the default prompt format
+        palette = "catppuccin_${flavour}";
+      } // builtins.fromTOML (builtins.readFile
+        (pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "starship";
+          rev = "3e3e54410c3189053f4da7a7043261361a1ed1bc";
+          hash = "sha256-soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
+        } + /palettes/${flavour}.toml));
+    };
     alacritty.settings = {
       colors = {
         primary = {
@@ -70,6 +86,8 @@
         ];
       };
     };
+    spicetify.theme = pkgs.spicePkgs.themes.catppuccin-macchiato;
+    helix.settings.theme = "catppuccin_${flavour}";
     mako = {
       backgroundColor = "#1e1e2e";
       borderColor = "#89b4fa";
