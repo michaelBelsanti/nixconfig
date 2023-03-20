@@ -7,7 +7,7 @@ inputs: _: super: {
     name = "helix";
     desktopName = "Helix (TUI)";
     genericName = "Helix";
-    exec = "wezterm start hx %F";
+    exec = "${super.kitty}/bin/kitty hx %F";
     mimeTypes = [ "text/plain" "inode/directory" ];
     categories = [ "Utility" "TextEditor" "Development" ];
   };
