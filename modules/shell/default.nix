@@ -2,7 +2,16 @@
   # Nushell requires more in-depth configuration
   imports = [ ./nushell ./fish.nix ./zsh.nix ./ion.nix];
   programs = {
-    starship.enable = true;
+    starship = {
+      enable = true;
+      settings = {
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](maroon)";
+        };
+        shell.disabled = false;
+      };
+    };
     zoxide.enable = true;
     fzf.enable = true;
     direnv = {

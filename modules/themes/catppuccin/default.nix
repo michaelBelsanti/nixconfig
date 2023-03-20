@@ -38,8 +38,7 @@ in
   programs = {
     starship = {
       settings = {
-        # Other config here
-        format = "$all"; # Remove this line to disable the default prompt format
+        format = "$all";
         palette = "catppuccin_${flavour}";
       } // builtins.fromTOML (builtins.readFile
         (pkgs.fetchFromGitHub {
