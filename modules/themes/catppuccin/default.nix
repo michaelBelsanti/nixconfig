@@ -8,7 +8,7 @@ in
 {
   gtk = {
     theme = {
-      name = "Catppuccin-${Flavour}-Standard-Mauve-Dark";
+      name = "Catppuccin-${flavour}-Standard-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
         variant = "${flavour}";
@@ -92,40 +92,19 @@ in
     };
     spicetify.theme = pkgs.spicePkgs.themes.catppuccin-macchiato;
     helix.settings.theme = "catppuccin_${flavour}";
-    mako = {
-      backgroundColor = "#1e1e2e";
-      borderColor = "#89b4fa";
-      textColor = "#cdd6f4";
-      progressColor = "#313244";
-      extraConfig = ''
-        [urgency=high]
-        border-color=#fab387
-      '';
-    };
-    gitui.theme = ''
-      (
-          selected_tab: Reset,
-          command_fg: Rgb(202, 211, 245),
-          selection_bg: Rgb(91, 96, 120),
-          selection_fg: Rgb(202, 211, 245),
-          cmdbar_bg: Rgb(30, 32, 48),
-          cmdbar_extra_lines_bg: Rgb(30, 32, 48),
-          disabled_fg: Rgb(128, 135, 162),
-          diff_line_add: Rgb(166, 218, 149),
-          diff_line_delete: Rgb(237, 135, 150),
-          diff_file_added: Rgb(238, 212, 159),
-          diff_file_removed: Rgb(238, 153, 160),
-          diff_file_moved: Rgb(198, 160, 246),
-          diff_file_modified: Rgb(245, 169, 127),
-          commit_hash: Rgb(183, 189, 248),
-          commit_time: Rgb(184, 192, 224),
-          commit_author: Rgb(125, 196, 228),
-          danger_fg: Rgb(237, 135, 150),
-          push_gauge_bg: Rgb(138, 173, 244),
-          push_gauge_fg: Rgb(36, 39, 58),
-          tag_fg: Rgb(244, 219, 214),
-          branch_fg: Rgb(139, 213, 202)
-      )
-    '';
+    mako.extraConfig = (builtins.readFile
+      (pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "mako";
+        rev = "64ef71633528b50e5475755e50071584b54fa291";
+        hash = "sha256-J2PaPfBBWcqixQGo3eNVvLz2EZWD92RfD0MfbEDK/wA=";
+      } + /src/${flavour}));
+    gitui.theme = (builtins.readFile
+      (pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "gitui";
+        rev = "ff1e802cfff3d5ff41b0d829a3df1da8087b1265";
+        hash = "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=";
+      } + /theme/${flavour}.ron));
   };
 }
