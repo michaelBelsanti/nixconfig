@@ -21,7 +21,12 @@ in
     ''; # Fixes bugged context menus
   };
   home.file.".background-image".source = ./background.png;
-  xdg.dataFile."konsole/Catppuccin.colorscheme".source = ./Catppuccin-${Flavour}.colorscheme;
+  xdg.dataFile."konsole/Catppuccin.colorscheme".source = (pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "konsole";
+      rev = "7d86b8a1e56e58f6b5649cdaac543a573ac194ca";
+      hash = "sha256-EwSJMTxnaj2UlNJm1t6znnatfzgm1awIQQUF3VPfCTM=";
+    } + /Catppuccin-${Flavour}.colorscheme);
   xdg.configFile = {
     # Libadwaita theme
     "gtk-4.0/gtk.css".source = ./gtk.css;
