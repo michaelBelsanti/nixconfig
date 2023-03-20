@@ -145,7 +145,10 @@
   };
 
   programs = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      useBabelfish = true;
+    };
     zsh.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true;

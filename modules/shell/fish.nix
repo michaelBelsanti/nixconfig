@@ -2,7 +2,7 @@
   let fishPlugins = pkgs.fishPlugins; in
 { 
   home.packages = with pkgs; [ libnotify ]; # For `done` plugin
-  programs. fish = {
+  programs.fish = {
     enable = true;
     shellAliases = {
       nixup = 
