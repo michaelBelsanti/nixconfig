@@ -11,5 +11,6 @@
       lg = "lazygit";
       open = "xdg-open";
     };
+    initExtra = "source-sh ~/.profile";
   };
 }
