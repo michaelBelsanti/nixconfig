@@ -20,7 +20,7 @@ in
       }
     ''; # Fixes bugged context menus
   };
-  home.file.".background-image".source = ./background.png;
+  home.file.".background-image".source = ./background_upscayled.png;
   xdg.dataFile."konsole/Catppuccin.colorscheme".source = (pkgs.fetchFromGitHub {
       owner = "catppuccin";
       repo = "konsole";
