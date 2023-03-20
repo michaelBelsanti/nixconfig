@@ -6,7 +6,7 @@
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ nushell zsh fish ion ];
+    shells = with pkgs; [ fish nushell ion ];
   };
 
   # Boot options
