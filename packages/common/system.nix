@@ -26,7 +26,7 @@
     ncdu
     imagemagick
     edir
-    dog
+    dogdns
     lnav
 
     # Networking
