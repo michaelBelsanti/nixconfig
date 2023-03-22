@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     librewolf
-    libreoffice-qt
+    libreoffice
     discord
 
     # Text editing
