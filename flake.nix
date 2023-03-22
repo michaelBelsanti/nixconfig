@@ -93,9 +93,9 @@
           # Feature requires devenv v0.5 to work
           # With versions above v0.4 my system fails to build with this error:
           # error: anonymous function at /nix/store/x070biyjfvlvkf7qpypmfspxzy9a3y3n-source/pkgs/tools/networking/curl/default.nix:1:1 called with unexpected argument 'patchNetrcRegression'
-          devShells = import ./shells/default.nix { inherit pkgs inputs; };
-          formatter = channels.nixpkgs.nixpkgs-fmt;
-          packages = channels.nixpkgs;
+          # devShells = import ./shells/default.nix { inherit pkgs inputs; };
+          formatter = pkgs.nixpkgs-fmt;
+          packages = pkgs;
         };
     };
 }
