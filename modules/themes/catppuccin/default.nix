@@ -8,7 +8,7 @@ in
 {
   gtk = {
     theme = {
-      name = "Catppuccin-${flavour}-Standard-Mauve-Dark";
+      name = "Catppuccin-${Flavour}-Standard-Mauve-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "mauve" ];
         variant = "${flavour}";
