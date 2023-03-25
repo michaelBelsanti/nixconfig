@@ -17,6 +17,7 @@
     helix.url = "github:helix-editor/helix";
     devenv.url = "github:cachix/devenv/v0.4";
     spicetify.url = "github:the-argus/spicetify-nix";
+    nix-alien.url = "github:thiagokokada/nix-alien";
   };
   outputs =
     inputs@{ self
@@ -30,6 +31,7 @@
     , helix
     , devenv
     , spicetify
+    , nix-alien
     , ...
     }:
     let
@@ -42,6 +44,7 @@
         inherit (devenv.packages.${super.system}) devenv;
         inherit (nix-gaming.packages.${super.system}) wine-tkg;
         inherit (plasma-manager.packages.${super.system}) rc2nix;
+        inherit (nix-alien.packages.${super.system}) nix-alien;
         spicePkgs = spicetify.packages.${super.system}.default;
       };
     in

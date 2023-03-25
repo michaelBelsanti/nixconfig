@@ -56,5 +56,6 @@
 
     # NFS
     nfs-utils
+    nix-alien
   ];
 }
