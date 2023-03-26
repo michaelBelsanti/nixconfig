@@ -18,5 +18,11 @@
     glow
     so
     marksman
+
+    (retroarch.override {
+      cores = with libretro; [
+        beetle-gba
+      ];
+    })
   ];
 }
