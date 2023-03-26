@@ -3,7 +3,6 @@
   xdg.configFile = {
     "zellij/config.kdl".text = ''
       on_force_close "quit"
-      default_shell "nu"
       pane_frames false
       theme "catppuccin-mocha" 
       default_layout "compact"
