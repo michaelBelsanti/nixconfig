@@ -53,6 +53,7 @@
 
     # Containers
     distrobox
+    podman-compose
 
     # NFS
     nfs-utils
