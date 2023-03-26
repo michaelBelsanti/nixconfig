@@ -98,7 +98,6 @@
           # error: anonymous function at /nix/store/x070biyjfvlvkf7qpypmfspxzy9a3y3n-source/pkgs/tools/networking/curl/default.nix:1:1 called with unexpected argument 'patchNetrcRegression'
           # devShells = import ./shells/default.nix { inherit pkgs inputs; };
           formatter = pkgs.nixpkgs-fmt;
-          packages = pkgs;
         };
     };
 }
