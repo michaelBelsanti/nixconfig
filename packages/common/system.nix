@@ -28,6 +28,8 @@
     edir
     dogdns
     lnav
+    file
+    xxd
 
     # Networking
     traceroute
@@ -36,7 +38,6 @@
 
     # File Management
     edir
-    clifm
     gdu
     du-dust
     lf
@@ -57,6 +58,7 @@
 
     # NFS
     nfs-utils
+
     nix-alien
   ];
 }
