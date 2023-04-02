@@ -13,6 +13,7 @@
     shellAbbrs = {
       lg = "lazygit";
     };
+    interactiveShellInit = "eval (zellij setup --generate-auto-start fish | string collect)";
     plugins = [
       { name = "pure"; src = fishPlugins.pure.src; }
       { name = "done"; src = fishPlugins.done.src; }
