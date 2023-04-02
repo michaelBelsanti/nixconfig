@@ -8,8 +8,6 @@
         C-j = "jump_view_down";
         C-k = "jump_view_up";
         C-l = "jump_view_right";
-        C-q = ":bc";
-        space.q = ":quit"; 
       };
       editor = {
         shell = [ "fish" "-c" ];
@@ -18,7 +16,10 @@
         color-modes = true;
         file-picker.hidden = true;
         line-number = "relative";
-        lsp.display-messages = true;
+        lsp = {
+          display-messages = true;
+          display-inlay-hints = true;
+        };
         soft-wrap.enable = true;
         cursor-shape = {
           insert = "bar";
