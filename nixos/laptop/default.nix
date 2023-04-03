@@ -18,6 +18,7 @@
     ./hardware.nix
     # ../../modules/desktop/hyprland/laptop.nix
     ../../modules/desktop/kde/laptop.nix
+    # ../../modules/desktop/gnome
   ];
 
   networking.hostName = "nix-laptop"; # Define your hostname.
@@ -34,7 +35,6 @@
     serviceConfig.Type = "simple";
   };
 
-  # programs.hyprland.enable = true; # Configured by ../../modules/hyprland import
   services = {
     # greetd = {
     #   # enable = true;
@@ -49,7 +49,6 @@
       enable = true;
       videoDrivers = [ "intel" ];
       displayManager = {
-        defaultSession = "plasmawayland";
         gdm = {
           enable = true;
           wayland = true;

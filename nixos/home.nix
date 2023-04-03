@@ -22,7 +22,6 @@
 
   # Main system theming
   xsession = {
-    # profilePath = "${config.xdg.configHome}/X11/xsession";
     enable = true;
     initExtra = ''
       xrdb merge ~/.config/X11/xresources
