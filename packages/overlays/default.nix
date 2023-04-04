@@ -17,4 +17,5 @@ inputs: _: super: {
   regreet = super.callPackage ./greetd/regreet { };
   framework-grub-theme = super.callPackage ./framework-grub-theme { };
   minegrub = super.callPackage ./minegrub { };
+  vinegar = super.callPackage ./vinegar { };
 }

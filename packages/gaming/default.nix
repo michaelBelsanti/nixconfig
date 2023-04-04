@@ -4,7 +4,7 @@
     gamescope
     winetricks
     protontricks
-    grapejuice
+    vinegar
     (lutris.override {
       lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; };
       extraLibraries = pkgs: [ latencyflex ];
