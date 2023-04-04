@@ -7,17 +7,10 @@
       theme "catppuccin-mocha" 
       default_layout "compact"
       keybinds {
-      	unbind "Ctrl h"
-      	unbind "Ctrl b"
+        unbind "Ctrl h" "Ctrl s" "Ctrl b"
       	shared_except "locked" {
       		bind "Alt q" { CloseFocus; }
-      	}
-      	move {
-      	    bind "Ctrl b" { SwitchToMode "normal"; }
-      	}
-      	shared_except "move" "locked" {
-      	    bind "Ctrl b" { SwitchToMode "move"; }
-      	}
+        }
       }
     '';
     "zellij/layouts/haskell.kdl".text = ''

@@ -36,6 +36,7 @@ in
     };
   };
   programs = {
+    # zellij.settings.theme = "catppuccin-${flavour}";
     starship = {
       settings = {
         format = "$all";
