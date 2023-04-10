@@ -17,7 +17,7 @@
   imports = [
     ./hardware.nix
     # ../../modules/desktop/hyprland/laptop.nix
-    ../../modules/desktop/kde/laptop.nix
+    ../../modules/desktop/plasma/laptop.nix
     # ../../modules/desktop/gnome
   ];
 
