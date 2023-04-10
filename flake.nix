@@ -9,6 +9,7 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     plasma-manager.url = "github:pjones/plasma-manager";

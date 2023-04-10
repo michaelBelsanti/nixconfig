@@ -24,6 +24,6 @@
   ];
   home-manager.users.${user} = {
     imports = [ ../rofi ../../foot ];
-    programs.mako.enable = true;
+    services.mako.enable = true;
   };
 }
