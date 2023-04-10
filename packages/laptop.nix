@@ -3,7 +3,6 @@
 
   environment.systemPackages = with pkgs; [
     # Work
-    slack
     thunderbird
     brightnessctl
   ];
