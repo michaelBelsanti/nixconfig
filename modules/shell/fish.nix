@@ -1,7 +1,13 @@
-{ config, pkgs, flakePath, ... }:
-  let fishPlugins = pkgs.fishPlugins; in
+{ pkgs, flakePath, ... }:
 { 
-  home.packages = with pkgs; [ libnotify ]; # For `done` plugin
+  home.packages = with pkgs.fishPlugins; [ 
+    done
+    pkgs.libnotify # notify-send for done
+    sponge
+    pisces
+    fzf-fish
+    colored-man-pages
+  ];
   programs.fish = {
     enable = true;
     shellAliases = {
@@ -13,14 +19,10 @@
     shellAbbrs = {
       lg = "lazygit";
     };
-    interactiveShellInit = "eval (zellij setup --generate-auto-start fish | string collect)";
-    plugins = [
-      { name = "pure"; src = fishPlugins.pure.src; }
-      { name = "done"; src = fishPlugins.done.src; }
-      { name = "sponge"; src = fishPlugins.sponge.src; }
-      { name = "pisces"; src = fishPlugins.pisces.src; }
-      { name = "fzf-fish"; src = fishPlugins.fzf-fish.src; }
-      { name = "colored-man-pages"; src = fishPlugins.colored-man-pages.src; }
-    ];
+    interactiveShellInit = ''
+      set fish_greeting
+      ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
+      eval (zellij setup --generate-auto-start fish | string collect)
+    '';
   };
 }
