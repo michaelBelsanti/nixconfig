@@ -7,8 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/nur";
+    mypkgs.url = "github:michaelBelsanti/nur-packages";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware/master";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -25,6 +26,7 @@
     , nixpkgs
     , utils
     , home-manager
+    , mypkgs
     , nix-gaming
     , nixos-hardware
     , plasma-manager
@@ -39,7 +41,7 @@
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
 
-      localOverlay = import ./packages/overlays { inherit inputs; };
+      localOverlay = import ./packages/overlay.nix { inherit inputs; };
       inputOverlay = _: super: {
         inherit (helix.packages.${super.system}) helix;
         inherit (devenv.packages.${super.system}) devenv;
@@ -53,7 +55,7 @@
       inherit self inputs user flakePath;
 
       channelsConfig.allowUnfree = true;
-      sharedOverlays = [ inputOverlay localOverlay ];
+      sharedOverlays = [ inputOverlay localOverlay mypkgs.overlays.default ];
       hostDefaults = {
         extraArgs = { inherit inputs user flakePath; };
       };
@@ -87,6 +89,13 @@
           ./packages/laptop.nix
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ];
+
+        home = {
+          output = "homeConfigurations";
+          builder = home-manager.lib.homeManagerConfiguration;
+          modules = [ ./nixos/home.nix ];
+          extraArgs = { inherit inputs user flakePath; };
+        };
       };
       outputsBuilder = channels:
         let

@@ -3,6 +3,7 @@
     librewolf
     libreoffice
     discord
+    xwaylandvideobridge
 
     # Text editing
     helix

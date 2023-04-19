@@ -11,11 +11,4 @@ inputs: _: super: {
     mimeTypes = [ "text/plain" "inode/directory" ];
     categories = [ "Utility" "TextEditor" "Development" ];
   };
-  latencyflex = super.callPackage ./latencyflex { };
-  protonup-qt = super.callPackage ./protonup-qt { };
-  catppuccin-kde = super.callPackage ./catppuccin-kde { };
-  regreet = super.callPackage ./greetd/regreet { };
-  framework-grub-theme = super.callPackage ./framework-grub-theme { };
-  minegrub = super.callPackage ./minegrub { };
-  vinegar = super.callPackage ./vinegar { };
 }
