@@ -7,8 +7,8 @@
       theme "catppuccin-mocha" 
       default_layout "compact"
       keybinds {
-        unbind "Ctrl h" "Ctrl s" "Ctrl b"
-      	shared_except "locked" {
+        unbind "Ctrl h" "Ctrl s" "Ctrl b" "Ctrl o"
+        shared_except "locked" {
       		bind "Alt q" { CloseFocus; }
         }
       }
