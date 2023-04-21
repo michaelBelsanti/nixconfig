@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./. ];
   services.xserver.displayManager.defaultSession = "plasmawayland";
