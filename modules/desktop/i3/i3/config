@@ -1,8 +1,11 @@
-#=============================== Applications ================================#
-#---------------------------- Default applications ---------------------------#
-set $bar        
+## Applications
+# Default applications
+set $bar
+set $fm dolphin
+set $browser librewolf
+set $terminal kitty
 
-#----------------------------- Startup applications --------------------------#
+# Startup applications
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 # exec --no-startup-id xrdb merge ~/.config/X11/xresources
 exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png --no-fehbg
@@ -17,8 +20,8 @@ exec --no-startup-id easyeffects --gapplication-service
 # Awesome replay tool for Nvidia gpus, much more performant than obs
 # exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays
 
-#================================= Appearance ================================#
-#------------------------------- Colors & font -------------------------------#
+## Appearance
+# Colors & font
 set $border     #F28FAD
 set $bg         #1E1D2F
 set $fg         #D9E0EE
@@ -32,7 +35,7 @@ client.urgent           $border   $bg         $fg   $indicator
 
 font pango:JetBrainsMono Nerd Font 10
 
-#----------------------------- Window appearance -----------------------------#
+# Window appearance
 # Removes titlebars
 for_window [class="^.*"] border pixel 4
 
@@ -44,13 +47,13 @@ gaps outer 0
 # border_radius 6
 # smart_gaps inverse_outer
 
-#================================= Keybinds ==================================#
+## Keybinds
 set $mod Mod4
 floating_modifier $mod
 
-bindsym $mod+Return     exec alacritty
-bindsym $mod+e          exec nautilus
-bindsym $mod+b          exec librewolf
+bindsym $mod+Return     exec $terminal
+bindsym $mod+e          exec $fm
+bindsym $mod+b          exec $browser
 bindsym $mod+s        exec shotgun -s - | xclip -t 'image/png' -selection clipboard
 bindsym $mod+ctrl+s    exec shotgun -s - > ~/Pictures/Screenshots/$(date "+%Y-%m-%dT%H:%M:%SZ").png
 bindsym $mod+shift+s    exec shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
@@ -73,7 +76,7 @@ bindsym $mod+space      exec --no-startup-id rofi-wrapper -r
 # bindsym Mod1+Tab        exec --no-startup-id rofi-wrapper -w
 bindsym $mod+o          exec --no-startup-id rofi-wrapper -o
 
-#---------------------------- Workspace navigation ---------------------------#
+# Workspace navigation
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -142,7 +145,7 @@ bindsym $mod+ctrl+mod1+8 move container to workspace number $ws18; workspace $ws
 bindsym $mod+ctrl+mod1+9 move container to workspace number $ws19; workspace $ws19
 bindsym $mod+ctrl+mod1+0 move container to workspace number $ws20; workspace $ws20
 
-#--------------------------- Container manipulation --------------------------#
+# Container manipulation
 # kill
 bindsym $mod+q kill
 # change focused window
@@ -179,7 +182,7 @@ bindsym $mod+Shift+a focus parent
 # focus the child container
 bindsym $mod+a focus child
 
-#----------------------------------- i3 --------------------------------------#
+# i3
 # refresh i3
 bindsym $mod+Shift+r exec "i3-msg restart"
 
@@ -205,7 +208,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
-#================================ Workspaces =================================#
+## Workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"

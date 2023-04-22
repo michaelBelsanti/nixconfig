@@ -1,6 +1,10 @@
 { pkgs, user, ... }: {
   imports = [ ../default.nix ];
-  services.xserver.windowManager.i3.package = pkgs.i3-gaps;
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3;
+  };
+  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
   environment.systemPackages = with pkgs; [
     picom
     betterlockscreen
@@ -14,12 +18,12 @@
     xclip
     autotiling
     (polybar.override {
-      i3GapsSupport = true;
+      i3Support = true;
       pulseSupport = true;
     })
   ];
   home-manager.users.${user} = {
-    imports = [ ../rofi ../../alacritty ];
+    imports = [ ../rofi ../../terminal/kitty ];
     xdg.configFile = {
       i3 = {
         source = ./i3;
