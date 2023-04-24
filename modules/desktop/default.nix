@@ -1,7 +1,8 @@
-{ lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     wezterm
+    kitty
     dolphin
     ark
     selectdefaultapplication
@@ -23,7 +24,7 @@
     }))
   ];
 
-  environment.variables = {
+  environment.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 }

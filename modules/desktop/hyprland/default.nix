@@ -5,11 +5,14 @@
 
 { pkgs, user, ... }: {
   imports = [ ../. ];
-  programs.hyprland.recommendedEnvironment = true;
+  programs.hyprland.enable = true;
+  xdg.portal = {
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
   };
-  # services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver.displayManager.defaultSession = "hyprland";
   environment.systemPackages = with pkgs; [
     swaybg
     (waybar.overrideAttrs (oldAttrs: {
@@ -23,7 +26,11 @@
     swaylock
   ];
   home-manager.users.${user} = {
-    imports = [ ../rofi ../../foot ];
+    imports = [ ../rofi ];
     services.mako.enable = true;
+    wayland.windowManager.hyprland = {
+      enable = true;
+      recommendedEnvironment = true;
+    };
   };
 }

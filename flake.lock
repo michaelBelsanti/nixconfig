@@ -388,6 +388,7 @@
       },
       "original": {
         "owner": "hyprwm",
+        "ref": "v0.24.1",
         "repo": "Hyprland",
         "type": "github"
       }

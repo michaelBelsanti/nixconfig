@@ -1,4 +1,4 @@
-{ config, lib, pkgs, user, ... }:
+{ config, lib, pkgs, ... }:
 # let
   # tomlFormat = pkgs.formats.toml { };
   # settings = {
@@ -16,8 +16,8 @@
 {
   imports = [
     ./hardware.nix
-    # ../../modules/desktop/hyprland/laptop.nix
-    ../../modules/desktop/plasma/laptop.nix
+    ../../modules/desktop/hyprland/laptop.nix
+    # ../../modules/desktop/plasma/laptop.nix
     # ../../modules/desktop/gnome
   ];
 
@@ -77,7 +77,7 @@
   };
 
   # Graphics drivers
-  environment.variables = { LIBVA_DRIVER_NAME = "iHD"; };
+  environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
   hardware.opengl = {
     extraPackages = with pkgs;
       [

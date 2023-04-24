@@ -14,7 +14,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
 
     plasma-manager.url = "github:pjones/plasma-manager";
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/v0.24.1";
 
     helix.url = "github:helix-editor/helix";
     devenv.url = "github:cachix/devenv/v0.4";
@@ -71,6 +71,7 @@
             ./nixos/home.nix
             spicetify.homeManagerModule
             plasma-manager.homeManagerModules.plasma-manager
+            hyprland.homeManagerModules.default
           ];
         }
       ];

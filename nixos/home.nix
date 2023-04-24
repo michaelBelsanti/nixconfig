@@ -53,7 +53,7 @@
   home.pointerCursor = {
     package = pkgs.phinger-cursors;
     name = "phinger-cursors";
-    x11.enable = true;
+    # x11.enable = true;
     gtk.enable = true;
   };
   xresources = {

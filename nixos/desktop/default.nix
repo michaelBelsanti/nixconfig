@@ -66,7 +66,7 @@
   };
 
   # Use VA-API
-  environment.variables = {
+  environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";

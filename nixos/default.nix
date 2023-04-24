@@ -94,7 +94,7 @@
   # Environment variables
   environment = {
     defaultPackages = with pkgs; [ micro git perl rsync strace ];
-    variables = {
+    sessionVariables = {
       EDITOR = "micro";
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
