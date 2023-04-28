@@ -1,6 +1,10 @@
 { ... }: {
   programs.helix = {
     enable = true;
+    languages = [{
+      name = "bash";
+      file-types = [ "config" "conf" ];
+    }];
     settings = {
       keys.normal = {
         X = "extend_line_above";
