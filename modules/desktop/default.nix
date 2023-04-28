@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs; [
     wezterm
     kitty
@@ -9,7 +10,6 @@
     wmctrl
     nsxiv
     pamixer
-    networkmanagerapplet
     pavucontrol
 
     qt5ct

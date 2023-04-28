@@ -3,16 +3,18 @@
 # TODO
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 
-{ pkgs, user, ... }: {
+{ inputs, pkgs, user, ... }: {
   imports = [ ../. ];
-  programs.hyprland.enable = true;
-  xdg.portal = {
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs.hyprland = {
+    enable = true;
+    xwayland.hidpi = true;
   };
+  services.xserver.displayManager.defaultSession = "hyprland";
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
   };
-  services.xserver.displayManager.defaultSession = "hyprland";
+  programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs; [
     swaybg
     (waybar.overrideAttrs (oldAttrs: {
@@ -21,12 +23,11 @@
     brightnessctl
     wl-clipboard
     rofi-wayland
-    grim
-    slurp
+    grimblast
     swaylock
   ];
   home-manager.users.${user} = {
-    imports = [ ../rofi ];
+    imports = [ ../rofi ../../terminal/foot ];
     services.mako.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
