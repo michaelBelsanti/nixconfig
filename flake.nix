@@ -15,6 +15,7 @@
 
     plasma-manager.url = "github:pjones/plasma-manager";
     hyprland.url = "github:hyprwm/Hyprland/v0.24.1";
+    hypr-contrib.url = "github:hyprwm/contrib";
 
     helix.url = "github:helix-editor/helix";
     devenv.url = "github:cachix/devenv/v0.4";
@@ -22,40 +23,21 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
   };
   outputs =
-    inputs@{ self
-    , nixpkgs
-    , utils
-    , home-manager
-    , mypkgs
-    , nix-gaming
-    , nixos-hardware
-    , plasma-manager
-    , hyprland
-    , helix
-    , devenv
-    , spicetify
-    , nix-alien
-    , ...
-    }:
+    inputs@{self, utils, home-manager, nixos-hardware, ...}:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-
-      localOverlay = import ./packages/overlay.nix { inherit inputs; };
-      inputOverlay = _: super: {
-        inherit (helix.packages.${super.system}) helix;
-        inherit (devenv.packages.${super.system}) devenv;
-        inherit (nix-gaming.packages.${super.system}) wine-tkg;
-        inherit (plasma-manager.packages.${super.system}) rc2nix;
-        inherit (nix-alien.packages.${super.system}) nix-alien;
-        spicePkgs = spicetify.packages.${super.system}.default;
-      };
+      overlay = import ./packages/overlay.nix inputs;
     in
     utils.lib.mkFlake {
       inherit self inputs user flakePath;
 
       channelsConfig.allowUnfree = true;
-      sharedOverlays = [ inputOverlay localOverlay mypkgs.overlays.default ];
+      sharedOverlays = with inputs; [
+        overlay
+        mypkgs.overlays.default
+        hypr-contrib.overlays.default
+      ];
       hostDefaults = {
         extraArgs = { inherit inputs user flakePath; };
       };
@@ -66,12 +48,12 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit user flakePath; };
+          home-manager.extraSpecialArgs = { inherit inputs user flakePath; };
           home-manager.users.${user}.imports = [
             ./nixos/home.nix
-            spicetify.homeManagerModule
-            plasma-manager.homeManagerModules.plasma-manager
-            hyprland.homeManagerModules.default
+            inputs.spicetify.homeManagerModule
+            inputs.plasma-manager.homeManagerModules.plasma-manager
+            inputs.hyprland.homeManagerModules.default
           ];
         }
       ];
@@ -80,7 +62,7 @@
         nix-desktop.modules = [
           ./nixos/desktop
           ./packages/desktop.nix
-          nix-gaming.nixosModules.pipewireLowLatency
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
         ];

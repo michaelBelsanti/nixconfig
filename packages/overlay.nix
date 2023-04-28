@@ -1,4 +1,11 @@
 inputs: _: super: {
+  inherit (inputs.helix.packages.${super.system}) helix;
+  inherit (inputs.devenv.packages.${super.system}) devenv;
+  inherit (inputs.nix-gaming.packages.${super.system}) wine-tkg;
+  inherit (inputs.plasma-manager.packages.${super.system}) rc2nix;
+  inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
+  inherit (inputs.hypr-contrib.packages.${super.system}) grimblast;
+  spicePkgs = inputs.spicetify.packages.${super.system}.default;
   discord = super.discord.override {
     nss = super.nss_latest;
     withOpenASAR = true;

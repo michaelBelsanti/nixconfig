@@ -51,7 +51,7 @@
     nurl
     nix-tree
     nix-index
-    devenv
+    nix-alien
 
     # Containers
     distrobox
@@ -60,6 +60,5 @@
     # NFS
     nfs-utils
 
-    nix-alien
   ];
 }
