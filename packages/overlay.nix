@@ -1,4 +1,4 @@
-inputs: _: super: {
+inputs: self: super: {
   inherit (inputs.helix.packages.${super.system}) helix;
   inherit (inputs.devenv.packages.${super.system}) devenv;
   inherit (inputs.nix-gaming.packages.${super.system}) wine-tkg;
@@ -6,7 +6,7 @@ inputs: _: super: {
   inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
   inherit (inputs.hypr-contrib.packages.${super.system}) grimblast;
   spicePkgs = inputs.spicetify.packages.${super.system}.default;
-  discord = super.discord.override {
+  discord-canary = super.discord-canary.override {
     nss = super.nss_latest;
     withOpenASAR = true;
   };
