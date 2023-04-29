@@ -3,7 +3,7 @@
 # TODO
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 
-{ inputs, pkgs, user, ... }: {
+{ pkgs, user, ... }: {
   imports = [ ../. ];
   programs.hyprland = {
     enable = true;
@@ -13,6 +13,7 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
+    NIXOS_OZONE_WL = "1";
   };
   programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs; [
