@@ -1,56 +1,15 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    helix-desktop # Helix .desktop file (uses wezterm)
     librewolf
     libreoffice
-    discord
+    discord-canary
     xwaylandvideobridge
 
-    # Text editing
+    # Editor
     helix
-    neovim
-
-    ## CLI Tools
-    git
-    cachix
-    aria2
-    ouch
-    unrar
-    unzip
-    killall
-    bat
-    tealdeer
-    lsof
-    dig
-    fd
-    ripgrep
-    fzf
-    ncdu
-    imagemagick
-    edir
-    dogdns
-    lnav
-    file
-    xxd
-
-    # Networking
-    traceroute
-    whois
-    nmap
-
-    # File Management
-    edir
-    gdu
-    du-dust
-    lf
-
-    # Process managers
-    bottom
 
     # Nix
-    nil
-    nurl
-    nix-tree
-    nix-index
     nix-alien
 
     # Containers
@@ -60,5 +19,20 @@
     # NFS
     nfs-utils
 
+    virt-manager
+    virglrenderer
+
+    jellyfin-media-player
+    mullvad-vpn
+    tetrio-desktop
+    easyeffects
+    element-desktop
+    qbittorrent
+
+    (retroarch.override {
+      cores = with libretro; [
+        beetle-gba
+      ];
+    })
   ];
 }

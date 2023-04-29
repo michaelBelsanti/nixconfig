@@ -1,28 +1,45 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    helix-desktop # Helix .desktop file (uses wezterm)
+    # Text editing
+    helix
     nitch
     lazygit
-    distrobox
     devenv
-
-    virt-manager
-    virglrenderer
-
-    jellyfin-media-player
-    mullvad-vpn
-    tetrio-desktop
-    easyeffects
-    element-desktop
-    qbittorrent
     glow
     so
     marksman
-
-    (retroarch.override {
-      cores = with libretro; [
-        beetle-gba
-      ];
-    })
+    nil
+    nurl
+    nix-tree
+    nix-index
+    bottom
+    edir
+    gdu
+    du-dust
+    lf
+    traceroute
+    whois
+    nmap
+    git
+    cachix
+    aria2
+    ouch
+    unrar
+    unzip
+    killall
+    bat
+    tealdeer
+    lsof
+    dig
+    fd
+    ripgrep
+    fzf
+    ncdu
+    imagemagick
+    edir
+    dogdns
+    lnav
+    file
+    xxd
   ];
 }
