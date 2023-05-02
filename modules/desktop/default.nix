@@ -8,7 +8,7 @@
     ark
     selectdefaultapplication
     wmctrl
-    nsxiv
+    gwenview
     pamixer
     pavucontrol
 
