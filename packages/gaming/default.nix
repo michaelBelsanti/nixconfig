@@ -6,7 +6,7 @@
     protontricks
     vinegar
     (lutris.override {
-      lutris-unwrapped = lutris-unwrapped.override { wine = wine-tkg; };
+      extraPkgs = pkgs: [ wine-tkg ];
       extraLibraries = pkgs: [ latencyflex ];
     })
     heroic
