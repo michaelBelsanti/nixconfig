@@ -20,13 +20,9 @@
     traceroute
     whois
     nmap
-    git
     cachix
     aria2
     ouch
-    unrar
-    unzip
-    killall
     bat
     tealdeer
     lsof
@@ -39,7 +35,7 @@
     edir
     dogdns
     lnav
-    file
     xxd
+    clipboard-jh
   ];
 }

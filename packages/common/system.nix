@@ -19,6 +19,12 @@
     # NFS
     nfs-utils
 
+    killall
+    git
+    file
+    unrar
+    unzip
+
     virt-manager
     virglrenderer
 
