@@ -4,7 +4,7 @@
 # Nvidia variable can be set for Nvidia gpu compatibility, do NOT set if not Nvidia
 
 { pkgs, user, ... }: {
-  imports = [ ../. ];
+  imports = [ ../. ./scripts.nix ];
   programs.hyprland = {
     enable = true;
     xwayland.hidpi = true;
@@ -29,7 +29,15 @@
   ];
   home-manager.users.${user} = {
     imports = [ ../rofi ../../terminal/foot ];
-    services.mako.enable = true;
+    services.mako = {
+      enable = true;
+      defaultTimeout = 5000;
+      font = "monospace 12";
+      extraConfig = ''
+        [mode=dnd]
+        invisible=1
+      '';
+    };
     wayland.windowManager.hyprland = {
       enable = true;
       recommendedEnvironment = true;
