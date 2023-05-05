@@ -23,7 +23,7 @@
     nix-alien.url = "github:thiagokokada/nix-alien";
   };
   outputs =
-    inputs@{self, utils, home-manager, nixos-hardware, ...}:
+    inputs@{ self, utils, home-manager, nixos-hardware, ... }:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases

@@ -2,7 +2,8 @@
   programs.helix = {
     enable = true;
     languages = [
-      { name = "bash";
+      {
+        name = "bash";
         file-types = [ "config" "conf" "sh" ];
       }
       # { name = "typst";

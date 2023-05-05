@@ -1,6 +1,6 @@
 { pkgs, flakePath, ... }:
-{ 
-  home.packages = with pkgs.fishPlugins; [ 
+{
+  home.packages = with pkgs.fishPlugins; [
     done
     pkgs.libnotify # notify-send for done
     sponge
@@ -11,7 +11,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      nixup = 
+      nixup =
         "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/fish/config.fish";
       cleanup = "doas nix-collect-garbage -d";
       open = "xdg-open";

@@ -8,7 +8,7 @@
     ];
   };
   c = pkgs.mkShell {
-    packages = with pkgs; [ 
+    packages = with pkgs; [
       make
       gcc
       clang-tools # For clangd
