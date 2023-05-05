@@ -34,6 +34,8 @@
     easyeffects
     element-desktop
     qbittorrent
+    imagemagick
+    ffmpeg
 
     (retroarch.override {
       cores = with libretro; [

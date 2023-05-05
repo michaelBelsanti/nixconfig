@@ -1,10 +1,19 @@
 { ... }: {
   programs.helix = {
     enable = true;
-    languages = [{
-      name = "bash";
-      file-types = [ "config" "conf" ];
-    }];
+    languages = [
+      { name = "bash";
+        file-types = [ "config" "conf" "sh" ];
+      }
+      # { name = "typst";
+      #   scope = "source.typst";
+      #   injection-regex = "typst";
+      #   file-types = ["typ"];
+      #   language-server.command = "typst-lsp";
+      #   comment-token = "//";
+      #   roots = [];
+      # }
+    ];
     settings = {
       keys.normal = {
         X = "extend_line_above";

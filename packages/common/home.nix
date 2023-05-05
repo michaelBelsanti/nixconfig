@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # Text editing
     helix
     nitch
     lazygit
@@ -31,11 +30,12 @@
     ripgrep
     fzf
     ncdu
-    imagemagick
     edir
     dogdns
     lnav
     xxd
+    nodePackages.bash-language-server
+    shellcheck
     clipboard-jh
   ];
 }
