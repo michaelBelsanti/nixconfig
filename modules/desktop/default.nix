@@ -11,6 +11,7 @@
     gwenview
     pamixer
     pavucontrol
+    libsForQt5.okular
 
     qt5ct
     breeze-icons
