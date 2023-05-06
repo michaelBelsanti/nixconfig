@@ -1,24 +1,28 @@
 {
   description = "Quasigod's NixOS config";
-  outputs = inputs@{flake-parts, ... }:
-    let
-      user = "quasi";
-      flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-      overlay = import ./overlay.nix inputs;
-    in
+  outputs = inputs @ {flake-parts, ...}: let
+    user = "quasi";
+    flakePath = "/home/${user}/.flake"; # Used for commands and aliases
+    overlay = import ./overlay.nix inputs;
+  in
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./nixos/hosts
         ./home/profiles
         {config._module.args = {inherit user flakePath;};}
       ];
-      systems = [ "x86_64-linux" ];
-      perSystem = { system, ... }: {
+      systems = ["x86_64-linux"];
+      perSystem = {
+        system,
+        pkgs,
+        ...
+      }: {
         devShells = import ./shells;
+        formatter = pkgs.alejandra;
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [ 
+          overlays = [
             overlay
             inputs.mypkgs.overlays.default
             inputs.hypr-contrib.overlays.default

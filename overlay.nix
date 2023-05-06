@@ -15,8 +15,8 @@ inputs: self: super: {
     desktopName = "Helix (TUI)";
     genericName = "Helix";
     exec = "hx %F";
-    mimeTypes = [ "text/plain" "inode/directory" ];
-    categories = [ "Utility" "TextEditor" "Development" ];
+    mimeTypes = ["text/plain" "inode/directory"];
+    categories = ["Utility" "TextEditor" "Development"];
     terminal = true;
   };
 }

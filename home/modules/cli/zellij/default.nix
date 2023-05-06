@@ -1,10 +1,10 @@
-{ user, ... }: {
+{user, ...}: {
   programs.zellij.enable = true;
   xdg.configFile = {
     "zellij/config.kdl".text = ''
       on_force_close "quit"
       pane_frames false
-      theme "catppuccin-mocha" 
+      theme "catppuccin-mocha"
       default_layout "compact"
       keybinds {
         unbind "Ctrl h" "Ctrl s" "Ctrl b" "Ctrl o"

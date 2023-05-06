@@ -1,11 +1,15 @@
-{ pkgs, inputs, ... }: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Enable flakes
   nix = {
     package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     settings = {
       auto-optimise-store = true;
-      trusted-users = [ "root" "quasi" "michaelbelsanti" ];
+      trusted-users = ["root" "quasi" "michaelbelsanti"];
       substituters = [
         # "https://quasigod.cachix.org"
         "https://helix.cachix.org"

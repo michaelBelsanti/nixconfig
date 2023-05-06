@@ -1,4 +1,9 @@
-{ config, pkgs, user, ... }: {
+{
+  config,
+  pkgs,
+  user,
+  ...
+}: {
   imports = [
     ./hardware.nix
     ../../modules/gaming.nix
@@ -16,7 +21,7 @@
   };
 
   networking = {
-    nameservers = [ "192.168.1.152" ];
+    nameservers = ["192.168.1.152"];
     networkmanager.dns = "none";
     dhcpcd.extraConfig = "nohook resolv.conf";
     firewall = {
@@ -36,10 +41,10 @@
   # Display shiz
   services = {
     pipewire.lowLatency.enable = true;
-    udev.packages = with pkgs; [ qmk-udev-rules ];
+    udev.packages = with pkgs; [qmk-udev-rules];
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = ["nvidia"];
       displayManager.sddm.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
@@ -48,7 +53,7 @@
     };
     openssh = {
       enable = true;
-      ports = [ 42069 ];
+      ports = [42069];
       settings.PasswordAuthentication = false;
     };
   };

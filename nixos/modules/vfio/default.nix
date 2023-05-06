@@ -1,13 +1,12 @@
 # Imported by nixos/desktop/configuration.nix
 # Allows kvms and pcie passthrough
-
-{ pkgs, ... }: {
-  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" ];
-  boot.kernelModules = [ "kvm-amd" "vfio-pci" ];
+{pkgs, ...}: {
+  boot.kernelParams = ["amd_iommu=on" "iommu=pt"];
+  boot.kernelModules = ["kvm-amd" "vfio-pci"];
   boot.extraModprobeConfig = ''
     options kvm_amd nested=1
   '';
-  users.users.quasi.extraGroups = [ "libvirtd" ];
+  users.users.quasi.extraGroups = ["libvirtd"];
 
   virtualisation = {
     libvirtd = {
@@ -28,14 +27,12 @@
 
   # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
-    path =
-      let
-        env = pkgs.buildEnv {
-          name = "qemu-hook-env";
-          paths = with pkgs; [ bash libvirt kmod systemd ripgrep sd ];
-        };
-      in
-      [ env ];
+    path = let
+      env = pkgs.buildEnv {
+        name = "qemu-hook-env";
+        paths = with pkgs; [bash libvirt kmod systemd ripgrep sd];
+      };
+    in [env];
   };
 
   environment.etc = {

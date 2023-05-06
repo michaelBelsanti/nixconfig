@@ -1,10 +1,10 @@
-{ ... }: {
+{...}: {
   programs.helix = {
     enable = true;
     languages = [
       {
         name = "bash";
-        file-types = [ "config" "conf" "sh" ];
+        file-types = ["config" "conf" "sh"];
       }
       # { name = "typst";
       #   scope = "source.typst";
@@ -24,7 +24,7 @@
         C-l = "jump_view_right";
       };
       editor = {
-        shell = [ "fish" "-c" ];
+        shell = ["fish" "-c"];
         cursorline = true;
         cursorcolumn = true;
         color-modes = true;
@@ -41,8 +41,8 @@
           select = "underline";
         };
         statusline = {
-          left = [ "mode" "spinner" "file-type" "diagnostics" ];
-          center = [ "file-name" ];
+          left = ["mode" "spinner" "file-type" "diagnostics"];
+          center = ["file-name"];
           right = [
             "selections"
             "position"

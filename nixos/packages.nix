@@ -1,6 +1,6 @@
 # These are packages that I need specifically in NixOS
 # Most cli tools are installed via home-manager, so I can use them on non NixOS systems
-{ pkgs, ... }: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     helix-desktop # Helix .desktop file, so it can be the default editor
     librewolf

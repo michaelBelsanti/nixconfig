@@ -1,12 +1,15 @@
 # Main universal NixOS configuration, imported by all NixOS configs.
-
-{ pkgs, user, flakePath, ... }:
 {
-  imports = [ ./nix.nix ];
+  pkgs,
+  user,
+  flakePath,
+  ...
+}: {
+  imports = [./nix.nix];
 
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [ fish nushell ion ];
+    shells = with pkgs; [fish nushell ion];
   };
 
   # Boot options
@@ -33,7 +36,7 @@
       efi.canTouchEfiVariables = true;
       timeout = 3;
     };
-    supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
+    supportedFilesystems = ["ntfs"]; # Adds NTFS driver
   };
 
   networking = {
@@ -73,7 +76,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" "lp" "scanner" ];
+    extraGroups = ["wheel" "video" "audio" "networkmanager" "lp" "scanner"];
     initialPassword = "lol";
     shell = pkgs.fish;
   };
@@ -81,7 +84,7 @@
   # Best fonts (Especially JetBrains Mono)
   fonts = {
     fonts = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override {fonts = ["JetBrainsMono"];})
       montserrat
       eb-garamond
       twemoji-color-font
@@ -89,16 +92,16 @@
     enableDefaultFonts = true;
     fontDir.enable = true;
     fontconfig.defaultFonts = {
-      serif = [ "EB Garamond" ];
-      sansSerif = [ "Montserrat" ];
-      monospace = [ "JetBrainsMono Nerd Font" ];
-      emoji = [ "Twitter Color Emoji" "Noto Color Emoji" ];
+      serif = ["EB Garamond"];
+      sansSerif = ["Montserrat"];
+      monospace = ["JetBrainsMono Nerd Font"];
+      emoji = ["Twitter Color Emoji" "Noto Color Emoji"];
     };
   };
 
   # Environment variables
   environment = {
-    defaultPackages = with pkgs; [ micro git perl rsync strace ];
+    defaultPackages = with pkgs; [micro git perl rsync strace];
     sessionVariables = {
       EDITOR = "micro";
       VISUAL = "kate";
@@ -129,7 +132,7 @@
     # Printing
     printing = {
       enable = true;
-      drivers = [ pkgs.hplip ];
+      drivers = [pkgs.hplip];
     };
     avahi = {
       enable = true;
@@ -186,11 +189,13 @@
   security = {
     sudo.enable = false;
     doas.enable = true;
-    doas.extraRules = [{
-      users = [ "${user}" ];
-      keepEnv = true;
-      persist = true;
-    }];
+    doas.extraRules = [
+      {
+        users = ["${user}"];
+        keepEnv = true;
+        persist = true;
+      }
+    ];
     polkit.enable = true;
     pam.enableSSHAgentAuth = true;
   };

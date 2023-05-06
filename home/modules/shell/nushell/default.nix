@@ -1,9 +1,12 @@
-{ config, pkgs, flakePath, ... }:
-let
-  nuprompt = pkgs.writeText "nuprompt" "${builtins.readFile ./panache-git.nu}";
-in
 {
-  home.packages = with pkgs; [ carapace ];
+  config,
+  pkgs,
+  flakePath,
+  ...
+}: let
+  nuprompt = pkgs.writeText "nuprompt" "${builtins.readFile ./panache-git.nu}";
+in {
+  home.packages = with pkgs; [carapace];
   programs = {
     nushell = {
       enable = true;

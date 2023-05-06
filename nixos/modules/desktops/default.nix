@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.nm-applet.enable = true;
   environment.systemPackages = with pkgs; [
     wezterm

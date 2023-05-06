@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "dnd" ''
       pause_noti () {
@@ -20,7 +19,7 @@
       }
 
       if getopts 'tpu' flag; then
-        case "$flag" in 
+        case "$flag" in
           t) toggle_noti exit;;
           p) pause_noti exit;;
           u) unpause_noti exit;;

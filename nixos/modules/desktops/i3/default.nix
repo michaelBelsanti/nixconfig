@@ -1,10 +1,14 @@
-{ pkgs, user, ... }: {
-  imports = [ ../default.nix ];
+{
+  pkgs,
+  user,
+  ...
+}: {
+  imports = [../default.nix];
   services.xserver.windowManager.i3 = {
     enable = true;
     package = pkgs.i3;
   };
-  xdg.portal.extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
+  xdg.portal.extraPortals = with pkgs; [xdg-desktop-portal-kde];
   environment.systemPackages = with pkgs; [
     picom
     betterlockscreen
@@ -23,7 +27,7 @@
     })
   ];
   home-manager.users.${user} = {
-    imports = [ ../rofi ../../terminal/kitty ];
+    imports = [../rofi ../../terminal/kitty];
     xdg.configFile = {
       i3 = {
         source = ./i3;
@@ -53,13 +57,13 @@
         }
 
         pgrep -x picom
-        if [ $? -ne 0 ] 
+        if [ $? -ne 0 ]
           then ALIVE=0
           else ALIVE=1
         fi;
 
         if getopts 'tpu' flag; then
-          case "$flag" in 
+          case "$flag" in
             t) if [ $ALIVE -eq 1 ]; then stop; else start; fi; exit;;
             p) stop exit;;
             u) start exit;;
@@ -90,7 +94,7 @@
         }
 
         if getopts 'tpu' flag; then
-          case "$flag" in 
+          case "$flag" in
             t) toggle_noti exit;;
             p) pause_noti exit;;
             u) unpause_noti exit;;

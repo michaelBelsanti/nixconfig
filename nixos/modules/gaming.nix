@@ -1,13 +1,17 @@
-{ pkgs, lib, user, ... }:
 {
+  pkgs,
+  lib,
+  user,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     gamescope
     winetricks
     protontricks
     vinegar
     (lutris.override {
-      extraPkgs = pkgs: [ wine-tkg ];
-      extraLibraries = pkgs: [ latencyflex ];
+      extraPkgs = pkgs: [wine-tkg];
+      extraLibraries = pkgs: [latencyflex];
     })
     heroic
     goverlay
@@ -27,7 +31,7 @@
       enable = true;
       remotePlay.openFirewall = true;
       package = pkgs.steam.override {
-        extraLibraries = pkgs: [ pkgs.latencyflex ];
+        extraLibraries = pkgs: [pkgs.latencyflex];
       };
     };
     gamemode = {
@@ -52,7 +56,7 @@
   home-manager.users.${user} = {
     programs.obs-studio = {
       enable = true;
-      plugins = with pkgs.obs-studio-plugins; [ obs-nvfbc obs-vkcapture obs-pipewire-audio-capture obs-gstreamer input-overlay ];
+      plugins = with pkgs.obs-studio-plugins; [obs-nvfbc obs-vkcapture obs-pipewire-audio-capture obs-gstreamer input-overlay];
     };
   };
 }

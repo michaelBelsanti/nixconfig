@@ -1,6 +1,10 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
-
-{ config, pkgs, user, ... }: {
+{
+  config,
+  pkgs,
+  user,
+  ...
+}: {
   imports = [
     ./modules/shell
     ./modules/cli
@@ -14,7 +18,7 @@
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "22.05";
-    sessionPath = [ "$HOME/.local/bin" ];
+    sessionPath = ["$HOME/.local/bin"];
   };
 
   # Let Home Manager install and manage itself.
@@ -114,13 +118,13 @@
       userEmail = "quasigod-io@protonmail.com";
       delta.enable = true;
       extraConfig = {
-        init = { defaultBranch = "main"; };
-        pull = { rebase = true; };
+        init = {defaultBranch = "main";};
+        pull = {rebase = true;};
       };
     };
     spicetify = {
       enable = true;
-      enabledExtensions = with pkgs.spicePkgs.extensions; [ fullAppDisplay featureShuffle hidePodcasts ];
+      enabledExtensions = with pkgs.spicePkgs.extensions; [fullAppDisplay featureShuffle hidePodcasts];
     };
     tealdeer.settings = {
       enable = true;

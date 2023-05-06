@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     env.TERM = "xterm-256color";
@@ -28,10 +28,12 @@
       x = 4;
       y = 4;
     };
-    key-bindings = [{
-      key = "Return";
-      mods = "Control";
-      action = "SpawnNewInstance";
-    }];
+    key-bindings = [
+      {
+        key = "Return";
+        mods = "Control";
+        action = "SpawnNewInstance";
+      }
+    ];
   };
 }

@@ -1,6 +1,6 @@
 # Any packages that I would want outside of NixOS is installed with home-manager
 # These will be installed in both a NixosConfiguration and HomeConfiguration
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Dev
     helix
@@ -11,11 +11,18 @@
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
     # Rust
-    rustc cargo gcc rust-analyzer taplo clippy
+    rustc
+    cargo
+    gcc
+    rust-analyzer
+    taplo
+    clippy
     # Haskell
-    ghc haskell-language-server
+    ghc
+    haskell-language-server
     # Bash
-    nodePackages.bash-language-server shellcheck
+    nodePackages.bash-language-server
+    shellcheck
 
     # Nix
     nil

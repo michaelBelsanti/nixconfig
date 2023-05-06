@@ -1,4 +1,9 @@
-{ config, pkgs, flakePath, ... }: {
+{
+  config,
+  pkgs,
+  flakePath,
+  ...
+}: {
   programs = {
     zsh = {
       enable = false;
@@ -14,10 +19,8 @@
         expireDuplicatesFirst = true;
       };
       shellAliases = {
-        nixup =
-          "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
-        nixUp =
-          "nix flake update ${flakePath} && doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
+        nixup = "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
+        nixUp = "nix flake update ${flakePath} && doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
 
         cleanup = "doas nix-collect-garbage -d";
         lg = "lazygit";
