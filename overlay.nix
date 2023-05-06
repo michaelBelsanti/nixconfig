@@ -2,6 +2,7 @@ inputs: self: super: {
   inherit (inputs.helix.packages.${super.system}) helix;
   inherit (inputs.devenv.packages.${super.system}) devenv;
   inherit (inputs.nix-gaming.packages.${super.system}) wine-tkg;
+  inherit (inputs.nix-gaming.packages.${super.system}) osu-lazer-bin;
   inherit (inputs.plasma-manager.packages.${super.system}) rc2nix;
   inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
   inherit (inputs.hypr-contrib.packages.${super.system}) grimblast;

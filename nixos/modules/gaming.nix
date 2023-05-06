@@ -19,6 +19,7 @@
     prismlauncher
     lunar-client
     minetest
+    osu-lazer-bin
     protonup-qt
   ];
 
