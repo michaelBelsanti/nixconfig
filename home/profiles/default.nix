@@ -21,10 +21,11 @@ in {
 
   flake.homeConfigurations = withSystem "x86_64-linux" ({pkgs, ...}: {
     "${user}@server" = homeManagerConfiguration {
+      inherit pkgs;
+      modules = homeImports;
       extraSpecialArgs = {
         inherit inputs user flakePath;
       };
-      modules = homeImports;
     };
   });
 }
