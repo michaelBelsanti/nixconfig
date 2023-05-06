@@ -26,9 +26,10 @@
     rofi-wayland
     grimblast
     swaylock
+    brightnessctl
   ];
   home-manager.users.${user} = {
-    imports = [ ../rofi ../../terminal/foot ];
+    imports = [ ../rofi ];
     services.mako = {
       enable = true;
       defaultTimeout = 5000;

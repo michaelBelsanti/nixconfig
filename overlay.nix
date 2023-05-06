@@ -14,8 +14,9 @@ inputs: self: super: {
     name = "helix";
     desktopName = "Helix (TUI)";
     genericName = "Helix";
-    exec = "${super.kitty}/bin/kitty hx %F";
+    exec = "hx %F";
     mimeTypes = [ "text/plain" "inode/directory" ];
     categories = [ "Utility" "TextEditor" "Development" ];
+    terminal = true;
   };
 }

@@ -1,9 +1,10 @@
 { config, pkgs, user, ... }: {
   imports = [
     ./hardware.nix
+    ../../modules/gaming.nix
     ../../modules/vfio
-    ../../modules/desktop/i3
-    # ../../modules/desktop/kde/desktop.nix
+    ../../modules/desktops/i3
+    # ../../modules/desktops/plasma/desktop.nix
   ];
 
   home-manager.users.${user} = {

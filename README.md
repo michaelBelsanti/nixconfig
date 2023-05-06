@@ -1,19 +1,14 @@
 # nixconfig
 My system and user config in a Nix Flake
 
-This flake includes two NixOS configurations, one for my laptop and one for my desktop. It also includes a Darwin configuration (currently broken).
-
-I hope this configuration can provide some useful examples! It's always a work in progress as I try to optimize it. Many aspects of it are heavily based off [Matthias Benaets config](https://github.com/MatthiasBenaets/nixos-config), be sure to check his out!
+This flake includes two NixOS configurations, one for my laptop and one for my desktop. It also includes a home-manager configuration for my server. Flake-parts is used to increase modularity and simplify per-system outputs.
 
 # Structure
 The flake uses a very modular structure, allowing different configs to share as many lines of code and files as possible. 
-- nixos - Contains options for NixOS configurations
-  - configuration.nix, home.nix, nix.nix - Options that are used by both NixOS configurations.
-  - desktop, laptop - Options specific to these configurations
-- packages - All general use packages
-  - Folders are used to sort the types of packages
-  - nixos/{desktop, laptop} - These are the files imported by my NixOS configurations, they import other package files I want that configuration to have.
-- modules - Options for specific applications, most of which require configuration files
-  - Generally imported by a configuration.nix file, but some are only imported by home-manager
-  - Some contain a config folder that is imported by home-manager 
-- etc -  Random assets
+- nixos: Contains configurations for NixOS Hosts
+- home: Contains home-manager configurations to use on any system
+- overlay.nix: overlay that modifies, inherits, and adds packages
+
+# Inspiration
+- [MatthiasBenaets/nixos-config](https://github.com/MatthiasBenaets/nixos-config): My first flake was completely based of this and has since evolved many times over, an amazing repo to learn from
+- [fufexan/dotfiles](https://github.com/fufexan/dotfiles): Inspired my most recent restructuring, basically a better and more interesting version of mine

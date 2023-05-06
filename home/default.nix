@@ -2,10 +2,11 @@
 
 { config, pkgs, user, ... }: {
   imports = [
-    ../modules/shell
-    ../modules/cli
-    ../modules/terminal/kitty
-    ../modules/themes/catppuccin
+    ./modules/shell
+    ./modules/cli
+    ./modules/terminal/kitty
+    ./modules/terminal/foot
+    ./modules/themes/catppuccin
   ];
 
   # Home Manager Setup

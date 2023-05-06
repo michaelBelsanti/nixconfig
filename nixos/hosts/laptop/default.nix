@@ -2,7 +2,7 @@
 # let
 # tomlFormat = pkgs.formats.toml { };
 # settings = {
-#   background = "${../../modules/themes/catppuccin/background.png}";
+#   background = "${../../../modules/themes/catppuccin/background.png}";
 #   background_fit = "Contain";
 #   gtk = {
 #     application_prefer_dark_theme = true;
@@ -16,9 +16,9 @@
 {
   imports = [
     ./hardware.nix
-    ../../modules/desktop/hyprland/laptop.nix
-    # ../../modules/desktop/plasma/laptop.nix
-    # ../../modules/desktop/gnome
+    ../../modules/desktops/hyprland/laptop.nix
+    # ../../modules/desktops/plasma/laptop.nix
+    # ../../modules/desktops/gnome
   ];
 
   networking.hostName = "nix-laptop"; # Define your hostname.

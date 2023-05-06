@@ -2,8 +2,8 @@
   description = "Quasigod's NixOS config";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
-    home-manager = {
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -22,64 +22,30 @@
     spicetify.url = "github:the-argus/spicetify-nix";
     nix-alien.url = "github:thiagokokada/nix-alien";
   };
-  outputs =
-    inputs@{ self, utils, home-manager, nixos-hardware, ... }:
+  outputs = inputs@{flake-parts, ... }:
     let
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-      overlay = import ./packages/overlay.nix inputs;
+      overlay = import ./overlay.nix inputs;
     in
-    utils.lib.mkFlake {
-      inherit self inputs user flakePath;
-
-      channelsConfig.allowUnfree = true;
-      sharedOverlays = with inputs; [
-        overlay
-        mypkgs.overlays.default
-        hypr-contrib.overlays.default
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      imports = [
+        ./nixos/hosts
+        ./home/profiles
+        {config._module.args = {inherit user flakePath;};}
       ];
-      hostDefaults = {
-        extraArgs = { inherit inputs user flakePath; };
-      };
-
-      hostDefaults.modules = [
-        ./nixos
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = { inherit inputs user flakePath; };
-          home-manager.users.${user}.imports = [
-            ./nixos/home.nix
-            inputs.spicetify.homeManagerModule
-            inputs.plasma-manager.homeManagerModules.plasma-manager
-            inputs.hyprland.homeManagerModules.default
+      systems = [ "x86_64-linux" ];
+      perSystem = { system, ... }: {
+        devShells = import ./shells;
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [ 
+            overlay
+            inputs.mypkgs.overlays.default
+            inputs.hypr-contrib.overlays.default
           ];
-        }
-      ];
-
-      hosts = {
-        nix-desktop.modules = [
-          ./nixos/desktop
-          ./packages/desktop.nix
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-pc-ssd
-        ];
-
-        nix-laptop.modules = [
-          ./nixos/laptop
-          ./packages/laptop.nix
-          inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
-        ];
-      };
-      outputsBuilder = channels:
-        let
-          pkgs = channels.nixpkgs;
-        in
-        {
-          devShells = import ./shells/default.nix { inherit pkgs; };
-          formatter = pkgs.nixpkgs-fmt;
         };
+      };
     };
 }
