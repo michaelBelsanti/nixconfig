@@ -31,6 +31,7 @@
         [
           ./desktop
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
+          inputs.nix-gaming.nixosModules.pipewireLowLatency
         ]
         ++ sharedModules;
     };

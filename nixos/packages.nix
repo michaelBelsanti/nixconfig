@@ -27,6 +27,7 @@
     file
     unrar
     unzip
+    gptfdisk
 
     # VMs
     virt-manager

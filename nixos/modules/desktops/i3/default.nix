@@ -27,7 +27,7 @@
     })
   ];
   home-manager.users.${user} = {
-    imports = [../rofi ../../terminal/kitty];
+    imports = [../rofi];
     xdg.configFile = {
       i3 = {
         source = ./i3;
