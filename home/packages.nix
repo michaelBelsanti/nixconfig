@@ -62,5 +62,6 @@
     xxd
     clipboard-jh
     choose
+    slides
   ];
 }
