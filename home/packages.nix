@@ -27,6 +27,7 @@
     # Nix
     nil
     nurl
+    nix-init
     nix-tree
     nix-index
 
