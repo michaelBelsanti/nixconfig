@@ -37,6 +37,7 @@
     tetrio-desktop
     easyeffects
     element-desktop
+    fractal
     qbittorrent
     imagemagick
     ffmpeg

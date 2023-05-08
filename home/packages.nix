@@ -61,5 +61,6 @@
     lnav
     xxd
     clipboard-jh
+    choose
   ];
 }
