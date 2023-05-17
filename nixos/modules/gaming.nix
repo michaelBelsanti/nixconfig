@@ -24,7 +24,7 @@
   ];
 
   hardware = {
-    xone.enable = true;
+    # xone.enable = true; # BUG broken package
     # xpadneo.enable = true;
   };
   programs = {
