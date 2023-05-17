@@ -86,15 +86,14 @@
     fonts = with pkgs; [
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
       montserrat
-      eb-garamond
       twemoji-color-font
     ];
     enableDefaultFonts = true;
     fontDir.enable = true;
     fontconfig.defaultFonts = {
-      serif = ["EB Garamond"];
+      serif = ["Liberation Serif"];
       sansSerif = ["Montserrat"];
-      monospace = ["JetBrainsMono Nerd Font"];
+      monospace = ["JetBrainsMono NF"];
       emoji = ["Twitter Color Emoji" "Noto Color Emoji"];
     };
   };

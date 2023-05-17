@@ -29,7 +29,7 @@
     },
     "clock": {
         "timezone": "America/New_York",
-        "format": " {time}", 
+        "format": " {time}", 
         "format-alt": "{:%H:%M:%S %a %Y-%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%H:%M}",
@@ -45,7 +45,7 @@
         "on-click": "wezterm start btop"
     },
     "memory": {
-        "format": "&#8239;{}%",
+        "format": "󰍛&#8239;{}%",
         "on-click": "wezterm start btop"
     },
     "battery": {
@@ -61,10 +61,10 @@
         "format-icons": ["", "", "", "", ""],
     },
     "network": {
-        "format-wifi": "直&#8239;({signalStrength}%)",
+        "format-wifi": "󰖩&#8239;({signalStrength}%)",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "睊",
+        "format-disconnected": "󱚼",
         "format-alt": "{essid}: {ipaddr}/{cidr}",
         "tooltip": true,
         "tooltip-format": "{essid}",
@@ -72,19 +72,19 @@
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{icon}&#8239;{volume}%",
-        "format-bluetooth": "&#8239;{volume}%",
-        "format-bluetooth-muted": "&#8239;{volume}%",
-        "format-muted": "ﱝ",
+        "format-bluetooth": "󰂰&#8239;{volume}%",
+        "format-bluetooth-muted": "󰂲&#8239;{volume}%",
         "format-source": "&#8239;{volume}%",
         "format-source-muted": "",
+        "format-muted": "󰖁",
         "format-icons": {
-            "default": ["墳", "墳", "墳"]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pavucontrol"
     },
     "custom/power": {
         "format": "⏻&#8239;",
-        "on-click": "$HOME/.config/rofi/wrapper.sh -o",
+        "on-click": "rofi-wrapper -o",
         "interval": "once",
     },
 }
