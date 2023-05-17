@@ -48,7 +48,7 @@
 
     plasma-manager.url = "github:pjones/plasma-manager";
 
-    hyprland.url = "github:hyprwm/Hyprland/v0.24.1";
+    hyprland.url = "github:hyprwm/Hyprland/v0.25.0";
     hypr-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
