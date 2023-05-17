@@ -9,6 +9,7 @@
     pamixer
     pavucontrol
     libsForQt5.okular
+    celluloid
 
     qt5ct
     breeze-icons

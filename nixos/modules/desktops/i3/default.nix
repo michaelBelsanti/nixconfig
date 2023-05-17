@@ -4,11 +4,8 @@
   ...
 }: {
   imports = [../default.nix];
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    package = pkgs.i3;
-  };
-  xdg.portal.extraPortals = with pkgs; [xdg-desktop-portal-kde];
+  services.xserver.windowManager.i3.enable = true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-kde];
   environment.systemPackages = with pkgs; [
     picom
     betterlockscreen
