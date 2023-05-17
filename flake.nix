@@ -1,11 +1,11 @@
 {
   description = "Quasigod's NixOS config";
-  outputs = inputs @ {flake-parts, ...}: let
+  outputs = inputs @ {parts, ...}: let
     user = "quasi";
     flakePath = "/home/${user}/.flake"; # Used for commands and aliases
     overlay = import ./overlay.nix inputs;
   in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+    parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./nixos/hosts
         ./home/profiles
@@ -32,7 +32,7 @@
     };
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts = {
+    parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
@@ -54,7 +54,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix.url = "github:helix-editor/helix";
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.parts.follows = "parts";
+    };
 
     devenv.url = "github:cachix/devenv/v0.4";
 
