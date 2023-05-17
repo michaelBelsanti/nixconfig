@@ -17,7 +17,7 @@
         pkgs,
         ...
       }: {
-        devShells = import ./shells;
+        devShells = import ./shells pkgs;
         formatter = pkgs.alejandra;
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;

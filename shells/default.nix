@@ -1,4 +1,14 @@
-{pkgs, ...}: {
+pkgs: rec {
+  default = nix;
+  nix = pkgs.mkShell {
+    packages = with pkgs; [
+      cachix
+      statix
+      vulnix
+      deadnix
+      nil      
+    ];
+  };
   rust = pkgs.mkShell {
     packages = with pkgs; [
       cargo
@@ -8,7 +18,7 @@
   };
   c = pkgs.mkShell {
     packages = with pkgs; [
-      make
+      gnumake
       gcc
       clang-tools # For clangd
     ];
