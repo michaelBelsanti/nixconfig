@@ -29,6 +29,11 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/run/media/quasi/gamessd" = {
+    device = "/dev/disk/by-label/gamessd";
+    fsType = "btrfs";
+  };
+
   # fileSystems."/run/media/quasi/nfs" = {
   #   device = "sidious.quasi.ml:/zfsa/nfs";
   #   fsType = "nfs";

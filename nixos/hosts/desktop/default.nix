@@ -64,16 +64,18 @@
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
     };
-    opengl.extraPackages = with pkgs; [
-      vaapiVdpau
-      libvdpau-va-gl
-      nvidia-vaapi-driver
-    ];
+    # opengl.extraPackages = with pkgs; [
+      # vaapiVdpau
+      # libvdpau-va-gl
+      # nvidia-vaapi-driver
+    # ];
   };
 
-  # Use VA-API
+  # BUG
+  # Vaapi is currently broken on my system
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
+
+    # LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
   };
