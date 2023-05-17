@@ -7,6 +7,7 @@
     libreoffice
     discord-canary
     xwaylandvideobridge
+    kdenlive
 
     # Editor
     helix
