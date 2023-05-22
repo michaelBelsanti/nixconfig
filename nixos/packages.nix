@@ -8,6 +8,7 @@
     discord-canary
     xwaylandvideobridge
     kdenlive
+    signal-desktop
 
     # Editor
     helix
