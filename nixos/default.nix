@@ -120,6 +120,7 @@
     flatpak.enable = true;
     fstrim.enable = true;
     btrfs.autoScrub.enable = true;
+    tailscale.enable = true;
     # Pipewire
     pipewire = {
       enable = true;
