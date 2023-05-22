@@ -10,9 +10,9 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "   Apps ";
+    display-drun: " 󰀘  Apps ";
     display-run: "   Run ";
-    display-window: " 﩯  Window ";
+    display-window: " 󰕰  Window ";
   	kb-row-up: "Up,Control+k";
     kb-row-down: "Down,Control+j";
     // These next two are so the above keybinds aren't taken
