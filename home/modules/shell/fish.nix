@@ -4,12 +4,13 @@
   ...
 }: {
   home.packages = with pkgs.fishPlugins; [
-    done
-    pkgs.libnotify # notify-send for done
-    sponge
-    pisces
-    fzf-fish
     colored-man-pages
+    done
+    foreign-env
+    fzf-fish
+    pisces
+    sponge
+    pkgs.libnotify # notify-send for done
   ];
   programs.fish = {
     enable = true;
