@@ -21,6 +21,7 @@
     minetest
     osu-lazer-bin
     protonup-qt
+    steamtinkerlaunch
   ];
 
   hardware = {
