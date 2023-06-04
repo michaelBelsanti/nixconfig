@@ -28,6 +28,7 @@
       enable = true;
       allowedUDPPorts = [
         3074 # BO2
+        24872 # Yuzu
       ];
     };
   };

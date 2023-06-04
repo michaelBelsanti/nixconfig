@@ -22,6 +22,7 @@
     osu-lazer-bin
     protonup-qt
     steamtinkerlaunch
+    yuzu-mainline
   ];
 
   hardware = {
