@@ -26,10 +26,7 @@
   home-manager.users.${user} = {
     imports = [../rofi];
     xdg.configFile = {
-      i3 = {
-        source = ./i3;
-        recursive = true;
-      };
+      "i3/config".source = ./config;
       picom = {
         source = ./picom;
         recursive = true;
