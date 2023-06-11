@@ -17,6 +17,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   fileSystems."/boot" = {
@@ -27,11 +28,13 @@
   fileSystems."/run/media/quasi/hdd" = {
     device = "/dev/disk/by-label/mainhdd";
     fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   fileSystems."/run/media/quasi/gamessd" = {
     device = "/dev/disk/by-label/gamessd";
     fsType = "btrfs";
+    options = [ "compress=zstd" ];
   };
 
   # fileSystems."/run/media/quasi/nfs" = {
