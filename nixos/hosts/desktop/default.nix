@@ -61,10 +61,7 @@
 
   # Causes librewolf to crash occasionally
   hardware = {
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      modesetting.enable = true;
-    };
+    nvidia.modesetting.enable = true;
     # opengl.extraPackages = with pkgs; [
       # vaapiVdpau
       # libvdpau-va-gl
