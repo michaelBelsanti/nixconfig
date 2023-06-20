@@ -9,7 +9,7 @@
     protontricks
     vinegar
     (lutris.override {
-      extraPkgs = pkgs: [wine-tkg];
+      extraPkgs = pkgs: [wine-ge];
       extraLibraries = pkgs: [latencyflex];
     })
     heroic
