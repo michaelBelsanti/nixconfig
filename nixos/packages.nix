@@ -11,6 +11,8 @@
     xwaylandvideobridge
     kdenlive
     signal-desktop
+    bitwarden
+    rbw
 
     # Editor
     helix
