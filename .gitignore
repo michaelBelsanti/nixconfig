@@ -1,3 +1,4 @@
 result
 .devenv*
 .direnv*
+*.qcow2
