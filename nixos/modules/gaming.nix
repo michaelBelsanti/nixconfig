@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   user,
   ...
 }: {
@@ -40,6 +39,10 @@
     gamemode = {
       enable = true;
       settings = {
+        custom = {
+          start = "togdnd -p";
+          end = "togdnd -u";
+        };
         general = {
           reaper_freq = 5;
           defaultgov = "performance";
