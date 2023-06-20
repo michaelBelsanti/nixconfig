@@ -150,6 +150,16 @@
   };
 
   programs = {
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-bin;
+      preferences = {
+        "layout.spellcheckDefault" = 2;
+        "extensions.pocket.enabled" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+      };
+    };
     fish = {
       enable = true;
       useBabelfish = true;

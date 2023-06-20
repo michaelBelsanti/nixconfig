@@ -2,7 +2,7 @@
 # Default applications
 set $bar
 set $fm dolphin
-set $browser librewolf
+set $browser firefox
 set $terminal kitty
 
 # Startup applications

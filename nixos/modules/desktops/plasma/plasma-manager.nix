@@ -216,10 +216,10 @@
       "kwin"."view_actual_size" = "Meta++";
       "kwin"."view_zoom_in" = "Meta+=";
       "kwin"."view_zoom_out" = "Meta+-";
-      "librewolf.desktop"."_launch" = [];
-      "librewolf.desktop"."new-private-window" = [];
-      "librewolf.desktop"."new-window" = "Meta+B";
-      "librewolf.desktop"."profile-manager-window" = [];
+      "firefox.desktop"."_launch" = [];
+      "firefox.desktop"."new-private-window" = [];
+      "firefox.desktop"."new-window" = "Meta+B";
+      "firefox.desktop"."profile-manager-window" = [];
       "mediacontrol"."mediavolumedown" = [];
       "mediacontrol"."mediavolumeup" = [];
       "mediacontrol"."nextmedia" = "Media Next";
@@ -340,7 +340,7 @@
       "kded5rc"."Module-statusnotifierwatcher"."autoload" = true;
       "kdeglobals"."DirSelect Dialog"."DirSelectDialog Size" = "860,616";
       "kdeglobals"."General"."AllowKDEAppsToRememberWindowPositions" = true;
-      "kdeglobals"."General"."BrowserApplication" = "librewolf.desktop";
+      "kdeglobals"."General"."BrowserApplication" = "firefox.desktop";
       "kdeglobals"."General"."TerminalApplication" = "kitty";
       "kdeglobals"."General"."TerminalService" = "kitty.desktop";
       "kdeglobals"."General"."XftHintStyle" = "hintslight";
@@ -414,7 +414,7 @@
       "kglobalshortcutsrc"."kmix"."_k_friendly_name" = "Audio Volume";
       "kglobalshortcutsrc"."ksmserver"."_k_friendly_name" = "Session Management";
       "kglobalshortcutsrc"."kwin"."_k_friendly_name" = "KWin";
-      "kglobalshortcutsrc"."librewolf.desktop"."_k_friendly_name" = "Librewolf";
+      "kglobalshortcutsrc"."firefox.desktop"."_k_friendly_name" = "firefox";
       "kglobalshortcutsrc"."mediacontrol"."_k_friendly_name" = "Media Controller";
       "kglobalshortcutsrc"."org.kde.dolphin.desktop"."_k_friendly_name" = "Dolphin";
       "kglobalshortcutsrc"."org.kde.krunner.desktop"."_k_friendly_name" = "KRunner";
