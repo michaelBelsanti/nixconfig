@@ -34,6 +34,7 @@
     unrar
     unzip
     gptfdisk
+    wget
 
     # VMs
     virt-manager
