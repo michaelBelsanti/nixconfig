@@ -4,8 +4,10 @@
   environment.systemPackages = with pkgs; [
     helix-desktop # Helix .desktop file, so it can be the default editor
     librewolf
+    logseq
     libreoffice
     discord-canary
+    revolt-desktop
     xwaylandvideobridge
     kdenlive
     signal-desktop
