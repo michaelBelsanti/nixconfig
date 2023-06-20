@@ -6,7 +6,7 @@ pkgs: rec {
       statix
       vulnix
       deadnix
-      nil      
+      nil
     ];
   };
   rust = pkgs.mkShell {

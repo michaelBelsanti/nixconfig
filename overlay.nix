@@ -1,4 +1,4 @@
-inputs: self: super: {
+inputs: _self: super: {
   inherit (inputs.helix.packages.${super.system}) helix;
   inherit (inputs.devenv.packages.${super.system}) devenv;
   inherit (inputs.nix-gaming.packages.${super.system}) wine-ge;

@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  ...
-}: {
+{...}: {
   # Nushell requires more in-depth configuration
   imports = [./nushell ./fish.nix ./zsh.nix ./ion.nix];
   programs = {
