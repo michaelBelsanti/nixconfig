@@ -154,6 +154,9 @@
     firefox = {
       enable = true;
       package = pkgs.firefox-bin;
+      policies = {
+        DisableAppUpdate = true;
+      };
       preferences = {
         "layout.spellcheckDefault" = 2;
         "extensions.pocket.enabled" = false;
