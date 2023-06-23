@@ -1,20 +1,17 @@
 {...}: {
   programs.helix = {
     enable = true;
-    # languages = [
-    #   {
-    #     name = "bash";
-    #     file-types = ["config" "conf" "sh"];
-    #   }
-    #   { name = "typst";
-    #     scope = "source.typst";
-    #     injection-regex = "typst";
-    #     file-types = ["typ"];
-    #     language-server.command = "typst-lsp";
-    #     comment-token = "//";
-    #     roots = [];
-    #   }
-    # ];
+    languages = {
+      language-server.nixd.command = "nixd";
+      language = [
+        {
+          name = "nix";
+          formatter.command = "alejandra";
+          auto-format = true;
+          # language-servers = [ "nixd" ];
+        }
+      ];
+    };
     settings = {
       keys.normal = {
         X = "extend_line_above";
