@@ -18,6 +18,7 @@
       nixup = "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/fish/config.fish";
       cleanup = "doas nix-collect-garbage -d";
       open = "xdg-open";
+      mkdir = "mkdir -p";
     };
     shellAbbrs = {
       lg = "lazygit";
