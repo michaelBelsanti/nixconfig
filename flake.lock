@@ -328,11 +328,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1687212280,
-        "narHash": "sha256-BS65AzcQsC6ythMIuxzUcPSptNhBE3aZtQKRlfEhtjI=",
+        "lastModified": 1688137782,
+        "narHash": "sha256-yAl187lAHS5rR7dkjoswZppy/LQJSKk/NVQd8TMqQTU=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "48ad9ae1bb3d913038c800157c9b50ec729cde2e",
+        "rev": "9546e0c0a79eb92d5d8e1dc4489490c9db562070",
         "type": "github"
       },
       "original": {
@@ -348,11 +348,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687204608,
-        "narHash": "sha256-rZ0e0iAIQM7vlsMd2/pcGfymZzNBRawObFgqIpxE94c=",
+        "lastModified": 1688156486,
+        "narHash": "sha256-L6VstXvubMUQBPrNfezR9hBsUV2Ju7ZhcrBVUiYOs8U=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f06a43dca05fb7f1aa44742bf861d9c827b45122",
+        "rev": "0f71012724b151aa02c8f05f2dc0e121e7a4371e",
         "type": "github"
       },
       "original": {
@@ -483,11 +483,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1687184396,
-        "narHash": "sha256-dFxm+RSxVhx12OZyegKqlUkr4EZFm6A81r0l9lKuxLc=",
+        "lastModified": 1688155309,
+        "narHash": "sha256-tPq2JuCQjEhJq2qS9oTkGzNuW1vGjE9f9W4tBKC+K0o=",
         "owner": "michaelBelsanti",
         "repo": "nur-packages",
-        "rev": "7cdda49f30a82377d5b00a54efe81415b13fc973",
+        "rev": "11b3137ef397341bc1a3d2c343db8b6923464d3b",
         "type": "github"
       },
       "original": {
@@ -555,11 +555,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1686821103,
-        "narHash": "sha256-oR351MnEaWRg27r1aF+qBoimbIMPzhjpc2w3M7p7MeM=",
+        "lastModified": 1687250549,
+        "narHash": "sha256-fbl+CEwXIg0geFLqaSBjPQe9Y+u/wMQXY/aHcNd81XA=",
         "owner": "thiagokokada",
         "repo": "nix-alien",
-        "rev": "f01de15b12e4270b567999a94aee2335e4e84ca9",
+        "rev": "86c3f435a0520a839bd62d313939a2b450bed7a6",
         "type": "github"
       },
       "original": {
@@ -574,11 +574,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1687051274,
-        "narHash": "sha256-KsMU7iC3rBKJjD8tS+3lyn4mFbAYY/kSV6yjsnTBfkc=",
+        "lastModified": 1688087955,
+        "narHash": "sha256-nABHI/8QTrnJreqNoqg7iqKgWNJ2lcW5huufhbDlCRg=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "9c7595826e2eeb2ba166430d03b5a9ca4e5c0e6c",
+        "rev": "3cc15269b7133a52f6a34b7f03d4c4d7c50ce660",
         "type": "github"
       },
       "original": {
@@ -802,11 +802,11 @@
     },
     "nixpkgs_8": {
       "locked": {
-        "lastModified": 1686960236,
-        "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
+        "lastModified": 1688049487,
+        "narHash": "sha256-100g4iaKC9MalDjUW9iN6Jl/OocTDtXdeAj7pEGIRh4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "04af42f3b31dba0ef742d254456dc4c14eedac86",
+        "rev": "4bc72cae107788bf3f24f30db2e2f685c9298dc9",
         "type": "github"
       },
       "original": {
@@ -834,11 +834,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1687226365,
-        "narHash": "sha256-VU9EY7MLsbxXlBEfopaacdiHx0XaQ6Zr4GN9rGTzDy0=",
+        "lastModified": 1688157927,
+        "narHash": "sha256-MDR97T4xsFIfUnUc7bZrHphIeTw2nOuylXGF4Pio2UY=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "9907c7661940cc18b0c96615456028ecacd39697",
+        "rev": "8fe50d4640d8204aae7bc15ca7572f3897c2cb6b",
         "type": "github"
       },
       "original": {
@@ -876,11 +876,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1685662779,
-        "narHash": "sha256-cKDDciXGpMEjP1n6HlzKinN0H+oLmNpgeCTzYnsA2po=",
+        "lastModified": 1687762428,
+        "narHash": "sha256-DIf7mi45PKo+s8dOYF+UlXHzE0Wl/+k3tXUyAoAnoGE=",
         "owner": "hercules-ci",
         "repo": "flake-parts",
-        "rev": "71fb97f0d875fd4de4994dfb849f2c75e17eb6c3",
+        "rev": "37dd7bb15791c86d55c5121740a1887ab55ee836",
         "type": "github"
       },
       "original": {

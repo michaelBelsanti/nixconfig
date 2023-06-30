@@ -7,7 +7,6 @@
     gamescope
     winetricks
     protontricks
-    vinegar
     (lutris.override {
       extraPkgs = _pkgs: [wine-ge];
       extraLibraries = _pkgs: [latencyflex];
