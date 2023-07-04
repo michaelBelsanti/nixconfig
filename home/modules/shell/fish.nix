@@ -8,7 +8,7 @@
     done
     foreign-env
     fzf-fish
-    pisces
+    # pisces
     sponge
     pkgs.libnotify # notify-send for done
   ];
