@@ -219,9 +219,17 @@
     pam.enableSSHAgentAuth = true;
   };
 
-  system.activationScripts.registryAdd.text = ''
-    ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
-  '';
+  system.activationScripts = {
+    diff = {
+      supportsDryActivation = true;
+      text = ''
+        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+      '';
+    };
+    registryAdd.text = ''
+      ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
+    '';
+  };
 
   system.stateVersion = "22.05"; # Did you read the comment?
 }
