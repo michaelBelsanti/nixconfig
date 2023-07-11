@@ -9,7 +9,7 @@
       enable = false;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting.enable = true;
+      syntaxHighlighting.enable = true;
       autocd = true;
       defaultKeymap = "emacs";
       dotDir = ".config/zsh/";
