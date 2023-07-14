@@ -10,6 +10,7 @@ inputs: _self: super: {
   discord-canary = super.discord-canary.override {
     nss = super.nss_latest;
     withOpenASAR = true;
+    withVencord = true;
   };
   helix-desktop = super.makeDesktopItem {
     name = "helix";
