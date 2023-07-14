@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   user,
   ...
@@ -47,7 +48,7 @@
       videoDrivers = ["nvidia"];
       displayManager.sddm = {
         enable = true;
-        theme = "maldives";
+        theme = "chili"; # installed with package `chili-kde-plasma`
       };
       libinput.mouse = {
         accelProfile = "flat";
@@ -73,10 +74,21 @@
 
   # BUG
   # Vaapi is currently broken on my system
-  environment.sessionVariables = {
-    # LIBVA_DRIVER_NAME = "nvidia";
-    MOZ_DISABLE_RDD_SANDBOX = "1";
-    __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+  environment = {
+    systemPackages = with pkgs; [
+      (sddm-chili-theme.override {
+        themeConfig = {
+          ScreenWidth = 1920;
+          ScreenHeight = 1080;
+          background = config.home-manager.users.${user}.home.file.".background-image".source;
+        };
+      })
+    ];
+    sessionVariables = {
+      # LIBVA_DRIVER_NAME = "nvidia";
+      MOZ_DISABLE_RDD_SANDBOX = "1";
+      __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+    };
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
