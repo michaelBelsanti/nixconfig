@@ -7,7 +7,7 @@
   in
     parts.lib.mkFlake {inherit inputs;} {
       imports = [
-        ./nixos/hosts
+        ./nixos/profiles
         ./home/profiles
         {config._module.args = {inherit user flakePath;};}
       ];

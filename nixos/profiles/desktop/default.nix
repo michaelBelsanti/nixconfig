@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   user,
   ...
@@ -46,7 +45,10 @@
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
-      displayManager.sddm.enable = true;
+      displayManager.sddm = {
+        enable = true;
+        theme = "maldives";
+      };
       libinput.mouse = {
         accelProfile = "flat";
         middleEmulation = false;
@@ -63,16 +65,15 @@
   hardware = {
     nvidia.modesetting.enable = true;
     # opengl.extraPackages = with pkgs; [
-      # vaapiVdpau
-      # libvdpau-va-gl
-      # nvidia-vaapi-driver
+    # vaapiVdpau
+    # libvdpau-va-gl
+    # nvidia-vaapi-driver
     # ];
   };
 
   # BUG
   # Vaapi is currently broken on my system
   environment.sessionVariables = {
-
     # LIBVA_DRIVER_NAME = "nvidia";
     MOZ_DISABLE_RDD_SANDBOX = "1";
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
