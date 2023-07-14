@@ -3,12 +3,14 @@
 {pkgs, ...}: let
   flavour = "macchiato"; # One of `latte`, `frappe`, `macchiato`, or `mocha`
   Flavour = "Macchiato"; # For captilized case sensitive usages
+  accent = "mauve";
+  Accent = "Mauve";
 in {
   gtk = {
     theme = {
-      name = "Catppuccin-${Flavour}-Standard-Mauve-Dark";
+      name = "Catppuccin-${Flavour}-Standard-${Accent}-dark";
       package = pkgs.catppuccin-gtk.override {
-        accents = ["mauve"];
+        accents = ["${accent}"];
         variant = "${flavour}";
       };
     };
