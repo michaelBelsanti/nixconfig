@@ -70,6 +70,12 @@
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    programsdb = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nix-index-db = {
     #   url = "github:Mic92/nix-index-database";
     #   inputs.nixpkgs.follows = "nixpkgs";
