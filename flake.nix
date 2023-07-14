@@ -41,7 +41,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/nur";
-    mypkgs.url = "github:michaelBelsanti/nur-packages";
+    mypkgs.url = "github:michaelBelsanti/nur-packages/dev";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming.url = "github:fufexan/nix-gaming";

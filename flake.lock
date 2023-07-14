@@ -483,15 +483,16 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1688155309,
-        "narHash": "sha256-tPq2JuCQjEhJq2qS9oTkGzNuW1vGjE9f9W4tBKC+K0o=",
+        "lastModified": 1689359156,
+        "narHash": "sha256-cRnTzdjShpr18oUWWRB13S248B7djGqTV0o5P+Tcq58=",
         "owner": "michaelBelsanti",
         "repo": "nur-packages",
-        "rev": "11b3137ef397341bc1a3d2c343db8b6923464d3b",
+        "rev": "e52605474458c471b3abde10ae0c29bc7ffa5f2c",
         "type": "github"
       },
       "original": {
         "owner": "michaelBelsanti",
+        "ref": "dev",
         "repo": "nur-packages",
         "type": "github"
       }
