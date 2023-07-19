@@ -7,6 +7,7 @@
   nix = {
     package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
+    gc.automatic = true;
     settings = {
       auto-optimise-store = true;
       trusted-users = ["root" "quasi" "michaelbelsanti"];
@@ -31,9 +32,5 @@
       keep-outputs = true
       keep-derivations = true
     '';
-    gc = {
-      automatic = true;
-      options = "-d";
-    };
   };
 }
