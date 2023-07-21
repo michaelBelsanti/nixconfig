@@ -10,8 +10,14 @@
     ./modules/cli
     ./modules/terminal/kitty
     ./modules/terminal/foot
-    ./modules/themes/catppuccin
+    ./modules/themes
+    # ./modules/themes/catppuccin
   ];
+
+  theming = {
+    enable = true;
+    theme = "catppuccin";
+  };
 
   # Home Manager Setup
   home = {
