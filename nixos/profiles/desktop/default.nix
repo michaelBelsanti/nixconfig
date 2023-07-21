@@ -80,7 +80,7 @@
         themeConfig = {
           ScreenWidth = 1920;
           ScreenHeight = 1080;
-          background = config.home-manager.users.${user}.home.file.".background-image".source;
+          background = ../../../home/modules/themes/catppuccin/background_upscayled.png;
         };
       })
     ];
