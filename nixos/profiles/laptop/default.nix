@@ -90,13 +90,6 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [intel-media-driver];
   };
 
-  ### Services and hardware ###
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-  };
-
   # Framework stuff
   environment.etc."fwupd/uefi_capsule.conf".text = lib.mkForce ''
     [uefi_capsule]
