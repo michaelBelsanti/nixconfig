@@ -25,4 +25,10 @@ inputs: _self: super: {
     url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/flower.jpg";
     hash = "sha256-A83dUw3QT7GpWGSV+JY7F+kU38CNk5uQrzFwyL5yFdE=";
   };
+  rosepine-grub-theme = super.fetchFromGitHub {
+    owner = "rose-pine";
+    repo = "grub";
+    rev = "8976fd7cd4ed2890cc4a324291bbac2813906f80";
+    hash = "sha256-tUg0hCeSX6tFUZK3pp83UILSY0c71+dWbW93dL44Yc4=";
+  };
 }

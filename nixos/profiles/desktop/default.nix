@@ -27,7 +27,7 @@
   boot.loader.grub = {
     # gfxmodeEfi = "1920x1080";
     # gfxpayloadEfi = "keep";
-    theme = pkgs.minegrub;
+    theme = pkgs.rosepine-grub-theme;
   };
 
   # Display shiz
