@@ -65,5 +65,6 @@
     clipboard-jh
     choose
     slides
+    xplr
   ];
 }
