@@ -61,7 +61,10 @@ in {
           hash = "sha256-LU8H4e5bzCevaabDgVmbWoiVq7iJ4C1VfQrWGpRwLq0=";
         }
         + /dist/rose-pine${variant}.toml));
-      spicetify.theme = pkgs.spicePkgs.themes.Dracula;
+      spicetify = {
+        theme = pkgs.spicePkgs.themes.Ziro;
+        colorScheme = "rose-pine";
+      };
       helix.settings.theme = "rose_pine${variant}";
     };
   };
