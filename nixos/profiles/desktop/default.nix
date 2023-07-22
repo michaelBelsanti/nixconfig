@@ -80,7 +80,7 @@
         themeConfig = {
           ScreenWidth = 1920;
           ScreenHeight = 1080;
-          background = ../../../home/modules/themes/catppuccin/background_upscayled.png;
+          background = "/home/quasi/.background-image";
         };
       })
     ];
