@@ -28,13 +28,13 @@
     enable = true;
     theme = "rosepine";
   };
-  # xsession = {
-  #   enable = true;
-  #   initExtra = ''
-  #     xrdb merge ~/.config/X11/xresources
-  #     ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
-  #   '';
-  # };
+  xsession = {
+    enable = true;
+    initExtra = ''
+      xrdb merge ~/.config/X11/xresources
+      ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+    '';
+  };
   gtk = {
     enable = true;
     font = {
