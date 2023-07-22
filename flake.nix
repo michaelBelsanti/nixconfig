@@ -41,12 +41,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/nur";
-    mypkgs.url = "github:michaelBelsanti/nur-packages/dev";
+    mypkgs = {
+      url = "github:michaelBelsanti/nur-packages/dev";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    nix-gaming.url = "github:fufexan/nix-gaming";
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    plasma-manager.url = "github:pjones/plasma-manager";
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hyprland.url = "github:hyprwm/Hyprland/v0.25.0";
     hypr-contrib = {
@@ -59,7 +68,10 @@
       inputs.parts.follows = "parts";
     };
 
-    devenv.url = "github:cachix/devenv/v0.4";
+    devenv = {
+      url = "github:cachix/devenv/v0.4";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     spicetify = {
       url = "github:the-argus/spicetify-nix";

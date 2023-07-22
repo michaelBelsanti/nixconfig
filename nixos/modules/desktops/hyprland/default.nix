@@ -48,7 +48,7 @@
     };
     wayland.windowManager.hyprland = {
       enable = true;
-      recommendedEnvironment = true;
+      extraConfig = builtins.readFile ./hypr/hyprland.conf;
     };
   };
 }
