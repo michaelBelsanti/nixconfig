@@ -15,7 +15,7 @@ exec --no-startup-id dunst
 exec --no-startup-id polkit-gnome
 exec betterlockscreen -u ~/.flake/etc/bg.png
 
-exec --no-startup-id easyeffects --gapplication-service
+exec easyeffects -w
 
 # Awesome replay tool for Nvidia gpus, much more performant than obs
 # exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays

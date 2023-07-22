@@ -11,13 +11,6 @@
     # ../../modules/desktops/plasma/desktop.nix
   ];
 
-  home-manager.users.${user} = {
-    # home.pointerCursor.x11.enable = true;
-    xsession.initExtra = ''
-      easyeffects --gapplication-service &
-    '';
-  };
-
   networking = {
     nameservers = ["192.168.1.152"];
     networkmanager.dns = "none";
