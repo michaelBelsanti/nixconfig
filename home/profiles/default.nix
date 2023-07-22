@@ -9,7 +9,6 @@
     ../.
     ../packages.nix
     inputs.spicetify.homeManagerModule
-    inputs.hyprland.homeManagerModules.default
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
