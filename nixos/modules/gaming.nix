@@ -39,8 +39,8 @@
       enable = true;
       settings = {
         custom = {
-          start = "togdnd -p";
-          end = "togdnd -u";
+          start = "togdnd -p; polybar-msg action gamemode module_show";
+          end = "togdnd -u; polybar-msg action gamemode module_hide";
         };
         general = {
           reaper_freq = 5;
