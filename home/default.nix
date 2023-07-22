@@ -8,16 +8,8 @@
   imports = [
     ./modules/shell
     ./modules/cli
-    ./modules/terminal/kitty
-    ./modules/terminal/foot
-    ./modules/themes
-    # ./modules/themes/catppuccin
+    ./modules/theming
   ];
-
-  theming = {
-    enable = true;
-    theme = "catppuccin";
-  };
 
   # Home Manager Setup
   home = {
@@ -32,13 +24,17 @@
   nixpkgs.config.allowUnfree = true;
 
   # Main system theming
-  xsession = {
+  theming = {
     enable = true;
-    initExtra = ''
-      xrdb merge ~/.config/X11/xresources
-      ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
-    '';
+    theme = "rosepine";
   };
+  # xsession = {
+  #   enable = true;
+  #   initExtra = ''
+  #     xrdb merge ~/.config/X11/xresources
+  #     ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+  #   '';
+  # };
   gtk = {
     enable = true;
     font = {

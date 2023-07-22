@@ -1,1 +1,1 @@
-_: {imports = [./themes];}
+_: {imports = [./theming];}

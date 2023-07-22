@@ -32,6 +32,11 @@
   ];
   home-manager.users.${user} = {
     imports = [../rofi];
+    programs.foot = {
+      enable = true;
+      server.enable = true;
+      settings.main.font = "monospace:size=12";
+    };
     services.mako = {
       enable = true;
       defaultTimeout = 5000;

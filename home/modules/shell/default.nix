@@ -5,6 +5,7 @@
     starship = {
       enable = true;
       settings = {
+        format = "$all";
         character = {
           success_symbol = "[➜](bold green)";
           error_symbol = "[➜](maroon)";

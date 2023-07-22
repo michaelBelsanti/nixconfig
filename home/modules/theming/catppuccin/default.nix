@@ -44,10 +44,14 @@ in {
       + /Catppuccin-${Flavour}.colorscheme;
     xdg.configFile = {
       # Libadwaita theme
-      "gtk-4.0/gtk.css".source = ./gtk.css;
-      "qt5ct" = {
+      # "gtk-4.0/gtk.css".source = ./gtk.css;
+      "gtk-4.0" = {
+        source = config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-dark/gtk-4.0;
         recursive = true;
+      };
+      "qt5ct" = {
         source = ./qt5ct;
+        recursive = true;
       };
     };
     services.mako.extraConfig =
@@ -62,10 +66,10 @@ in {
         + /src/${flavour});
     programs = {
       # zellij.settings.theme = "catppuccin-${flavour}";
+      kitty.theme = "Catppuccin-Macchiato";
       starship = {
         settings =
           {
-            format = "$all";
             palette = "catppuccin_${flavour}";
           }
           // builtins.fromTOML (builtins.readFile

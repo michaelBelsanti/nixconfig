@@ -6,20 +6,24 @@
 with lib; let
   cfg = config.theming;
   isCatppuccin = cfg.theme == "catppuccin";
+  isRosePine = cfg.theme == "rose-pine";
 in {
-  imports = [./catppuccin];
+  imports = [
+    ./catppuccin
+    ./rosepine
+  ];
   options = {
     theming = {
-      enable = mkEnableOption "themes";
+      enable = mkEnableOption "theming";
       theme = mkOption {
         default = "catppuccin";
         type = types.enum [
           "catppuccin"
-          "rose_pine"
+          "rosepine"
         ];
         example = "rose_pine";
         description = lib.mdDoc ''
-          Selects the theme for all apps themes using home-manager.
+          Selects the theme for all apps themed using home-manager.
         '';
       };
       variant = mkOption {
@@ -36,7 +40,13 @@ in {
               "macchiato"
               "mocha"
             ]
-          else types.enum [];
+          else if isRosePine
+          then
+            types.enum [
+              "dawn"
+              "moon"
+            ]
+          else types.enum [""];
       };
       accent = mkOption {
         default =
@@ -62,7 +72,7 @@ in {
               "blue"
               "lavender"
             ]
-          else types.enum [];
+          else types.enum [""];
       };
     };
   };
