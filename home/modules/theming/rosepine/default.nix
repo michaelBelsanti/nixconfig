@@ -13,10 +13,16 @@
     else builtins.concatStringsSep "" ["-" config.theming.variant];
 in {
   config = lib.mkIf rosePineEnabled {
-    home.file.".background-image".source = ./background.png;
-    gtk.theme = {
-      name = "rose-pine";
-      package = pkgs.rose-pine-gtk-theme;
+    home.file.".background-image".source = pkgs.rosepine-wallpaper;
+    gtk = {
+      iconTheme = {
+        package = pkgs.rose-pine-icon-theme;
+        name = "rose-pine${variant}";
+      };
+      theme = {
+        name = "rose-pine";
+        package = pkgs.rose-pine-gtk-theme;
+      };
     };
     xdg.configFile = {
       # Libadwaita theme

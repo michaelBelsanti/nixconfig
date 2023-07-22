@@ -21,4 +21,8 @@ inputs: _self: super: {
     categories = ["Utility" "TextEditor" "Development"];
     terminal = true;
   };
+  rosepine-wallpaper = super.fetchurl {
+    url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/flower.jpg";
+    hash = "sha256-A83dUw3QT7GpWGSV+JY7F+kU38CNk5uQrzFwyL5yFdE=";
+  };
 }

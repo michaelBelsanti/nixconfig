@@ -19,6 +19,10 @@
 in {
   config = lib.mkIf catppuccinEnabled {
     gtk = {
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome.adwaita-icon-theme;
+      };
       theme = {
         name = "Catppuccin-${Flavour}-Standard-${Accent}-dark";
         package = pkgs.catppuccin-gtk.override {

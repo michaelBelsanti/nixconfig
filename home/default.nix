@@ -42,10 +42,6 @@
       package = pkgs.montserrat;
       size = 12;
     };
-    iconTheme = {
-      name = "Adwaita";
-      package = pkgs.gnome.adwaita-icon-theme;
-    };
     gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
     gtk3 = {
       bookmarks = [
