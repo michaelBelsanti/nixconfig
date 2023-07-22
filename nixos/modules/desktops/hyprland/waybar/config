@@ -8,8 +8,8 @@
     "modules-right": [
         "backlight", 
         // "custom/separator",
-        "cpu", 
-        "memory", 
+        // "cpu", 
+        // "memory", 
         "pulseaudio",
         "network",
         "battery",

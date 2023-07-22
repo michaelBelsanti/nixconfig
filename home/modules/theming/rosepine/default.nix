@@ -34,6 +34,11 @@ in {
         source = ./qt5ct;
         recursive = true;
       };
+      "waybar/style.css".source = ./waybar/style.css;
+    };
+    wayland.windowManager.hyprland.settings.general = {
+      "col.active_border" = "0xff191724";
+      "col.inactive_border" = "0xffebbcba";
     };
     programs = {
       kitty.theme = "Rosé Pine";

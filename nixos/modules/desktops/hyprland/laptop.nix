@@ -6,12 +6,9 @@
   };
   home-manager.users.${user} = {
     xdg.configFile = {
+      "waybar/config".source = ./waybar/config;
       hypr = {
         source = ./hypr;
-        recursive = true;
-      };
-      waybar = {
-        source = ./waybar;
         recursive = true;
       };
     };

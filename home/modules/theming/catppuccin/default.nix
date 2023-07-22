@@ -57,6 +57,11 @@ in {
         source = ./qt5ct;
         recursive = true;
       };
+      "waybar/style.css".source = ./waybar/style.css;
+    };
+    wayland.windowManager.hyprland.settings.general = {
+      "col.active_border" = "0xfff28fad";
+      "col.inactive_border" = "0xff1e1d2f";
     };
     services.mako.extraConfig =
       builtins.readFile
