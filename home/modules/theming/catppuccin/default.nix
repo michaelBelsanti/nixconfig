@@ -59,6 +59,15 @@ in {
       };
       "waybar/style.css".source = ./waybar/style.css;
     };
+    xsession.windowManager.i3.config.colors = let
+      active_border = "#f28fad";
+      border = "#1e1d2f";
+    in {
+      focused.border = active_border;
+      unfocused.border = border;
+      focused_inactive.border = border;
+      urgent.border = active_border;
+    };
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";

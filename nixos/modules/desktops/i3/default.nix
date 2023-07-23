@@ -26,6 +26,10 @@
   home-manager.users.${user} = {
     imports = [../rofi];
     programs.kitty.enable = true;
+    xsession.windowManager.i3 = {
+      enable = true;
+      extraConfig = builtins.readFile ./config;
+    };
     services.dunst = {
       enable = true;
       settings = {
@@ -74,10 +78,6 @@
         source = ./polybar;
         recursive = true;
       };
-      # dunst = {
-      #   source = ./dunst;
-      #   recursive = true;
-      # };
     };
     # Scripts
     home.packages = with pkgs; [

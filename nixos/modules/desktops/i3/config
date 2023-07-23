@@ -7,33 +7,13 @@ set $terminal kitty
 
 # Startup applications
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
-# exec --no-startup-id xrdb merge ~/.config/X11/xresources
-# exec --no-startup-id feh --bg-center ~/.flake/etc/bg.png --no-fehbg
 exec_always --no-startup-id autotiling
 # exec --no-startup-id picom --unredir-if-possible
 exec --no-startup-id dunst
 exec --no-startup-id polkit-gnome
 exec betterlockscreen -u ~/.flake/etc/bg.png
 
-exec easyeffects -w
-
-# Awesome replay tool for Nvidia gpus, much more performant than obs
-# exec        --no-startup-id gpu-screen-recorder -w DP-4 -c mp4 -f 60 -a "$(pactl get-default-sink).monitor" -r 45 -o ~/Videos/Replays
-
-## Appearance
-# Colors & font
-set $border     #F28FAD
-set $bg         #1E1D2F
-set $fg         #D9E0EE
-set $indicator  #96CDFB
-
-#                       border    background  text  indicator
-client.focused          $border   $border     $fg   $indicator  
-client.unfocused        $bg       $bg         $fg   $indicator   
-client.focused_inactive $border   $bg         $fg   $indicator   
-client.urgent           $border   $bg         $fg   $indicator   
-
-font pango:JetBrainsMono Nerd Font 10
+font pango:Monospace 10
 
 # Window appearance
 # Removes titlebars

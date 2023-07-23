@@ -11,6 +11,10 @@
     # ../../modules/desktops/plasma/desktop.nix
   ];
 
+  home-manager.users.${user} = {
+    services.easyeffects.enable = true;
+  };
+
   networking = {
     nameservers = ["192.168.1.152"];
     networkmanager.dns = "none";
