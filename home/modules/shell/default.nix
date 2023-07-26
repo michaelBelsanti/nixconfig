@@ -14,7 +14,7 @@
       };
     };
     zoxide.enable = true;
-    fzf.enable = true;
+    skim.enable = true;
     bat.enable = true;
     direnv = {
       enable = true;

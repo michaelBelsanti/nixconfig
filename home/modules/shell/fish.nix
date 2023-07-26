@@ -7,9 +7,9 @@
     colored-man-pages
     done
     foreign-env
-    fzf-fish
+    # fzf-fish
     # pisces
-    sponge
+    # sponge
     pkgs.libnotify # notify-send for done
   ];
   programs.fish = {
