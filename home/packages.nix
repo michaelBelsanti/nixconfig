@@ -57,6 +57,7 @@
     fd
     ripgrep
     fzf
+    skim
     ncdu
     edir
     dogdns
