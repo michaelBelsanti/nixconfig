@@ -28,6 +28,14 @@
     programs.kitty.enable = true;
     xsession.windowManager.i3 = {
       enable = true;
+      config = {
+        keybindings = {};
+        modes = {};
+        bars = [];
+        fonts = {};
+        terminal = "kitty";
+        workspaceAutoBackAndForth = true;
+      };
       extraConfig = builtins.readFile ./config;
     };
     services.dunst = {
@@ -69,7 +77,6 @@
       };
     };
     xdg.configFile = {
-      "i3/config".source = ./config;
       picom = {
         source = ./picom;
         recursive = true;

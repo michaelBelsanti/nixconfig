@@ -60,13 +60,31 @@ in {
       "waybar/style.css".source = ./waybar/style.css;
     };
     xsession.windowManager.i3.config.colors = let
-      active_border = "#f28fad";
-      border = "#1e1d2f";
-    in {
-      focused.border = active_border;
-      unfocused.border = border;
-      focused_inactive.border = border;
-      urgent.border = active_border;
+      pink = "#f28fad";
+      black = "#1e1d2f";
+      text = "#d9e0ee";
+      blue = "#96cdfb";
+    in rec {
+      focused = {
+        border = pink;
+        background = black;
+        text = text;
+        indicator = blue;
+        childBorder = pink;
+      };
+      focusedInactive =
+        focused
+        // {
+          border = black;
+          childBorder = black;
+        };
+      unfocused = focusedInactive // {border = black;};
+      urgent =
+        focused
+        // {
+          border = blue;
+          childBorder = blue;
+        };
     };
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";

@@ -11,7 +11,7 @@ exec_always --no-startup-id autotiling
 # exec --no-startup-id picom --unredir-if-possible
 exec --no-startup-id dunst
 exec --no-startup-id polkit-gnome
-exec betterlockscreen -u ~/.flake/etc/bg.png
+exec betterlockscreen -u ~/.background-image
 
 font pango:Monospace 10
 
@@ -47,7 +47,7 @@ bindsym $mod+ctrl+shift+q exec xkill
 # start and kill compositor 
 bindsym $mod+c exec togdnd
 bindsym $mod+shift+ctrl+e exec eerestart
-bindsym $mod+Escape exec betterlockscreen --off 30 -l dim
+bindsym $mod+Escape exec betterlockscreen --off 30 -l blur
 # bindsym $mod+v exec ~/.scripts/replay.sh
 
 # popup launcher binds
