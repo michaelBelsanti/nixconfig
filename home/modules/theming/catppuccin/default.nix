@@ -90,16 +90,33 @@ in {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
     };
-    services.mako.extraConfig =
-      builtins.readFile
-      (pkgs.fetchFromGitHub
-        {
-          owner = "catppuccin";
-          repo = "mako";
-          rev = "64ef71633528b50e5475755e50071584b54fa291";
-          hash = "sha256-J2PaPfBBWcqixQGo3eNVvLz2EZWD92RfD0MfbEDK/wA=";
-        }
-        + /src/${flavour});
+    services = {
+      dunst.settings = let
+        urgency_default = {
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+        };
+      in {
+        global.frame_color = "#89b4fa";
+        urgency_low = urgency_default;
+        urgency_normal = urgency_default;
+        urgency_critical =
+          urgency_default
+          // {
+            frame_color = "#fab387";
+          };
+      };
+      mako.extraConfig =
+        builtins.readFile
+        (pkgs.fetchFromGitHub
+          {
+            owner = "catppuccin";
+            repo = "mako";
+            rev = "64ef71633528b50e5475755e50071584b54fa291";
+            hash = "sha256-J2PaPfBBWcqixQGo3eNVvLz2EZWD92RfD0MfbEDK/wA=";
+          }
+          + /src/${flavour});
+    };
     programs = {
       # zellij.settings.theme = "catppuccin-${flavour}";
       kitty.theme = "Catppuccin-Macchiato";

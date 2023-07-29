@@ -67,6 +67,24 @@ in {
       "col.active_border" = "0xff191724";
       "col.inactive_border" = "0xffebbcba";
     };
+    services = {
+      # TODO mako theme
+      dunst.settings = let
+        urgency_default = {
+          background = "#191724";
+          foreground = "#e0def4";
+        };
+      in {
+        global.frame_color = "#ebbcba";
+        urgency_low = urgency_default;
+        urgency_normal = urgency_default;
+        urgency_critical =
+          urgency_default
+          // {
+            frame_color = "#eb6f92";
+          };
+      };
+    };
     programs = {
       kitty.theme = "Rosé Pine";
       foot.settings = {
@@ -99,9 +117,11 @@ in {
           hash = "sha256-LU8H4e5bzCevaabDgVmbWoiVq7iJ4C1VfQrWGpRwLq0=";
         }
         + /dist/rose-pine${variant}.toml));
-      spicetify = {
-        theme = pkgs.spicePkgs.themes.Ziro;
-        colorScheme = "rose-pine";
+      spicetify = with pkgs.spicePkgs.themes; {
+        theme = Ziro;
+        # theme = Sleek;
+        colorScheme = "rose-pine${variant}"; # For Sleek
+        # colorScheme = "RosePine"; # For Sleek
       };
       helix.settings.theme = "rose_pine${variant}";
     };
