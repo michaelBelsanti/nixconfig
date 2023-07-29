@@ -21,6 +21,7 @@
     protonup-qt
     steamtinkerlaunch
     yuzu-mainline
+    cartridges
   ];
 
   hardware = {
