@@ -25,12 +25,9 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
+      experimental-features = "nix-command flakes";
+      keep-outputs = true;
+      keep-derivations = true;
     };
-    # Enable flakes and prevent shells from being garbage collected
-    extraOptions = ''
-      experimental-features = nix-command flakes
-      keep-outputs = true
-      keep-derivations = true
-    '';
   };
 }
