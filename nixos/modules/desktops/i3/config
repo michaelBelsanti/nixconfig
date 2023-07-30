@@ -8,8 +8,6 @@ set $terminal kitty
 # Startup applications
 exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 exec_always --no-startup-id autotiling
-# exec --no-startup-id picom --unredir-if-possible
-exec --no-startup-id dunst
 exec --no-startup-id polkit-gnome
 exec betterlockscreen -u ~/.background-image
 
