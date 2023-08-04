@@ -13,6 +13,7 @@
     signal-desktop
     bitwarden
     rbw
+    mumble
 
     # Editor
     helix
