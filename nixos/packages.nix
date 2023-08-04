@@ -14,6 +14,7 @@
     bitwarden
     rbw
     mumble
+    remmina
 
     # Editor
     helix
