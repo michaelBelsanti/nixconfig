@@ -16,11 +16,9 @@
   };
 
   networking = {
-    nameservers = ["192.168.1.152"];
-    networkmanager.dns = "none";
-    dhcpcd.extraConfig = "nohook resolv.conf";
+    hostName = "nix-desktop";
     firewall = {
-      enable = true;
+      enable = false;
       allowedUDPPorts = [
         3074 # BO2
         24872 # Yuzu
@@ -36,6 +34,10 @@
 
   # Display shiz
   services = {
+    murmur = {
+      enable = true;
+      bandwidth = 130000;
+    };
     pipewire.lowLatency.enable = true;
     udev.packages = with pkgs; [qmk-udev-rules];
     xserver = {

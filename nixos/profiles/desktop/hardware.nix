@@ -17,7 +17,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXROOT";
     fsType = "btrfs";
-    options = [ "compress=zstd" ];
+    options = ["compress=zstd"];
   };
 
   fileSystems."/boot" = {
@@ -28,13 +28,13 @@
   fileSystems."/run/media/quasi/hdd" = {
     device = "/dev/disk/by-label/mainhdd";
     fsType = "btrfs";
-    options = [ "compress=zstd" ];
+    options = ["compress=zstd"];
   };
 
   fileSystems."/run/media/quasi/gamessd" = {
     device = "/dev/disk/by-label/gamessd";
     fsType = "btrfs";
-    options = [ "compress=zstd" ];
+    options = ["compress=zstd"];
   };
 
   # fileSystems."/run/media/quasi/nfs" = {
@@ -50,10 +50,6 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   networking.interfaces.enp42s0.useDHCP = lib.mkDefault true;
-  networking = {
-    hostName = "nix-desktop";
-    nameservers = ["192.168.1.152"];
-  };
 
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
