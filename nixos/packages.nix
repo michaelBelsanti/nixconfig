@@ -15,6 +15,7 @@
     rbw
     mumble
     remmina
+    nextcloud-client
 
     # Editor
     helix
