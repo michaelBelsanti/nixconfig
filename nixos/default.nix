@@ -86,12 +86,12 @@
 
   # Best fonts (Especially JetBrains Mono)
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
       montserrat
       twemoji-color-font
     ];
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontDir.enable = true;
     fontconfig.defaultFonts = {
       serif = ["Liberation Serif"];

@@ -64,7 +64,7 @@
 
     helix = {
       url = "github:helix-editor/helix";
-      inputs.parts.follows = "parts";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     devenv = {
