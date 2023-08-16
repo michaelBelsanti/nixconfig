@@ -32,6 +32,8 @@
     kernelParams = ["acpi_backlight=native"];
     blacklistedKernelModules = ["hid_sensor_hub"];
     loader.grub.theme = pkgs.framework-grub-theme;
+    plymouth.enable = true;
+    initrd.systemd.enable = true; # To load gui for decryption
   };
 
   # Make fingerprint sensor work at boot

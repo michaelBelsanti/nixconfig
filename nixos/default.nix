@@ -4,7 +4,6 @@
   lib,
   user,
   flakePath,
-  inputs,
   ...
 }: {
   imports = [./nix.nix];
@@ -28,7 +27,6 @@
     };
     tmp.useTmpfs = true;
     # Cute boot animation
-    plymouth.enable = true;
     loader = {
       grub = {
         enable = true;
