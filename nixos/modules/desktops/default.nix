@@ -14,6 +14,7 @@
     qt5ct
     breeze-icons
     libsForQt5.lightly
+    libsForQt5.baloo # dolphin
 
     (polkit_gnome.overrideAttrs (_oldAttrs: {
       postFixup = ''
