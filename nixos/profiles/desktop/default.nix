@@ -69,11 +69,11 @@
   # Causes librewolf to crash occasionally
   hardware = {
     nvidia.modesetting.enable = true;
-    # opengl.extraPackages = with pkgs; [
-    # vaapiVdpau
-    # libvdpau-va-gl
-    # nvidia-vaapi-driver
-    # ];
+    opengl.extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      # vaapiVdpau
+      # libvdpau-va-gl
+    ];
   };
 
   # BUG
@@ -89,10 +89,20 @@
       })
     ];
     sessionVariables = {
+      # NVD_BACKEND = "direct";
       # LIBVA_DRIVER_NAME = "nvidia";
-      MOZ_DISABLE_RDD_SANDBOX = "1";
-      __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
+      # MOZ_DISABLE_RDD_SANDBOX = "1";
+      # __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
     };
+  };
+
+  # Nvidia hardware decoding
+  programs.firefox.preferences = {
+    # "media.ffmpeg.vaapi.enabled" = true;
+    # "media.rdd-ffmpeg.enabled" = true;
+    # "media.av1.enabled" = false;
+    # "gfx.x11-egl.force-enabled" = true;
+    # "widget.dmabuf.force-enabled" = true;
   };
 
   system.stateVersion = "22.05"; # Did you read the comment?
