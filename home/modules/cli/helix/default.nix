@@ -1,14 +1,12 @@
-_: {
+{pkgs}: {
   programs.helix = {
     enable = true;
     languages = {
-      language-server.nixd.command = "nixd";
       language = [
         {
           name = "nix";
-          formatter.command = "alejandra";
+          formatter.command = "${pkgs.alejandra}/bin/alejandra";
           auto-format = true;
-          # language-servers = [ "nixd" ];
         }
       ];
     };
