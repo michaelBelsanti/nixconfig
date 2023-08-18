@@ -63,7 +63,7 @@
     };
 
     helix = {
-      url = "github:helix-editor/helix";
+      url = "github:helix-editor/helix/nucleo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
