@@ -56,7 +56,6 @@
     dig
     fd
     ripgrep
-    fzf
     skim
     ncdu
     edir
@@ -66,6 +65,7 @@
     clipboard-jh
     choose
     slides
+    psmisc
     xplr
   ];
 }
