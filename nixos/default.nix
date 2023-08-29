@@ -157,12 +157,21 @@
       policies = {
         DisableAppUpdate = true;
       };
-      preferences = {
-        "layout.spellcheckDefault" = 2;
-        "extensions.pocket.enabled" = false;
-        "browser.newtabpage.activity-stream.showSponsored" = false;
-        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-      };
+      preferences = let
+        enableAndSync = prefs:
+          lib.attrsets.genAttrs
+          (map (name:
+            "services.sync.prefs.sync." + name)
+          (builtins.attrNames prefs))
+          (_: true)
+          // prefs;
+      in
+        enableAndSync {
+          "layout.spellcheckDefault" = 2;
+          "extensions.pocket.enabled" = false;
+          "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        };
     };
     fish = {
       enable = true;
