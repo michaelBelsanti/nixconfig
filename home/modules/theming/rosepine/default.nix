@@ -46,7 +46,7 @@ in {
         border = rose;
         background = black;
         text = text;
-        indicator = love;
+        indicator = rose;
         childBorder = rose;
       };
       focusedInactive =
@@ -54,6 +54,7 @@ in {
         // {
           border = black;
           childBorder = black;
+          indicator = black;
         };
       unfocused = focusedInactive // {border = black;};
       urgent =
@@ -61,6 +62,7 @@ in {
         // {
           border = love;
           childBorder = love;
+          indicator = love;
         };
     };
     wayland.windowManager.hyprland.settings.general = {
