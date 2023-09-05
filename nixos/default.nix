@@ -10,7 +10,7 @@
 
   home-manager.users.${user} = {config, ...}: {
     # Main user theming
-    services.nextcloud-client.enable = true;
+    # services.nextcloud-client.enable = true;
     theming = {
       enable = true;
       theme = "rosepine";
@@ -95,6 +95,9 @@
 
   # Boot options
   boot = {
+    extraModprobeConfig = ''
+      options nvidia NVreg_PreserveVideoMemoryAllocations=1
+    '';
     kernelPackages = pkgs.linuxPackages_zen;
     kernel.sysctl = {
       "transparent_hugepage" = "always";
