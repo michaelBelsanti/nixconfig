@@ -76,6 +76,8 @@
     ];
   };
 
+  virtualisation.podman.enableNvidia = true;
+
   # BUG
   # Vaapi is currently broken on my system
   environment = {
