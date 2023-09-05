@@ -16,6 +16,7 @@
     mumble
     remmina
     nextcloud-client
+    bottles
 
     # Editor
     helix
