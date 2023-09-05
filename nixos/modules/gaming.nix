@@ -22,6 +22,8 @@
     steamtinkerlaunch
     yuzu-mainline
     cartridges
+    gpu-screen-recorder
+    gpu-screen-recorder-gtk
   ];
 
   hardware = {
