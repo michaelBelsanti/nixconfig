@@ -7,10 +7,7 @@
   ...
 }: {
   imports = [../. ./scripts.nix];
-  programs.hyprland = {
-    enable = true;
-    xwayland.hidpi = true;
-  };
+  programs.hyprland.enable = true;
   services.xserver.displayManager.defaultSession = "hyprland";
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   environment.sessionVariables = {
