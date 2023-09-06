@@ -8,7 +8,7 @@
     winetricks
     protontricks
     (lutris.override {
-      extraPkgs = _pkgs: [wine-ge];
+      # extraPkgs = _pkgs: [wine-ge];
       extraLibraries = _pkgs: [latencyflex];
     })
     heroic
