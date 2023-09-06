@@ -13,7 +13,6 @@
     hacksaw
     rofi
     feh
-    dunst
     xdotool
     xorg.xkill
     xclip
@@ -96,7 +95,7 @@
         enable = true;
         settings = {
           urgency_low.timeout = 3;
-          urgency_normal.timeout = 8;
+          urgency_normal.timeout = 6;
           urgency_critical.timeout = 0;
           global = {
             follow = "mouse";
