@@ -24,9 +24,7 @@
   in {
     nix-desktop = inputs.nixpkgs.lib.nixosSystem {
       inherit system pkgs;
-      specialArgs = {
-        inherit inputs user flakePath;
-      };
+      specialArgs = {inherit inputs user flakePath;};
       modules =
         [
           ./desktop
@@ -39,15 +37,18 @@
 
     nix-laptop = inputs.nixpkgs.lib.nixosSystem {
       inherit system pkgs;
-      specialArgs = {
-        inherit inputs user flakePath;
-      };
+      specialArgs = {inherit inputs user flakePath;};
       modules =
         [
           ./laptop
           inputs.nixos-hardware.nixosModules.framework-12th-gen-intel
         ]
         ++ sharedModules;
+    };
+    vm = inputs.nixpkgs.lib.nixosSystem {
+      inherit system pkgs;
+      specialArgs = {inherit inputs user flakePath;};
+      modules = [./vm] ++ sharedModules;
     };
   });
 }
