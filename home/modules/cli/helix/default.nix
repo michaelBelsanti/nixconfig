@@ -6,7 +6,6 @@
         {
           name = "nix";
           formatter.command = "${pkgs.alejandra}/bin/alejandra";
-          auto-format = true;
         }
       ];
     };
