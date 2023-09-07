@@ -98,7 +98,7 @@
     extraModprobeConfig = ''
       options nvidia NVreg_PreserveVideoMemoryAllocations=1
     '';
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     kernel.sysctl = {
       "transparent_hugepage" = "always";
       "vm.nr_hugepages_defrag" = 0;
