@@ -43,7 +43,6 @@
       bandwidth = 130000;
     };
     pipewire.lowLatency.enable = true;
-    udev.packages = with pkgs; [qmk-udev-rules];
     xserver = {
       enable = true;
       videoDrivers = ["nvidia"];
@@ -68,6 +67,7 @@
 
   # Causes librewolf to crash occasionally
   hardware = {
+    keyboard.qmk.enable = true;
     nvidia.modesetting.enable = true;
     opengl.extraPackages = with pkgs; [
       nvidia-vaapi-driver
