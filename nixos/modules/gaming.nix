@@ -26,6 +26,10 @@
     gpu-screen-recorder-gtk
   ];
 
+  chaotic.steam.extraCompatPackages = with pkgs; [
+    luxtorpeda
+    steamtinkerlaunch
+  ];
   hardware = {
     # xone.enable = true; # BUG broken package
     # xpadneo.enable = true;
