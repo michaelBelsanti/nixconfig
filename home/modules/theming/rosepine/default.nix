@@ -66,8 +66,8 @@ in {
         };
     };
     wayland.windowManager.hyprland.settings.general = {
-      "col.active_border" = "0xff191724";
-      "col.inactive_border" = "0xffebbcba";
+      "col.active_border" = "0xffebbcba";
+      "col.inactive_border" = "0xff191724";
     };
     services = {
       # TODO mako theme
