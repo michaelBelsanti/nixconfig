@@ -17,6 +17,7 @@
     remmina
     nextcloud-client
     bottles
+    beeper
 
     # Editor
     helix
