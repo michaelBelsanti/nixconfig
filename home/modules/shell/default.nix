@@ -13,6 +13,7 @@
         shell.disabled = false;
       };
     };
+    carapace.enable = true;
     zoxide.enable = true;
     skim.enable = true;
     bat.enable = true;
@@ -20,7 +21,7 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
     };
