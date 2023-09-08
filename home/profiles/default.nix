@@ -10,6 +10,7 @@
     ../packages.nix
     inputs.spicetify.homeManagerModule
     inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.hmModules.arkenfox
   ];
 
   inherit (inputs.hm.lib) homeManagerConfiguration;

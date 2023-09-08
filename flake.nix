@@ -69,6 +69,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    arkenfox = {
+      url = "github:dwarfmaster/arkenfox-nixos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     devenv = {
       url = "github:cachix/devenv/v0.4";
       inputs.nixpkgs.follows = "nixpkgs";
