@@ -6,7 +6,7 @@
   user,
   ...
 }: {
-  imports = [../. ./scripts.nix];
+  imports = [../generic-wm ./scripts.nix];
   programs.hyprland.enable = true;
   services.xserver.displayManager.defaultSession = "hyprland";
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
