@@ -55,12 +55,7 @@
     xserver = {
       enable = true;
       videoDrivers = ["intel"];
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
-      };
+      displayManager.sddm.settings.General.DisplayServer = "wayland";
       libinput = {
         mouse = {
           accelProfile = "flat";

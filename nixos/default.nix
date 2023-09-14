@@ -96,7 +96,20 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Xserver input
+  environment.systemPackages = [
+    (pkgs.sddm-chili-theme.override {
+      themeConfig = {
+        ScreenWidth = 1920;
+        ScreenHeight = 1080;
+        background = pkgs.rosepine-wallpaper;
+      };
+    })
+  ];
   services.xserver = {
+    displayManager.sddm = {
+      enable = true;
+      theme = "chili";
+    };
     enable = true;
     layout = "us";
     libinput.enable = true;
