@@ -34,15 +34,6 @@
       server.enable = true;
       settings.main.font = "monospace:size=12";
     };
-    services.mako = {
-      enable = true;
-      defaultTimeout = 5000;
-      font = "monospace 12";
-      extraConfig = ''
-        [mode=dnd]
-        invisible=1
-      '';
-    };
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = builtins.readFile ./hypr/hyprland.conf;

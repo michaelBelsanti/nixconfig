@@ -108,16 +108,6 @@ in {
             frame_color = "#fab387";
           };
       };
-      mako.extraConfig =
-        builtins.readFile
-        (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "mako";
-            rev = "64ef71633528b50e5475755e50071584b54fa291";
-            hash = "sha256-J2PaPfBBWcqixQGo3eNVvLz2EZWD92RfD0MfbEDK/wA=";
-          }
-          + /src/${flavour});
     };
     programs = {
       # zellij.settings.theme = "catppuccin-${flavour}";

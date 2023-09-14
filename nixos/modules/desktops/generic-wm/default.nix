@@ -71,7 +71,7 @@
         fi
       '')
     ];
-    programs = {
+    services = {
       dunst = {
         enable = true;
         settings = {

@@ -23,6 +23,10 @@
     # Bash
     nodePackages.bash-language-server
     shellcheck
+    ## Programming Classes
+    nodePackages_latest.intelephense
+    nodePackages_latest.vscode-html-languageserver-bin
+    nodePackages_latest.typescript-language-server
 
     # Nix
     alejandra

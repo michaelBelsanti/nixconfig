@@ -70,7 +70,6 @@ in {
       "col.inactive_border" = "0xff191724";
     };
     services = {
-      # TODO mako theme
       dunst.settings = let
         urgency_default = {
           background = "#191724";
