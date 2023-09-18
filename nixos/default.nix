@@ -59,9 +59,6 @@
 
   # Boot options
   boot = {
-    extraModprobeConfig = ''
-      options nvidia NVreg_PreserveVideoMemoryAllocations=1
-    '';
     kernelPackages = pkgs.linuxPackages_cachyos;
     kernel.sysctl = {
       "transparent_hugepage" = "always";
