@@ -21,6 +21,9 @@
     libsForQt5.baloo # dolphin
   ];
 
+  programs.seahorse.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
   systemd.user.services = {
     gnome-polkit = {
       description = "polkit-gnome-authentication-agent-1";
