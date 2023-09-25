@@ -38,19 +38,6 @@
         TimeoutStopSec = 10;
       };
     };
-    kdeconnect-indicator = {
-      description = "kdeconnect-indicator";
-      wantedBy = ["graphical-session.target"];
-      wants = ["graphical-session.target"];
-      after = ["graphical-session.target"];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.kdeconnect}/bin/kdeconnect-indicator";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
   };
 
 
