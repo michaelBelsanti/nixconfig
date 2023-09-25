@@ -3,27 +3,11 @@
   lib,
   pkgs,
   ...
-}:
-# let
-# tomlFormat = pkgs.formats.toml { };
-# settings = {
-#   background = "${../../../modules/themes/catppuccin/background.png}";
-#   background_fit = "Contain";
-#   gtk = {
-#     application_prefer_dark_theme = true;
-#     cursor_theme_name = "Adwaita";
-#     font_name = "Montserrat 16";
-#     icon_theme_name = "Adwaita";
-#     theme_name = "Adwaita";
-#   };
-# };
-# in
-{
+}: {
   imports = [
     ./hardware.nix
     ../../modules/desktops/hyprland/laptop.nix
-    # ../../modules/desktops/plasma/laptop.nix
-    # ../../modules/desktops/gnome
+    ../../modules/desktops/gnome
   ];
 
   networking.hostName = "nix-laptop"; # Define your hostname.
