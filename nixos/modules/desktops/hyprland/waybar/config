@@ -61,11 +61,11 @@
         "format-icons": ["", "", "", "", ""],
     },
     "network": {
-        "format-wifi": "󰖩&#8239;({signalStrength}%)",
+        "format-wifi": "󰖩&#8239;",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "󰖪",
-        "format-alt": "{essid}: {ipaddr}/{cidr}",
+        "format-alt": "{essid}: {ipaddr}/{cidr}, {signalStrength}%",
         "tooltip": true,
         "tooltip-format": "{essid}",
     },
