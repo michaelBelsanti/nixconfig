@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  user,
   ...
 }: {
   imports = [
@@ -24,6 +25,14 @@
   systemd.services.fprintd = {
     wantedBy = ["multi-user.target"];
     serviceConfig.Type = "simple";
+  };
+
+  home-manager.users.${user} = {
+    programs.foot = {
+      enable = true;
+      server.enable = true;
+      settings.main.font = "monospace:size=12";
+    };
   };
 
   services = {

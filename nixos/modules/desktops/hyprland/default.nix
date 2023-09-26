@@ -29,11 +29,6 @@
   ];
   home-manager.users.${user} = {
     imports = [../rofi];
-    programs.foot = {
-      enable = true;
-      server.enable = true;
-      settings.main.font = "monospace:size=12";
-    };
     wayland.windowManager.hyprland = {
       enable = true;
       extraConfig = builtins.readFile ./hypr/hyprland.conf;
