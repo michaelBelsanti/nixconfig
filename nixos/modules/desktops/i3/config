@@ -10,7 +10,7 @@ exec_always --no-startup-id $HOME/.config/polybar/i3.sh
 exec_always --no-startup-id autotiling
 exec betterlockscreen -u ~/.background-image
 exec_always --no-startup-id feh --bg-fill ~/.background-image --no-fehbg
-#exec nextcloud
+exec nextcloud
 
 font pango:Monospace 10
 
