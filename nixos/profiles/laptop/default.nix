@@ -7,7 +7,7 @@
 }: {
   imports = [
     ./hardware.nix
-    ../../modules/desktops/hyprland/laptop.nix
+    # ../../modules/desktops/hyprland/laptop.nix
     ../../modules/desktops/gnome
   ];
 
@@ -31,7 +31,9 @@
     programs.foot = {
       enable = true;
       server.enable = true;
-      settings.main.font = "monospace:size=12";
+      settings = {
+        main.font = "monospace:size=12";
+      };
     };
   };
 
@@ -48,7 +50,11 @@
     xserver = {
       enable = true;
       videoDrivers = ["intel"];
-      displayManager.sddm.settings.General.DisplayServer = "wayland";
+      displayManager.gdm = {
+        wayland = true;
+        enable = true;
+      };
+      # displayManager.sddm.settings.General.DisplayServer = "wayland";
       libinput = {
         mouse = {
           accelProfile = "flat";
@@ -72,7 +78,10 @@
   };
 
   # Graphics drivers
-  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    LIBVA_DRIVER_NAME = "iHD";
+  };
   hardware.opengl = {
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD

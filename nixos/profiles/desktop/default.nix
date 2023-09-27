@@ -50,6 +50,7 @@
         setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
         sddm = {
           enable = true;
+          theme = "chili";
         };
       };
       libinput.mouse = {
@@ -77,8 +78,6 @@
 
   virtualisation.podman.enableNvidia = true;
 
-  # BUG
-  # Vaapi is currently broken on my system
   environment = {
     systemPackages = with pkgs; [
       (sddm-chili-theme.override {
@@ -90,6 +89,8 @@
       })
     ];
     sessionVariables = {
+      # BUG
+      # Vaapi is currently broken on my system
       # NVD_BACKEND = "direct";
       # LIBVA_DRIVER_NAME = "nvidia";
       # MOZ_DISABLE_RDD_SANDBOX = "1";
