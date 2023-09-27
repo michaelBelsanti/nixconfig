@@ -7,27 +7,32 @@
   ...
 }: let
   rosePineEnabled = config.theming.enable && (config.theming.theme == "rosepine");
-  variant =
-    if (config.theming.variant == "")
-    then ""
-    else builtins.concatStringsSep "" ["-" config.theming.variant];
 in {
   config = lib.mkIf rosePineEnabled {
     home.file.".background-image".source = pkgs.rosepine-wallpaper;
+    dconf.settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri = "${pkgs.rosepine-wallpaper}";
+        picture-uri-dark = "${pkgs.rosepine-wallpaper}";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "${pkgs.rosepine-wallpaper}";
+      };
+    };
     gtk = {
       iconTheme = {
         package = pkgs.rose-pine-icon-theme;
-        name = "rose-pine${variant}";
+        name = "rose-pine";
       };
       theme = {
-        name = "rose-pine";
-        package = pkgs.rose-pine-gtk-theme;
+        name = "adw-gtk3-dark";
+        package = pkgs.adw-gtk3;
       };
     };
     xdg.configFile = {
       # Libadwaita theme
       "gtk-4.0" = {
-        source = config.gtk.theme.package + /share/themes/rose-pine${variant}/gtk-4.0;
+        source = pkgs.rose-pine-gtk-theme + /share/themes/rose-pine/gtk-4.0;
         recursive = true;
       };
       "qt5ct" = {
@@ -117,14 +122,14 @@ in {
           rev = "3c3e36eb5225b0eb6f1aa989f9d9e783a5b47a83";
           hash = "sha256-LU8H4e5bzCevaabDgVmbWoiVq7iJ4C1VfQrWGpRwLq0=";
         }
-        + /dist/rose-pine${variant}.toml));
+        + /dist/rose-pine.toml));
       spicetify = with pkgs.spicePkgs.themes; {
         theme = Ziro;
         # theme = Sleek;
-        colorScheme = "rose-pine${variant}"; # For Sleek
+        colorScheme = "rose-pine"; # For Sleek
         # colorScheme = "RosePine"; # For Sleek
       };
-      helix.settings.theme = "rose_pine${variant}";
+      helix.settings.theme = "rose_pine";
     };
   };
 }
