@@ -30,6 +30,8 @@ in {
       };
     };
     xdg.configFile = {
+      # Copy libadwaita theme for adw-gtk3
+      "gtk-3.0/gtk.css".source = pkgs.rose-pine-gtk-theme + /share/themes/rose-pine/gtk-4.0/gtk.css;
       # Libadwaita theme
       "gtk-4.0" = {
         source = pkgs.rose-pine-gtk-theme + /share/themes/rose-pine/gtk-4.0;
