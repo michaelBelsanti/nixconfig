@@ -1,5 +1,5 @@
 # Imported by home-manager,
-# Sets catppuccin theming for any apps that can easily have their theming seperated from the rest of the config
+# Sets rosepine theming for any apps that can easily have their theming seperated from the rest of the config
 {
   lib,
   pkgs,
@@ -126,7 +126,7 @@ in {
       spicetify = with pkgs.spicePkgs.themes; {
         theme = Ziro;
         # theme = Sleek;
-        colorScheme = "rose-pine"; # For Sleek
+        colorScheme = "rose-pine"; # For Ziro
         # colorScheme = "RosePine"; # For Sleek
       };
       helix.settings.theme = "rose_pine";
