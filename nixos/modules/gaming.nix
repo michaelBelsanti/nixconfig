@@ -22,8 +22,9 @@
     steamtinkerlaunch
     yuzu-mainline
     cartridges
-    gpu-screen-recorder
-    gpu-screen-recorder-gtk
+    # BROKEN
+    # gpu-screen-recorder
+    # gpu-screen-recorder-gtk
   ];
 
   chaotic.steam.extraCompatPackages = with pkgs; [
