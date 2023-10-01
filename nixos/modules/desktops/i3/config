@@ -34,7 +34,7 @@ bindsym $mod+Return     exec $terminal
 bindsym $mod+e          exec $fm
 bindsym $mod+b          exec $browser
 bindsym $mod+s        exec shotgun -s - | xclip -t 'image/png' -selection clipboard
-bindsym $mod+ctrl+s    exec shotgun -s - > ~/Pictures/Screenshots/$(date "+%Y-%m-%dT%H:%M:%SZ").png
+bindsym $mod+ctrl+s    exec shotgun -s - > ~/Pictures/Screenshots/$(date "+%Y-%m-%d_%H:%M:%S").png
 bindsym $mod+shift+s    exec shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
 bindsym $mod+ctrl+shift+s exec   shotgun $(hacksaw -f "-i %i -g %g") - > ~/Pictures/screenclip.png
 #bindsym $mod+d          exec flatpak run de.shorsh.discord-screenaudio
