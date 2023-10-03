@@ -25,6 +25,7 @@
     # BROKEN
     # gpu-screen-recorder
     # gpu-screen-recorder-gtk
+    slippi-launcher
   ];
 
   chaotic.steam.extraCompatPackages = with pkgs; [
