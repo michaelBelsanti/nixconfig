@@ -132,6 +132,7 @@
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
       montserrat
       twemoji-color-font
+      libertine
     ];
     enableDefaultPackages = true;
     fontDir.enable = true;
