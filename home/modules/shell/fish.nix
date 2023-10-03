@@ -15,7 +15,6 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      x = "cd (xplr)";
       nixup = "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/fish/config.fish";
       cleanup = "doas nix-collect-garbage -d";
       open = "xdg-open";

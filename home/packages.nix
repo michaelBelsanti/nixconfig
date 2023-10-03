@@ -70,6 +70,5 @@
     choose
     slides
     psmisc
-    xplr
   ];
 }

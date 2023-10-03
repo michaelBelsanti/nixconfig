@@ -2,6 +2,11 @@
   # Nushell requires more in-depth configuration
   imports = [./nushell ./fish.nix ./zsh.nix ./ion.nix];
   programs = {
+    bash = {
+      enable = true;
+      enableVteIntegration = true;
+      historyFileSize = 0;
+    };
     starship = {
       enable = true;
       settings = {
@@ -13,10 +18,12 @@
         shell.disabled = false;
       };
     };
-    carapace.enable = true;
-    zoxide.enable = true;
-    skim.enable = true;
     bat.enable = true;
+    broot = {
+      enable = true;
+      modal = true;
+    };
+    carapace.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -25,10 +32,7 @@
       enable = true;
       enableAliases = true;
     };
-    bash = {
-      enable = true;
-      enableVteIntegration = true;
-      historyFileSize = 0;
-    };
+    skim.enable = true;
+    zoxide.enable = true;
   };
 }
