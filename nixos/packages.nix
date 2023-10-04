@@ -41,10 +41,6 @@
     gptfdisk
     wget
 
-    # VMs
-    virt-manager
-    virglrenderer
-
     jellyfin-media-player
     mullvad-vpn
     tetrio-desktop

@@ -254,6 +254,11 @@
   '';
 
   # VMs
+  environment.systemPackages = with pkgs; [
+    boxes
+    virt-manager
+    virglrenderer
+  ];
   virtualisation = {
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
