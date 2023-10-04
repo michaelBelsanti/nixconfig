@@ -4,6 +4,7 @@
   lib,
   user,
   flakePath,
+  inputs,
   ...
 }: {
   imports = [./nix.nix];
@@ -82,9 +83,11 @@
     };
     supportedFilesystems = ["ntfs"]; # Adds NTFS driver
     # Allow appimages to be run directly
-    binfmt.registrations.appimage = {
+    binfmt.registrations.appimage = let
+      slippi-pkgs = inputs.nixpkgs-slippi-fix.legacyPackages.${pkgs.system};
+    in {
       wrapInterpreterInShell = false;
-      interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+      interpreter = "${slippi-pkgs.appimage-run}/bin/appimage-run";
       recognitionType = "magic";
       offset = 0;
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';

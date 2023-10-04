@@ -566,6 +566,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-slippi-fix": {
+      "locked": {
+        "lastModified": 1696361981,
+        "narHash": "sha256-dAHBj60TQVOFu58zqsXEEHnvuLF6FUD9BbbG+KWfEnI=",
+        "owner": "michaelBelsanti",
+        "repo": "nixpkgs",
+        "rev": "a94cb202d36d3a6572003fd45497ab26f911fc43",
+        "type": "github"
+      },
+      "original": {
+        "owner": "michaelBelsanti",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1668984258,
@@ -741,6 +756,7 @@
         "nix-gaming": "nix-gaming",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-slippi-fix": "nixpkgs-slippi-fix",
         "nur": "nur",
         "parts": "parts",
         "plasma-manager": "plasma-manager",
