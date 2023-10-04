@@ -21,7 +21,7 @@
     bat.enable = true;
     broot = {
       enable = true;
-      modal = true;
+      settings.modal = true;
     };
     carapace.enable = true;
     direnv = {
