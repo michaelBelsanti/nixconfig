@@ -48,7 +48,7 @@
       gtk.enable = true;
     };
     programs.spicetify = {
-      enable = true;
+      enable = false;
       enabledExtensions = with pkgs.spicePkgs.extensions; [fullAppDisplay featureShuffle hidePodcasts];
     };
   };

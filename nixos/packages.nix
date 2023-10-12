@@ -18,6 +18,7 @@
     nextcloud-client
     bottles
     beeper
+    spot
 
     # Editor
     helix
@@ -51,6 +52,7 @@
     imagemagick
     ffmpeg
     filelight
+    gnome-frog
 
     # Not in modules/gaming.nix because any device can handle retro games
     (retroarch.override {
