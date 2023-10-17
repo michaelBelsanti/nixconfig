@@ -19,6 +19,7 @@
     bottles
     beeper
     spot
+    newsflash
 
     # Editor
     helix
