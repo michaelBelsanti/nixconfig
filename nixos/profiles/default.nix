@@ -32,6 +32,7 @@
           inputs.nixos-hardware.nixosModules.common-cpu-amd
           inputs.nixos-hardware.nixosModules.common-pc-ssd
           inputs.chaotic.nixosModules.default
+          inputs.ssbm.nixosModule
         ]
         ++ sharedModules;
     };

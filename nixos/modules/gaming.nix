@@ -1,6 +1,7 @@
 {
   pkgs,
   user,
+  inputs,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -26,6 +27,7 @@
     # gpu-screen-recorder
     # gpu-screen-recorder-gtk
     slippi-launcher
+    slippi-netplay
   ];
 
   chaotic.steam.extraCompatPackages = with pkgs; [
@@ -36,6 +38,7 @@
     # xone.enable = true; # BUG broken package
     # xpadneo.enable = true;
   };
+  ssbm.cache.enable = true;
   programs = {
     steam = {
       enable = true;

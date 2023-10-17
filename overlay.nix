@@ -6,6 +6,8 @@ inputs: _self: super: {
   inherit (inputs.plasma-manager.packages.${super.system}) rc2nix;
   inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
   inherit (inputs.hypr-contrib.packages.${super.system}) grimblast;
+  inherit (inputs.ssbm.packages.${super.system}) slippi-netplay;
+  inherit (inputs.ssbm.packages.${super.system}) slippi-playback;
   spicePkgs = inputs.spicetify.packages.${super.system}.default;
   discord-canary = super.discord-canary.override {
     nss = super.nss_latest;
