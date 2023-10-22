@@ -41,7 +41,7 @@
       enable = true;
       userName = "michaelBelsanti";
       userEmail = "quasigod-io@protonmail.com";
-      delta.enable = true;
+      difftastic.enable = true;
       extraConfig = {
         init = {defaultBranch = "main";};
         pull = {rebase = true;};
