@@ -8,6 +8,7 @@
     libreoffice
     discord-canary
     revolt-desktop
+    spotify
     xwaylandvideobridge
     kdenlive
     signal-desktop
