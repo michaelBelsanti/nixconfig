@@ -70,5 +70,6 @@
     choose
     slides
     psmisc
+    difftastic
   ];
 }
