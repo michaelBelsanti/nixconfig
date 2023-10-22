@@ -25,6 +25,7 @@
       forge
       gtk-title-bar
       appindicator
+      application-volume-mixer
     ];
     dconf.settings = {
       "org/gnome/mutter" = {
