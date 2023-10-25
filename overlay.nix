@@ -9,6 +9,11 @@ inputs: _self: super: {
   inherit (inputs.ssbm.packages.${super.system}) slippi-netplay;
   inherit (inputs.ssbm.packages.${super.system}) slippi-playback;
   spicePkgs = inputs.spicetify.packages.${super.system}.default;
+  discord = super.discord.override {
+    # nss = super.nss_latest;
+    withOpenASAR = true;
+    withVencord = true;
+  };
   discord-canary = super.discord-canary.override {
     nss = super.nss_latest;
     withOpenASAR = true;
