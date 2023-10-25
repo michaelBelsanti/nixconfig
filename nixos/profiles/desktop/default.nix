@@ -35,7 +35,7 @@
   # Display shiz
   services = {
     xrdp = {
-      enable = true;
+      enable = false;
       defaultWindowManager = "${pkgs.i3}/bin/i3";
     };
     murmur = {
