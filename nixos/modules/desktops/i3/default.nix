@@ -33,7 +33,6 @@
         bars = [];
         fonts = {};
         terminal = "kitty";
-        workspaceAutoBackAndForth = true;
       };
       extraConfig = builtins.readFile ./config;
     };
