@@ -36,6 +36,7 @@
     nix-init
     nix-tree
     nix-index
+    nix-update
 
     # Notetaking
     marksman
