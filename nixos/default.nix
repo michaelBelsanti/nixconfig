@@ -73,8 +73,12 @@
     tmp.useTmpfs = true;
     # Cute boot animation
     loader = {
-      grub = {
+      systemd-boot = {
         enable = true;
+        netbootxyz.enable = true;
+      };
+      grub = {
+        enable = false;
         device = "nodev";
         efiSupport = true;
       };
