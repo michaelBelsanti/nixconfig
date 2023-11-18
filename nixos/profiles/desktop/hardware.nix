@@ -31,11 +31,11 @@
     options = ["compress=zstd"];
   };
 
-  fileSystems."/run/media/quasi/gamessd" = {
-    device = "/dev/disk/by-label/gamessd";
-    fsType = "btrfs";
-    options = ["compress=zstd"];
-  };
+  # fileSystems."/run/media/quasi/gamessd" = {
+  #   device = "/dev/disk/by-label/gamessd";
+  #   fsType = "btrfs";
+  #   options = ["compress=zstd"];
+  # };
 
   # fileSystems."/run/media/quasi/nfs" = {
   #   device = "sidious.quasi.ml:/zfsa/nfs";
