@@ -28,6 +28,7 @@
     # gpu-screen-recorder-gtk
     slippi-launcher
     slippi-netplay
+    r2modman
   ];
 
   chaotic.steam.extraCompatPackages = with pkgs; [
