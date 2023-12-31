@@ -62,5 +62,7 @@
         beetle-gba
       ];
     })
+
+    doas-sudo-shim
   ];
 }
