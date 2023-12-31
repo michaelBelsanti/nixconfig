@@ -21,7 +21,12 @@
         formatter = pkgs.alejandra;
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
-          config.allowUnfree = true;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "electron-25.9.0"
+            ];
+          };
           overlays = [
             overlay
             inputs.mypkgs.overlays.default

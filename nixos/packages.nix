@@ -6,7 +6,7 @@
     librewolf
     logseq
     libreoffice
-    armcord
+    vesktop
     revolt-desktop
     spotify
     xwaylandvideobridge
