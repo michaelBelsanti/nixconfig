@@ -175,7 +175,10 @@
   # Others (things that for some reason aren't in services, hardware, or programs)
   appstream.enable = true;
   zramSwap.enable = true;
-  xdg.portal.enable = true;
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+  };
 
   # Services
   services = {
