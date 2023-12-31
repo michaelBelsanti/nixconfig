@@ -9,7 +9,7 @@
     winetricks
     protontricks
     (lutris.override {
-      # extraPkgs = _pkgs: [wine-ge];
+      extraPkgs = _pkgs: [wineWowPackages.full];
       extraLibraries = _pkgs: [latencyflex];
     })
     heroic
@@ -36,6 +36,7 @@
     steamtinkerlaunch
   ];
   hardware = {
+    opentabletdriver.enable = true;
     # xone.enable = true; # BUG broken package
     # xpadneo.enable = true;
   };
