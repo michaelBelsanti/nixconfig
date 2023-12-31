@@ -182,6 +182,7 @@
 
   # Services
   services = {
+    espanso.enable = true;
     flatpak.enable = true;
     fstrim.enable = true;
     btrfs.autoScrub.enable = true;
