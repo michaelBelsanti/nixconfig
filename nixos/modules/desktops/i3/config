@@ -210,28 +210,28 @@ set $ws19 "19"
 set $ws20 "20"
 
 # monitor 1 workspaces
-workspace $ws1  output  DP-4
-workspace $ws2  output  DP-4
-workspace $ws3  output  DP-4
-workspace $ws4  output  DP-4
-workspace $ws5  output  DP-4
-workspace $ws11 output  DP-4
-workspace $ws12 output  DP-4
-workspace $ws13 output  DP-4
-workspace $ws14 output  DP-4
-workspace $ws15 output  DP-4
+workspace $ws1  output  DisplayPort-1
+workspace $ws2  output  DisplayPort-1
+workspace $ws3  output  DisplayPort-1
+workspace $ws4  output  DisplayPort-1
+workspace $ws5  output  DisplayPort-1
+workspace $ws11 output  DisplayPort-1
+workspace $ws12 output  DisplayPort-1
+workspace $ws13 output  DisplayPort-1
+workspace $ws14 output  DisplayPort-1
+workspace $ws15 output  DisplayPort-1
 
 # monitor 2 workspaces
-workspace $ws6  output  HDMI-0
-workspace $ws7  output  HDMI-0
-workspace $ws8  output  HDMI-0
-workspace $ws9  output  HDMI-0
-workspace $ws10 output  HDMI-0
-workspace $ws16 output  HDMI-0
-workspace $ws17 output  HDMI-0
-workspace $ws18 output  HDMI-0
-workspace $ws19 output  HDMI-0
-workspace $ws20 output  HDMI-0
+workspace $ws6  output  HDMI-A-0
+workspace $ws7  output  HDMI-A-0
+workspace $ws8  output  HDMI-A-0
+workspace $ws9  output  HDMI-A-0
+workspace $ws10 output  HDMI-A-0
+workspace $ws16 output  HDMI-A-0
+workspace $ws17 output  HDMI-A-0
+workspace $ws18 output  HDMI-A-0
+workspace $ws19 output  HDMI-A-0
+workspace $ws20 output  HDMI-A-0
 
 # floating applications
 for_window [instance="scrcpy"] floating enable

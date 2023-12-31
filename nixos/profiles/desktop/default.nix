@@ -45,9 +45,9 @@
     pipewire.lowLatency.enable = true;
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
+      videoDrivers = ["amdgpu"];
       displayManager = {
-        setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DP-4 --primary --mode 1920x1080 --rate 240 --output HDMI-0 --left-of DP-4";
+        setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DisplayPort-1 --primary --mode 1920x1080 --rate 240 --output HDMI-A-0 --left-of DisplayPort-1";
         sddm = {
           enable = true;
           theme = "chili";
@@ -68,15 +68,15 @@
   # Causes librewolf to crash occasionally
   hardware = {
     keyboard.qmk.enable = true;
-    nvidia.modesetting.enable = true;
+    # nvidia.modesetting.enable = true;
     opengl.extraPackages = with pkgs; [
-      nvidia-vaapi-driver
+      # nvidia-vaapi-driver
       # vaapiVdpau
       # libvdpau-va-gl
     ];
   };
 
-  virtualisation.podman.enableNvidia = true;
+  # virtualisation.podman.enableNvidia = true;
 
   environment = {
     systemPackages = with pkgs; [
