@@ -7,8 +7,8 @@
     ./hardware.nix
     ../../modules/gaming.nix
     ../../modules/vfio
-    ../../modules/desktops/i3
-    # ../../modules/desktops/plasma/desktop.nix
+    # ../../modules/desktops/i3
+    ../../modules/desktops/plasma/desktop.nix
   ];
 
   home-manager.users.${user} = {
@@ -26,6 +26,7 @@
     };
   };
 
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.grub = {
     # gfxmodeEfi = "1920x1080";
     # gfxpayloadEfi = "keep";
@@ -36,7 +37,7 @@
   services = {
     xrdp = {
       enable = false;
-      defaultWindowManager = "${pkgs.i3}/bin/i3";
+      # defaultWindowManager = "${pkgs.i3}/bin/i3";
     };
     murmur = {
       enable = true;

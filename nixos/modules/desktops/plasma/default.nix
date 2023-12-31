@@ -16,9 +16,9 @@
       flavour = ["macchiato"];
       accents = ["mauve"];
     })
-    lightly-qt
+    # lightly-qt
     libsForQt5.lightly
-    libsForQt5.bismuth
+    libsForQt5.polonium
 
     ark
     krusader
