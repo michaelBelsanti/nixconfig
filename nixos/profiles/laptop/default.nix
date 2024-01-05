@@ -28,14 +28,6 @@
   };
 
   home-manager.users.${user} = {
-    programs.foot = {
-      enable = true;
-      server.enable = true;
-      settings = {
-        main.font = "monospace:size=12";
-        csd.size = 0;
-      };
-    };
   };
 
   services = {
