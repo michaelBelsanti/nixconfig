@@ -51,6 +51,14 @@
       enable = false;
       enabledExtensions = with pkgs.spicePkgs.extensions; [fullAppDisplay featureShuffle hidePodcasts];
     };
+    programs.foot = {
+      enable = true;
+      server.enable = true;
+      settings = {
+        main.font = "monospace:size=12";
+        csd.size = 0;
+      };
+    };
   };
 
   environment = {
