@@ -5,30 +5,36 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    gamescope
-    winetricks
-    protontricks
+    # Games
+    minetest
+    osu-lazer-bin
+
+    # Launchers
+    cartridges
+    heroic
+    lunar-client
     (lutris.override {
       extraPkgs = _pkgs: [wineWowPackages.full];
       extraLibraries = _pkgs: [latencyflex];
     })
-    heroic
+    prismlauncher
+
+    # Utility
+    gamescope
     goverlay
     mangohud
-    prismlauncher
-    lunar-client
-    minetest
-    osu-lazer-bin
+    protontricks
     protonup-qt
+    r2modman
     steamtinkerlaunch
-    yuzu-mainline
-    cartridges
-    # BROKEN
-    # gpu-screen-recorder
-    # gpu-screen-recorder-gtk
+    winetricks
+
+    # Emulation
+    dolphin-emu
+    dolphin-emu-primehack
     slippi-launcher
     slippi-netplay
-    r2modman
+    yuzu-mainline
   ];
 
   chaotic.steam.extraCompatPackages = with pkgs; [
