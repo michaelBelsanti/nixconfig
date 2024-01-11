@@ -17,6 +17,8 @@
 
   networking = {
     hostName = "nix-desktop";
+    # prefered for a wired connection
+    useNetworkd = true;
     firewall = {
       enable = false;
       allowedUDPPorts = [

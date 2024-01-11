@@ -107,10 +107,9 @@
     };
   };
 
-  networking = {
-    networkmanager.enable = true;
-    wireguard.enable = true;
-  };
+  # These units regularly causes problems
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.network.wait-online.enable = false;
 
   # Locale
   time.timeZone = "America/New_York";
@@ -190,6 +189,22 @@
 
   # Services
   services = {
+    openssh = {
+      settings = {
+        X11Forwarding = false;
+        KbdInteractiveAuthentication = false;
+        PasswordAuthentication = false;
+        UseDns = false;
+        StreamLocalBindUnlink = true;
+        KexAlgorithms = [
+          "curve25519-sha256"
+          "curve25519-sha256@libssh.org"
+          "diffie-hellman-group16-sha512"
+          "diffie-hellman-group18-sha512"
+          "sntrup761x25519-sha512@openssh.com"
+        ];
+      };
+    };
     espanso.enable = true;
     flatpak.enable = true;
     fstrim.enable = true;
@@ -253,7 +268,20 @@
     zsh.enable = true;
     kdeconnect.enable = true;
     dconf.enable = true;
-    ssh.startAgent = true;
+    ssh = {
+      startAgent = true;
+      # well known hosts
+      knownHosts = {
+        "github.com".hostNames = [ "github.com" ];
+        "github.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
+
+        "gitlab.com".hostNames = [ "gitlab.com" ];
+        "gitlab.com".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf";
+
+        "git.sr.ht".hostNames = [ "git.sr.ht" ];
+        "git.sr.ht".publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMZvRd4EtM7R+IHVMWmDkVU3VLQTSwQDSAvW0t2Tkj60";
+      };
+    };
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
@@ -311,7 +339,11 @@
     diff = {
       supportsDryActivation = true;
       text = ''
-        ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+        if [[ -e /run/current-system ]]; then
+          echo "--- diff to current-system"
+          ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+          echo "---"
+        fi
       '';
     };
     registryAdd.text = ''

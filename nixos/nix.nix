@@ -5,6 +5,10 @@
 }: {
   # Enable flakes
   nix = {
+    # much is copied from https://github.com/nix-community/srvos/blob/main/nixos/common/nix.nix
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+    daemonIOSchedPriority = 7;
     package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     gc.automatic = true;
@@ -25,9 +29,15 @@
         "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
         "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       ];
-      experimental-features = "nix-command flakes";
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "repl-flake"
+      ];
+      log-lines = 25;
       keep-outputs = true;
       keep-derivations = true;
+      builders-use-substitutes = true;
     };
   };
 }
