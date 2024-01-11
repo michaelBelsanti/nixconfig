@@ -61,11 +61,6 @@
     };
   };
 
-  environment = {
-    binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [fish nushell ion];
-  };
-
   # Boot options
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
@@ -121,6 +116,10 @@
     layout = "us";
     libinput.enable = true;
     desktopManager.wallpaper.mode = "fill";
+    # Wayland
+    desktopManager.plasma5.useQtScaling = true;
+    displayManager.sddm.wayland.enable = true;
+    displayManager.gdm.wayland = true;
   };
 
   # Enable sound.
@@ -167,13 +166,17 @@
     };
   };
 
-  # Environment variables
+  # Environment
   environment = {
+    binsh = "${pkgs.dash}/bin/dash";
+    shells = with pkgs; [fish nushell ion];
     defaultPackages = with pkgs; [micro git perl rsync strace];
     sessionVariables = {
       EDITOR = "micro";
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM="wayland";
     };
   };
 

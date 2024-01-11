@@ -21,6 +21,7 @@
     beeper
     spot
     newsflash
+    wl-clipboard
 
     # Editor
     helix

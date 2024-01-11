@@ -3,7 +3,10 @@
   user,
   ...
 }: {
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    desktopManager.gnome.enable = true;
+    displayManager.defaultSession = "gnome";
+  };
   qt = {
     enable = true;
     style = "adwaita-dark";
@@ -13,11 +16,9 @@
     systemPackages = with pkgs; [
       gnome.gnome-tweaks
       dconf2nix
-      wl-clipboard
     ];
     sessionVariables = {
       # GDK_DEBUG = "gl-fractional"; # Enable fractional scaling in GNOME 45
-      QT_QPA_PLATFORM="wayland";
     };
   };
   home-manager.users.${user} = {

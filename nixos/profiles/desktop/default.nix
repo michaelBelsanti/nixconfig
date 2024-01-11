@@ -38,13 +38,7 @@
     xserver = {
       enable = true;
       videoDrivers = ["amdgpu"];
-      displayManager = {
-        # setupCommands = "${pkgs.xorg.xrandr}/bin/xrandr --output DisplayPort-1 --primary --mode 1920x1080 --rate 240 --output HDMI-A-0 --left-of DisplayPort-1";
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
-      };
+      displayManager.sddm.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
         middleEmulation = false;

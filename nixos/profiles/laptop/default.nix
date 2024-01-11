@@ -43,11 +43,7 @@
     xserver = {
       enable = true;
       videoDrivers = ["intel"];
-      displayManager.gdm = {
-        wayland = true;
-        enable = true;
-      };
-      # displayManager.sddm.settings.General.DisplayServer = "wayland";
+      displayManager.gdm.enable = true;
       libinput = {
         mouse = {
           accelProfile = "flat";
@@ -72,7 +68,6 @@
 
   # Graphics drivers
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     LIBVA_DRIVER_NAME = "iHD";
   };
   hardware.opengl = {
