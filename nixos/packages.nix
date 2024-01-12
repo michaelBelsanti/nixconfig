@@ -28,6 +28,8 @@
 
     # Nix
     nix-alien
+    nix-output-monitor
+    nixpkgs-review
 
     # Containers
     distrobox
