@@ -18,7 +18,8 @@
       dconf2nix
     ];
     sessionVariables = {
-      # GDK_DEBUG = "gl-fractional"; # Enable fractional scaling in GNOME 45
+      GDK_DEBUG = "gl-fractional"; # Enable fractional scaling in GNOME 45
+      QT_QPA_PLATFORM="wayland";
     };
   };
   home-manager.users.${user} = {
