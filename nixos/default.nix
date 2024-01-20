@@ -336,7 +336,6 @@
       }
     ];
     polkit.enable = true;
-    pam.enableSSHAgentAuth = true;
   };
 
   system.activationScripts = {
