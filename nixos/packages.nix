@@ -23,6 +23,8 @@
     newsflash
     wl-clipboard
 
+    input-leap
+
     # Editor
     helix
 
