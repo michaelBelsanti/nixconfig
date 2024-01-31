@@ -11,6 +11,7 @@
     desktopManager.plasma5.enable = true;
     displayManager.defaultSession = "plasmawayland";
   };
+  programs.partition-manager.enable = true;
   environment.systemPackages = with pkgs; [
     # Theming / Customization
     (catppuccin-kde.override {
@@ -25,7 +26,6 @@
     krusader
     haruna
     yakuake
-    partition-manager
 
     rc2nix
   ];
