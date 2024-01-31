@@ -72,6 +72,7 @@
       "hugepagesz" = "1G";
       "vm.swappiness" = 1;
       "vm.compact_memory" = 0;
+      "vm.max_map_count" = 2097152;
     };
     tmp.useTmpfs = true;
     # Cute boot animation
