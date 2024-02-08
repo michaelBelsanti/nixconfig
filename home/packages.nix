@@ -7,6 +7,7 @@
     lazygit
     devenv
     so
+    jq
 
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
@@ -23,7 +24,10 @@
     # Bash
     nodePackages.bash-language-server
     shellcheck
-    ## Programming Classes
+    # Python
+    poetry
+
+    # Other language servers
     nodePackages_latest.intelephense
     nodePackages_latest.vscode-html-languageserver-bin
     nodePackages_latest.typescript-language-server
