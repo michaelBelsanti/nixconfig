@@ -18,14 +18,19 @@
     rust-analyzer
     taplo
     clippy
+    # Python
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pandas
+      python-pkgs.requests
+    ]))
+    poetry
+    python3Packages.python-lsp-server
     # Haskell
     ghc
     haskell-language-server
     # Bash
     nodePackages.bash-language-server
     shellcheck
-    # Python
-    poetry
 
     # Other language servers
     nodePackages_latest.intelephense
