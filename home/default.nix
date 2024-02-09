@@ -59,7 +59,7 @@
     EDITOR = "hx";
     VISUAL = "hx";
     EDIR_EDITOR = "hx";
-    BROWSER = "librewolf";
+    BROWSER = "firefox";
     FZF_DEFAULT_COMMAND = "find .";
 
     MANGOHUD = "0";
