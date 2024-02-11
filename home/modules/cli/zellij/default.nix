@@ -2,15 +2,24 @@ _: {
   programs.zellij.enable = true;
   xdg.configFile = {
     "zellij/config.kdl".text = ''
-      on_force_close "quit"
+      default_mode "locked"
       pane_frames false
       theme "catppuccin-mocha"
-      default_layout "compact"
+      // default_layout "compact"
       keybinds {
-        unbind "Ctrl h" "Ctrl s" "Ctrl b" "Ctrl o"
-        shared_except "locked" {
-      		bind "Alt q" { CloseFocus; }
-        }
+          shared {
+              bind "Alt q" { CloseFocus; }
+              bind "Alt n" { NewPane; }
+              bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
+              bind "Alt l" "Alt Right" { MoveFocusOrTab "Right"; }
+              bind "Alt j" "Alt Down" { MoveFocus "Down"; }
+              bind "Alt k" "Alt Up" { MoveFocus "Up"; }
+              bind "Alt =" "Alt +" { Resize "Increase"; }
+              bind "Alt -" { Resize "Decrease"; }
+              bind "Alt [" { PreviousSwapLayout; }
+              bind "Alt ]" { NextSwapLayout; }
+              bind "Alt w" { ToggleFloatingPanes; }
+          }
       }
     '';
     "zellij/layouts/haskell.kdl".text = ''
@@ -30,6 +39,7 @@ _: {
               fg 198 208 245
               bg 98 104 128
               black 41 44 60
+
               red 231 130 132
               green 166 209 137
               yellow 229 200 144
