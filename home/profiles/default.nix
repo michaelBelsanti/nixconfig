@@ -26,5 +26,12 @@ in {
         inherit inputs user flakePath;
       };
     };
+    "${user}@parrot" = homeManagerConfiguration {
+      inherit pkgs;
+      modules = homeImports;
+      extraSpecialArgs = {
+        inherit inputs user flakePath;
+      };
+    };
   });
 }
