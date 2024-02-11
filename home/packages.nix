@@ -8,6 +8,7 @@
     devenv
     so
     jq
+    yazi
 
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
