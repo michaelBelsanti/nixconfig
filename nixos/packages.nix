@@ -21,6 +21,7 @@
     spot
     newsflash
     wl-clipboard
+    floorp
 
     input-leap
 
