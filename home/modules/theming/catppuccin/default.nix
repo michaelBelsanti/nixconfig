@@ -6,6 +6,7 @@
   config,
   ...
 }: let
+  wallpaper = ./background_upscaled.png;
   capitalizeFirstLetter = str: let
     firstLetter = builtins.substring 0 1 str;
     restOfString = builtins.substring 1 (builtins.stringLength str) str;
@@ -24,7 +25,7 @@ in {
         package = pkgs.gnome.adwaita-icon-theme;
       };
       theme = {
-        name = "Catppuccin-${Flavour}-Standard-${Accent}-dark";
+        name = "Catppuccin-${Flavour}-Standard-${Accent}-Dark";
         package = pkgs.catppuccin-gtk.override {
           accents = ["${accent}"];
           variant = "${flavour}";
@@ -36,7 +37,16 @@ in {
         }
       ''; # Fixes bugged context menus
     };
-    home.file.".background-image".source = ./background_upscayled.png;
+    home.file.".background-image".source = wallpaper;
+    dconf.settings = {
+      "org/gnome/desktop/background" = {
+        picture-uri = "${wallpaper}";
+        picture-uri-dark = "${wallpaper}";
+      };
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "${wallpaper}";
+      };
+    };
     xdg.dataFile."konsole/Catppuccin.colorscheme".source =
       pkgs.fetchFromGitHub
       {
@@ -50,7 +60,7 @@ in {
       # Libadwaita theme
       # "gtk-4.0/gtk.css".source = ./gtk.css;
       "gtk-4.0" = {
-        source = config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-dark/gtk-4.0;
+        source = config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
         recursive = true;
       };
       "qt5ct" = {
