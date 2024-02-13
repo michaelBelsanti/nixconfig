@@ -14,7 +14,7 @@
     # services.nextcloud-client.enable = true;
     theming = {
       enable = true;
-      theme = "rosepine";
+      theme = "catppuccin";
     };
     xsession = {
       enable = true;

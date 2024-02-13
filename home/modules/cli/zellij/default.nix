@@ -4,7 +4,7 @@ _: {
     "zellij/config.kdl".text = ''
       default_mode "locked"
       pane_frames false
-      theme "catppuccin-mocha"
+      theme "catppuccin-macchiato"
       // default_layout "compact"
       keybinds {
           shared {
