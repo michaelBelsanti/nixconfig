@@ -173,7 +173,7 @@
     shells = with pkgs; [fish nushell ion];
     defaultPackages = with pkgs; [micro git perl rsync strace];
     sessionVariables = {
-      EDITOR = "micro";
+      EDITOR = "hx";
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
       NIXOS_OZONE_WL = "1";
