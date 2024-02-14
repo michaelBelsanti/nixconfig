@@ -42,7 +42,7 @@
       };
       "org/gnome/shell" = {
         enabled-extensions = ["user-theme@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "forge@jmmaranan.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com"];
-        favorite-apps = [ "firefox.desktop" "org.gnome.Nautilus.desktop" ];
+        favorite-apps = [ "floorp.desktop" "org.gnome.Nautilus.desktop" "org.codeberg.dnkl.footclient.desktop" ];
       };
       "org/gnome/shell/extensions/forge" = {
         tiling-mode-enabled = true;
