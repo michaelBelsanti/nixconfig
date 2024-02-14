@@ -5,10 +5,10 @@
       "ActivityManager"."switch-to-activity-cb858a66-9f4e-4608-9e8d-c25406d10655" = [ ];
       "ActivityManager"."switch-to-activity-f9b74271-ead5-4f6b-a869-9817d1ed5b41" = [ ];
       "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = [ ];
-      "firefox.desktop"."_launch" = [ ];
-      "firefox.desktop"."new-private-window" = [ ];
-      "firefox.desktop"."new-window" = "Meta+B";
-      "firefox.desktop"."profile-manager-window" = [ ];
+      "floorp.desktop"."_launch" = [ ];
+      "floorp.desktop"."new-private-window" = [ ];
+      "floorp.desktop"."new-window" = "Meta+B";
+      "floorp.desktop"."profile-manager-window" = [ ];
       "kaccess"."Toggle Screen Reader On and Off" = [ ];
       "kcm_touchpad"."Disable Touchpad" = "Touchpad Off";
       "kcm_touchpad"."Enable Touchpad" = "Touchpad On";
