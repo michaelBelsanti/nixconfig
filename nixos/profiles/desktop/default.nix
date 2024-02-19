@@ -30,10 +30,6 @@
 
   # Display shiz
   services = {
-    murmur = {
-      enable = true;
-      bandwidth = 130000;
-    };
     pipewire.lowLatency.enable = true;
     xserver = {
       enable = true;
