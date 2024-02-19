@@ -63,7 +63,7 @@
 
   # Boot options
   boot = {
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl = {
       "transparent_hugepage" = "always";
       "vm.nr_hugepages_defrag" = 0;
@@ -239,6 +239,7 @@
     qemuGuest.enable = true;
     gvfs.enable = true;
     input-remapper.enable = true;
+    system76-scheduler.enable = true;
   };
 
   programs = {
