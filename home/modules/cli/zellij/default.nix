@@ -2,7 +2,7 @@ _: {
   programs.zellij.enable = true;
   xdg.configFile = {
     "zellij/config.kdl".text = ''
-      default_mode "locked"
+      // default_mode "locked"
       pane_frames false
       theme "catppuccin-macchiato"
       // default_layout "compact"
