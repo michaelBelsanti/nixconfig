@@ -19,6 +19,7 @@
       cleanup = "doas nix-collect-garbage -d";
       open = "xdg-open";
       mkdir = "mkdir -p";
+      # cd = "z";
     };
     shellAbbrs = {
       lg = "lazygit";
