@@ -1,0 +1,90 @@
+{
+    "layer": "top", // Waybar at top layer
+    //"height": 5, // Waybar height (to be removed for auto height)
+    // "width": 20, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [ "wlr/workspaces"],
+    // "modules-center": ["hyprland/window"],
+    "modules-right": [
+        "backlight", 
+        // "custom/separator",
+        // "cpu", 
+        // "memory", 
+        "pulseaudio",
+        "network",
+        "battery",
+        "clock",
+        "tray"],
+    "wlr/workspaces": {
+        "sort-by-name": true
+    },
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 30,
+        "spacing": 6
+    },
+    "clock": {
+        "timezone": "America/New_York",
+        "format": " {time}", 
+        "format-alt": "{:%H:%M:%S %a %Y-%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%H:%M}",
+        "interval": 1
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
+    "cpu": {
+        "format": "&#8239;&#8239;{usage}%",
+        "on-click": "wezterm start btop"
+    },
+    "memory": {
+        "format": "󰍛&#8239;{}%",
+        "on-click": "wezterm start btop"
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}&#8239; {capacity}%",
+        // "format": "{icon} {capacity}%",
+        "format-charging": "&#8239;{capacity}%",
+        "format-alt": "{icon}  {time}",
+        "format-icons": ["", "", "", "", ""],
+    },
+    "network": {
+        "format-wifi": "󰖩&#8239;",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "󰖪",
+        "format-alt": "{essid}: {ipaddr}/{cidr}, {signalStrength}%",
+        "tooltip": true,
+        "tooltip-format": "{essid}",
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}&#8239;{volume}%",
+        "format-bluetooth": "󰂰&#8239;{volume}%",
+        "format-bluetooth-muted": "󰂲&#8239;{volume}%",
+        "format-source": "&#8239;{volume}%",
+        "format-source-muted": "",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/power": {
+        "format": "⏻&#8239;",
+        "on-click": "rofi-wrapper -o",
+        "interval": "once",
+    },
+}

@@ -1,50 +1,64 @@
 {
   description = "Quasigod's NixOS config";
-  outputs = inputs @ {parts, ...}: let
+
+  outputs = inputs @ {snowfall-lib, ...}: let
     user = "quasi";
     flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-    overlay = import ./overlay.nix inputs;
+    # overlay = import ./overlay.nix inputs;
   in
-    parts.lib.mkFlake {inherit inputs;} {
-      imports = [
-        ./nixos/profiles
-        ./home/profiles
-        {config._module.args = {inherit user flakePath;};}
+    snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+      channels-config.allowUnfree = true;
+      
+      homes.modules = with inputs; [
+        spicetify.homeManagerModule
+        plasma-manager.homeManagerModules.plasma-manager
       ];
-      systems = ["x86_64-linux"];
-      perSystem = {
-        system,
-        pkgs,
-        ...
-      }: {
-        devShells = import ./shells pkgs;
-        formatter = pkgs.alejandra;
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          config = {
-            allowUnfree = true;
-            permittedInsecurePackages = [
-              "electron-25.9.0"
-            ];
-          };
-          overlays = [
-            overlay
-            inputs.mypkgs.overlays.default
-            inputs.hypr-contrib.overlays.default
-            inputs.chaotic.overlays.default
+
+      systems.modules.nixos = with inputs; [
+        nyx.nixosModules.default
+        ssbm.nixosModule
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.extraSpecialArgs = {inherit inputs user flakePath;};
+        }
+      ];
+
+      systems.hosts = {
+        nix-desktop = {
+          modules = with inputs; [
+            nix-gaming.nixosModules.pipewireLowLatency
+            nixos-hardware.nixosModules.common-cpu-amd
+            nixos-hardware.nixosModules.common-gpu-amd
+            nixos-hardware.nixosModules.common-pc-ssd
           ];
+
+          specialArgs = {inherit user flakePath;};
+        };
+
+        nix-laptop = {
+          modules = with inputs; [
+            nixos-hardware.nixosModules.framework-12th-gen-intel
+          ];
+
+          specialArgs = {inherit user flakePath;};
         };
       };
+
+      snowfall.namespace = "custom";
     };
+
   inputs = {
     nixpkgs-slippi-fix.url = "github:michaelBelsanti/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs-lib.follows = "nixpkgs";
+    nyx.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    snowfall-lib = {
+      url = "github:snowfallorg/lib/dev";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    hm = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };

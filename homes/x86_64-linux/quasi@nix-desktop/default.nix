@@ -1,0 +1,4 @@
+{ ... }:
+{
+  apps.easyeffects.enable = true;
+}
