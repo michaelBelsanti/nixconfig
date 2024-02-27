@@ -20,11 +20,8 @@
     taplo
     clippy
     # Python
-    (python3.withPackages (python-pkgs: [
-      python-pkgs.pandas
-      python-pkgs.requests
-    ]))
     poetry
+    pipx
     python3Packages.python-lsp-server
     # Haskell
     ghc

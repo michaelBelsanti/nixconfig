@@ -23,6 +23,11 @@
     wl-clipboard
     floorp
 
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pandas
+      python-pkgs.requests
+    ]))
+
     input-leap
 
     # Editor
