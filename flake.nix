@@ -26,6 +26,7 @@
         nyx.nixosModules.default
         ssbm.nixosModule
         home-manager.nixosModules.home-manager
+        nixos-cosmic.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.extraSpecialArgs = {
@@ -63,6 +64,12 @@
   inputs = {
     nixpkgs-slippi-fix.url = "github:michaelBelsanti/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nyx.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     snowfall-lib = {
       url = "github:snowfallorg/lib/dev";

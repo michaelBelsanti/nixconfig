@@ -40,7 +40,8 @@
   # Custom options
   desktop = {
     # gnome.enable = true;
-    hyprland.enable = true;
+    cosmic.enable = true;
+    # hyprland.enable = true;
     wayland.enable = true;
   };
 
