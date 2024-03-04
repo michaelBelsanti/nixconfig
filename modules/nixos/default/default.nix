@@ -66,7 +66,7 @@
       "vm.compact_memory" = 0;
       "vm.max_map_count" = 2097152;
     };
-    tmp.useTmpfs = true;
+    tmp.useTmpfs = false;
     # Cute boot animation
     loader = {
       systemd-boot = {
