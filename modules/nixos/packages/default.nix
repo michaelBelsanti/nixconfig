@@ -8,7 +8,6 @@
     vesktop
     revolt-desktop
     spotify
-    xwaylandvideobridge
     kdenlive
     signal-desktop
     bitwarden
