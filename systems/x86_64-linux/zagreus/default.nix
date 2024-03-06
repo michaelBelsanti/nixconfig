@@ -2,18 +2,16 @@
   config,
   lib,
   pkgs,
-  user,
   ...
 }: {
   imports = [
     ./hardware.nix
-    # ../.
   ];
 
   # Custom options
   desktop.gnome.enable = true;
 
-  networking.hostName = "nix-laptop"; # Define your hostname.
+  networking.hostName = "zagreus"; # Define your hostname.
 
   boot = {
     kernelParams = ["acpi_backlight=native"];

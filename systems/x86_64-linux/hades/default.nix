@@ -12,7 +12,7 @@
   desktop.plasma.enable = true;
 
   networking = {
-    hostName = "nix-desktop";
+    hostName = "hades";
     # preferred for a wired connection
     useNetworkd = true;
     firewall = {

@@ -27,7 +27,7 @@
       ];
 
       systems.hosts = {
-        nix-desktop = {
+        hades = {
           modules = with inputs; [
             nix-gaming.nixosModules.pipewireLowLatency
             nixos-hardware.nixosModules.common-cpu-amd
@@ -38,7 +38,7 @@
           specialArgs = {inherit user flakePath;};
         };
 
-        nix-laptop = {
+        zagreus = {
           modules = with inputs; [
             nixos-hardware.nixosModules.framework-12th-gen-intel
           ];
