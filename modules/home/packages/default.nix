@@ -52,6 +52,7 @@
     # Other CLI tools that are part of my workflow
     nitch
     bottom
+    cheat
     edir
     gdu
     du-dust
