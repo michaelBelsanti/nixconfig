@@ -54,7 +54,7 @@
     EDITOR = "hx";
     VISUAL = "hx";
     EDIR_EDITOR = "hx";
-    BROWSER = "librewolf";
+    BROWSER = "floorp";
     FZF_DEFAULT_COMMAND = "find .";
 
     MANGOHUD = "0";
