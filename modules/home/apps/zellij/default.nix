@@ -6,6 +6,12 @@ _: {
       pane_frames false
       theme "catppuccin-macchiato"
       // default_layout "compact"
+      normal {
+          bind "Ctrl m" { SwitchToMode "move"; }
+      }
+      move {
+          bind "Ctrl m" { SwitchToMode "normal"; }
+      }
       keybinds {
           shared {
               bind "Alt q" { CloseFocus; }
