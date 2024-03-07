@@ -30,6 +30,8 @@
     eza = {
       enable = true;
       enableAliases = true;
+      icons = true;
+      git = true;
     };
     skim.enable = true;
     zoxide.enable = true;
