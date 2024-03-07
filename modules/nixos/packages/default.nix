@@ -22,6 +22,7 @@
     newsflash
     wl-clipboard
     floorp
+    custom.affine
 
     (python3.withPackages (
       python-pkgs: [
