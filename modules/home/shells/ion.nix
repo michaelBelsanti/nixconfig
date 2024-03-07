@@ -1,4 +1,5 @@
-{flakePath, ...}: {
+{ flakePath, ... }:
+{
   programs.ion = {
     enable = true;
     shellAliases = {

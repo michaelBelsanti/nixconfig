@@ -1,8 +1,5 @@
+{ pkgs, inputs, ... }:
 {
-  pkgs,
-  inputs,
-  ...
-}: {
   # Enable flakes
   nix = {
     # much is copied from https://github.com/nix-community/srvos/blob/main/nixos/common/nix.nix
@@ -14,7 +11,11 @@
     gc.automatic = true;
     settings = {
       auto-optimise-store = true;
-      trusted-users = ["root" "quasi" "michaelbelsanti"];
+      trusted-users = [
+        "root"
+        "quasi"
+        "michaelbelsanti"
+      ];
       substituters = [
         "https://quasigod.cachix.org"
         "https://helix.cachix.org"

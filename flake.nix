@@ -1,16 +1,19 @@
 {
   description = "Quasigod's NixOS config";
 
-  outputs = inputs @ {snowfall-lib, ...}: let
-    user = "quasi";
-    flakePath = "/home/${user}/.flake"; # Used for commands and aliases
+  outputs =
+    inputs@{ snowfall-lib, ... }:
+    let
+      user = "quasi";
+      flakePath = "/home/${user}/.flake"; # Used for commands and aliases
+    in
     # overlay = import ./overlay.nix inputs;
-  in
     snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
+      snowfall.namespace = "custom";
       channels-config.allowUnfree = true;
-      
+
       homes.modules = with inputs; [
         spicetify.homeManagerModule
         plasma-manager.homeManagerModules.plasma-manager
@@ -22,7 +25,9 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = {inherit inputs user flakePath;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs user flakePath;
+          };
         }
       ];
 
@@ -35,19 +40,21 @@
             nixos-hardware.nixosModules.common-pc-ssd
           ];
 
-          specialArgs = {inherit user flakePath;};
+          specialArgs = {
+            inherit user flakePath;
+          };
         };
 
         zagreus = {
-          modules = with inputs; [
-            nixos-hardware.nixosModules.framework-12th-gen-intel
-          ];
+          modules = with inputs; [ nixos-hardware.nixosModules.framework-12th-gen-intel ];
 
-          specialArgs = {inherit user flakePath;};
+          specialArgs = {
+            inherit user flakePath;
+          };
         };
       };
 
-      snowfall.namespace = "custom";
+      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
     };
 
   inputs = {

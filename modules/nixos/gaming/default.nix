@@ -3,13 +3,14 @@
   lib,
   pkgs,
   ...
-}: 
+}:
 with lib;
 with lib.custom;
 let
   cfg = config.gaming;
   user = config.users.mainUser;
-in {
+in
+{
   options.gaming.enable = mkBoolOpt false "Enable all gaming packages and configurations.";
 
   config = mkIf cfg.enable {
@@ -23,7 +24,7 @@ in {
       heroic
       lunar-client
       (lutris.override {
-        extraPkgs = pkgs: [wineWowPackages.full];
+        extraPkgs = pkgs: [ wineWowPackages.full ];
         # extraLibraries = pkgs: [latencyflex];
       })
       prismlauncher
@@ -90,7 +91,13 @@ in {
     snowfallorg.user.${user}.home.config = {
       programs.obs-studio = {
         enable = true;
-        plugins = with pkgs.obs-studio-plugins; [obs-nvfbc obs-vkcapture obs-pipewire-audio-capture obs-gstreamer input-overlay];
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-nvfbc
+          obs-vkcapture
+          obs-pipewire-audio-capture
+          obs-gstreamer
+          input-overlay
+        ];
       };
     };
   };

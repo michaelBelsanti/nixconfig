@@ -6,9 +6,10 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   users.mainUser = "quasi";
-  
+
   snowfallorg.user.${config.users.mainUser}.home.config = {
     # Main user theming
     # services.nextcloud-client.enable = true;
@@ -34,7 +35,9 @@
         package = pkgs.montserrat;
         size = 12;
       };
-      gtk2.configLocation = "${config.snowfallorg.user.${config.users.mainUser}.home.config.xdg.configHome}/gtk-2.0/gtkrc";
+      gtk2.configLocation = "${
+        config.snowfallorg.user.${config.users.mainUser}.home.config.xdg.configHome
+      }/gtk-2.0/gtkrc";
       gtk3 = {
         bookmarks = [
           "file:///home/quasi/Downloads Downloads"
@@ -81,18 +84,20 @@
       efi.canTouchEfiVariables = true;
       timeout = 3;
     };
-    supportedFilesystems = ["ntfs"]; # Adds NTFS driver
+    supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
     # Allow appimages to be run directly
-    binfmt.registrations.appimage = let
-      slippi-pkgs = inputs.nixpkgs-slippi-fix.legacyPackages.${pkgs.system};
-    in {
-      wrapInterpreterInShell = false;
-      interpreter = "${slippi-pkgs.appimage-run}/bin/appimage-run";
-      recognitionType = "magic";
-      offset = 0;
-      mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
-      magicOrExtension = ''\x7fELF....AI\x02'';
-    };
+    binfmt.registrations.appimage =
+      let
+        slippi-pkgs = inputs.nixpkgs-slippi-fix.legacyPackages.${pkgs.system};
+      in
+      {
+        wrapInterpreterInShell = false;
+        interpreter = "${slippi-pkgs.appimage-run}/bin/appimage-run";
+        recognitionType = "magic";
+        offset = 0;
+        mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
+        magicOrExtension = "\\x7fELF....AI\\x02";
+      };
   };
 
   # These units regularly causes problems
@@ -135,7 +140,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${config.users.mainUser} = {
     isNormalUser = true;
-    extraGroups = ["wheel" "video" "audio" "networkmanager" "lp" "scanner"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "networkmanager"
+      "lp"
+      "scanner"
+    ];
     initialPassword = "lol";
     shell = pkgs.fish;
   };
@@ -143,7 +155,7 @@
   # Best fonts (Especially JetBrains Mono)
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["JetBrainsMono"];})
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       montserrat
       twemoji-color-font
       libertine
@@ -151,24 +163,37 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     fontconfig.defaultFonts = {
-      serif = ["Liberation Serif"];
-      sansSerif = ["Montserrat"];
-      monospace = ["JetBrainsMono NF"];
-      emoji = ["Twitter Color Emoji" "Noto Color Emoji"];
+      serif = [ "Liberation Serif" ];
+      sansSerif = [ "Montserrat" ];
+      monospace = [ "JetBrainsMono NF" ];
+      emoji = [
+        "Twitter Color Emoji"
+        "Noto Color Emoji"
+      ];
     };
   };
 
   # Environment
   environment = {
     binsh = "${pkgs.dash}/bin/dash";
-    shells = with pkgs; [fish nushell ion];
-    defaultPackages = with pkgs; [micro git perl rsync strace];
+    shells = with pkgs; [
+      fish
+      nushell
+      ion
+    ];
+    defaultPackages = with pkgs; [
+      micro
+      git
+      perl
+      rsync
+      strace
+    ];
     sessionVariables = {
       EDITOR = "hx";
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
       NIXOS_OZONE_WL = "1";
-      QT_QPA_PLATFORM="wayland";
+      QT_QPA_PLATFORM = "wayland";
     };
   };
 
@@ -216,7 +241,7 @@
     # Printing
     printing = {
       enable = true;
-      drivers = [pkgs.hplip];
+      drivers = [ pkgs.hplip ];
     };
     avahi = {
       enable = true;
@@ -241,15 +266,15 @@
       policies = {
         DisableAppUpdate = true;
       };
-      preferences = let
-        enableAndSync = prefs:
-          lib.attrsets.genAttrs
-          (map (name:
-            "services.sync.prefs.sync." + name)
-          (builtins.attrNames prefs))
-          (_: true)
-          // prefs;
-      in
+      preferences =
+        let
+          enableAndSync =
+            prefs:
+            lib.attrsets.genAttrs (map (name: "services.sync.prefs.sync." + name) (builtins.attrNames prefs)) (
+              _: true
+            )
+            // prefs;
+        in
         enableAndSync {
           "layout.spellcheckDefault" = 2;
           "extensions.pocket.enabled" = false;
@@ -322,7 +347,7 @@
     doas.enable = true;
     doas.extraRules = [
       {
-        users = ["${config.users.mainUser}"];
+        users = [ "${config.users.mainUser}" ];
         keepEnv = true;
         persist = true;
       }

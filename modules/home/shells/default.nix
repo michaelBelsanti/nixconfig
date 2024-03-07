@@ -1,5 +1,11 @@
-{...}: {
-  imports = [./nushell ./fish.nix ./zsh.nix ./ion.nix];
+{ ... }:
+{
+  imports = [
+    ./nushell
+    ./fish.nix
+    ./zsh.nix
+    ./ion.nix
+  ];
   programs = {
     bash = {
       enable = true;

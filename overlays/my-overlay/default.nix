@@ -9,7 +9,8 @@
   spicetify,
   nyx,
   ...
-}: _self: super: {
+}:
+_self: super: {
   inherit (helix.packages.${super.system}) helix;
   inherit (devenv.packages.${super.system}) devenv;
   inherit (plasma-manager.packages.${super.system}) rc2nix;
@@ -38,8 +39,15 @@
     desktopName = "Helix (TUI)";
     genericName = "Helix";
     exec = "hx %F";
-    mimeTypes = ["text/plain" "inode/directory"];
-    categories = ["Utility" "TextEditor" "Development"];
+    mimeTypes = [
+      "text/plain"
+      "inode/directory"
+    ];
+    categories = [
+      "Utility"
+      "TextEditor"
+      "Development"
+    ];
     terminal = true;
   };
   rosepine-wallpaper = super.fetchurl {

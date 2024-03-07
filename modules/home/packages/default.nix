@@ -1,6 +1,7 @@
 # Any packages that I would want outside of NixOS is installed with home-manager
 # These will be installed in both a NixosConfiguration and HomeConfiguration
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     # Dev
     helix

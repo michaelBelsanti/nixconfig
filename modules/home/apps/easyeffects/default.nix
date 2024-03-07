@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.apps.easyeffects;
-in {
+in
+{
   options.apps.easyeffects.enable = mkBoolOpt false "Enable easyeffects configuration.";
   config = mkIf cfg.enable {
     services.easyeffects.enable = true;

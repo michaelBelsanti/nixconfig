@@ -3,10 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
-  imports = [
-    ./hardware.nix
-  ];
+}:
+{
+  imports = [ ./hardware.nix ];
 
   # Custom options
   desktop.gnome.enable = true;
@@ -14,8 +13,8 @@
   networking.hostName = "zagreus"; # Define your hostname.
 
   boot = {
-    kernelParams = ["acpi_backlight=native"];
-    blacklistedKernelModules = ["hid_sensor_hub"];
+    kernelParams = [ "acpi_backlight=native" ];
+    blacklistedKernelModules = [ "hid_sensor_hub" ];
     loader.grub.theme = pkgs.framework-grub-theme;
     plymouth.enable = true;
     initrd.systemd.enable = true; # To load gui for decryption
@@ -23,14 +22,14 @@
 
   # Make fingerprint sensor work at boot
   systemd.services.fprintd = {
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "simple";
   };
 
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["intel"];
+      videoDrivers = [ "intel" ];
       displayManager.gdm.enable = true;
       libinput = {
         mouse = {
@@ -40,7 +39,9 @@
             Option "MiddleEmulation" "off"
           '';
         };
-        touchpad = {accelProfile = "adaptive";};
+        touchpad = {
+          accelProfile = "adaptive";
+        };
       };
     };
     auto-cpufreq.enable = true;
@@ -49,7 +50,7 @@
     fprintd.enable = true; # Enable fingerprint scanner
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
-      extraRemotes = ["lvfs-testing"];
+      extraRemotes = [ "lvfs-testing" ];
     };
   };
 
@@ -61,7 +62,7 @@
     extraPackages = with pkgs; [
       intel-media-driver # LIBVA_DRIVER_NAME=iHD
     ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [intel-media-driver];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
   };
 
   # Framework stuff

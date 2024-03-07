@@ -4,14 +4,15 @@
   pkgs,
   user,
   ...
-}: {
+}:
+{
 
   # Home Manager Setup
   home = {
     username = "${user}";
     homeDirectory = "/home/${user}";
     stateVersion = "22.05";
-    sessionPath = ["$HOME/.local/bin"];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
   # Let Home Manager install and manage itself.
@@ -38,8 +39,12 @@
       userEmail = "quasigod-io@protonmail.com";
       difftastic.enable = true;
       extraConfig = {
-        init = {defaultBranch = "main";};
-        pull = {rebase = true;};
+        init = {
+          defaultBranch = "main";
+        };
+        pull = {
+          rebase = true;
+        };
       };
     };
     tealdeer.settings = {

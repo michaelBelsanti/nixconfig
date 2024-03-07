@@ -3,7 +3,8 @@
   pkgs,
   flakePath,
   ...
-}: {
+}:
+{
   programs = {
     zsh = {
       enable = false;

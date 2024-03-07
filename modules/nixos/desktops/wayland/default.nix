@@ -5,15 +5,15 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.desktop.wayland;
-in {
+in
+{
   options.desktop.wayland.enable = mkBoolOpt false "Enable recommended variables and packages for Wayland.";
   config = mkIf cfg.enable {
     environment = {
-      systemPackages = with pkgs; [
-        wl-clipboard
-      ];
+      systemPackages = with pkgs; [ wl-clipboard ];
       sessionVariables = {
         NIXOS_OZONE_WL = "1";
         QT_QPA_PLATFORM = "wayland";

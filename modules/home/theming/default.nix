@@ -1,13 +1,11 @@
-{
-  lib,
-  config,
-  ...
-}:
-with lib; let
+{ lib, config, ... }:
+with lib;
+let
   cfg = config.theming;
   isCatppuccin = cfg.theme == "catppuccin";
   isRosePine = cfg.theme == "rose-pine";
-in {
+in
+{
   options = {
     theming = {
       enable = mkEnableOption "theming";
@@ -23,35 +21,27 @@ in {
         '';
       };
       variant = mkOption {
-        default =
-          if isCatppuccin
-          then "macchiato"
-          else "";
+        default = if isCatppuccin then "macchiato" else "";
         type =
-          if isCatppuccin
-          then
+          if isCatppuccin then
             types.enum [
               "latte"
               "frappe"
               "macchiato"
               "mocha"
             ]
-          else if isRosePine
-          then
+          else if isRosePine then
             types.enum [
               "dawn"
               "moon"
             ]
-          else types.enum [""];
+          else
+            types.enum [ "" ];
       };
       accent = mkOption {
-        default =
-          if isCatppuccin
-          then "mauve"
-          else "";
+        default = if isCatppuccin then "mauve" else "";
         type =
-          if isCatppuccin
-          then
+          if isCatppuccin then
             types.enum [
               "rosewater"
               "flamingo"
@@ -68,7 +58,8 @@ in {
               "blue"
               "lavender"
             ]
-          else types.enum [""];
+          else
+            types.enum [ "" ];
       };
     };
   };

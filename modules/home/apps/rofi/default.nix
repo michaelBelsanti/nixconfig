@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.apps.rofi;
-in {
+in
+{
   options.apps.rofi.enable = mkBoolOpt false "Enable rofi configuration with scripts.";
   config = mkIf cfg.enable {
     xdg.configFile = {

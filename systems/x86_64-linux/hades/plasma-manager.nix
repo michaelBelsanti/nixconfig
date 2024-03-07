@@ -18,11 +18,20 @@
       "kmix"."decrease_volume" = "Volume Down";
       "kmix"."increase_microphone_volume" = "Microphone Volume Up";
       "kmix"."increase_volume" = "Volume Up";
-      "kmix"."mic_mute" = ["Microphone Mute" "Meta+Volume Mute"];
+      "kmix"."mic_mute" = [
+        "Microphone Mute"
+        "Meta+Volume Mute"
+      ];
       "kmix"."mute" = "Volume Mute";
       "ksmserver"."Halt Without Confirmation" = [ ];
-      "ksmserver"."Lock Session" = ["Meta+Esc" "Screensaver"];
-      "ksmserver"."Log Out" = ["Ctrl+Alt+Del" "Meta+Del"];
+      "ksmserver"."Lock Session" = [
+        "Meta+Esc"
+        "Screensaver"
+      ];
+      "ksmserver"."Log Out" = [
+        "Ctrl+Alt+Del"
+        "Meta+Del"
+      ];
       "ksmserver"."Log Out Without Confirmation" = [ ];
       "ksmserver"."Reboot Without Confirmation" = [ ];
       "kwin"."Activate Window Demanding Attention" = "Meta+A";
@@ -298,12 +307,14 @@
       "kcminputrc"."Libinput.10007.61441.CheerPod Mouse"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."ClickMethod" = 2;
       "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."NaturalScroll" = true;
-      "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."PointerAcceleration" = 0.200000;
-      "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."ScrollFactor" = 0.750000;
+      "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."PointerAcceleration" = 0.2;
+      "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."ScrollFactor" = 0.75;
       "kcminputrc"."Libinput.2362.628.PIXA3854:00 093A:0274 Touchpad"."TapToClick" = true;
       "kcminputrc"."Libinput.51984.25174.Keebio Iris Rev. 6 Consumer Control"."Enabled" = false;
-      "kcminputrc"."Libinput.6421.63152.Finalmouse Finalmouse Wireless Receiver"."PointerAccelerationProfile" = 1;
-      "kcminputrc"."Libinput.6421.63152.input-remapper Finalmouse Finalmouse Wireless Receiver forwarded"."PointerAccelerationProfile" = 1;
+      "kcminputrc"."Libinput.6421.63152.Finalmouse Finalmouse Wireless Receiver"."PointerAccelerationProfile" =
+        1;
+      "kcminputrc"."Libinput.6421.63152.input-remapper Finalmouse Finalmouse Wireless Receiver forwarded"."PointerAccelerationProfile" =
+        1;
       "kcminputrc"."Libinput.9354.23343.XCTECH Ninjutso Sora"."PointerAccelerationProfile" = 1;
       "kcminputrc"."Mouse"."X11LibInputXAccelProfileFlat" = true;
       "kcminputrc"."Mouse"."XLbInptAccelProfileFlat" = true;
@@ -543,8 +554,8 @@
       "kwinrc"."Effect-windowview"."BorderActivateAll" = 9;
       "kwinrc"."NightColor"."Active" = true;
       "kwinrc"."NightColor"."EveningBeginFixed" = 2000;
-      "kwinrc"."NightColor"."LatitudeAuto" = 39.707700;
-      "kwinrc"."NightColor"."LatitudeFixed" = 34.620000;
+      "kwinrc"."NightColor"."LatitudeAuto" = 39.7077;
+      "kwinrc"."NightColor"."LatitudeFixed" = 34.62;
       "kwinrc"."NightColor"."LongitudeAuto" = "-75.0924";
       "kwinrc"."NightColor"."Mode" = "Times";
       "kwinrc"."NightColor"."MorningBeginFixed" = 700;

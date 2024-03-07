@@ -1,12 +1,10 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.apps.foot;
-in {
+in
+{
   options.apps.foot.enable = mkBoolOpt false "Enable foot configuration.";
   config = mkIf cfg.enable {
     programs.foot = {

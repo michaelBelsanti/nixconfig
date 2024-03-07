@@ -1,5 +1,6 @@
-{user, ...}: {
-  imports = [./default.nix];
+{ user, ... }:
+{
+  imports = [ ./default.nix ];
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
     # GDK_SCALE = "2";

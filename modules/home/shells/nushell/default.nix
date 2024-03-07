@@ -1,11 +1,9 @@
+{ pkgs, flakePath, ... }:
+let
+in
+# nuprompt = pkgs.writeText "nuprompt" "${builtins.readFile ./panache-git.nu}";
 {
-  pkgs,
-  flakePath,
-  ...
-}: let
-  # nuprompt = pkgs.writeText "nuprompt" "${builtins.readFile ./panache-git.nu}";
-in {
-  home.packages = with pkgs; [carapace];
+  home.packages = with pkgs; [ carapace ];
   programs = {
     starship.enableNushellIntegration = true;
     nushell = {

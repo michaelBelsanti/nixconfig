@@ -5,15 +5,17 @@
   ...
 }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.desktop.hyprland;
   user = config.users.mainUser;
-in {
+in
+{
   options.desktop.hyprland.enable = mkBoolOpt false "Enable hyprland configuration.";
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
-    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     environment.sessionVariables = {
       QT_QPA_PLATFORM = "wayland";
       NIXOS_OZONE_WL = "1";
@@ -21,9 +23,9 @@ in {
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       swaybg
-      (waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-      }))
+      (waybar.overrideAttrs (
+        oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ]; }
+      ))
       brightnessctl
       wl-clipboard
       rofi-wayland

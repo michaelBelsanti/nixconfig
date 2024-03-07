@@ -1,8 +1,5 @@
+{ pkgs, flakePath, ... }:
 {
-  pkgs,
-  flakePath,
-  ...
-}: {
   home.packages = with pkgs.fishPlugins; [
     colored-man-pages
     done

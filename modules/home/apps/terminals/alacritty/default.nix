@@ -1,12 +1,10 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.apps.alacritty;
-in {
+in
+{
   options.apps.alacritty.enable = mkBoolOpt false "Enable alacritty configuration.";
   config = mkIf cfg.enable {
     programs.alacritty.enable = true;

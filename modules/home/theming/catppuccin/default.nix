@@ -5,19 +5,26 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   wallpaper = ./background_upscaled.png;
-  capitalizeFirstLetter = str: let
-    firstLetter = builtins.substring 0 1 str;
-    restOfString = builtins.substring 1 (builtins.stringLength str) str;
-  in
-    builtins.concatStringsSep "" [(lib.strings.toUpper firstLetter) restOfString];
+  capitalizeFirstLetter =
+    str:
+    let
+      firstLetter = builtins.substring 0 1 str;
+      restOfString = builtins.substring 1 (builtins.stringLength str) str;
+    in
+    builtins.concatStringsSep "" [
+      (lib.strings.toUpper firstLetter)
+      restOfString
+    ];
   catppuccinEnabled = config.theming.enable && (config.theming.theme == "catppuccin");
   flavour = config.theming.variant;
   accent = config.theming.accent;
   Flavour = capitalizeFirstLetter config.theming.variant;
   Accent = capitalizeFirstLetter config.theming.accent;
-in {
+in
+{
   config = lib.mkIf catppuccinEnabled {
     gtk = {
       iconTheme = {
@@ -27,7 +34,7 @@ in {
       theme = {
         name = "Catppuccin-${Flavour}-Standard-${Accent}-Dark";
         package = pkgs.catppuccin-gtk.override {
-          accents = ["${accent}"];
+          accents = [ "${accent}" ];
           variant = "${flavour}";
         };
       };
@@ -48,8 +55,7 @@ in {
       };
     };
     xdg.dataFile."konsole/Catppuccin.colorscheme".source =
-      pkgs.fetchFromGitHub
-      {
+      pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "konsole";
         rev = "7d86b8a1e56e58f6b5649cdaac543a573ac194ca";
@@ -60,7 +66,8 @@ in {
       # Libadwaita theme
       # "gtk-4.0/gtk.css".source = ./gtk.css;
       "gtk-4.0" = {
-        source = config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
+        source =
+          config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
         recursive = true;
       };
       "qt5ct" = {
@@ -69,55 +76,55 @@ in {
       };
       "waybar/style.css".source = ./waybar/style.css;
     };
-    xsession.windowManager.i3.config.colors = let
-      pink = "#f28fad";
-      black = "#1e1d2f";
-      text = "#d9e0ee";
-      blue = "#96cdfb";
-    in rec {
-      focused = {
-        border = pink;
-        background = black;
-        text = text;
-        indicator = pink;
-        childBorder = pink;
-      };
-      focusedInactive =
-        focused
-        // {
+    xsession.windowManager.i3.config.colors =
+      let
+        pink = "#f28fad";
+        black = "#1e1d2f";
+        text = "#d9e0ee";
+        blue = "#96cdfb";
+      in
+      rec {
+        focused = {
+          border = pink;
+          background = black;
+          text = text;
+          indicator = pink;
+          childBorder = pink;
+        };
+        focusedInactive = focused // {
           border = black;
           childBorder = black;
           indicator = black;
         };
-      unfocused = focusedInactive // {border = black;};
-      urgent =
-        focused
-        // {
+        unfocused = focusedInactive // {
+          border = black;
+        };
+        urgent = focused // {
           border = blue;
           childBorder = blue;
           indicator = blue;
         };
-    };
+      };
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
     };
     services = {
-      dunst.settings = let
-        urgency_default = {
-          background = "#1e1e2e";
-          foreground = "#cdd6f4";
-        };
-      in {
-        global.frame_color = "#89b4fa";
-        urgency_low = urgency_default;
-        urgency_normal = urgency_default;
-        urgency_critical =
-          urgency_default
-          // {
+      dunst.settings =
+        let
+          urgency_default = {
+            background = "#1e1e2e";
+            foreground = "#cdd6f4";
+          };
+        in
+        {
+          global.frame_color = "#89b4fa";
+          urgency_low = urgency_default;
+          urgency_normal = urgency_default;
+          urgency_critical = urgency_default // {
             frame_color = "#fab387";
           };
-      };
+        };
     };
     programs = {
       # zellij.settings.theme = "catppuccin-${flavour}";
@@ -127,15 +134,17 @@ in {
           {
             palette = "catppuccin_${flavour}";
           }
-          // builtins.fromTOML (builtins.readFile
-            (pkgs.fetchFromGitHub
-              {
+          // builtins.fromTOML (
+            builtins.readFile (
+              pkgs.fetchFromGitHub {
                 owner = "catppuccin";
                 repo = "starship";
                 rev = "3e3e54410c3189053f4da7a7043261361a1ed1bc";
                 hash = "sha256-soEBVlq3ULeiZFAdQYMRFuswIIhI9bclIU8WXjxd7oY=";
               }
-              + /palettes/${flavour}.toml));
+              + /palettes/${flavour}.toml
+            )
+          );
       };
       foot.settings.colors = {
         # Macchiato theme
@@ -205,16 +214,15 @@ in {
         colorScheme = "${flavour}";
       };
       helix.settings.theme = "catppuccin_${flavour}";
-      gitui.theme =
-        builtins.readFile
-        (pkgs.fetchFromGitHub
-          {
-            owner = "catppuccin";
-            repo = "gitui";
-            rev = "ff1e802cfff3d5ff41b0d829a3df1da8087b1265";
-            hash = "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=";
-          }
-          + /theme/${flavour}.ron);
+      gitui.theme = builtins.readFile (
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "gitui";
+          rev = "ff1e802cfff3d5ff41b0d829a3df1da8087b1265";
+          hash = "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=";
+        }
+        + /theme/${flavour}.ron
+      );
     };
   };
 }

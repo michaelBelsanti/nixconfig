@@ -1,12 +1,10 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, config, ... }:
 with lib;
-with lib.custom; let
+with lib.custom;
+let
   cfg = config.apps.wezterm;
-in {
+in
+{
   options.apps.wezterm.enable = mkBoolOpt false "Enable wezterm configuration.";
   config = mkIf cfg.enable {
     programs.wezterm = {

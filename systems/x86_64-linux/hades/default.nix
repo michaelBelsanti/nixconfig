@@ -1,12 +1,11 @@
-{config, ...}: {
-  imports = [
-    ./hardware.nix
-  ];
+{ config, ... }:
+{
+  imports = [ ./hardware.nix ];
 
   home-manager.users.${config.users.mainUser} = {
-    imports = [./plasma-manager.nix];
+    imports = [ ./plasma-manager.nix ];
   };
-  
+
   # Custom options
   gaming.enable = true;
   desktop.plasma.enable = true;
@@ -29,7 +28,7 @@
     pipewire.lowLatency.enable = true;
     xserver = {
       enable = true;
-      videoDrivers = ["amdgpu"];
+      videoDrivers = [ "amdgpu" ];
       displayManager.sddm.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
@@ -38,7 +37,7 @@
     };
     openssh = {
       enable = true;
-      ports = [42069];
+      ports = [ 42069 ];
       settings.PasswordAuthentication = false;
     };
   };

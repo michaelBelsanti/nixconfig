@@ -1,6 +1,7 @@
 # These are packages that I need specifically in NixOS
 # Most cli tools are installed via home-manager, so I can use them on non NixOS systems
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     helix-desktop # Helix .desktop file, so it can be the default editor
     logseq
@@ -22,10 +23,12 @@
     wl-clipboard
     floorp
 
-    (python3.withPackages (python-pkgs: [
-      python-pkgs.pandas
-      python-pkgs.requests
-    ]))
+    (python3.withPackages (
+      python-pkgs: [
+        python-pkgs.pandas
+        python-pkgs.requests
+      ]
+    ))
 
     input-leap
 
@@ -41,7 +44,6 @@
     vulnix
     deadnix
     manix
-
 
     # Containers
     distrobox
@@ -72,11 +74,7 @@
     gnome-frog
 
     # Not in modules/gaming.nix because any device can handle retro games
-    (retroarch.override {
-      cores = with libretro; [
-        beetle-gba
-      ];
-    })
+    (retroarch.override { cores = with libretro; [ beetle-gba ]; })
 
     doas-sudo-shim
   ];
