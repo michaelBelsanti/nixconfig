@@ -36,7 +36,7 @@
     git = {
       enable = true;
       userName = "michaelBelsanti";
-      userEmail = "quasigod-io@protonmail.com";
+      userEmail = "quasigod-io@proton.me";
       difftastic.enable = true;
       extraConfig = {
         init = {
