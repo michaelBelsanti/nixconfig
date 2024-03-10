@@ -1,7 +1,4 @@
-{
-  stdenvNoCC,
-  fetchzip,
-}:
+{ stdenvNoCC, fetchzip }:
 stdenvNoCC.mkDerivation {
   pname = "latencyflex";
   version = "0.1.1";
