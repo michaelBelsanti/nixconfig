@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.helix = {
     enable = true;
@@ -6,7 +6,7 @@
       language = [
         {
           name = "nix";
-          formatter.command = "${pkgs.alejandra}/bin/alejandra";
+          formatter.command = "${lib.meta.getExe pkgs.nixfmt-rfc-style}";
         }
       ];
     };
