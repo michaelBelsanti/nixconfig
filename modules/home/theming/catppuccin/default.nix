@@ -127,7 +127,18 @@ in
         };
     };
     programs = {
-      # zellij.settings.theme = "catppuccin-${flavour}";
+      yazi.theme = builtins.fromTOML (
+        builtins.readFile (
+          pkgs.fetchFromGitHub {
+            owner = "yazi-rs";
+            repo = "themes";
+            rev = "a0e432e00ad4cf608fea62220e0398e2375c5319";
+            hash = "sha256-XzoRcsNtSqv3ojNpKBie/a3eQ4I6/15BTmstaP6vMLg=";
+          }
+          + /catppuccin-${flavour}/theme.toml
+        )
+      );
+      zellij.settings.theme = "catppuccin-${flavour}";
       kitty.theme = "Catppuccin-Macchiato";
       starship = {
         settings =
