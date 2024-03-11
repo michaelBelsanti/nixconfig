@@ -47,9 +47,9 @@
         };
       };
     };
-    tealdeer.settings = {
+    tealdeer = {
       enable = true;
-      updates.auto_update = true;
+      settings.updates.auto_update = true;
     };
   };
 
