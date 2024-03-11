@@ -61,7 +61,7 @@ in
         fi
       '')
     ];
-    snowfallorg.user.${user}.home.config = {
+    snowfallorg.users.${user}.home.config = {
       apps.rofi.enable = true;
       wayland.windowManager.hyprland = {
         enable = true;

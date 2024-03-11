@@ -34,7 +34,7 @@ in
         QT_QPA_PLATFORM = "wayland";
       };
     };
-    snowfallorg.user.${user}.home.config = {
+    snowfallorg.users.${user}.home.config = {
       home.packages = with pkgs.gnomeExtensions; [
         forge
         gtk-title-bar

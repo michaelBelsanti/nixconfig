@@ -44,7 +44,6 @@ in
       dolphin-emu-primehack
       ssbm.slippi-launcher
       ssbm.slippi-netplay
-      yuzu-mainline
     ];
 
     chaotic.steam.extraCompatPackages = with pkgs; [
@@ -88,7 +87,7 @@ in
         };
       };
     };
-    snowfallorg.user.${user}.home.config = {
+    snowfallorg.users.${user}.home.config = {
       programs.obs-studio = {
         enable = true;
         plugins = with pkgs.obs-studio-plugins; [

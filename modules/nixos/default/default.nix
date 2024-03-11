@@ -10,7 +10,7 @@
 {
   users.mainUser = "quasi";
 
-  snowfallorg.user.${config.users.mainUser}.home.config = {
+  snowfallorg.users.${config.users.mainUser}.home.config = {
     # Main user theming
     # services.nextcloud-client.enable = true;
     home.stateVersion = "22.05";
@@ -36,7 +36,7 @@
         size = 12;
       };
       gtk2.configLocation = "${
-        config.snowfallorg.user.${config.users.mainUser}.home.config.xdg.configHome
+        config.snowfallorg.users.${config.users.mainUser}.home.config.xdg.configHome
       }/gtk-2.0/gtkrc";
       gtk3 = {
         bookmarks = [

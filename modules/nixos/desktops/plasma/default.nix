@@ -15,13 +15,14 @@ in
   # Import automatically generated plasma-manager config
   # Generated using 'rc2nix' or `nix run github:pjones/plasma-manager`
   config = mkIf cfg.enable {
-    snowfallorg.user.${user}.home.config = {
+    snowfallorg.users.${user}.home.config = {
       programs.plasma.enable = true;
     };
     desktop.wayland.enable = true;
     services.xserver = {
-      desktopManager.plasma5.enable = true;
-      displayManager.defaultSession = "plasmawayland";
+      desktopManager.plasma6.enable = true;
+      displayManager.defaultSession = "plasma";
+      # displayManager.defaultSession = "plasmawayland";
     };
 
     environment.systemPackages = with pkgs; [
@@ -32,7 +33,8 @@ in
       })
       # lightly-qt
       # libsForQt5.lightly
-      libsForQt5.polonium
+      # libsForQt5.polonium
+      custom.polonium
 
       ark
       krusader

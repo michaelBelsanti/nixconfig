@@ -13,6 +13,9 @@
       src = ./.;
       snowfall.namespace = "custom";
       channels-config.allowUnfree = true;
+      channels-config.permittedInsecurePackages = [
+        "nix-2.16.2"
+      ];
 
       homes.modules = with inputs; [
         spicetify.homeManagerModule
