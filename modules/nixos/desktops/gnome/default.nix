@@ -61,7 +61,7 @@ in
             "appindicatorsupport@rgcjonas.gmail.com"
           ];
           favorite-apps = [
-            "firefox.desktop"
+            "floorp.desktop"
             "org.gnome.Nautilus.desktop"
           ];
         };
