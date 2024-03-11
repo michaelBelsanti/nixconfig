@@ -17,6 +17,10 @@
         "nix-2.16.2"
       ];
 
+      homes.users."quasi@nyx".specialArgs = {
+        inherit flakePath;
+      };
+
       homes.modules = with inputs; [
         spicetify.homeManagerModule
         plasma-manager.homeManagerModules.plasma-manager
