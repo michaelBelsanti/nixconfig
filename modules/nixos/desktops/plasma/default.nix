@@ -12,8 +12,6 @@ let
 in
 {
   options.desktop.plasma.enable = mkBoolOpt false "Enable plasma configuration.";
-  # Import automatically generated plasma-manager config
-  # Generated using 'rc2nix' or `nix run github:pjones/plasma-manager`
   config = mkIf cfg.enable {
     snowfallorg.users.${user}.home.config = {
       programs.plasma.enable = true;
