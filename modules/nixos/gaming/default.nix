@@ -24,7 +24,7 @@ in
       heroic
       lunar-client
       (lutris.override {
-        extraPkgs = pkgs: [ wineWowPackages.full ];
+        extraPkgs = _pkgs: [ wineWowPackages.full ];
         # extraLibraries = pkgs: [latencyflex];
       })
       prismlauncher
