@@ -16,10 +16,6 @@ in
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    environment.sessionVariables = {
-      QT_QPA_PLATFORM = "wayland";
-      NIXOS_OZONE_WL = "1";
-    };
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       swaybg

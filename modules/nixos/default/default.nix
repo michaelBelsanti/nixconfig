@@ -193,7 +193,6 @@
       EDITOR = "hx";
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
-      NIXOS_OZONE_WL = "1";
       QT_QPA_PLATFORM = "wayland";
     };
   };
