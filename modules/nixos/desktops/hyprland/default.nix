@@ -15,6 +15,8 @@ in
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       swaybg
       waybar
