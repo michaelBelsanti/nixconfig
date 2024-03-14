@@ -54,9 +54,9 @@ in
       in
       rec {
         focused = {
+          inherit text;
           border = rose;
           background = black;
-          text = text;
           indicator = rose;
           childBorder = rose;
         };

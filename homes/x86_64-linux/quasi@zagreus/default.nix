@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   programs.git.signing = {
     signByDefault = true;

@@ -19,10 +19,10 @@ let
       restOfString
     ];
   catppuccinEnabled = config.theming.enable && (config.theming.theme == "catppuccin");
+  inherit (config.theming) accent;
+  Accent = capitalizeFirstLetter accent;
   flavour = config.theming.variant;
-  accent = config.theming.accent;
   Flavour = capitalizeFirstLetter config.theming.variant;
-  Accent = capitalizeFirstLetter config.theming.accent;
 in
 {
   config = lib.mkIf catppuccinEnabled {
@@ -85,9 +85,9 @@ in
       in
       rec {
         focused = {
+          inherit text;
           border = pink;
           background = black;
-          text = text;
           indicator = pink;
           childBorder = pink;
         };
