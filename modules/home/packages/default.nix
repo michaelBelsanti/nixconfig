@@ -38,7 +38,6 @@
     # Nix
     alejandra
     nil
-    nixd
     nurl
     nix-init
     nix-tree

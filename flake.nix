@@ -13,9 +13,6 @@
       src = ./.;
       snowfall.namespace = "custom";
       channels-config.allowUnfree = true;
-      channels-config.permittedInsecurePackages = [
-        "nix-2.16.2"
-      ];
 
       homes.users."quasi@nyx".specialArgs = {
         inherit flakePath;
