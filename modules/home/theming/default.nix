@@ -1,6 +1,6 @@
 { lib, config, ... }:
-with lib;
 let
+  inherit (lib) types mkEnableOption mkOption;
   cfg = config.theming;
   isCatppuccin = cfg.theme == "catppuccin";
   isRosePine = cfg.theme == "rose-pine";

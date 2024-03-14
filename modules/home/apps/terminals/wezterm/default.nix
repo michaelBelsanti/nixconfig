@@ -1,7 +1,7 @@
 { lib, config, ... }:
-with lib;
-with lib.custom;
 let
+  inherit (lib) mkIf;
+  inherit (lib.custom) mkBoolOpt;
   cfg = config.apps.wezterm;
 in
 {

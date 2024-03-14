@@ -4,9 +4,9 @@
   pkgs,
   ...
 }:
-with lib;
-with lib.custom;
 let
+  inherit (lib) mkIf;
+  inherit (lib.custom) mkBoolOpt;
   cfg = config.desktop.gnome;
   user = config.users.mainUser;
 in
