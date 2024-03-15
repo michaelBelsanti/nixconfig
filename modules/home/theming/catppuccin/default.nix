@@ -110,6 +110,15 @@ in
       "col.inactive_border" = "0xff1e1d2f";
     };
     services = {
+      mako.extraConfig = builtins.readFile (
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "mako";
+          rev = "9dd088aa5f4529a3dd4d9760415e340664cb86df";
+          hash = "sha256-nUzWkQVsIH4rrCFSP87mXAka6P+Td2ifNbTuP7NM/SQ=";
+        }
+        + /src/${flavour}
+      );
       dunst.settings =
         let
           urgency_default = {
