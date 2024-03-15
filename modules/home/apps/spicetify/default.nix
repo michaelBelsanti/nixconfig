@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   inherit (lib) mkIf;
   inherit (lib.custom) mkBoolOpt;
@@ -10,9 +15,12 @@ in
     programs.spicetify = {
       enable = true;
       enabledExtensions = with pkgs.spicePkgs.extensions; [
-        fullAppDisplay
-        featureShuffle
+        playlistIcons
+        lastfm
+        historyShortcut
         hidePodcasts
+        fullAppDisplay
+        shuffle
       ];
     };
   };
