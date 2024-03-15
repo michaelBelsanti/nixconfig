@@ -88,27 +88,22 @@ in
             "pkill waybar; waybar"
             "swaybg --image ~/.background-image --mode fill"
           ];
+
           general = {
             gaps_in = 2;
             gaps_out = 4;
             border_size = 3;
           };
+
           misc = {
             vrr = 1;
             disable_splash_rendering = true;
           };
+
           decoration = {
             rounding = 8;
           };
-          animations = {
-            enabled = 1;
-            animation = [
-              "windows,1,3,default"
-              "border,1,5,default"
-              "fade,1,4,default"
-              "workspaces,1,3,default,fade"
-            ];
-          };
+
           windowrule = "float,Rofi";
 
           bindm = [
