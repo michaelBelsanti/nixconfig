@@ -16,9 +16,10 @@ in
     snowfallorg.users.${user}.home.config = {
       programs.plasma.enable = true;
     };
-    desktop.wayland.enable = true;
     services.desktopManager.plasma6.enable = true;
     services.xserver.displayManager.defaultSession = "plasma";
+    services.xserver.desktopManager.sddm.enable = true;
+
 
     environment.systemPackages = with pkgs; [
       # Theming / Customization

@@ -14,9 +14,9 @@ in
   options.desktop.gnome.enable = mkBoolOpt false "Enable gnome configuration.";
 
   config = mkIf cfg.enable {
-    desktop.wayland.enable = true;
     services.xserver = {
       desktopManager.gnome.enable = true;
+      diplayManager.gdm.enable = true;
       displayManager.defaultSession = "gnome";
     };
     qt = {
@@ -31,7 +31,6 @@ in
       ];
       sessionVariables = {
         GDK_DEBUG = "gl-fractional"; # Enable fractional scaling in GNOME 45
-        QT_QPA_PLATFORM = "wayland";
       };
     };
     snowfallorg.users.${user}.home.config = {
