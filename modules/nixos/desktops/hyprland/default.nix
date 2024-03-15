@@ -59,7 +59,10 @@ in
     ];
     snowfallorg.users.${user}.home.config = {
       apps.rofi.enable = true;
-      services.mako.enable = true;
+      services = {
+        mako.enable = true;
+        udiskie.enable = true;
+      };
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {
@@ -69,6 +72,7 @@ in
 
           "exec-once" = [
             "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
+            "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
           ];
 
           workspace = [
