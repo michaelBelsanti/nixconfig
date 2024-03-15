@@ -17,11 +17,8 @@ in
       programs.plasma.enable = true;
     };
     desktop.wayland.enable = true;
-    services.xserver = {
-      desktopManager.plasma6.enable = true;
-      displayManager.defaultSession = "plasma";
-      # displayManager.defaultSession = "plasmawayland";
-    };
+    services.desktopManager.plasma6.enable = true;
+    services.xserver.displayManager.defaultSession = "plasma";
 
     environment.systemPackages = with pkgs; [
       # Theming / Customization

@@ -3,12 +3,14 @@
   imports = [ ./hardware.nix ];
 
   home-manager.users.${config.users.mainUser} = {
-    imports = [ ./plasma-manager.nix ];
+    # imports = [ ./plasma-manager.nix ];
   };
 
   # Custom options
   gaming.enable = true;
-  desktop.plasma.enable = true;
+  # desktop.plasma.enable = true;
+  # desktop.gnome.enable = true;
+  desktop.hyprland.enable = true;
 
   networking = {
     hostName = "hades";

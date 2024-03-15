@@ -221,7 +221,7 @@
         ];
       };
     };
-    espanso.enable = true;
+    espanso.enable = false;
     flatpak.enable = true;
     fstrim.enable = true;
     btrfs.autoScrub.enable = true;
@@ -302,7 +302,7 @@
     mtr.enable = true;
     gnupg.agent = {
       enable = true;
-      pinentryFlavor = "curses";
+      # pinentryFlavor = "curses";
     };
     nix-ld.enable = true;
     # command-not-found.dbPath = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
