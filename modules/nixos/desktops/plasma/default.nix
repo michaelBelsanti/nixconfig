@@ -17,8 +17,10 @@ in
       programs.plasma.enable = true;
     };
     services.desktopManager.plasma6.enable = true;
-    services.xserver.displayManager.defaultSession = "plasma";
-    services.xserver.desktopManager.sddm.enable = true;
+    services.xserver.displayManager = {
+      sddm.enable = true;
+      defaultSession = "plasma";
+    };
 
 
     environment.systemPackages = with pkgs; [

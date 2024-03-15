@@ -16,8 +16,10 @@ in
   config = mkIf cfg.enable {
     services.xserver = {
       desktopManager.gnome.enable = true;
-      diplayManager.gdm.enable = true;
-      displayManager.defaultSession = "gnome";
+      displayManager = {
+        gdm.enable = true;
+        defaultSession = "gnome";
+      };
     };
     qt = {
       enable = true;
