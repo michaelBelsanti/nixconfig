@@ -18,6 +18,7 @@ in
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
+      gnome.nautilus
       swaybg
       waybar
       # (waybar.overrideAttrs (oldAttrs: {
@@ -58,18 +59,31 @@ in
     ];
     snowfallorg.users.${user}.home.config = {
       apps.rofi.enable = true;
+      services.mako.enable = true;
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {
           "$fm" = "dolphin";
-          "$browser" = config.environment.variables.BROWSER;
+          "$browser" = "floorp";
           "$terminal" = "footclient";
 
           "exec-once" = [
-            "mako"
-            "foot --server"
             "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
           ];
+
+          workspace = [
+            "1,monitor:DP-2"
+            "2,monitor:DP-2"
+            "3,monitor:DP-2"
+            "4,monitor:DP-2"
+            "5,monitor:DP-2"
+            "6,monitor:HDMI-A-2"
+            "7,monitor:HDMI-A-2"
+            "8,monitor:HDMI-A-2"
+            "9,monitor:HDMI-A-2"
+            "10,monitor:HDMI-A-2"
+          ];
+
           exec = [
             "pkill waybar; waybar"
             "swaybg --image ~/.background-image --mode fill"
@@ -78,8 +92,6 @@ in
             gaps_in = 2;
             gaps_out = 4;
             border_size = 3;
-            col.active_border = "0xffebbcba";
-            col.inactive_border = "0xff191724";
           };
           misc = {
             vrr = 1;
@@ -89,7 +101,7 @@ in
             rounding = 8;
           };
           animations = {
-            enabled=1;
+            enabled = 1;
             animation = [
               "windows,1,3,default"
               "border,1,5,default"
@@ -103,7 +115,7 @@ in
             "SUPER,mouse:272,movewindow"
             "SUPER,mouse:273,resizewindow"
           ];
-          
+
           bind = [
             # Menus
             "SUPER,SPACE,exec,rofi-wrapper -r,"
@@ -169,6 +181,7 @@ in
             "SUPERALT,7,movetoworkspace,7"
             "SUPERALT,8,movetoworkspace,8"
             "SUPERALT,9,movetoworkspace,9"
+            "SUPERALT,0,movetoworkspace,10"
             "SUPERSHIFT,1,movetoworkspacesilent,1"
             "SUPERSHIFT,2,movetoworkspacesilent,2"
             "SUPERSHIFT,3,movetoworkspacesilent,3"
@@ -178,6 +191,7 @@ in
             "SUPERSHIFT,7,movetoworkspacesilent,7"
             "SUPERSHIFT,8,movetoworkspacesilent,8"
             "SUPERSHIFT,9,movetoworkspacesilent,9"
+            "SUPERSHIFT,0,movetoworkspacesilent,10"
           ];
         };
       };
