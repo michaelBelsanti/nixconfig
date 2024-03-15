@@ -114,10 +114,6 @@
     enable = true;
     libinput.enable = true;
     desktopManager.wallpaper.mode = "fill";
-    # Wayland
-    desktopManager.plasma5.useQtScaling = true;
-    displayManager.sddm.wayland.enable = true;
-    displayManager.gdm.wayland = true;
   };
 
   # Enable sound.
