@@ -23,6 +23,7 @@
     wl-clipboard
     floorp
     custom.affine
+    localsend
 
     (python3.withPackages (
       python-pkgs: [
