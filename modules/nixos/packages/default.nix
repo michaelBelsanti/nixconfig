@@ -24,6 +24,7 @@
     floorp
     custom.affine
     localsend
+    jan
 
     (python3.withPackages (
       python-pkgs: [
