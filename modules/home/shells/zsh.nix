@@ -8,7 +8,7 @@
   programs = {
     zsh = {
       enable = false;
-      enableAutosuggestions = true;
+      autosuggestions.enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
       autocd = true;
