@@ -4,7 +4,6 @@
 {
   environment.systemPackages = with pkgs; [
     helix-desktop # Helix .desktop file, so it can be the default editor
-    logseq
     libreoffice
     vesktop
     revolt-desktop
@@ -12,19 +11,17 @@
     kdenlive
     signal-desktop
     bitwarden
-    rbw
-    mumble
     remmina
     nextcloud-client
     bottles
     beeper
     spot
-    newsflash
     wl-clipboard
     floorp
     custom.affine
     localsend
     jan
+    warp-terminal
 
     (python3.withPackages (
       python-pkgs: [
@@ -69,7 +66,6 @@
     tetrio-desktop
     easyeffects
     element-desktop
-    fractal
     qbittorrent
     imagemagick
     ffmpeg
