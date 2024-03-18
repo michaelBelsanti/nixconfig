@@ -99,6 +99,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprsome = {
+      url = "github:sopa0/hyprsome";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";

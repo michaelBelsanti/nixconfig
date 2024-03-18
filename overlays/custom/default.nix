@@ -5,6 +5,7 @@
   plasma-manager,
   nix-alien,
   hypr-contrib,
+  hyprsome,
   ssbm,
   spicetify,
   nyx,
@@ -16,6 +17,7 @@ _self: super: {
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
+  inherit (hyprsome.packages.${super.system}) hyprsome;
   # inherit (nix-gaming.packages.${super.system}) wine-ge;
   # inherit (nix-gaming.packages.${super.system}) osu-lazer-bin;
   # inherit (ssbm.packages.${super.system}) slippi-netplay;
