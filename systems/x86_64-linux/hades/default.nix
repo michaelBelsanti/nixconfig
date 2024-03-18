@@ -4,13 +4,45 @@
 
   home-manager.users.${config.users.mainUser} = {
     # imports = [ ./plasma-manager.nix ];
+    wayland.windowManager.hyprland.settings = {
+      monitor = [
+        "DP-2,highrr,0,1"
+        "HDMI-A-1,1920x1080@60,-1920x0,1"
+      ];
+
+      workspace = [
+        "1,monitor:DP-2"
+        "2,monitor:DP-2"
+        "3,monitor:DP-2"
+        "4,monitor:DP-2"
+        "5,monitor:DP-2"
+        "6,monitor:DP-2"
+        "7,monitor:DP-2"
+        "8,monitor:DP-2"
+        "9,monitor:DP-2"
+        "10,monitor:DP-2"
+        "11,monitor:HDMI-A-2"
+        "12,monitor:HDMI-A-2"
+        "13,monitor:HDMI-A-2"
+        "14,monitor:HDMI-A-2"
+        "15,monitor:HDMI-A-2"
+        "16,monitor:HDMI-A-2"
+        "17,monitor:HDMI-A-2"
+        "18,monitor:HDMI-A-2"
+        "19,monitor:HDMI-A-2"
+        "20,monitor:HDMI-A-2"
+      ];
+    };
   };
 
   # Custom options
+  desktop = {
+    gnome.enable = true;
+    # hyprland.enable = true;
+    wayland.enable = true;
+  };
+
   gaming.enable = true;
-  # desktop.plasma.enable = true;
-  # desktop.gnome.enable = true;
-  desktop.hyprland.enable = true;
 
   networking = {
     hostName = "hades";
@@ -31,7 +63,7 @@
     xserver = {
       enable = true;
       videoDrivers = [ "amdgpu" ];
-      displayManager.sddm.enable = true;
+      displayManager.gdm.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
         middleEmulation = false;
