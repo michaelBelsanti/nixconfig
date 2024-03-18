@@ -43,6 +43,7 @@
   };
 
   gaming.enable = true;
+  # apps.unmanic.enable = true;
 
   networking = {
     hostName = "hades";
