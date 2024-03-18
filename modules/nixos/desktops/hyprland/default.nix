@@ -18,6 +18,7 @@ in
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
+      hyprsome
       gnome.nautilus
       swaybg
       waybar

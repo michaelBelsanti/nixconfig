@@ -7,7 +7,6 @@
       user = "quasi";
       flakePath = "/home/${user}/.flake"; # Used for commands and aliases
     in
-    # overlay = import ./overlay.nix inputs;
     snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;

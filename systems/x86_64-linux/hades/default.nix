@@ -37,8 +37,8 @@
 
   # Custom options
   desktop = {
-    gnome.enable = true;
-    # hyprland.enable = true;
+    # gnome.enable = true;
+    hyprland.enable = true;
     wayland.enable = true;
   };
 
