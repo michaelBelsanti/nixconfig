@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -18,10 +19,12 @@ in
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
-      hyprsome
-      gnome.nautilus
+      inputs.hyprsome.packages.${pkgs.system}.default
+      kdePackages.dolphin
+      lxqt.pavucontrol-qt
       swaybg
       waybar
+      overskride
       # (waybar.overrideAttrs (oldAttrs: {
       #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       # }))
@@ -157,7 +160,6 @@ in
             "SUPER,7,exec,hyprsome workspace 7"
             "SUPER,8,exec,hyprsome workspace 8"
             "SUPER,9,exec,hyprsome workspace 9"
-            "SUPER,0,exec,hyprsome workspace 10"
 
             "SUPERALT,1,exec,hyprsome movefocus 1"
             "SUPERALT,2,exec,hyprsome movefocus 2"
@@ -168,7 +170,6 @@ in
             "SUPERALT,7,exec,hyprsome movefocus 7"
             "SUPERALT,8,exec,hyprsome movefocus 8"
             "SUPERALT,9,exec,hyprsome movefocus 9"
-            "SUPERALT,0,exec,hyprsome movefocus 10"
             "SUPERSHIFT,1,exec,hyprsome move 1"
             "SUPERSHIFT,2,exec,hyprsome move 2"
             "SUPERSHIFT,3,exec,hyprsome move 3"
@@ -178,7 +179,6 @@ in
             "SUPERSHIFT,7,exec,hyprsome move 7"
             "SUPERSHIFT,8,exec,hyprsome move 8"
             "SUPERSHIFT,9,exec,hyprsome move 9"
-            "SUPERSHIFT,0,exec,hyprsome move 10"
           ];
         };
       };
