@@ -7,7 +7,6 @@
     wayland.windowManager.hyprland.settings = {
       input = {
         accel_profile = "flat";
-        force_no_accel = true;
       };
 
       monitor = [
@@ -25,7 +24,7 @@
         "7,monitor:DP-2"
         "8,monitor:DP-2"
         "9,monitor:DP-2"
-        "11,monitor:HDMI-A-2"
+        "11,monitor:HDMI-A-2,default:true"
         "12,monitor:HDMI-A-2"
         "13,monitor:HDMI-A-2"
         "14,monitor:HDMI-A-2"

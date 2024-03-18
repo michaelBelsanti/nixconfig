@@ -16,15 +16,16 @@ in
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
-    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       inputs.hyprsome.packages.${pkgs.system}.default
-      kdePackages.dolphin
-      lxqt.pavucontrol-qt
       swaybg
       waybar
+      pavucontrol
       overskride
+      gnome.nautilus
+      nautilus-open-any-terminal
       # (waybar.overrideAttrs (oldAttrs: {
       #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
       # }))
@@ -62,21 +63,28 @@ in
       '')
     ];
     snowfallorg.users.${user}.home.config = {
+      qt = {
+        enable = true;
+        platformTheme = "qtct";
+      };
       apps.rofi.enable = true;
       services = {
-        mako.enable = true;
+        mako = {
+          enable = true;
+          defaultTimeout = 3;
+        };
         udiskie.enable = true;
       };
       wayland.windowManager.hyprland = {
         enable = true;
         settings = {
-          "$fm" = "dolphin";
+          "$fm" = "nautilus";
           "$browser" = "floorp";
           "$terminal" = "footclient";
 
           "exec-once" = [
             "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
-            "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1"
+            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
           ];
 
           exec = [
@@ -150,6 +158,11 @@ in
             "SUPER,l,movefocus,r"
             "SUPER,k,movefocus,u"
             "SUPER,j,movefocus,d"
+
+            "SUPERSHIFT,h,movewindow,l"
+            "SUPERSHIFT,l,movewindow,r"
+            "SUPERSHIFT,k,movewindow,u"
+            "SUPERSHIFT,j,movewindow,d"
 
             "SUPER,1,exec,hyprsome workspace 1"
             "SUPER,2,exec,hyprsome workspace 2"

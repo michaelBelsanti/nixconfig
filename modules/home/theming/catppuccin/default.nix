@@ -74,7 +74,6 @@ in
         source = ./qt5ct;
         recursive = true;
       };
-      "waybar/style.css".source = ./waybar/style.css;
     };
     xsession.windowManager.i3.config.colors =
       let
