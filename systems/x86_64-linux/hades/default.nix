@@ -5,6 +5,11 @@
   home-manager.users.${config.users.mainUser} = {
     # imports = [ ./plasma-manager.nix ];
     wayland.windowManager.hyprland.settings = {
+      input = {
+        accel_profile = "flat";
+        force_no_accel = true;
+      };
+
       monitor = [
         "DP-2,highrr,0,1"
         "HDMI-A-1,1920x1080@60,-1920x0,1"
@@ -20,7 +25,6 @@
         "7,monitor:DP-2"
         "8,monitor:DP-2"
         "9,monitor:DP-2"
-        "10,monitor:DP-2"
         "11,monitor:HDMI-A-2"
         "12,monitor:HDMI-A-2"
         "13,monitor:HDMI-A-2"
@@ -30,7 +34,6 @@
         "17,monitor:HDMI-A-2"
         "18,monitor:HDMI-A-2"
         "19,monitor:HDMI-A-2"
-        "20,monitor:HDMI-A-2"
       ];
     };
   };
