@@ -59,7 +59,7 @@
 
   # Boot options
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     kernel.sysctl = {
       "transparent_hugepage" = "always";
       "vm.nr_hugepages_defrag" = 0;
