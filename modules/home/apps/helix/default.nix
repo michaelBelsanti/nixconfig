@@ -17,6 +17,7 @@
         C-j = "jump_view_down";
         C-k = "jump_view_up";
         C-l = "jump_view_right";
+        C-r = ":reload";
       };
       editor = {
         shell = [
@@ -62,4 +63,20 @@
       };
     };
   };
+  home.packages = with pkgs; [
+    (writeScriptBin "toggle" ''
+      #!${lib.getExe pkgs.nushell}
+
+      def main [x] {
+        let sx = $x | into string
+        match $sx {
+          'true' => 'false',
+          'True' => 'False',
+          'false' => 'true',
+          'False' => 'True',
+          _ => $sx
+        } 
+      }
+    '')
+  ];
 }
