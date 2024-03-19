@@ -2,6 +2,7 @@
   appimageTools,
   fetchurl,
   lib,
+  makeWrapper
 }:
 let
   pname = "affine";
@@ -15,11 +16,16 @@ in
 appimageTools.wrapType2 {
   inherit pname version src;
 
+  
+
   extraInstallCommands = ''
     mv $out/bin/{${pname}-${version},AFFiNE}
     mkdir -p $out/share/{applications,pixmaps}
     cp ${appimageContents}/AFFiNE.desktop $out/share/applications
     cp ${appimageContents}/AFFiNE $out/share/pixmaps
+    source "${makeWrapper}/nix-support/setup-hook"
+    wrapProgram $out/bin/AFFiNe \
+      --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
   '';
 
   meta = with lib; {
