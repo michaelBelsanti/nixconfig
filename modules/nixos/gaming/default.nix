@@ -57,12 +57,14 @@ in
     };
     ssbm.cache.enable = true;
     programs = {
+      gamescope.enable = true;
       steam = {
         enable = true;
         remotePlay.openFirewall = true;
         package = pkgs.steam.override {
           # extraLibraries = pkgs: [pkgs.latencyflex];
         };
+        gamescopeSession.enable = true;
       };
       gamemode = {
         enable = true;
