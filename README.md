@@ -1,14 +1,15 @@
 # nixconfig
-My system and user config in a Nix Flake
+My systems and user configurations in a Nix Flake
 
-This flake includes two NixOS configurations, one for my laptop and one for my desktop. It also includes a home-manager configuration for my server. Flake-parts is used to increase modularity and simplify per-system outputs.
+This flake uses the [Snowfall Lib library](https://snowfall.org/guides/lib/quickstart/), which follows a particular opinionated structure.
 
-# Structure
-The flake uses a very modular structure, allowing different configs to share as many lines of code and files as possible. 
-- nixos: Contains configurations for NixOS Hosts
-- home: Contains home-manager configurations to use on any system
-- overlay.nix: overlay that modifies, inherits, and adds packages
-
-# Inspiration
-- [MatthiasBenaets/nixos-config](https://github.com/MatthiasBenaets/nixos-config): My first flake was completely based of this and has since evolved many times over, an amazing repo to learn from
-- [fufexan/dotfiles](https://github.com/fufexan/dotfiles): Inspired my most recent restructuring, basically a better and more interesting version of mine
+# Inspiration and thanks
+- [Matthias Benaets](https://github.com/MatthiasBenaets/)
+  - [NixOS configuration](https://github.com/MatthiasBenaets/nixos-config)
+  - [Great video on NixOS](https://www.youtube.com/watch?v=AGVXJ-TIv3Y), which I used for my first configuration
+- [Jake Hamilton](https://github.com/jakehamilton)
+  - [NixOS configuration](https://github.com/jakehamilton/config)
+  - [Snowfall](https://snowfall.org/)
+- [IogaMaster](https://github.com/IogaMaster/)
+  - [NixOS configuration](https://github.com/IogaMaster/dotfiles)
+  - And for the Waybar config that I copied
