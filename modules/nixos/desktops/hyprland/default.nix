@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -24,7 +23,8 @@ in
       kdePackages.breeze-icons
       libsForQt5.breeze-icons
 
-      inputs.hyprsome.packages.${pkgs.system}.default
+      # inputs.hyprsome.packages.${pkgs.system}.default
+      custom.hyprsome
       swaybg
       mpvpaper
       waybar
