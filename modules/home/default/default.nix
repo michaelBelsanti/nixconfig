@@ -38,12 +38,10 @@
       userEmail = "quasigod-io@proton.me";
       difftastic.enable = true;
       extraConfig = {
-        init = {
-          defaultBranch = "main";
-        };
-        pull = {
-          rebase = true;
-        };
+        init.defaultBranch = "main";
+        pull.rebase = true;
+        rerere.enabled = true;
+        column.ui = true;
       };
     };
     tealdeer = {
