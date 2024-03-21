@@ -283,7 +283,10 @@
       useBabelfish = true;
     };
     zsh.enable = true;
-    kdeconnect.enable = true;
+    kdeconnect = {
+      enable = true;
+      package = pkgs.valent;
+    };
     dconf.enable = true;
     ssh = {
       startAgent = true;
