@@ -18,7 +18,7 @@
     spot
     wl-clipboard
     floorp
-    custom.affine
+    # custom.affine
     localsend
     jan
     warp-terminal
