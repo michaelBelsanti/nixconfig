@@ -16,19 +16,28 @@ in
   config = mkIf cfg.enable {
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
-    # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
+      # QT stuff
+      kdePackages.breeze
+      kdePackages.breeze-icons
+      libsForQt5.breeze-icons
+
       inputs.hyprsome.packages.${pkgs.system}.default
       swaybg
+      mpvpaper
       waybar
+      eww
+
       pavucontrol
       overskride
+
       gnome.nautilus
       nautilus-open-any-terminal
-      # (waybar.overrideAttrs (oldAttrs: {
-      #   mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      # }))
+      celluloid
+      loupe
+
       wl-clipboard
       rofi-wayland
       grimblast
@@ -62,11 +71,16 @@ in
         fi
       '')
     ];
+    qt = {
+      enable = true;
+      style = "breeze";
+      platformTheme = "qt5ct";
+    };
     snowfallorg.users.${user}.home.config = {
-      qt = {
-        enable = true;
-        platformTheme = "qtct";
-      };
+      # qt = {
+      #   enable = true;
+      #   platformTheme = "qtct";
+      # };
       apps.rofi.enable = true;
       services = {
         mako = {
