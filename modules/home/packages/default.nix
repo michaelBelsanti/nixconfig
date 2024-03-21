@@ -16,37 +16,19 @@
     rustc
     cargo
     gcc
-    rust-analyzer
-    taplo
     clippy
     # Python
     poetry
     pipx
-    python3Packages.python-lsp-server
     # Haskell
     ghc
-    haskell-language-server
-    # Bash
-    nodePackages.bash-language-server
-    shellcheck
-
-    # Other language servers
-    nodePackages_latest.intelephense
-    nodePackages_latest.vscode-html-languageserver-bin
-    nodePackages_latest.typescript-language-server
 
     # Nix
-    alejandra
-    nil
     nurl
     nix-init
     nix-tree
     nix-index
     nix-update
-
-    # Notetaking
-    marksman
-    glow
 
     # Other CLI tools that are part of my workflow
     nitch
@@ -54,6 +36,7 @@
     cheat
     edir
     gdu
+    glow
     du-dust
     lf
     traceroute

@@ -6,7 +6,7 @@
       language = [
         {
           name = "nix";
-          formatter.command = "${lib.meta.getExe pkgs.nixfmt-rfc-style}";
+          formatter.command = "nixfmt";
         }
       ];
     };
@@ -64,6 +64,21 @@
     };
   };
   home.packages = with pkgs; [
+    # language servers / formatters
+    nil
+    nixfmt-rfc-style
+    rust-analyzer
+    taplo
+    python3Packages.python-lsp-server
+    haskell-language-server
+    nodePackages.bash-language-server
+    shellcheck
+    vscode-langservers-extracted
+    nodePackages_latest.vscode-html-languageserver-bin
+    nodePackages_latest.typescript-language-server
+    marksman
+    custom.markdown-oxide
+    
     (writeScriptBin "toggle" ''
       #!${lib.getExe pkgs.nushell}
 
