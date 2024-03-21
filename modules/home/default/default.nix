@@ -41,7 +41,7 @@
         init.defaultBranch = "main";
         pull.rebase = true;
         rerere.enabled = true;
-        column.ui = true;
+        column.ui = "auto";
       };
     };
     tealdeer = {
