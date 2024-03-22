@@ -4,6 +4,7 @@
   lib,
   pkgs,
   config,
+  inputs,
   ...
 }:
 let
@@ -26,9 +27,8 @@ let
 in
 {
   config = lib.mkIf catppuccinEnabled {
-    home.packages = with pkgs; [
-      catppuccin-qt5ct
-    ];
+    colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+    home.packages = with pkgs; [ catppuccin-qt5ct ];
     gtk = {
       iconTheme = {
         name = "Adwaita";
@@ -73,6 +73,13 @@ in
           config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
         recursive = true;
       };
+      "swaync/style.css" = {
+        text = builtins.readFile (pkgs.fetchurl {
+          url = "https://github.com/catppuccin/swaync/releases/download/v0.1.2.1/${flavour}.css";
+          hash = "sha256-6X+KSIYcPRQDGm1YV8rk5mq21Gk/pFCugOEoavh3tBw=";
+        });
+      };
+      "ironbar/style.css" = import ./ironbar.nix {inherit inputs;};
     };
     xsession.windowManager.i3.config.colors =
       let

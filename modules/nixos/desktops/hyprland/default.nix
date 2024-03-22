@@ -27,8 +27,7 @@ in
       custom.hyprsome
       swaybg
       mpvpaper
-      waybar
-      eww
+      swaynotificationcenter
 
       pavucontrol
       overskride
@@ -77,12 +76,10 @@ in
     };
     snowfallorg.users.${user}.home.config = {
       apps.rofi.enable = true;
-      services = {
-        mako = {
-          enable = true;
-          defaultTimeout = 3;
-        };
-        udiskie.enable = true;
+      services.udiskie.enable = true;
+      programs.ironbar = {
+        enable = true;
+        config = import ./ironbar.nix;
       };
       wayland.windowManager.hyprland = {
         enable = true;
@@ -95,11 +92,12 @@ in
           "exec-once" = [
             "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
             "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+            "swaync"
           ];
 
           exec = [
-            "pkill waybar; waybar"
             "swaybg --image ~/.background-image --mode fill"
+            "ironbar waybar; ironbar"
           ];
 
           general = {

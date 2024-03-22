@@ -20,6 +20,8 @@
       homes.modules = with inputs; [
         spicetify.homeManagerModule
         plasma-manager.homeManagerModules.plasma-manager
+        inputs.ironbar.homeManagerModules.default
+        nix-colors.homeManagerModules.default
       ];
 
       systems.modules.nixos = with inputs; [
@@ -73,6 +75,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-colors.url = "github:misterio77/nix-colors";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -90,6 +94,11 @@
 
     hypr-contrib = {
       url = "github:hyprwm/contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    ironbar = {
+      url = "github:JakeStanger/ironbar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -131,6 +140,7 @@
       "https://devenv.cachix.org"
       "https://nix-gaming.cachix.org"
       "https://nyx.chaotic.cx/"
+      "https://jakestanger.cachix.org"
     ];
     extra-trusted-public-keys = [
       "quasigod.cachix.org-1:z+auA/0uS8vy6DDtUZhRQagZvVdl5WYnE/7lveoM3Do="
@@ -140,6 +150,7 @@
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+      "jakestanger.cachix.org-1:VWJE7AWNe5/KOEvCQRxoE8UsI2Xs2nHULJ7TEjYm7mM="
     ];
   };
 }
