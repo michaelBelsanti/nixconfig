@@ -97,7 +97,7 @@ in
 
           exec = [
             "swaybg --image ~/.background-image --mode fill"
-            "ironbar waybar; ironbar"
+            "sleep 1; ironbar waybar; ironbar"
           ];
 
           general = {
@@ -156,7 +156,7 @@ in
 
             # Window management
             "SUPER,Q,killactive,"
-            "SUPERSHIFT,Q,exec,xkill"
+            "SUPERSHIFT,Q,exec,hyprctl kill"
 
             "SUPER,F,fullscreen"
             "SUPERALT,F,fakefullscreen"
