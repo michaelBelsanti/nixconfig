@@ -73,14 +73,9 @@ in
     ];
     qt = {
       enable = true;
-      style = "breeze";
       platformTheme = "qt5ct";
     };
     snowfallorg.users.${user}.home.config = {
-      # qt = {
-      #   enable = true;
-      #   platformTheme = "qtct";
-      # };
       apps.rofi.enable = true;
       services = {
         mako = {
@@ -91,6 +86,7 @@ in
       };
       wayland.windowManager.hyprland = {
         enable = true;
+        systemd.variables = ["-all"];
         settings = {
           "$fm" = "nautilus";
           "$browser" = "floorp";
