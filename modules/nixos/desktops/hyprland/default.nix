@@ -28,6 +28,7 @@ in
       swaybg
       mpvpaper
       swaynotificationcenter
+      walker
 
       pavucontrol
       overskride
@@ -81,6 +82,10 @@ in
         enable = true;
         config = import ./ironbar.nix;
       };
+      xdg.configFile."walker" = {
+        source = ./walker;
+        recursive = true;
+      };
       wayland.windowManager.hyprland = {
         enable = true;
         systemd.variables = ["-all"];
@@ -90,9 +95,11 @@ in
           "$terminal" = "footclient";
 
           "exec-once" = [
+            "foot --server"
             "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
             "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
             "swaync"
+            "walker --gapplication-service"
           ];
 
           exec = [
@@ -124,8 +131,8 @@ in
 
           bind = [
             # Menus
-            "SUPER,SPACE,exec,rofi-wrapper -r,"
-            "SUPER,O,exec,rofi-wrapper -o,"
+            "SUPER,SPACE,exec,walker"
+            "SUPER,O,exec,rofi-wrapper -o"
 
             # Program binds
             "SUPER,Return,exec,$terminal"

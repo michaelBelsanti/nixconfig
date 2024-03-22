@@ -8,6 +8,7 @@
   ssbm,
   spicetify,
   nyx,
+  walker,
   ...
 }:
 _self: super: {
@@ -16,10 +17,7 @@ _self: super: {
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
-  # inherit (nix-gaming.packages.${super.system}) wine-ge;
-  # inherit (nix-gaming.packages.${super.system}) osu-lazer-bin;
-  # inherit (ssbm.packages.${super.system}) slippi-netplay;
-  # inherit (ssbm.packages.${super.system}) slippi-playback;
+  inherit (walker.packages.${super.system}) walker;
   gaming = nix-gaming.packages.${super.system};
   ssbm = ssbm.packages.${super.system};
   nyx = nyx.packages.${super.system};
