@@ -114,6 +114,7 @@
     enable = true;
     libinput.enable = true;
     desktopManager.wallpaper.mode = "fill";
+    excludePackages = [ pkgs.xterm ];
   };
 
   # Enable sound.
