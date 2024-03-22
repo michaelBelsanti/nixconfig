@@ -26,6 +26,9 @@ let
 in
 {
   config = lib.mkIf catppuccinEnabled {
+    home.packages = with pkgs; [
+      catppuccin-qt5ct
+    ];
     gtk = {
       iconTheme = {
         name = "Adwaita";
@@ -68,10 +71,6 @@ in
       "gtk-4.0" = {
         source =
           config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
-        recursive = true;
-      };
-      "qt5ct" = {
-        source = ./qt5ct;
         recursive = true;
       };
     };
