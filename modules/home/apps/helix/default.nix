@@ -8,6 +8,14 @@
           name = "nix";
           formatter.command = "nixfmt";
         }
+        {
+          name = "css";
+          language-servers = [];
+        }
+        {
+          name = "scss";
+          language-servers = [];
+        }
       ];
     };
     settings = {
