@@ -12,4 +12,3 @@ This flake uses the [Snowfall Lib library](https://snowfall.org/guides/lib/quick
   - [Snowfall](https://snowfall.org/)
 - [IogaMaster](https://github.com/IogaMaster/)
   - [NixOS configuration](https://github.com/IogaMaster/dotfiles)
-  - And for the Waybar config that I copied
