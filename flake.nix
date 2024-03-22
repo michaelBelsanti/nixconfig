@@ -72,11 +72,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/nur";
-    mypkgs = {
-      url = "github:michaelBelsanti/nur-packages/dev";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming = {
