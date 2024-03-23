@@ -27,6 +27,7 @@
       systems.modules.nixos = with inputs; [
         nyx.nixosModules.default
         ssbm.nixosModule
+        flake-programs-sqlite.nixosModules.programs-sqlite
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -127,15 +128,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    programsdb = {
+    flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # nix-index-db = {
-    #   url = "github:Mic92/nix-index-database";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
   nixConfig = {
     extra-substituters = [

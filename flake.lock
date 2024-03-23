@@ -332,6 +332,27 @@
         "type": "github"
       }
     },
+    "flake-programs-sqlite": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1711149743,
+        "narHash": "sha256-Iiyw6nrCSeTMsW2AdoeJgmfRI0xQePzDtXR9PgkEWco=",
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "rev": "6ab55e0200a50e1660d894e9c31e48df9ba61d16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
     "flake-schemas": {
       "locked": {
         "lastModified": 1693491534,
@@ -1243,30 +1264,10 @@
         "type": "github"
       }
     },
-    "programsdb": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": "utils"
-      },
-      "locked": {
-        "lastModified": 1710720684,
-        "narHash": "sha256-SmgchciD2FnWU2kdOyb2fPWRXZJzMkQNM7GDvVsUMwA=",
-        "owner": "wamserma",
-        "repo": "flake-programs-sqlite",
-        "rev": "3b497c9f14c857fbb871374b154d572f3f818411",
-        "type": "github"
-      },
-      "original": {
-        "owner": "wamserma",
-        "repo": "flake-programs-sqlite",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "devenv": "devenv",
+        "flake-programs-sqlite": "flake-programs-sqlite",
         "helix": "helix",
         "home-manager": "home-manager",
         "hypr-contrib": "hypr-contrib",
@@ -1279,7 +1280,6 @@
         "nixpkgs-slippi-fix": "nixpkgs-slippi-fix",
         "nyx": "nyx",
         "plasma-manager": "plasma-manager",
-        "programsdb": "programsdb",
         "snowfall-lib": "snowfall-lib",
         "spicetify": "spicetify",
         "ssbm": "ssbm",

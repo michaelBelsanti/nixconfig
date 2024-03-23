@@ -309,7 +309,6 @@
       # pinentryFlavor = "curses";
     };
     nix-ld.enable = true;
-    # command-not-found.dbPath = inputs.programsdb.packages.${pkgs.system}.programs-sqlite;
   };
   # systemd.extraConfig = ''
   #   DefaultTimeoutStartSec=10s
