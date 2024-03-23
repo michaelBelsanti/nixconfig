@@ -44,5 +44,9 @@ in
           #${palette.base0D},
           #${palette.base0D});
     }
+
+    .notifications .count {
+      padding-right: .3em
+    }
   '';
 }
