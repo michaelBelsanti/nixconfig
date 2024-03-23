@@ -62,7 +62,7 @@
 
 .activation .activationlabel {
   opacity: 1;
-  color: @theme_fg_color;
+  color: @theme_selected_bg_color;
 }
 
 .activation .textwrapper,

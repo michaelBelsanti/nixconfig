@@ -70,6 +70,18 @@ in
           echo "Usage: -p 'pause', -u 'unpause' -t 'toggle'"
         fi
       '')
+      (writeScriptBin "walker-power" ''
+        #!${lib.getExe pkgs.nushell}
+
+        def main [] {
+          let shut_down = [["label" "exec"]; ["Shutdown" "systemctl poweroff"]]
+          let reboot = [["label" "exec"]; ["Reboot" "systemctl reboot"]]
+          let suspend = [["label" "exec"]; ["Suspend" "systemctl suspend"]]
+          let log_out = [["label" "exec"]; ["Log out" "hyprctl dispatch exit"]]
+
+          $shut_down | append $reboot | append $suspend | append $log_out | to json
+        }
+      '')
     ];
     qt = {
       enable = true;
@@ -90,6 +102,26 @@ in
         source = ./walker;
         recursive = true;
       };
+      xdg.desktopEntries = {
+        "power-off" = {
+          name = "Power off";
+          exec = "systemctl poweroff";
+          icon = "";
+        };
+        "reboot" = {
+          name = "Reboot";
+          exec = "systemctl reboot";
+          icon = "";
+        };
+        "suspend" = {
+          name = "Suspend";
+          exec = "systemctl suspend";
+          icon = "";
+        };
+        "log-out" = {
+          name = "Log out";
+          exec = "hyprctl dispatch exit";
+          icon = "";
         };
       };
     };

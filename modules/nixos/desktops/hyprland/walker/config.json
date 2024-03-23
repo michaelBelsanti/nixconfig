@@ -4,7 +4,9 @@
   "show_initial_entries": true,
   "orientation": "vertical",
   "terminal": "footclient",
-  "fullscreen": true,
+  "activation_mode": {
+    "use_alt": true
+  },
   "modules": [
     {
       "name": "applications"
@@ -18,31 +20,15 @@
       "name": "hyprland"
     },
     {
-      "name": "external"
+      "prefix": ".",
+      "name": "clipboard"
     }
   ],
   "external": [
     {
-      "label": "Shut down",
-      "exec": "systemctl poweroff"
-    },
-    {
-      "label": "Reboot",
-      "exec": "systemctl reboot",
-      "searchable": "restart",
-      "notifyable": true
-    },
-    {
-      "label": "Suspend",
-      "exec": "systemctl suspend",
-      "searchable": "sleep",
-      "notifyable": true
-    },
-    {
-      "label": "Log out",
-      "exec": "remindme in 1s test",
-      "searchable": "log off",
-      "notifyable": true
+      "prefix": "!",
+      "name": "power",
+      "src": "walker-power"
     }
   ],
   "icons": {
@@ -52,14 +38,11 @@
   "align": {
     "horizontal": "center",
     "vertical": "start",
-    "width": 400,
-    "margins": {
-      "top": 20
-    }
+    "width": 500
   },
   "list": {
     "margin_top": 10,
-    "height": 300,
+    "height": 500,
     "always_show": true
   },
   "search": {},
