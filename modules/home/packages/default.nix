@@ -17,6 +17,8 @@
     cargo
     gcc
     clippy
+    # Go
+    go
     # Python
     poetry
     pipx

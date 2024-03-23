@@ -76,6 +76,10 @@
     nil
     nixfmt-rfc-style
     rust-analyzer
+    gopls
+    delve
+    golangci-lint-langserver
+    golangci-lint
     taplo
     python3Packages.python-lsp-server
     haskell-language-server
