@@ -17,6 +17,7 @@
     cargo
     gcc
     clippy
+    rust-script
     # Go
     go
     # Python
