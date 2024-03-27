@@ -9,12 +9,11 @@ pkgs:
     "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
     "swaync"
-    "walker --gapplication-service"
   ];
 
   exec = [
     "swaybg --image ~/.background-image --mode fill"
-    "sleep 1; ironbar waybar; ironbar"
+    "sleep 1; pkill ironbar; ironbar"
   ];
 
   general = {

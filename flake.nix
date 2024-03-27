@@ -22,6 +22,7 @@
         plasma-manager.homeManagerModules.plasma-manager
         inputs.ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
+        walker.homeManagerModules.default
       ];
 
       systems.modules.nixos = with inputs; [

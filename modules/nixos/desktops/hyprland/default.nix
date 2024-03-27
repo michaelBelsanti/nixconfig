@@ -90,17 +90,13 @@ in
     snowfallorg.users.${user}.home.config = {
       wayland.windowManager.hyprland = {
         enable = true;
-        systemd.variables = ["-all"];
+        systemd.variables = [ "-all" ];
         settings = import ./settings.nix pkgs;
       };
       services.udiskie.enable = true;
       programs.ironbar = {
         enable = true;
         config = import ./ironbar.nix;
-      };
-      xdg.configFile."walker" = {
-        source = ./walker;
-        recursive = true;
       };
       xdg.desktopEntries = {
         "power-off" = {

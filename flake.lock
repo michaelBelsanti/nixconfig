@@ -1572,15 +1572,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1711173727,
-        "narHash": "sha256-u29oKtEFOXuvAls3TmYY2T/DL3kTUM4L+EdFnKD+nLA=",
-        "owner": "michaelBelsanti",
+        "lastModified": 1711385228,
+        "narHash": "sha256-WTdFG6NYPqsSvfhd9kKL//KryBwcs04shSr0uAajacM=",
+        "owner": "abenz1267",
         "repo": "walker",
-        "rev": "0a8071fa38cd946f4df364224eb3c6e201eadb47",
+        "rev": "8999a5028d6fe5109189298b2577017f5fa6d736",
         "type": "github"
       },
       "original": {
-        "owner": "michaelBelsanti",
+        "owner": "abenz1267",
         "repo": "walker",
         "type": "github"
       }
