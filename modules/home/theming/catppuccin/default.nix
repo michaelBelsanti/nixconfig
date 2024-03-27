@@ -66,13 +66,6 @@ in
       }
       + /Catppuccin-${Flavour}.colorscheme;
     xdg.configFile = {
-      # Libadwaita theme
-      # "gtk-4.0/gtk.css".source = ./gtk.css;
-      "gtk-4.0" = {
-        source =
-          config.gtk.theme.package + /share/themes/Catppuccin-${Flavour}-Standard-${Accent}-Dark/gtk-4.0;
-        recursive = true;
-      };
       "swaync/style.css" = {
         text = builtins.readFile (pkgs.fetchurl {
           url = "https://github.com/catppuccin/swaync/releases/download/v0.1.2.1/${flavour}.css";
@@ -81,64 +74,9 @@ in
       };
       "ironbar/style.css" = import ./ironbar.nix {inherit inputs;};
     };
-    xsession.windowManager.i3.config.colors =
-      let
-        pink = "#f28fad";
-        black = "#1e1d2f";
-        text = "#d9e0ee";
-        blue = "#96cdfb";
-      in
-      rec {
-        focused = {
-          inherit text;
-          border = pink;
-          background = black;
-          indicator = pink;
-          childBorder = pink;
-        };
-        focusedInactive = focused // {
-          border = black;
-          childBorder = black;
-          indicator = black;
-        };
-        unfocused = focusedInactive // {
-          border = black;
-        };
-        urgent = focused // {
-          border = blue;
-          childBorder = blue;
-          indicator = blue;
-        };
-      };
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
-    };
-    services = {
-      mako.extraConfig = builtins.readFile (
-        pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "mako";
-          rev = "9dd088aa5f4529a3dd4d9760415e340664cb86df";
-          hash = "sha256-nUzWkQVsIH4rrCFSP87mXAka6P+Td2ifNbTuP7NM/SQ=";
-        }
-        + /src/${flavour}
-      );
-      dunst.settings =
-        let
-          urgency_default = {
-            background = "#1e1e2e";
-            foreground = "#cdd6f4";
-          };
-        in
-        {
-          global.frame_color = "#89b4fa";
-          urgency_low = urgency_default;
-          urgency_normal = urgency_default;
-          urgency_critical = urgency_default // {
-            frame_color = "#fab387";
-          };
-        };
     };
     programs = {
       yazi.theme = builtins.fromTOML (
@@ -153,7 +91,6 @@ in
         )
       );
       zellij.settings.theme = "catppuccin-${flavour}";
-      kitty.theme = "Catppuccin-Macchiato";
       foot.settings.colors = {
         # Macchiato theme
         foreground = "cad3f5"; # Text
@@ -175,62 +112,11 @@ in
         bright6 = "8bd5ca"; # teal
         bright7 = "a5adcb"; # Subtext 0
       };
-      alacritty.settings = {
-        colors = {
-          primary = {
-            foreground = "0xD9E0EE";
-            background = "0x1E1D2F";
-          };
-          cursor = {
-            text = "0x1E1D2F";
-            cursor = "0xF5E0DC";
-          };
-          normal = {
-            black = "0x6E6C7E";
-            red = "0xF28FAD";
-            green = "0xABE9B3";
-            yellow = "0xFAE3B0";
-            blue = "0x96CDFB";
-            magenta = "0xF5C2E7";
-            cyan = "0x89DCEB";
-            white = "0xD9E0EE";
-          };
-          bright = {
-            black = "0x988BA2";
-            red = "0xF28FAD";
-            green = "0xABE9B3";
-            yellow = "0xFAE3B0";
-            blue = "0x96CDFB";
-            magenta = "0xF5C2E7";
-            cyan = "0x89DCEB";
-            white = "0xD9E0EE";
-          };
-          indexed_colors = [
-            {
-              index = 16;
-              color = "0xF8BD96";
-            }
-            {
-              index = 17;
-              color = "0xF5E0DC";
-            }
-          ];
-        };
-      };
       spicetify = with pkgs.spicePkgs.themes; {
         theme = catppuccin;
         colorScheme = "${flavour}";
       };
       helix.settings.theme = "catppuccin_${flavour}";
-      gitui.theme = builtins.readFile (
-        pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "gitui";
-          rev = "ff1e802cfff3d5ff41b0d829a3df1da8087b1265";
-          hash = "sha256-frkGtsk/VuS6MYUf7S2hqNHhTaV6S0Mv2UuttCgvimk=";
-        }
-        + /theme/${flavour}.ron
-      );
     };
   };
 }
