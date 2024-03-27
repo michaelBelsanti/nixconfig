@@ -24,11 +24,6 @@ pkgs:
 
   xwayland.force_zero_scaling = true;
 
-  env = [
-    "GTK_SCALE,2"
-    "XCURSOR_SIZE,32"
-  ];
-
   misc = {
     vrr = 1;
     disable_splash_rendering = true;
