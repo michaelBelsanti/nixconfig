@@ -46,7 +46,7 @@ in
     }
 
     .notifications .count {
-      padding-right: .3em
+      padding-right: .5em
     }
   '';
 }
