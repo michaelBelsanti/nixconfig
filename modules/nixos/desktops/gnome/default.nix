@@ -30,6 +30,7 @@ in
       systemPackages = with pkgs; [
         gnome.gnome-tweaks
         dconf2nix
+        nautilus-open-any-terminal
       ];
       sessionVariables = {
         GDK_DEBUG = "gl-fractional"; # Enable fractional scaling in GNOME 45
