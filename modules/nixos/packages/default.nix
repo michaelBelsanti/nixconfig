@@ -3,7 +3,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    helix-desktop # Helix .desktop file, so it can be the default editor
     libreoffice
     vesktop
     revolt-desktop

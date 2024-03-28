@@ -32,22 +32,6 @@ _self: super: {
     withOpenASAR = true;
     withVencord = true;
   };
-  helix-desktop = super.makeDesktopItem {
-    name = "helix";
-    desktopName = "Helix (TUI)";
-    genericName = "Helix";
-    exec = "hx %F";
-    mimeTypes = [
-      "text/plain"
-      "inode/directory"
-    ];
-    categories = [
-      "Utility"
-      "TextEditor"
-      "Development"
-    ];
-    terminal = true;
-  };
   rosepine-wallpaper = super.fetchurl {
     url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/flower.jpg";
     hash = "sha256-A83dUw3QT7GpWGSV+JY7F+kU38CNk5uQrzFwyL5yFdE=";
