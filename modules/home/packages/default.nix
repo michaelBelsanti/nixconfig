@@ -65,5 +65,6 @@
     slides
     psmisc
     difftastic
+    vhs
   ];
 }
