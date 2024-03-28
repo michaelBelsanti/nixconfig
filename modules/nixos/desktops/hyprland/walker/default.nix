@@ -5,7 +5,7 @@ in
 {
   config.snowfallorg.users.${user}.home.config = lib.mkIf config.desktop.hyprland.enable {
     programs.walker = {
-      enabled = true;
+      enable = true;
       runAsService = true;
       style = builtins.readFile ./style.css;
       config = {

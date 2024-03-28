@@ -22,7 +22,7 @@
     go
     # Python
     poetry
-    pipx
+    # pipx
     # Haskell
     ghc
 
