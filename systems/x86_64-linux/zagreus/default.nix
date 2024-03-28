@@ -8,7 +8,10 @@
   imports = [ ./hardware.nix ];
 
   # Custom options
-  desktop.gnome.enable = true;
+  desktop = {
+    wayland.enable = true;
+    gnome.enable = true;
+  };
 
   networking.hostName = "zagreus"; # Define your hostname.
 
