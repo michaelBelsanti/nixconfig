@@ -9,14 +9,20 @@ in
       runAsService = true;
       style = builtins.readFile ./style.css;
       config = {
+        activation_mode.use_alt = true;
+        align = {
+          anchor = "top";
+          horizontal = "center";
+          vertical = "start";
+          width = 500;
+        };
         placeholder = "Search...";
         notify_on_fail = true;
         show_initial_entries = true;
         orientation = "vertical";
         terminal = "footclient";
-        activation_mode = {
-          use_alt = true;
-        };
+        scrollbar_policy = "automatic";
+        ssh_host_file = "";
         modules = [
           { name = "applications"; }
           {
@@ -40,11 +46,6 @@ in
         icons = {
           size = 28;
           image_height = 200;
-        };
-        align = {
-          horizontal = "center";
-          vertical = "start";
-          width = 500;
         };
         list = {
           margin_top = 10;
