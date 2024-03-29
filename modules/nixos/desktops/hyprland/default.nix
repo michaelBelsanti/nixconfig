@@ -90,7 +90,10 @@ in
     snowfallorg.users.${user}.home.config = {
       wayland.windowManager.hyprland = {
         enable = true;
-        systemd.variables = [ "-all" ];
+        systemd = {
+          enable = true;
+          variables = [ "-all" ];
+        };
         settings = import ./settings.nix pkgs;
       };
       services.udiskie.enable = true;
