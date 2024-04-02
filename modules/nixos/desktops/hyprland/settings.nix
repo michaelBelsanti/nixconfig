@@ -11,7 +11,6 @@ pkgs:
   ];
 
   exec = [
-    "swaybg --image ~/.background-image --mode fill"
     "sleep 1; pkill ironbar; ironbar"
   ];
 
