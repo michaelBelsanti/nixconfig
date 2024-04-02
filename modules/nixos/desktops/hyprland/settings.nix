@@ -6,7 +6,6 @@ pkgs:
 
   "exec-once" = [
     "foot --server"
-    "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK"
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
     "swaync"
   ];

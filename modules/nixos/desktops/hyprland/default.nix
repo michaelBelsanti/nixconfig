@@ -92,7 +92,7 @@ in
         enable = true;
         systemd = {
           enable = true;
-          variables = [ "-all" ];
+          variables = [ "--all" ];
         };
         settings = import ./settings.nix pkgs;
       };
