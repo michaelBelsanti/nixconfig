@@ -23,6 +23,7 @@
         inputs.ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
         walker.homeManagerModules.default
+        hyprlock.homeManagerModules.default
       ];
 
       systems.modules.nixos = with inputs; [
@@ -94,16 +95,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hypr-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     ironbar = {
       url = "github:JakeStanger/ironbar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     walker = {
       url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";

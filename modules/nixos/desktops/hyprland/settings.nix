@@ -42,12 +42,16 @@ pkgs:
   bind = [
     # Menus
     "SUPER,SPACE,exec,walker"
-    "SUPER,O,exec,rofi-wrapper -o"
+
+    "SUPER,escape,exec,hyprlock"
 
     # Program binds
     "SUPER,Return,exec,$terminal"
     "SUPER,B,exec,$browser"
     "SUPER,E,exec,$fm"
+
+    # OBS bind
+    "SUPER,v,pass,^(com\.obsproject\.Studio)$"
 
     # Volume keys
     ",XF86AudioLowerVolume,exec,pamixer -d 10"
