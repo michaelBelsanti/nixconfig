@@ -11,7 +11,7 @@ in
       config = {
         activation_mode.use_alt = true;
         align = {
-          anchor = "top";
+          anchors.top = true;
           horizontal = "center";
           vertical = "start";
           width = 500;
@@ -56,6 +56,9 @@ in
         clipboard = {
           image_height = 300;
           max_entries = 10;
+        };
+        hyprland = {
+          context_aware_history = false;
         };
       };
     };

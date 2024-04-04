@@ -16,7 +16,6 @@ in
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    programs.nm-applet.enable = true;
     environment.systemPackages = with pkgs; [
       # QT stuff
       kdePackages.breeze
