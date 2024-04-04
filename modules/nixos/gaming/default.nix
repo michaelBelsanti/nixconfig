@@ -36,7 +36,6 @@ in
       protontricks
       protonup-qt
       r2modman
-      steamtinkerlaunch
       winetricks
 
       # Emulation
@@ -48,7 +47,6 @@ in
 
     chaotic.steam.extraCompatPackages = with pkgs; [
       nyx.luxtorpeda
-      steamtinkerlaunch
     ];
     hardware = {
       opentabletdriver.enable = true;
