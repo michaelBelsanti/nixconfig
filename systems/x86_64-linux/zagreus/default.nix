@@ -50,7 +50,7 @@
     auto-cpufreq.enable = true;
     thermald.enable = true;
     power-profiles-daemon.enable = false;
-    fprintd.enable = true; # Enable fingerprint scanner
+    fprintd.enable = false; # Enable fingerprint scanner
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
       extraRemotes = [ "lvfs-testing" ];
@@ -75,7 +75,7 @@
     DisableCapsuleUpdateOnDisk=true
   '';
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   system.stateVersion = "22.05";
 }
