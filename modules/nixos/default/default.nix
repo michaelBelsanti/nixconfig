@@ -191,6 +191,7 @@
       VISUAL = "kate";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
       QT_QPA_PLATFORM = "wayland";
+      FLAKE = flakePath;
     };
   };
 
@@ -361,16 +362,6 @@
   };
 
   system.activationScripts = {
-    diff = {
-      supportsDryActivation = true;
-      text = ''
-        if [[ -e /run/current-system ]]; then
-          echo "--- diff to current-system"
-          ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
-          echo "---"
-        fi
-      '';
-    };
     registryAdd.text = ''
       ${pkgs.nix}/bin/nix registry add nixconfig ${flakePath}
     '';

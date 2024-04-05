@@ -9,6 +9,7 @@
   spicetify,
   nyx,
   walker,
+  nh,
   ...
 }:
 _self: super: {
@@ -18,6 +19,7 @@ _self: super: {
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
   inherit (walker.packages.${super.system}) walker;
+  inherit (nh.packages.${super.system}) nh;
   gaming = nix-gaming.packages.${super.system};
   ssbm = ssbm.packages.${super.system};
   nyx = nyx.packages.${super.system};

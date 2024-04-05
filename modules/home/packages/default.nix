@@ -27,6 +27,7 @@
     ghc
 
     # Nix
+    nh
     nurl
     nix-init
     nix-tree
