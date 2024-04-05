@@ -6,7 +6,6 @@
     libreoffice
     vesktop
     revolt-desktop
-    spotify
     kdenlive
     signal-desktop
     bitwarden
