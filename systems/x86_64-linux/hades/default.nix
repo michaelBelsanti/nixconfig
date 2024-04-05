@@ -10,6 +10,7 @@
         "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
         "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.gojo}"
         "hyprctl setcursor phinger-cursors 32"
+        "obs --startreplaybuffer --minimize-to-tray"
       ];
 
       input = {
