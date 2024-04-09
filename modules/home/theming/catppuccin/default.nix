@@ -58,6 +58,7 @@ in
     programs = {
       fish.catppuccin.enable = true;
       helix.catppuccin.enable = true;
+      rio.catppuccin.enable = true;
       lazygit.catppuccin.enable = true;
       starship.catppuccin.enable = true;
       yazi.theme = builtins.fromTOML (
