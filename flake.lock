@@ -49,6 +49,21 @@
         "type": "github"
       }
     },
+    "catppuccin-nix": {
+      "locked": {
+        "lastModified": 1712629547,
+        "narHash": "sha256-sw6NGZab9b8MsvphWrKcb/n0nuop/I7PaqUgSwzmNXk=",
+        "owner": "michaelBelsanti",
+        "repo": "catppuccin-nix",
+        "rev": "7cf37a618f391302ac3a0b1e55999a2bd95beb4e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "michaelBelsanti",
+        "repo": "catppuccin-nix",
+        "type": "github"
+      }
+    },
     "compare-to": {
       "locked": {
         "lastModified": 1695341185,
@@ -1330,6 +1345,7 @@
     },
     "root": {
       "inputs": {
+        "catppuccin-nix": "catppuccin-nix",
         "devenv": "devenv",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "helix": "helix",

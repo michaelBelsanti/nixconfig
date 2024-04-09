@@ -27,25 +27,18 @@ let
 in
 {
   config = lib.mkIf catppuccinEnabled {
+    catppuccin.flavour = flavour;
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     home.packages = with pkgs; [ catppuccin-qt5ct ];
     gtk = {
+      catppuccin = {
+        enable = true;
+        cursor.enable = true;
+      };
       iconTheme = {
         name = "Adwaita";
         package = pkgs.gnome.adwaita-icon-theme;
       };
-      theme = {
-        name = "Catppuccin-${Flavour}-Standard-${Accent}-Dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "${accent}" ];
-          variant = "${flavour}";
-        };
-      };
-      gtk3.extraCss = ''
-        decoration, window, window.background, window.titlebar, * {
-          border-radius: 0px;
-        }
-      ''; # Fixes bugged context menus
     };
     home.file.".background-image".source = wallpaper;
     dconf.settings = {
@@ -57,28 +50,16 @@ in
         picture-uri = "${wallpaper}";
       };
     };
-    xdg.dataFile."konsole/Catppuccin.colorscheme".source =
-      pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "konsole";
-        rev = "7d86b8a1e56e58f6b5649cdaac543a573ac194ca";
-        hash = "sha256-EwSJMTxnaj2UlNJm1t6znnatfzgm1awIQQUF3VPfCTM=";
-      }
-      + /Catppuccin-${Flavour}.colorscheme;
-    xdg.configFile = {
-      "swaync/style.css" = {
-        text = builtins.readFile (pkgs.fetchurl {
-          url = "https://github.com/catppuccin/swaync/releases/download/v0.1.2.1/${flavour}.css";
-          hash = "sha256-6X+KSIYcPRQDGm1YV8rk5mq21Gk/pFCugOEoavh3tBw=";
-        });
-      };
-      "ironbar/style.css" = import ./ironbar.nix {inherit inputs;};
-    };
+    xdg.configFile."ironbar/style.css" = import ./ironbar.nix { inherit inputs; };
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
     };
     programs = {
+      fish.catppuccin.enable = true;
+      helix.catppuccin.enable = true;
+      lazygit.catppuccin.enable = true;
+      starship.catppuccin.enable = true;
       yazi.theme = builtins.fromTOML (
         builtins.readFile (
           pkgs.fetchFromGitHub {
@@ -116,7 +97,6 @@ in
         theme = catppuccin;
         colorScheme = "${flavour}";
       };
-      helix.settings.theme = "catppuccin_${flavour}";
     };
   };
 }

@@ -22,6 +22,7 @@
         plasma-manager.homeManagerModules.plasma-manager
         ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
+        catppuccin-nix.homeManagerModules.catppuccin
         walker.homeManagerModules.default
         hyprlock.homeManagerModules.default
       ];
@@ -30,6 +31,7 @@
         nyx.nixosModules.default
         ssbm.nixosModule
         flake-programs-sqlite.nixosModules.programs-sqlite
+        catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -79,6 +81,8 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+    # catppuccin-nix.url = "github:catppuccin/nix";
+    catppuccin-nix.url = "github:michaelBelsanti/catppuccin-nix";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming = {
