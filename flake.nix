@@ -20,7 +20,7 @@
       homes.modules = with inputs; [
         spicetify.homeManagerModule
         plasma-manager.homeManagerModules.plasma-manager
-        inputs.ironbar.homeManagerModules.default
+        ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
         walker.homeManagerModules.default
         hyprlock.homeManagerModules.default
