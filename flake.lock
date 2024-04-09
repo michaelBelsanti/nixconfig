@@ -51,11 +51,11 @@
     },
     "catppuccin-nix": {
       "locked": {
-        "lastModified": 1712629547,
-        "narHash": "sha256-sw6NGZab9b8MsvphWrKcb/n0nuop/I7PaqUgSwzmNXk=",
+        "lastModified": 1712632636,
+        "narHash": "sha256-DT9xFk7aCdQikLn8VAnBpZ6sT7FxteYOiuLhn9+Awlk=",
         "owner": "michaelBelsanti",
         "repo": "catppuccin-nix",
-        "rev": "7cf37a618f391302ac3a0b1e55999a2bd95beb4e",
+        "rev": "9162728d4af88ec45cf42cef30812b9315161b86",
         "type": "github"
       },
       "original": {
