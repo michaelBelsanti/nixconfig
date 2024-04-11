@@ -12,7 +12,6 @@
 
   snowfallorg.users.${config.users.mainUser}.home.config = {
     # Main user theming
-    # services.nextcloud-client.enable = true;
     home.stateVersion = "22.05";
     apps = {
       foot.enable = true;

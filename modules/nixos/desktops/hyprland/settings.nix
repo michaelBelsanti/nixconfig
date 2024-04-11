@@ -8,6 +8,7 @@ pkgs:
     "foot --server"
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
     "swaync"
+    # "nextcloud"
   ];
 
   exec = [
@@ -69,7 +70,7 @@ pkgs:
 
     # Screenshots
     "SUPERSHIFT,S,exec,grimblast copy area"
-    "SUPERSHIFTCTRL,S,exec,copysave area"
+    "SUPERSHIFTCTRL,S,exec,grimblast copysave area"
     "SUPER,S,exec,grimblast copy active"
     "SUPERCTRL,S,exec,grimblast copysave active"
     "SUPERALT,S,exec,grimblast copy output"
