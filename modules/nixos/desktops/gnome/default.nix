@@ -39,7 +39,6 @@ in
     snowfallorg.users.${user}.home.config = {
       home.packages = with pkgs.gnomeExtensions; [
         forge
-        gtk-title-bar
         appindicator
       ];
       dconf.settings = {

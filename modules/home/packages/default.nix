@@ -33,6 +33,7 @@
     nix-tree
     nix-index
     nix-update
+    nix-inspect
 
     # Other CLI tools that are part of my workflow
     nitch

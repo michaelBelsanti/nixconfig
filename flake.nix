@@ -81,8 +81,7 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
-    # catppuccin-nix.url = "github:catppuccin/nix";
-    catppuccin-nix.url = "github:michaelBelsanti/catppuccin-nix";
+    catppuccin-nix.url = "github:catppuccin/nix";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming = {

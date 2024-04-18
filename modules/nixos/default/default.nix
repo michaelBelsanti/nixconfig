@@ -285,7 +285,7 @@
     };
     zsh.enable = true;
     kdeconnect = {
-      enable = true;
+      enable = false;
       package = pkgs.valent;
     };
     dconf.enable = true;
