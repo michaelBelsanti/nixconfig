@@ -32,6 +32,7 @@ in
 
       pavucontrol
       overskride
+      gnome.file-roller
 
       gnome.nautilus
       nautilus-open-any-terminal
