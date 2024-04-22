@@ -33,7 +33,7 @@ in
     gtk = {
       catppuccin = {
         enable = true;
-        cursor.enable = true;
+        cursor.enable = false;
       };
       iconTheme = {
         name = "Adwaita";

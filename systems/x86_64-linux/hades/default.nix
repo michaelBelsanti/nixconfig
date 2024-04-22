@@ -9,7 +9,7 @@
         # "obs --startreplaybuffer"
         "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
         "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.gojo}"
-        "hyprctl setcursor phinger-cursors 32"
+        "hyprctl setcursor phinger-cursors-dark 32"
         "obs --startreplaybuffer --minimize-to-tray"
       ];
 
@@ -96,6 +96,9 @@
       __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
     };
   };
+
+  virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableKvm = true;
 
   system.stateVersion = "22.05"; # Did you read the comment?
 }
