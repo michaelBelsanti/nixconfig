@@ -24,7 +24,6 @@
     interactiveShellInit = ''
       set fish_greeting
       ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
-      eval (zellij setup --generate-auto-start fish | string collect)
     '';
   };
 }

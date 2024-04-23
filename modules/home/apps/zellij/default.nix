@@ -1,5 +1,8 @@
 _: {
-  programs.zellij.enable = true;
+  programs.zellij = {
+    enable = true;
+    enableFishIntegration = true;
+  };
   xdg.configFile = {
     "zellij/config.kdl".text = ''
       // default_mode "locked"
