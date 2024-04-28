@@ -48,6 +48,7 @@
       enable = true;
       settings.updates.auto_update = true;
     };
+    btop.enable = true;
   };
 
   # Cleaning up ~
