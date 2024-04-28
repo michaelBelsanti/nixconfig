@@ -56,34 +56,16 @@ in
       "col.inactive_border" = "0xff1e1d2f";
     };
     programs = {
+      btop.catppuccin.enable = true;
       fish.catppuccin.enable = true;
+      foot.catppuccin.enable = true;
       helix.catppuccin.enable = true;
-      rio.catppuccin.enable = true;
+      kitty.catppuccin.enable = true;
       lazygit.catppuccin.enable = true;
+      rio.catppuccin.enable = true;
       starship.catppuccin.enable = true;
       yazi.catppuccin.enable = true;
-      zellij.settings.theme = "catppuccin-${flavour}";
-      foot.settings.colors = {
-        # Macchiato theme
-        foreground = "cad3f5"; # Text
-        background = "24273a"; # Base
-        regular0 = "494d64"; # Surface 1
-        regular1 = "ed8796"; # red
-        regular2 = "a6da95"; # green
-        regular3 = "eed49f"; # yellow
-        regular4 = "8aadf4"; # blue
-        regular5 = "f5bde6"; # pink
-        regular6 = "8bd5ca"; # teal
-        regular7 = "b8c0e0"; # Subtext 1
-        bright0 = "5b6078"; # Surface 2
-        bright1 = "ed8796"; # red
-        bright2 = "a6da95"; # green
-        bright3 = "eed49f"; # yellow
-        bright4 = "8aadf4"; # blue
-        bright5 = "f5bde6"; # pink
-        bright6 = "8bd5ca"; # teal
-        bright7 = "a5adcb"; # Subtext 0
-      };
+      zellij.catppuccin.enable = true;
       spicetify = with pkgs.spicePkgs.themes; {
         theme = catppuccin;
         colorScheme = "${flavour}";

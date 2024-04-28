@@ -1,6 +1,3 @@
 _: {
-  xdg.configFile."btop" = {
-    source = ./config;
-    recursive = true;
-  };
+  programs.btop.enable = true;
 }
