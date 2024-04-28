@@ -10,6 +10,7 @@ in
       style = builtins.readFile ./style.css;
       config = {
         activation_mode.use_alt = true;
+        force_keyboard_focus = true;
         align = {
           anchors.top = true;
           horizontal = "center";
