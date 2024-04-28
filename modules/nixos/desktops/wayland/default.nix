@@ -17,12 +17,12 @@ in
         wl-clipboard
         qt6.qtwayland
       ];
-      sessionVariables = {
+      sessionVariables = lib.mkDefault {
         NIXOS_OZONE_WL = "1";
-        QT_QPA_PLATFORM = "wayland";
+        QT_QPA_PLATFORM = "wayland;xcb";
       };
     };
-    services.xserver = {
+    services.xserver = lib.mkDefault {
       desktopManager.plasma5.useQtScaling = true;
       displayManager.sddm.wayland.enable = true;
       displayManager.gdm.wayland = true;

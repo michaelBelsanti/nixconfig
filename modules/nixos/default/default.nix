@@ -187,9 +187,8 @@
     ];
     sessionVariables = {
       EDITOR = "hx";
-      VISUAL = "kate";
+      VISUAL = "hx";
       WINEDLLOVERRIDES = "winemenubuilder.exe=d";
-      QT_QPA_PLATFORM = "wayland";
       FLAKE = flakePath;
     };
   };

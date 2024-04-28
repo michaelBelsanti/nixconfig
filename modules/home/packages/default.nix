@@ -21,8 +21,8 @@
     # Go
     go
     # Python
-    poetry
-    # pipx
+    # poetry
+    pipx
     # Haskell
     ghc
 

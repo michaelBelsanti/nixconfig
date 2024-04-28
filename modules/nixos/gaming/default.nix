@@ -41,8 +41,8 @@ in
       # Emulation
       dolphin-emu
       dolphin-emu-primehack
-      ssbm.slippi-launcher
-      ssbm.slippi-netplay
+      # ssbm.slippi-launcher
+      # ssbm.slippi-netplay
     ];
 
     chaotic.steam.extraCompatPackages = with pkgs; [
