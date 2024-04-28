@@ -253,7 +253,7 @@
     qemuGuest.enable = true;
     gvfs.enable = true;
     input-remapper.enable = true;
-    # system76-scheduler.enable = true;
+    system76-scheduler.enable = true;
   };
 
   programs = {

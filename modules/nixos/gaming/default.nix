@@ -65,7 +65,7 @@ in
         gamescopeSession.enable = true;
       };
       gamemode = {
-        enable = true;
+        enable = false;
         settings = {
           custom = {
             start = "togdnd -p; polybar-msg action gamemode module_show";
