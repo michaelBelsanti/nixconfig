@@ -11,7 +11,7 @@
 
 buildNpmPackage {
   pname = "polonium-git";
-  version = "1.0.0.beta1";
+  version = "1.0b2";
 
   src = fetchFromGitHub {
     owner = "zeroxoneafour";

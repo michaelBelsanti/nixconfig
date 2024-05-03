@@ -5,13 +5,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "markdown-oxide";
-  version = "0.0.4";
+  version = "0.0.21";
 
   src = fetchFromGitHub {
     owner = "Feel-ix-343";
     repo = "markdown-oxide";
     rev = "v${version}";
-    hash = "sha256-m7YOWoGcIM1Kvv1mzFQHiM9lN58JEw0DTsPuWTNw3fM=";
+    hash = "sha256-PrsTHAlFFeqyZTsoKvoe19P2ed7xDtOlBgoKftFytVw=";
   };
 
   cargoLock = {
