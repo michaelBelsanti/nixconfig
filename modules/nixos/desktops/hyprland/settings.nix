@@ -1,5 +1,4 @@
-pkgs:
-{
+pkgs: {
   "$fm" = "nautilus";
   "$browser" = "floorp";
   "$terminal" = "kitty";
@@ -10,9 +9,7 @@ pkgs:
     # "nextcloud"
   ];
 
-  exec = [
-    "sleep 1; pkill ironbar; ironbar"
-  ];
+  exec = [ "sleep 1; pkill ironbar; ironbar" ];
 
   general = {
     gaps_in = 2;
@@ -26,7 +23,6 @@ pkgs:
     vrr = 1;
     disable_splash_rendering = true;
   };
-
 
   decoration = {
     rounding = 8;

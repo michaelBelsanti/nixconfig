@@ -1,4 +1,5 @@
-{...}: _: super: {
+{ ... }:
+_: super: {
   wallpapers.live = {
     killua = super.fetchurl {
       url = "https://files.catbox.moe/ph1d5s.mp4";

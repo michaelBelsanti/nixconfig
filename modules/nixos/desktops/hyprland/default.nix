@@ -75,9 +75,7 @@ in
       };
       programs.hyprlock = {
         enable = true;
-        backgrounds = lib.lists.singleton {
-          path = "~/.background-image";
-        };
+        backgrounds = lib.lists.singleton { path = "~/.background-image"; };
       };
       xdg.desktopEntries = {
         "power-off" = {

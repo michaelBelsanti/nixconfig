@@ -1,7 +1,8 @@
-{ lib
-, fetchFromGitHub
-, buildNpmPackage
-, kdePackages
+{
+  lib,
+  fetchFromGitHub,
+  buildNpmPackage,
+  kdePackages,
 }:
 
 # how to update:
@@ -29,7 +30,10 @@ buildNpmPackage {
       --replace-fail "build install cleanall" "res src"
   '';
 
-  nativeBuildInputs = with kdePackages; [ qtbase kpackage ];
+  nativeBuildInputs = with kdePackages; [
+    qtbase
+    kpackage
+  ];
 
   dontNpmBuild = true;
 

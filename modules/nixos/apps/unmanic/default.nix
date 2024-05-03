@@ -17,11 +17,8 @@ in
       unmanic = {
         image = "josh5/unmanic";
         ports = [ "8888:8888" ];
-        volumes = [
-          "/var/lib/unmanic:/config"
-        ];
+        volumes = [ "/var/lib/unmanic:/config" ];
       };
     };
   };
 }
-

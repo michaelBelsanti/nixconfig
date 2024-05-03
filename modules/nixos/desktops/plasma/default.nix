@@ -22,7 +22,6 @@ in
       defaultSession = "plasma";
     };
 
-
     environment.systemPackages = with pkgs; [
       # Theming / Customization
       (catppuccin-kde.override {

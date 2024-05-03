@@ -1,9 +1,5 @@
 # Main NixOS home-manager configuration, imported by all NixOS configs
-{
-  config,
-  user,
-  ...
-}:
+{ config, user, ... }:
 {
 
   # Home Manager Setup

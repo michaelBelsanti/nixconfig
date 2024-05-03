@@ -1,5 +1,4 @@
-_:
-{
+_: {
   apps.rio.enable = true;
   programs.git.signing = {
     signByDefault = true;

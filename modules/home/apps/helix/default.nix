@@ -10,11 +10,11 @@
         }
         {
           name = "css";
-          language-servers = [];
+          language-servers = [ ];
         }
         {
           name = "scss";
-          language-servers = [];
+          language-servers = [ ];
         }
       ];
     };
@@ -90,7 +90,7 @@
     nodePackages_latest.typescript-language-server
     marksman
     custom.markdown-oxide
-    
+
     (writeScriptBin "toggle" ''
       #!${lib.getExe pkgs.nushell}
 

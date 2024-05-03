@@ -1,5 +1,4 @@
-_:
-{
+_: {
   apps.easyeffects.enable = true;
   programs.git.signing = {
     signByDefault = true;

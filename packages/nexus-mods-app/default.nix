@@ -2,7 +2,7 @@
   appimageTools,
   fetchurl,
   lib,
-  # makeWrapper,
+# makeWrapper,
 }:
 let
   pname = "nexus-mods-app";

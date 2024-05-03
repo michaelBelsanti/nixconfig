@@ -21,12 +21,10 @@
     jan
     warp-terminal
 
-    (python3.withPackages (
-      python-pkgs: [
-        python-pkgs.pandas
-        python-pkgs.requests
-      ]
-    ))
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pandas
+      python-pkgs.requests
+    ]))
 
     input-leap
 
