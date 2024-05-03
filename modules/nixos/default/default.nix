@@ -14,7 +14,6 @@
     # Main user theming
     home.stateVersion = "22.05";
     apps = {
-      foot.enable = true;
       kitty.enable = true;
       spicetify.enable = true;
     };
