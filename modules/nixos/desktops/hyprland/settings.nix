@@ -2,10 +2,9 @@ pkgs:
 {
   "$fm" = "nautilus";
   "$browser" = "floorp";
-  "$terminal" = "footclient";
+  "$terminal" = "kitty";
 
   "exec-once" = [
-    "foot --server"
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
     "swaync"
     # "nextcloud"
