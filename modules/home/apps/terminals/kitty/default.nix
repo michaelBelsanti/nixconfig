@@ -18,6 +18,7 @@ in
         enable_audio_bell = false;
         update_check_interval = 0;
         confirm_os_window_close = 0;
+        hide_window_decorations = true;
       };
       keybindings = {
         "ctrl+shift+c" = "copy_to_clipboard";
