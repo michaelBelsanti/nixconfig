@@ -13,6 +13,7 @@ rustPlatform.buildRustPackage rec {
     repo = "markdown-oxide";
     rev = "v${version}";
     hash = "sha256-PrsTHAlFFeqyZTsoKvoe19P2ed7xDtOlBgoKftFytVw=";
+    fetchSubmodules = true;
   };
 
   cargoLock = {
@@ -23,8 +24,8 @@ rustPlatform.buildRustPackage rec {
   };
 
   meta = with lib; {
-    description = "Let's record your consciousness! Bring your own text editor! Markdown-Oxide is Obsidian-Inspired PKM software for tech enthusiasts";
-    homepage = "https://github.com/Feel-ix-343/markdown-oxide";
+    description = "Agnostic PKM: you bring the text editor and we bring the PKM";
+    homepage = "https://github.com/Feel-ix-343/markdown-oxide/";
     license = licenses.cc0;
     maintainers = with maintainers; [ ];
     mainProgram = "markdown-oxide";
