@@ -64,7 +64,6 @@
     tetrio-desktop
     easyeffects
     element-desktop
-    qbittorrent
     imagemagick
     ffmpeg
     filelight
