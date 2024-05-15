@@ -21,6 +21,7 @@
     jan
     tidal-hifi
     varia
+    quickemu
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pandas
