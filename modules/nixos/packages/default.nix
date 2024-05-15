@@ -19,7 +19,7 @@
     # custom.affine
     localsend
     jan
-    warp-terminal
+    tidal-hifi
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pandas

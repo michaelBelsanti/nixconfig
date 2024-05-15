@@ -15,7 +15,6 @@
     home.stateVersion = "22.05";
     apps = {
       kitty.enable = true;
-      spicetify.enable = true;
     };
     theming = {
       enable = true;
