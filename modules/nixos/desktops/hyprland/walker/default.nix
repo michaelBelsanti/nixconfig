@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   user = config.users.mainUser;
 in
@@ -6,6 +11,7 @@ in
   config.snowfallorg.users.${user}.home.config = lib.mkIf config.desktop.hyprland.enable {
     programs.walker = {
       enable = true;
+      package = pkgs.walker;
       runAsService = true;
       style = builtins.readFile ./style.css;
       config = {

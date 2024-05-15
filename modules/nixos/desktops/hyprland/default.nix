@@ -28,7 +28,6 @@ in
       swaybg
       mpvpaper
       swaynotificationcenter
-      walker
 
       pavucontrol
       overskride

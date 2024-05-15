@@ -8,7 +8,6 @@
   ssbm,
   spicetify,
   nyx,
-  walker,
   nh,
   ...
 }:
@@ -18,7 +17,6 @@ _self: super: {
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
-  inherit (walker.packages.${super.system}) walker;
   inherit (nh.packages.${super.system}) nh;
   gaming = nix-gaming.packages.${super.system};
   ssbm = ssbm.packages.${super.system};
