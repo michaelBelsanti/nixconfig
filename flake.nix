@@ -24,7 +24,6 @@
         nix-colors.homeManagerModules.default
         catppuccin-nix.homeManagerModules.catppuccin
         walker.homeManagerModules.default
-        hyprlock.homeManagerModules.default
       ];
 
       systems.modules.nixos = with inputs; [
@@ -98,10 +97,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     hypr-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";

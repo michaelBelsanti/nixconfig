@@ -20,6 +20,7 @@
     localsend
     jan
     tidal-hifi
+    varia
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pandas
