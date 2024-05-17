@@ -3,7 +3,7 @@ local act = wezterm.action
 
 return {
 	color_scheme = "Catppuccin Macchiato",
-  font = wezterm.font("JetBrainsMono Nerd Font"),
+  font = wezterm.font("monospace"),
   font_size = 12.0,
   harfbuzz_features = {"zero"},
   use_dead_keys = false,

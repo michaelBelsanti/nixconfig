@@ -12,19 +12,19 @@ in
       env.TERM = "xterm-256color";
       font = {
         normal = {
-          family = "JetBrainsMono Nerd Font";
+          family = "monospace";
           style = "Regular";
         };
         bold = {
-          family = "JetBrainsMono Nerd Font";
+          family = "monospace";
           style = "Bold";
         };
         italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = "monospace";
           style = "Italic";
         };
         bold_italic = {
-          family = "JetBrainsMono Nerd Font";
+          family = "monospace";
           style = "Bold Italic";
         };
         size = 12;

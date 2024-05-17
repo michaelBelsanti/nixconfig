@@ -15,6 +15,7 @@
     home.stateVersion = "22.05";
     apps = {
       kitty.enable = true;
+      wezterm.enable = false;
     };
     theming = {
       enable = true;
@@ -151,7 +152,8 @@
   # Best fonts (Especially JetBrains Mono)
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+      jetbrains-mono
       montserrat
       twemoji-color-font
       libertine
@@ -161,7 +163,7 @@
     fontconfig.defaultFonts = {
       serif = [ "Liberation Serif" ];
       sansSerif = [ "Montserrat" ];
-      monospace = [ "JetBrainsMono NF" ];
+      monospace = [ "JetBrains Mono" ];
       emoji = [
         "Twitter Color Emoji"
         "Noto Color Emoji"
