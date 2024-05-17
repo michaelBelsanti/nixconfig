@@ -1,7 +1,7 @@
 pkgs: {
   "$fm" = "nautilus";
   "$browser" = "floorp";
-  "$terminal" = "kitty";
+  "$terminal" = "wezterm";
 
   "exec-once" = [
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"

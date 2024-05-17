@@ -82,6 +82,7 @@
     golangci-lint
     taplo
     python3Packages.python-lsp-server
+    lua-language-server
     haskell-language-server
     nodePackages.bash-language-server
     shellcheck
