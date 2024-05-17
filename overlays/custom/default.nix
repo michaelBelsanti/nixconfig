@@ -9,6 +9,7 @@
   spicetify,
   nyx,
   nh,
+  wezterm,
   ...
 }:
 _self: super: {
@@ -18,6 +19,7 @@ _self: super: {
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
   inherit (nh.packages.${super.system}) nh;
+  wezterm-nightly = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
   ssbm = ssbm.packages.${super.system};
   nyx = nyx.packages.${super.system};

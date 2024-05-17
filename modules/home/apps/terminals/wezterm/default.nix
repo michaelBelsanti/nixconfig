@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 let
   inherit (lib) mkIf;
   inherit (lib.custom) mkBoolOpt;
@@ -9,6 +14,7 @@ in
   config = mkIf cfg.enable {
     programs.wezterm = {
       enable = true;
+      package = pkgs.wezterm-nightly;
       extraConfig = builtins.readFile ./wezterm.lua;
     };
   };
