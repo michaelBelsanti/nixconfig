@@ -15,7 +15,7 @@
     home.stateVersion = "22.05";
     apps = {
       kitty.enable = true;
-      wezterm.enable = false;
+      wezterm.enable = true;
     };
     theming = {
       enable = true;
@@ -49,8 +49,8 @@
       };
     };
     home.pointerCursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-dark";
+      package = pkgs.custom.posy-cursor;
+      name = "Posy_Cursor";
       x11.enable = true;
       gtk.enable = true;
     };
