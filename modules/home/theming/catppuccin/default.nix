@@ -22,12 +22,12 @@ let
   catppuccinEnabled = config.theming.enable && (config.theming.theme == "catppuccin");
   inherit (config.theming) accent;
   Accent = capitalizeFirstLetter accent;
-  flavour = config.theming.variant;
-  Flavour = capitalizeFirstLetter config.theming.variant;
+  flavor = config.theming.variant;
+  Flavor = capitalizeFirstLetter config.theming.variant;
 in
 {
   config = lib.mkIf catppuccinEnabled {
-    catppuccin.flavour = flavour;
+    catppuccin.flavor = flavor;
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     home.packages = with pkgs; [ catppuccin-qt5ct ];
     gtk = {
@@ -68,7 +68,7 @@ in
       zellij.catppuccin.enable = true;
       spicetify = with pkgs.spicePkgs.themes; {
         theme = catppuccin;
-        colorScheme = "${flavour}";
+        colorScheme = "${flavor}";
       };
     };
   };
