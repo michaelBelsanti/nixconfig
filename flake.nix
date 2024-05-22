@@ -154,6 +154,7 @@
       "https://nix-gaming.cachix.org"
       "https://nyx.chaotic.cx/"
       "https://jakestanger.cachix.org"
+      "https://cosmic.cachix.org/"
     ];
     extra-trusted-public-keys = [
       "quasigod.cachix.org-1:z+auA/0uS8vy6DDtUZhRQagZvVdl5WYnE/7lveoM3Do="
@@ -164,6 +165,7 @@
       "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "jakestanger.cachix.org-1:VWJE7AWNe5/KOEvCQRxoE8UsI2Xs2nHULJ7TEjYm7mM="
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
   };
 }
