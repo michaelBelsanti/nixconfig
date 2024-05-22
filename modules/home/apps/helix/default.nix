@@ -74,6 +74,7 @@
   home.packages = with pkgs; [
     # language servers / formatters
     nil
+    nixd
     nixfmt-rfc-style
     rust-analyzer
     gopls
