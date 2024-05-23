@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage {
   pname = "hyprsome";
-  version = "unstable-2023-06-08";
+  version = "unstable-2024-05-19";
 
   src = fetchFromGitHub {
     owner = "sopa0";
     repo = "hyprsome";
-    rev = "9636be05ef20fbe473709cc3913b5bbf735eb4f3";
-    hash = "sha256-f4Z5gXZ74uAe770guywGIznXiI/3a/617MD2uZNQNVA=";
+    rev = "985e1a3b03b5118c98c03983f60ea9f74775858c";
+    hash = "sha256-JiOV9c23yOhaVW2NHgs8rjM8l9qt181Tigf5sCnPep8=";
   };
 
-  cargoHash = "sha256-FcsTWydEtcGP6fvsdax/PAd2c2d7MM+HVbhqsIc4ong=";
+  cargoHash = "sha256-AFKHlFlMDnrno1OOTuEJGpHdKW5SkbvzkSLQGbLWpOI=";
 
   meta = with lib; {
     description = "Awesome-like workspaces for Hyprland";
