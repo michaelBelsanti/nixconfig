@@ -20,7 +20,6 @@ in
       # QT stuff
       kdePackages.breeze
       kdePackages.breeze-icons
-      libsForQt5.breeze-icons
 
       # inputs.hyprsome.packages.${pkgs.system}.default
       custom.hyprsome
