@@ -30,22 +30,21 @@
   };
 
   services = {
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+        middleEmulation = false;
+        additionalOptions = ''
+          Option "MiddleEmulation" "off"
+        '';
+      };
+      touchpad = {
+        accelProfile = "adaptive";
+      };
+    };
     xserver = {
-      enable = true;
       videoDrivers = [ "intel" ];
       displayManager.gdm.enable = true;
-      libinput = {
-        mouse = {
-          accelProfile = "flat";
-          middleEmulation = false;
-          additionalOptions = ''
-            Option "MiddleEmulation" "off"
-          '';
-        };
-        touchpad = {
-          accelProfile = "adaptive";
-        };
-      };
     };
     auto-cpufreq.enable = true;
     thermald.enable = true;

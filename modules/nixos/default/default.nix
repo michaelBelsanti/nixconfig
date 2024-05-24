@@ -109,11 +109,13 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Xserver input
-  services.xserver = {
-    enable = true;
+  services = {
     libinput.enable = true;
-    desktopManager.wallpaper.mode = "fill";
-    excludePackages = [ pkgs.xterm ];
+    xserver = {
+      enable = true;
+      desktopManager.wallpaper.mode = "fill";
+      excludePackages = [ pkgs.xterm ];
+    };
   };
 
   # Enable sound.

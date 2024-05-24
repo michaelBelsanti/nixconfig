@@ -70,15 +70,14 @@
 
   # Display shiz
   services = {
+    libinput.mouse = {
+      accelProfile = "flat";
+      middleEmulation = false;
+    };
     pipewire.lowLatency.enable = true;
     xserver = {
-      enable = true;
       videoDrivers = [ "amdgpu" ];
       displayManager.gdm.enable = true;
-      libinput.mouse = {
-        accelProfile = "flat";
-        middleEmulation = false;
-      };
     };
     openssh = {
       enable = true;
