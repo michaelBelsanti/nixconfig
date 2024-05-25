@@ -1,15 +1,10 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  ...
-}:
+{ config, pkgs, ... }:
 {
   programs = {
     zsh = {
-      enable = false;
-      autosuggestion.enable = true;
+      enable = true;
       enableCompletion = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       autocd = true;
       defaultKeymap = "emacs";
@@ -17,49 +12,44 @@
       history = {
         path = "${config.xdg.configHome}/zsh/history";
         size = 10000;
+        share = true;
+        ignoreSpace = true;
         expireDuplicatesFirst = true;
       };
       shellAliases = {
-        nixup = "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
-        nixUp = "nix flake update ${flakePath} && doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/zsh/.zshrc";
-
-        cleanup = "doas nix-collect-garbage -d";
         lg = "lazygit";
         open = "xdg-open";
         nix = "noglob nix";
         nixos-rebuild = "noglob nixos-rebuild";
       };
-      prezto = {
-        enable = true;
-        pmodules = [
-          "archive"
-          "autosuggestions"
-          "git"
-          "ssh"
-          "syntax-highlighting"
-          "environment"
-          "terminal"
-          "editor"
-          "history"
-          "directory"
-          "spectrum"
-          "utility"
-          "prompt"
-        ];
-        prompt.theme = "smiley";
-      };
-      plugins = [
-        {
-          name = "zsh-nix-shell";
-          file = "nix-shell.plugin.zsh";
-          src = pkgs.fetchFromGitHub {
-            owner = "chisui";
-            repo = "zsh-nix-shell";
-            rev = "v0.5.0";
-            sha256 = "0za4aiwwrlawnia4f29msk822rj9bgcygw6a8a6iikiwzjjz0g91";
-          };
-        }
-      ];
+      initExtraBeforeCompInit = ''
+        export ZINIT_HOME="${config.xdg.dataHome}/zinit/"
+        if [ ! -d "$ZINIT_HOME" ]; then
+           mkdir -p "$(dirname $ZINIT_HOME)"
+        fi
+        source ${pkgs.zinit}/share/zinit/zinit.zsh
+
+        zinit light zsh-users/zsh-completions
+        zinit light Aloxaf/fzf-tab
+
+        # oh my zsh snippets
+        zinit snippet OMZP::git
+        zinit snippet OMZP::sudo
+        zinit snippet OMZP::archlinux
+        zinit snippet OMZP::aws
+        zinit snippet OMZP::kubectl
+        zinit snippet OMZP::kubectx
+        zinit snippet OMZP::command-not-found
+      '';
+      # NOTE escaped character in list-colors
+      initExtra = ''
+        # Completion styling
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+      '';
     };
   };
 }
