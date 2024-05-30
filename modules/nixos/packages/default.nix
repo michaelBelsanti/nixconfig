@@ -68,6 +68,8 @@
     ffmpeg
     filelight
     gnome-frog
+    gnome.pomodoro
+    wike
 
     # Not in modules/gaming.nix because any device can handle retro games
     (retroarch.override { cores = with libretro; [ beetle-gba ]; })
