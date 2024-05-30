@@ -4,26 +4,28 @@ let
 in
 {
   text = ''
+    .widget {
+      margin: 0px 4px;
+    }
+
     .background {
       border-radius: 8px;
     }
 
-    #bar #start {
-      border-radius: 8px;
-      margin-left: 10px;
+    #bar {
+      padding: 6px 4px;
     }
 
     #bar #end {
-      border-radius: 8px;
-      margin-right: 10px;
+      padding: 0px 4px;
     }
 
-    .workspaces {
-      border-radius: 8px;
+    .workspaces .item {
+      margin: 0px 2px
     }
 
     .workspaces .item.focused {
-      min-width: 3em;
+      min-width: 3.2em;
       background-size: 400% 400%;
       transition: all 0.3s ease;
       background: linear-gradient(58deg,
@@ -35,14 +37,13 @@ in
           #${palette.base0D});
     }
 
-    .notifications {
-      background: linear-gradient(58deg,
-          #${palette.base0E},
-          #${palette.base0E},
-          #${palette.base0E},
-          #${palette.base0D},
-          #${palette.base0D},
-          #${palette.base0D});
+    .tray {
+      border-radius: 8px;
+      padding: 0px 4px;
+    }
+
+    .clock {
+      margin-right: 8px;
     }
 
     .notifications .count {

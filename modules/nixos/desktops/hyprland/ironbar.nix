@@ -5,7 +5,7 @@
   margin = {
     top = 4;
     bottom = 2;
-    left = 8;
+    left = 4;
     right = 4;
   };
   start = [
