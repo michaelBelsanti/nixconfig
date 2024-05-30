@@ -7,8 +7,8 @@
     home.packages = with pkgs; [ custom.obs-cmd ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
-        "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.gojo}"
+        "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.chainsawman}"
+        "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
         "hyprctl setcursor Posy_Cursor 32"
         "obs --startreplaybuffer --minimize-to-tray --disable-shutdown-check"
       ];
