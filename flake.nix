@@ -71,10 +71,7 @@
     nixpkgs-slippi-fix.url = "github:michaelBelsanti/nixpkgs";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     nyx.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     snowfall-lib = {
