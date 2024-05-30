@@ -39,6 +39,7 @@
       git = true;
     };
     fzf.enable = true;
+    skim.enable = true;
     zoxide.enable = true;
   };
 }
