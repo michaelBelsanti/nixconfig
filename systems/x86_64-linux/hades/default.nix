@@ -4,14 +4,16 @@
 
   home-manager.users.${config.users.mainUser} = {
     # imports = [ ./plasma-manager.nix ];
+    home.packages = with pkgs; [ custom.obs-cmd ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        # "obs --startreplaybuffer"
         "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
         "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.gojo}"
         "hyprctl setcursor Posy_Cursor 32"
-        "obs --startreplaybuffer --minimize-to-tray"
+        "obs --startreplaybuffer --minimize-to-tray --disable-shutdown-check"
       ];
+
+      bind = [ "SUPER,v,exec,obs-cmd replay save && notify-send 'OBS Replay Buffer Saved!'" ];
 
       input = {
         accel_profile = "flat";
