@@ -8,7 +8,6 @@ config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font("monospace")
 config.font_size = 12.0
 config.use_dead_keys = false
-config.window_close_confirmation = "NeverPrompt"
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
