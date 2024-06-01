@@ -7,7 +7,6 @@
   hypr-contrib,
   ssbm,
   spicetify,
-  nyx,
   nh,
   wezterm,
   ...
@@ -22,7 +21,6 @@ _self: super: {
   wezterm-nightly = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
   ssbm = ssbm.packages.${super.system};
-  nyx = nyx.packages.${super.system};
   spicePkgs = spicetify.packages.${super.system}.default;
   discord = super.discord.override {
     # nss = super.nss_latest;

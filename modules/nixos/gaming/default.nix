@@ -44,8 +44,6 @@ in
       # ssbm.slippi-launcher
       # ssbm.slippi-netplay
     ];
-
-    chaotic.steam.extraCompatPackages = with pkgs; [ nyx.luxtorpeda ];
     hardware = {
       opentabletdriver.enable = true;
       # xone.enable = true; # BUG broken package

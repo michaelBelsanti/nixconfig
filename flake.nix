@@ -27,7 +27,6 @@
       ];
 
       systems.modules.nixos = with inputs; [
-        nyx.nixosModules.default
         ssbm.nixosModule
         flake-programs-sqlite.nixosModules.programs-sqlite
         catppuccin-nix.nixosModules.catppuccin
@@ -73,7 +72,6 @@
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
-    nyx.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     snowfall-lib = {
       url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -156,7 +154,6 @@
       "https://hyprland.cachix.org"
       "https://devenv.cachix.org"
       "https://nix-gaming.cachix.org"
-      "https://nyx.chaotic.cx/"
       "https://jakestanger.cachix.org"
       "https://cosmic.cachix.org/"
     ];
@@ -166,8 +163,6 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
-      "nyx.chaotic.cx-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
-      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
       "jakestanger.cachix.org-1:VWJE7AWNe5/KOEvCQRxoE8UsI2Xs2nHULJ7TEjYm7mM="
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
