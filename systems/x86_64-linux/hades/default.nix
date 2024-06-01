@@ -1,6 +1,19 @@
-{ pkgs, config, ... }:
+{ lib, pkgs, config, ... }:
 {
   imports = [ ./hardware.nix ];
+
+  specialisation = {
+    cosmic = {
+      inheritParentConfig = true;
+      configuration = {
+        system.nixos.tags = [ "cosmic" ];
+        desktop = {
+          cosmic.enable = true;
+          hyprland.enable = lib.mkForce false;
+        };
+      };
+    };
+  };
 
   home-manager.users.${config.users.mainUser} = {
     # imports = [ ./plasma-manager.nix ];
@@ -49,10 +62,7 @@
 
   # Custom options
   desktop = {
-    # gnome.enable = true;
-    cosmic.enable = true;
-    # hyprland.enable = true;
-    wayland.enable = true;
+    hyprland.enable = true;
   };
 
   gaming.enable = true;
@@ -71,6 +81,11 @@
     };
   };
 
+  # systemd.automounts.hdd = {
+  #   where = "/run/media/quasi/hdd";
+
+  # };
+  
   # Display shiz
   services = {
     libinput.mouse = {

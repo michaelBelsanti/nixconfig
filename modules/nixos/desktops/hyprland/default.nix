@@ -13,6 +13,7 @@ in
 {
   options.desktop.hyprland.enable = mkBoolOpt false "Enable hyprland configuration.";
   config = mkIf cfg.enable {
+    desktop.wayland.enable = true;
     programs.hyprland.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
