@@ -49,8 +49,8 @@
       };
     };
     home.pointerCursor = {
-      package = pkgs.custom.posy-cursor;
-      name = "Posy_Cursor";
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
       x11.enable = true;
       gtk.enable = true;
     };
