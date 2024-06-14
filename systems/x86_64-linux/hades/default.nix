@@ -93,10 +93,7 @@
       middleEmulation = false;
     };
     pipewire.lowLatency.enable = true;
-    xserver = {
-      videoDrivers = [ "amdgpu" ];
-      displayManager.gdm.enable = true;
-    };
+    xserver.videoDrivers = [ "amdgpu" ];
     openssh = {
       enable = true;
       ports = [ 42069 ];

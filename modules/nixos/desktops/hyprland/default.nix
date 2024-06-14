@@ -15,6 +15,7 @@ in
   config = mkIf cfg.enable {
     desktop.wayland.enable = true;
     programs.hyprland.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
     services.xserver.displayManager.defaultSession = "hyprland";
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     environment.systemPackages = with pkgs; [
@@ -70,6 +71,7 @@ in
       services.udiskie.enable = true;
       programs.ironbar = {
         enable = true;
+        package = pkgs.ironbar;
         config = import ./ironbar.nix;
       };
       programs.hyprlock = {
