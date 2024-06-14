@@ -11,25 +11,25 @@ config.use_dead_keys = false
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
-wezterm.on("update-right-status", function(window, pane)
-  -- From https://github.com/theopn/dotfiles/blob/25b85936ef3e7195a0f029525f854fdb915b9f90/wezterm/wezterm.lua
-  -- Current working directory
-  local basename = function(s)
-    -- Nothign a little regex can't fix
-    return string.gsub(s, "(.*[/\\])(.*)", "%2")
-  end
-  local cwd = basename(pane:get_current_working_dir())
-  -- Current command
-  local cmd = basename(pane:get_foreground_process_name())
+-- wezterm.on("update-right-status", function(window, pane)
+--   -- From https://github.com/theopn/dotfiles/blob/25b85936ef3e7195a0f029525f854fdb915b9f90/wezterm/wezterm.lua
+--   -- Current working directory
+--   local basename = function(s)
+--     -- Nothign a little regex can't fix
+--     return string.gsub(s, "(.*[/\\])(.*)", "%2")
+--   end
+--   local cwd = basename(pane:get_current_working_dir())
+--   -- Current command
+--   local cmd = basename(pane:get_foreground_process_name())
 
-  window:set_right_status(wezterm.format({
-    -- Wezterm has a built-in nerd fonts
-    { Text = wezterm.nerdfonts.md_folder .. "  " .. cwd },
-    { Text = " | " },
-    { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
-    -- { Text = " |" },
-  }))
-end)
+--   window:set_right_status(wezterm.format({
+--     -- Wezterm has a built-in nerd fonts
+--     { Text = wezterm.nerdfonts.md_folder .. "  " .. cwd },
+--     { Text = " | " },
+--     { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
+--     -- { Text = " |" },
+--   }))
+-- end)
 
 
 config.keys = {
