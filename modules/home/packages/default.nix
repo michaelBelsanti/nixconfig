@@ -26,6 +26,9 @@
     pipx
     # Haskell
     ghc
+    # JS
+    bun
+    nodejs
 
     # Nix
     nh
