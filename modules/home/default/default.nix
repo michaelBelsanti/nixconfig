@@ -56,6 +56,8 @@
     BROWSER = "floorp";
     FZF_DEFAULT_COMMAND = "find .";
 
+    NIXPKGS_ALLOW_UNFREE = "1";
+
     MANGOHUD = "0";
     __GL_SHADER_DISK_CACHE_PATH = "${config.home.homeDirectory}/Games/cache";
 
