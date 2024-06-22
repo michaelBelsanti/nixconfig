@@ -55,6 +55,12 @@ in
         }
       '')
     ];
+    programs.gamemode.settings = {
+      custom = {
+        start = "swaync-client -dn";
+        end = "swaync-client -df";
+      };
+    };
     qt = {
       enable = true;
       platformTheme = "qt5ct";

@@ -61,7 +61,7 @@ pkgs: {
     ",XF86MonBrightnessDown,exec,brightnessctl s 10%-"
 
     # Do not disturb
-    "SUPER,N,exec,togdnd -t"
+    "SUPER,N,exec,swaync-client -d"
 
     # Screenshots
     "SUPERSHIFT,S,exec,grimblast copy area"
