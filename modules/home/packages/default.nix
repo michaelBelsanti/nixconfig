@@ -72,5 +72,6 @@
     psmisc
     difftastic
     vhs
+    rclone
   ];
 }
