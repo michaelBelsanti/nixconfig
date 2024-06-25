@@ -37,6 +37,7 @@ in
       protonplus
       r2modman
       winetricks
+      ludusavi
 
       # Emulation
       dolphin-emu
@@ -44,6 +45,14 @@ in
       # ssbm.slippi-launcher
       # ssbm.slippi-netplay
     ];
+    services.sunshine = {
+      enable = true;
+      openFirewall = true;
+      applications.apps = lib.singleton {
+        name = "Cartridges";
+        cmd = "${lib.getExe pkgs.cartridges}";
+      };
+    };
     hardware = {
       opentabletdriver.enable = true;
       # xone.enable = true; # BUG broken package
@@ -74,6 +83,7 @@ in
       };
     };
     snowfallorg.users.${user}.home.config = {
+      xdg.configFile."ludusavi/secondary_manifest.yaml".source = ./manifest.yaml;
       programs.obs-studio = {
         enable = true;
         plugins = with pkgs.obs-studio-plugins; [
