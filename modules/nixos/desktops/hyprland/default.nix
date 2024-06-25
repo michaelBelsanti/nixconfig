@@ -55,6 +55,7 @@ in
         }
       '')
     ];
+    services.gnome.gnome-keyring.enable = true;
     programs.gamemode.settings = {
       custom = {
         start = "swaync-client -dn";

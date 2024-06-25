@@ -17,6 +17,7 @@ in
       config = {
         activation_mode.use_alt = true;
         force_keyboard_focus = true;
+        ignore_mouse = true;
         align = {
           anchors.top = true;
           horizontal = "center";
@@ -27,7 +28,7 @@ in
         notify_on_fail = true;
         show_initial_entries = true;
         orientation = "vertical";
-        terminal = "footclient";
+        terminal = "wezterm";
         scrollbar_policy = "automatic";
         ssh_host_file = "";
         modules = [
@@ -66,6 +67,9 @@ in
         };
         hyprland = {
           context_aware_history = false;
+        };
+        applications = {
+          disable_cache = true;
         };
       };
     };
