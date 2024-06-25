@@ -22,6 +22,7 @@
     tidal-hifi
     varia
     quickemu
+    proton-pass
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pandas
