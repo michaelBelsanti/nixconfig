@@ -10,7 +10,6 @@
     signal-desktop
     bitwarden
     remmina
-    nextcloud-client
     bottles
     beeper
     spot
