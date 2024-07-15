@@ -67,7 +67,6 @@
     };
 
   inputs = {
-    nixpkgs-slippi-fix.url = "github:michaelBelsanti/nixpkgs/nixos-unstable";
     nixpkgs.url = "github:michaelBelsanti/nixpkgs/nixos-unstable";
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";

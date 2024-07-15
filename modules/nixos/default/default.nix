@@ -49,8 +49,8 @@
       };
     };
     home.pointerCursor = {
-      package = pkgs.gnome.adwaita-icon-theme;
-      name = "Adwaita";
+      package = pkgs.custom.posy-cursor;
+      name = "Posy_Cursor";
       x11.enable = true;
       gtk.enable = true;
     };
@@ -86,18 +86,14 @@
     };
     supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
     # Allow appimages to be run directly
-    binfmt.registrations.appimage =
-      let
-        slippi-pkgs = inputs.nixpkgs-slippi-fix.legacyPackages.${pkgs.system};
-      in
-      {
-        wrapInterpreterInShell = false;
-        interpreter = "${slippi-pkgs.appimage-run}/bin/appimage-run";
-        recognitionType = "magic";
-        offset = 0;
-        mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
-        magicOrExtension = "\\x7fELF....AI\\x02";
-      };
+    binfmt.registrations.appimage = {
+      wrapInterpreterInShell = false;
+      interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+      recognitionType = "magic";
+      offset = 0;
+      mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
+      magicOrExtension = "\\x7fELF....AI\\x02";
+    };
   };
 
   # These units regularly causes problems
@@ -127,12 +123,7 @@
   # Hardware settings
   hardware = {
     # Graphics
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-    pulseaudio.enable = false; # Disabled cause Pipewire exists
+    opengl.enable = true;
     bluetooth.enable = true; # Enable bluetooth
   };
 
@@ -148,7 +139,7 @@
       "scanner"
     ];
     initialPassword = "lol";
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
   # Best fonts (Especially JetBrains Mono)
