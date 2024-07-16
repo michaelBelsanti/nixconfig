@@ -114,12 +114,6 @@
     };
   };
 
-  # Enable sound.
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
   # Hardware settings
   hardware = {
     # Graphics
@@ -243,7 +237,6 @@
         userServices = true;
       };
     };
-    mullvad-vpn.enable = true;
     qemuGuest.enable = true;
     gvfs.enable = true;
     input-remapper.enable = true;

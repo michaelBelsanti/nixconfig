@@ -88,7 +88,6 @@
     nodePackages.bash-language-server
     shellcheck
     vscode-langservers-extracted
-    nodePackages_latest.vscode-html-languageserver-bin
     nodePackages_latest.typescript-language-server
     marksman
     custom.markdown-oxide

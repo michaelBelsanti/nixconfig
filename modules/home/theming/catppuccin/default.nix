@@ -9,21 +9,12 @@
 }:
 let
   wallpaper = ./background_upscaled.png;
-  capitalizeFirstLetter =
+  mkUpper =
     str:
-    let
-      firstLetter = builtins.substring 0 1 str;
-      restOfString = builtins.substring 1 (builtins.stringLength str) str;
-    in
-    builtins.concatStringsSep "" [
-      (lib.strings.toUpper firstLetter)
-      restOfString
-    ];
-  catppuccinEnabled = config.theming.enable && (config.theming.theme == "catppuccin");
+    (lib.toUpper (builtins.substring 0 1 str)) + (builtins.substring 1 (builtins.stringLength str) str);
   inherit (config.theming) accent;
-  Accent = capitalizeFirstLetter accent;
   flavor = config.theming.variant;
-  Flavor = capitalizeFirstLetter config.theming.variant;
+  catppuccinEnabled = config.theming.enable && (config.theming.theme == "catppuccin");
 in
 {
   config = lib.mkIf catppuccinEnabled {
