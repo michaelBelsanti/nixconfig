@@ -83,7 +83,6 @@ in
       };
     };
     snowfallorg.users.${user}.home.config = {
-      xdg.configFile."ludusavi/secondary_manifest.yaml".source = ./manifest.yaml;
       programs.obs-studio = {
         enable = true;
         plugins = with pkgs.obs-studio-plugins; [
