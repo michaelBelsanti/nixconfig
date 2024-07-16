@@ -1,6 +1,5 @@
 {
   helix,
-  devenv,
   nix-gaming,
   plasma-manager,
   nix-alien,
@@ -13,7 +12,6 @@
 }:
 _self: super: {
   inherit (helix.packages.${super.system}) helix;
-  inherit (devenv.packages.${super.system}) devenv;
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
