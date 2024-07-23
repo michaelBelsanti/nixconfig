@@ -78,7 +78,6 @@ in
       services.udiskie.enable = true;
       programs.ironbar = {
         enable = true;
-        package = pkgs.ironbar;
         config = import ./ironbar.nix;
       };
       programs.hyprlock = {
