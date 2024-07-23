@@ -15,6 +15,7 @@ in
   config = mkIf cfg.enable {
     virtualisation.oci-containers.containers = {
       unmanic = {
+        autoStart = false;
         image = "josh5/unmanic";
         ports = [ "8888:8888" ];
         volumes = [ "/var/lib/unmanic:/config" ];
