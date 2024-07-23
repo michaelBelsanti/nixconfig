@@ -32,6 +32,15 @@
 
     # Editor
     helix
+    (pkgs.buildFHSUserEnv {
+      name = "zed";
+      targetPkgs = pkgs:
+        with pkgs; [
+          zed-editor
+        ];
+      runScript = "zed";
+    })
+
 
     # Nix
     nix-alien
@@ -62,7 +71,6 @@
     jellyfin-media-player
     mullvad-vpn
     tetrio-desktop
-    easyeffects
     element-desktop
     imagemagick
     ffmpeg
