@@ -31,6 +31,13 @@ config.use_fancy_tab_bar = false
 --   }))
 -- end)
 
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+}
 
 config.keys = {
   { key = '+',          mods = 'CTRL',       action = act.IncreaseFontSize },
