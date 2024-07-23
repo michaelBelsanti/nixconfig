@@ -1,4 +1,9 @@
-{ lib, pkgs, config, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 {
   imports = [ ./hardware.nix ];
 
@@ -85,7 +90,7 @@
   #   where = "/run/media/quasi/hdd";
 
   # };
-  
+
   # Display shiz
   services = {
     libinput.mouse = {
@@ -99,10 +104,17 @@
       ports = [ 42069 ];
       settings.PasswordAuthentication = false;
     };
+    ollama = {
+      enable = true;
+      acceleration = "rocm";
+      loadModels = [ "llama3.1" "mistral-nemo" ];
+    };
+    open-webui.enable = true;
   };
 
   hardware = {
     keyboard.qmk.enable = true;
+    amdgpu.opencl.enable = true;
   };
 
   environment = {
