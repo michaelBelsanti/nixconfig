@@ -46,7 +46,7 @@ in
       # ssbm.slippi-netplay
     ];
     services.sunshine = {
-      enable = true;
+      enable = false;
       openFirewall = true;
       applications.apps = lib.singleton {
         name = "Cartridges";
