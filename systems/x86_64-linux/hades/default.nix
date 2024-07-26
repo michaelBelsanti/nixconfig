@@ -107,7 +107,10 @@
     ollama = {
       enable = true;
       acceleration = "rocm";
-      loadModels = [ "llama3.1" "mistral-nemo" ];
+      loadModels = [
+        "llama3.1"
+        "mistral-nemo"
+      ];
     };
     open-webui.enable = true;
   };
