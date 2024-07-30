@@ -30,8 +30,7 @@ in
       })
       # lightly-qt
       # libsForQt5.lightly
-      # libsForQt5.polonium
-      custom.polonium
+      libsForQt5.polonium
 
       ark
       krusader
