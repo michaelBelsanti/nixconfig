@@ -7,19 +7,6 @@
 {
   imports = [ ./hardware.nix ];
 
-  specialisation = {
-    cosmic = {
-      inheritParentConfig = true;
-      configuration = {
-        system.nixos.tags = [ "cosmic" ];
-        desktop = {
-          cosmic.enable = true;
-          hyprland.enable = lib.mkForce false;
-        };
-      };
-    };
-  };
-
   home-manager.users.${config.users.mainUser} = {
     # imports = [ ./plasma-manager.nix ];
     home.packages = with pkgs; [ custom.obs-cmd ];
@@ -67,7 +54,7 @@
 
   # Custom options
   desktop = {
-    hyprland.enable = true;
+    cosmic.enable = true;
   };
 
   gaming.enable = true;
@@ -86,10 +73,9 @@
     };
   };
 
-  # systemd.automounts.hdd = {
+  # systemd.automounts = lib.singleton ({
   #   where = "/run/media/quasi/hdd";
-
-  # };
+  # });
 
   # Display shiz
   services = {
@@ -98,6 +84,7 @@
       middleEmulation = false;
     };
     pipewire.lowLatency.enable = true;
+    system76-scheduler.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
     openssh = {
       enable = true;
@@ -112,7 +99,7 @@
         "mistral-nemo"
       ];
     };
-    open-webui.enable = true;
+    # open-webui.enable = true;
   };
 
   hardware = {

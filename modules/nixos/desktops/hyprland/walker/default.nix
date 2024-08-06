@@ -9,11 +9,11 @@ let
 in
 {
   config.snowfallorg.users.${user}.home.config = lib.mkIf config.desktop.hyprland.enable {
+    # xdg.configFile."walker/style.css".source = ./style.css;
     programs.walker = {
-      enable = true;
+      enable = false;
       package = pkgs.walker;
       runAsService = true;
-      style = builtins.readFile ./style.css;
       config = {
         activation_mode.use_alt = true;
         force_keyboard_focus = true;

@@ -69,7 +69,7 @@
     wget
 
     jellyfin-media-player
-    mullvad-vpn
+    protonvpn-gui
     tetrio-desktop
     element-desktop
     imagemagick

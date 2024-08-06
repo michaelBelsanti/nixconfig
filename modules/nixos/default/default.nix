@@ -117,7 +117,7 @@
   # Hardware settings
   hardware = {
     # Graphics
-    opengl.enable = true;
+    graphics.enable = true;
     bluetooth.enable = true; # Enable bluetooth
   };
 
