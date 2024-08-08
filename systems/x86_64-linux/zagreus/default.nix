@@ -74,7 +74,5 @@
     DisableCapsuleUpdateOnDisk=true
   '';
 
-  # virtualisation.waydroid.enable = true;
-
   system.stateVersion = "22.05";
 }

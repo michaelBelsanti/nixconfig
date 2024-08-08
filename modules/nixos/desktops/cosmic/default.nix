@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 let
   inherit (lib) mkIf;
   inherit (lib.custom) mkBoolOpt;
@@ -11,6 +11,12 @@ in
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
+    };
+    home-manager.users.${config.users.mainUser} = {
+      gtk.iconTheme = {
+        name = "Cosmic";
+        package = pkgs.cosmic-icons;
+      };
     };
   };
 }

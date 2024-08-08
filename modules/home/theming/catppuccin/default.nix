@@ -26,9 +26,13 @@ in
         enable = true;
         cursor.enable = false;
       };
-      iconTheme = {
-        name = "Adwaita";
-        package = pkgs.gnome.adwaita-icon-theme;
+    };
+    qt = {
+      platformTheme.name = "kvantum";
+      style = {
+        catppuccin.enable = true;
+        catppuccin.accent = flavor;
+        name = "kvantum";
       };
     };
     home.file.".background-image".source = wallpaper;
