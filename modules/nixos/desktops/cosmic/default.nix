@@ -12,6 +12,8 @@ in
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
     };
+    # workaround to avoid jank when copying from terminal
+    environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
     home-manager.users.${config.users.mainUser} = {
       gtk.iconTheme = {
         name = "Cosmic";
