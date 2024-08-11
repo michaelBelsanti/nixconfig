@@ -32,9 +32,9 @@ in
 
       pavucontrol
       overskride
-      gnome.file-roller
+      file-roller
 
-      gnome.nautilus
+      nautilus
       nautilus-open-any-terminal
       celluloid
       loupe

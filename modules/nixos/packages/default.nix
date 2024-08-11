@@ -76,7 +76,7 @@
     ffmpeg
     filelight
     gnome-frog
-    gnome.pomodoro
+    pomodoro
     wike
 
     # Not in modules/gaming.nix because any device can handle retro games
