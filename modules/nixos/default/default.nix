@@ -310,8 +310,7 @@
 
   # VMs
   environment.systemPackages = with pkgs; [
-    boxes
-    virt-manager
+    gnome.gnome-boxes
     virglrenderer
   ];
   virtualisation = {
