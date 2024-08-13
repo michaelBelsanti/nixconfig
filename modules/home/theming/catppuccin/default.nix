@@ -22,9 +22,12 @@ in
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     home.packages = with pkgs; [ catppuccin-qt5ct ];
     gtk = {
-      catppuccin = {
-        enable = true;
-        cursor.enable = false;
+      theme = {
+        name = "catppuccin-${flavor}-${accent}-standard";
+        package = pkgs.catppuccin-gtk.override {
+          variant = flavor;
+          accents = [ accent ];
+        };
       };
     };
     qt = {
