@@ -3,7 +3,6 @@
   pkgs,
   lib,
   flakePath,
-  inputs,
   config,
   ...
 }:
@@ -86,14 +85,6 @@
     };
     supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
     # Allow appimages to be run directly
-    binfmt.registrations.appimage = {
-      wrapInterpreterInShell = false;
-      interpreter = "${pkgs.appimage-run}/bin/appimage-run";
-      recognitionType = "magic";
-      offset = 0;
-      mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
-      magicOrExtension = "\\x7fELF....AI\\x02";
-    };
   };
 
   # These units regularly causes problems
@@ -297,6 +288,10 @@
       # pinentryFlavor = "curses";
     };
     nix-ld.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
   # systemd.extraConfig = ''
   #   DefaultTimeoutStartSec=10s
