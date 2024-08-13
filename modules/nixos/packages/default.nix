@@ -5,19 +5,15 @@
   environment.systemPackages = with pkgs; [
     libreoffice
     vesktop
-    revolt-desktop
     kdenlive
-    signal-desktop
     bitwarden
     remmina
     bottles
     beeper
-    spot
     wl-clipboard
     floorp
     # custom.affine
     localsend
-    jan
     tidal-hifi
     varia
     quickemu
@@ -41,17 +37,6 @@
       runScript = "zed";
     })
 
-
-    # Nix
-    nix-alien
-    nix-output-monitor
-    nixpkgs-review
-    cachix
-    statix
-    vulnix
-    deadnix
-    manix
-
     # Containers
     distrobox
     podman-compose
@@ -60,16 +45,17 @@
     nfs-utils
 
     # Packages distros will probably already have
-    killall
-    git
     file
+    git
+    gptfdisk
+    killall
     unrar
     unzip
-    gptfdisk
     wget
 
     jellyfin-media-player
     protonvpn-gui
+    protonvpn-cli
     tetrio-desktop
     element-desktop
     imagemagick

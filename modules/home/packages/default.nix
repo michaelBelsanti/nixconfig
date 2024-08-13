@@ -10,7 +10,6 @@
     so
     jq
     ngrok
-
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
     # Rust
@@ -31,13 +30,21 @@
     nodejs
 
     # Nix
+    cachix
+    deadnix
+    manix
     nh
-    nurl
-    nix-init
-    nix-tree
+    nix-alien
     nix-index
-    nix-update
+    nix-init
     nix-inspect
+    nix-output-monitor
+    nixpkgs-review
+    nix-tree
+    nix-update
+    nurl
+    statix
+    vulnix
 
     # Other CLI tools that are part of my workflow
     nitch
@@ -64,7 +71,6 @@
     ncdu
     edir
     dogdns
-    lnav
     xxd
     clipboard-jh
     choose
