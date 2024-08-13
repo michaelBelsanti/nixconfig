@@ -32,6 +32,7 @@
         catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         nixos-cosmic.nixosModules.default
+        nix-flatpak.nixosModules.nix-flatpak
         {
           home-manager.useGlobalPkgs = true;
           home-manager.extraSpecialArgs = {
@@ -141,6 +142,8 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
   nixConfig = {
     extra-substituters = [
