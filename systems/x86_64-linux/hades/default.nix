@@ -8,7 +8,7 @@
   imports = [ ./hardware.nix ];
 
   home-manager.users.${config.users.mainUser} = {
-    # imports = [ ./plasma-manager.nix ];
+    apps.scrobbler.enable = true;
     home.packages = with pkgs; [ custom.obs-cmd ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
