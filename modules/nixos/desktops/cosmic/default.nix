@@ -8,6 +8,12 @@ in
   options.desktop.cosmic.enable = mkBoolOpt false "Enable cosmic configuration.";
 
   config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      pwvucontrol
+      overskride
+      loupe
+      celluloid
+    ];
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
