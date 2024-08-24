@@ -92,7 +92,10 @@
       settings.PasswordAuthentication = false;
     };
     flatpak = {
-      packages = [ "org.wireshark.Wireshark" "com.github._0negal.Viper" ];
+      packages = [
+        "org.wireshark.Wireshark"
+        "com.github._0negal.Viper"
+      ];
       update.auto = {
         enable = true;
         onCalendar = "daily";
