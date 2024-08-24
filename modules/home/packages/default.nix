@@ -79,5 +79,6 @@
     difftastic
     vhs
     rclone
+    inotify-tools
   ];
 }
