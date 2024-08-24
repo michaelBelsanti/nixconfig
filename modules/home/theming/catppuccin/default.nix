@@ -20,7 +20,6 @@ in
   config = lib.mkIf catppuccinEnabled {
     catppuccin.flavor = flavor;
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-    home.packages = with pkgs; [ catppuccin-qt5ct ];
     gtk = {
       theme = {
         name = "catppuccin-${flavor}-${accent}-standard";
@@ -31,11 +30,15 @@ in
       };
     };
     qt = {
+      enable = true;
       platformTheme.name = "kvantum";
       style = {
-        catppuccin.enable = true;
-        catppuccin.accent = flavor;
         name = "kvantum";
+        catppuccin = {
+          enable = true;
+          accent = accent;
+          flavor = flavor;
+        };
       };
     };
     home.file.".background-image".source = wallpaper;
