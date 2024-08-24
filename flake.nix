@@ -27,7 +27,6 @@
       ];
 
       systems.modules.nixos = with inputs; [
-        ssbm.nixosModule
         flake-programs-sqlite.nixosModules.programs-sqlite
         catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
@@ -48,6 +47,7 @@
             nixos-hardware.nixosModules.common-cpu-amd
             nixos-hardware.nixosModules.common-gpu-amd
             nixos-hardware.nixosModules.common-pc-ssd
+            chaotic.nixosModules.default
           ];
 
           specialArgs = {
@@ -70,8 +70,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-
     snowfall-lib = {
       url = "github:snowfallorg/lib/dev";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,16 +80,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin-nix.url = "github:catppuccin/nix";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware";
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ssbm = {
-      url = "github:michaelBelsanti/ssbm-nix";
+
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+
+    zen-browser = {
+      url = "github:MarceColl/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -135,11 +139,6 @@
 
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nh = {
-      url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

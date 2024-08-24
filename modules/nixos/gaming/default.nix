@@ -42,8 +42,6 @@ in
       # Emulation
       dolphin-emu
       dolphin-emu-primehack
-      # ssbm.slippi-launcher
-      # ssbm.slippi-netplay
     ];
     services.sunshine = {
       enable = false;
@@ -55,10 +53,7 @@ in
     };
     hardware = {
       opentabletdriver.enable = true;
-      # xone.enable = true; # BUG broken package
-      # xpadneo.enable = true;
     };
-    ssbm.cache.enable = true;
     programs = {
       gamescope.enable = true;
       steam = {

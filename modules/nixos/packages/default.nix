@@ -3,6 +3,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    zen-browser
     libreoffice
     vesktop
     kdenlive

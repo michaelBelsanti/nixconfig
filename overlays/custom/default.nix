@@ -4,10 +4,9 @@
   plasma-manager,
   nix-alien,
   hypr-contrib,
-  ssbm,
   spicetify,
-  nh,
   wezterm,
+  zen-browser,
   ...
 }:
 _self: super: {
@@ -15,10 +14,9 @@ _self: super: {
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
-  inherit (nh.packages.${super.system}) nh;
+  zen-browser = zen-browser.packages.${super.system}.specific;
   wezterm-nightly = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
-  ssbm = ssbm.packages.${super.system};
   spicePkgs = spicetify.packages.${super.system}.default;
   discord = super.discord.override {
     # nss = super.nss_latest;

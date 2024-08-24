@@ -53,7 +53,7 @@
     EDITOR = "hx";
     VISUAL = "hx";
     EDIR_EDITOR = "hx";
-    BROWSER = "floorp";
+    BROWSER = "zen";
     FZF_DEFAULT_COMMAND = "find .";
 
     NIXPKGS_ALLOW_UNFREE = "1";
