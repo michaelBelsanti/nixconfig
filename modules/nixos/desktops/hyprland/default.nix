@@ -30,7 +30,7 @@ in
       mpvpaper
       swaynotificationcenter
 
-      pavucontrol
+      pwvucontrol
       overskride
       file-roller
 
