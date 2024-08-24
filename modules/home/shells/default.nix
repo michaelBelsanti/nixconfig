@@ -40,6 +40,12 @@
     };
     fzf.enable = true;
     skim.enable = true;
-    zoxide.enable = true;
+    zoxide = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+      enableZshIntegration = true;
+    };
   };
 }
