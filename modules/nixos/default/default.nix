@@ -122,6 +122,7 @@
       "networkmanager"
       "lp"
       "scanner"
+      "adbusers"
     ];
     initialPassword = "lol";
     shell = pkgs.nushell;
@@ -236,6 +237,7 @@
   };
 
   programs = {
+    adb.enable = true;
     firefox = {
       enable = false;
       package = pkgs.firefox-bin;
