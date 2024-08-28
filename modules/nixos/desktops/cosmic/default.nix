@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkIf;
   inherit (lib.custom) mkBoolOpt;
@@ -6,8 +11,11 @@ let
 in
 {
   options.desktop.cosmic.enable = mkBoolOpt false "Enable cosmic configuration.";
-
   config = mkIf cfg.enable {
+    # avoid bug with cosmic deleting gtk.css file
+    snowfallorg.users.${config.users.mainUser}.home.config = {
+      xdg.configFile."gtk-4.0/gtk.css".enable = false;
+    };
     environment.systemPackages = with pkgs; [
       pwvucontrol
       overskride
