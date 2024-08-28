@@ -52,6 +52,9 @@
     };
   };
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  chaotic.scx.enable = true; # by default uses scx_rustland scheduler
+
   # Custom options
   desktop = {
     cosmic.enable = true;
@@ -73,10 +76,6 @@
     };
   };
 
-  # systemd.automounts = lib.singleton ({
-  #   where = "/run/media/quasi/hdd";
-  # });
-
   # Display shiz
   services = {
     libinput.mouse = {
@@ -84,7 +83,6 @@
       middleEmulation = false;
     };
     pipewire.lowLatency.enable = true;
-    system76-scheduler.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
     openssh = {
       enable = true;
