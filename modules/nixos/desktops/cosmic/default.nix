@@ -27,6 +27,7 @@ in
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
+      gnome.gnome-keyring.enable = true;
     };
     # workaround to avoid jank when copying from terminal
     environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
