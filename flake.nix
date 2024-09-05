@@ -56,7 +56,7 @@
         };
 
         zagreus = {
-          modules = with inputs; [ nixos-hardware.nixosModules.framework-12th-gen-intel ];
+          modules = with inputs; [ nixos-hardware.nixosModules.framework-13-7040-amd ];
 
           specialArgs = {
             inherit user flakePath;

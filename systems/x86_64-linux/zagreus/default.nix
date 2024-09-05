@@ -9,18 +9,17 @@
 
   # Custom options
   desktop = {
-    wayland.enable = true;
-    gnome.enable = true;
+    cosmic.enable = true;
   };
 
   networking.hostName = "zagreus"; # Define your hostname.
 
   boot = {
     kernelParams = [ "acpi_backlight=native" ];
-    blacklistedKernelModules = [ "hid_sensor_hub" ];
-    loader.grub.theme = pkgs.framework-grub-theme;
-    plymouth.enable = true;
-    initrd.systemd.enable = true; # To load gui for decryption
+    kernelPackages = pkgs.linuxPackages_latest;
+    # blacklistedKernelModules = [ "hid_sensor_hub" ];
+    # plymouth.enable = true;
+    # initrd.systemd.enable = true; # To load gui for decryption
   };
 
   # Make fingerprint sensor work at boot
@@ -43,7 +42,6 @@
       };
     };
     xserver = {
-      videoDrivers = [ "intel" ];
       displayManager.gdm.enable = true;
     };
     auto-cpufreq.enable = true;
@@ -52,27 +50,16 @@
     fprintd.enable = false; # Enable fingerprint scanner
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
-      extraRemotes = [ "lvfs-testing" ];
+      # extraRemotes = [ "lvfs-testing" ];
     };
   };
 
-  # Graphics drivers
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
-  };
-  hardware.opengl = {
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    ];
-    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
-  };
-
   # Framework stuff
-  environment.etc."fwupd/uefi_capsule.conf".text = lib.mkForce ''
-    [uefi_capsule]
-    OverrideESPMountPoint=${config.boot.loader.efi.efiSysMountPoint}
-    DisableCapsuleUpdateOnDisk=true
-  '';
+  # environment.etc."fwupd/uefi_capsule.conf".text = lib.mkForce ''
+  #   [uefi_capsule]
+  #   OverrideESPMountPoint=${config.boot.loader.efi.efiSysMountPoint}
+  #   DisableCapsuleUpdateOnDisk=true
+  # '';
 
   system.stateVersion = "22.05";
 }
