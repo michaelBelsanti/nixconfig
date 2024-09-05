@@ -139,13 +139,7 @@
     enableDefaultPackages = true;
     fontDir.enable = true;
     fontconfig.defaultFonts = {
-      serif = [ "Liberation Serif" ];
-      sansSerif = [ "Montserrat" ];
       monospace = [ "JetBrains Mono" ];
-      emoji = [
-        "Twitter Color Emoji"
-        "Noto Color Emoji"
-      ];
     };
   };
 
