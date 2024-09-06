@@ -21,6 +21,8 @@ in
       overskride
       loupe
       celluloid
+      gnome-disk-utility
+      peazip
     ];
     services = {
       desktopManager.cosmic.enable = true;
