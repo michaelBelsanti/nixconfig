@@ -12,7 +12,6 @@
     bottles
     beeper
     wl-clipboard
-    floorp
     # custom.affine
     localsend
     tidal-hifi
