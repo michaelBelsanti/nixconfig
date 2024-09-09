@@ -57,7 +57,6 @@
     lf
     traceroute
     whois
-    nmap
     cachix
     aria2
     ouch
