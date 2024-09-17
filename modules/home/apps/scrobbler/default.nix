@@ -18,6 +18,8 @@ in
       Service = {
         ExecStart = "${lib.getExe pkgs.mpris-scrobbler} -v";
         Restart = "on-failure";
+        Environment = "XDG_DATA_HOME=%h/.local/share";
+        PassEnvironment = "PROXY";
       };
     };
   };
