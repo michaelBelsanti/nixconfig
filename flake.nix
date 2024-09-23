@@ -27,6 +27,7 @@
       ];
 
       systems.modules.nixos = with inputs; [
+        lix-module.nixosModules.default
         flake-programs-sqlite.nixosModules.programs-sqlite
         catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
@@ -143,6 +144,11 @@
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   nixConfig = {
     extra-substituters = [

@@ -14,6 +14,8 @@
 
   networking.hostName = "zagreus"; # Define your hostname.
 
+  hardware.framework.enableKmod = false;
+
   boot = {
     kernelParams = [ "acpi_backlight=native" ];
     kernelPackages = pkgs.linuxPackages_latest;
