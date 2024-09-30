@@ -12,6 +12,7 @@ in
 {
   options.desktop.cosmic.enable = mkBoolOpt false "Enable cosmic configuration.";
   config = mkIf cfg.enable {
+    desktop.wayland.enable = true;
     # avoid bug with cosmic deleting gtk.css file
     snowfallorg.users.${config.users.mainUser}.home.config = {
       xdg.configFile."gtk-4.0/gtk.css".enable = false;
@@ -24,6 +25,7 @@ in
       gnome-disk-utility
       peazip
     ];
+    programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gtk2;
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
