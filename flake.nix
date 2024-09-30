@@ -18,7 +18,7 @@
       };
 
       homes.modules = with inputs; [
-        spicetify.homeManagerModule
+        spicetify.homeManagerModules.default
         plasma-manager.homeManagerModules.plasma-manager
         ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
@@ -129,7 +129,7 @@
     };
 
     spicetify = {
-      url = "github:the-argus/spicetify-nix";
+      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
