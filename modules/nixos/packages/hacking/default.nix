@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  environment.pathsToLink = [ "/share/wordlists" ];
   environment.systemPackages = with pkgs; [
     burpsuite
     thc-hydra
