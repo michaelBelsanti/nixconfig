@@ -10,7 +10,6 @@
     bitwarden
     remmina
     bottles
-    beeper
     wl-clipboard
     # custom.affine
     localsend
