@@ -64,7 +64,6 @@
     ANDROID_HOME = "${config.xdg.dataHome}/android";
     CARGO_HOME = "${config.xdg.dataHome}/cargo";
     CUDA_CACHE_PATH = "${config.xdg.cacheHome}/nv";
-    GNUPGHOME = "${config.xdg.cacheHome}/gnupg";
     GOPATH = "${config.xdg.dataHome}/go";
     LESSHISTFILE = "${config.xdg.cacheHome}/less/history";
     MPLAYER_HOME = "${config.xdg.configHome}/mplayer";
