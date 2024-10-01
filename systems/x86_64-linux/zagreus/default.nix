@@ -8,6 +8,7 @@
   imports = [ ./hardware.nix ];
 
   # Custom options
+  gaming.enable = true;
   desktop = {
     cosmic.enable = true;
   };
