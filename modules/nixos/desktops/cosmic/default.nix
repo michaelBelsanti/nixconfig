@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -17,14 +18,20 @@ in
     snowfallorg.users.${config.users.mainUser}.home.config = {
       xdg.configFile."gtk-4.0/gtk.css".enable = false;
     };
-    environment.systemPackages = with pkgs; [
+    environment.sessionVariables.NIXOS_OZONE_WL = 1;
+    environment.systemPackages = (with pkgs; [
       pwvucontrol
       overskride
       loupe
       celluloid
       gnome-disk-utility
       peazip
-    ];
+    ]) ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
+      cosmic-tweaks
+      cosmic-forecast
+      cosmic-tasks
+      cosmic-applet-emoji-selector
+    ]);
     programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gtk2;
     services = {
       desktopManager.cosmic.enable = true;
