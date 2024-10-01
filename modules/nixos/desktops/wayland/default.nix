@@ -22,9 +22,9 @@ in
         QT_QPA_PLATFORM = "wayland;xcb";
       };
     };
+    services.displayManager.sddm.wayland.enable = true;
     services.xserver = lib.mkDefault {
       desktopManager.plasma5.useQtScaling = true;
-      displayManager.sddm.wayland.enable = true;
       displayManager.gdm.wayland = true;
     };
   };
