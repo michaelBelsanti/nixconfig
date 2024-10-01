@@ -17,11 +17,6 @@
   # Git
   services = {
     pueue.enable = true;
-    gpg-agent = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
-    };
   };
   programs = {
     bash = {
@@ -33,7 +28,12 @@
       userName = "michaelBelsanti";
       userEmail = "quasigod-io@proton.me";
       difftastic.enable = true;
+      signing = {
+        key = "~/.ssh/github.pub";
+        signByDefault = true;
+      };
       extraConfig = {
+        gpg.format = "ssh";
         init.defaultBranch = "main";
         pull.rebase = true;
         rerere.enabled = true;
