@@ -27,10 +27,11 @@ in
       gnome-disk-utility
       peazip
     ]) ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
-      cosmic-tweaks
-      cosmic-forecast
-      cosmic-tasks
-      cosmic-applet-emoji-selector
+      cosmic-ext-tweaks
+      cosmic-ext-forecast
+      cosmic-ext-tasks
+      cosmic-ext-applet-emoji-selector
+      cosmic-ext-calculator
     ]);
     programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gtk2;
     services = {

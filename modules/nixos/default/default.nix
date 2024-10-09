@@ -135,6 +135,7 @@
       montserrat
       twemoji-color-font
       libertine
+      inter
     ];
     enableDefaultPackages = true;
     fontDir.enable = true;
