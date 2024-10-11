@@ -17,6 +17,7 @@
     varia
     quickemu
     proton-pass
+    zotero
 
     (python3.withPackages (python-pkgs: [
       python-pkgs.pandas
