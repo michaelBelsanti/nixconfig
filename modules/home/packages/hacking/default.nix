@@ -1,7 +1,10 @@
 { pkgs, lib, ... }:
 {
-  environment.pathsToLink = [ "/share/wordlists" ];
-  environment.systemPackages = with pkgs; [
+  home.file.wordlists = {
+    source = pkgs.seclists + /share/wordlists;
+    recursive = true;
+  };
+  home.packages = with pkgs; [
     zap
     (lib.wrapper-manager.build {
       inherit pkgs;
