@@ -89,16 +89,6 @@
       ports = [ 42069 ];
       settings.PasswordAuthentication = false;
     };
-    flatpak = {
-      packages = [
-        "org.wireshark.Wireshark"
-        "com.github._0negal.Viper"
-      ];
-      update.auto = {
-        enable = true;
-        onCalendar = "daily";
-      };
-    };
     ollama = {
       enable = true;
       acceleration = "rocm";

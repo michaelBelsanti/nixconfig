@@ -32,7 +32,6 @@
         catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         nixos-cosmic.nixosModules.default
-        nix-flatpak.nixosModules.nix-flatpak
         {
           home-manager.useGlobalPkgs = true;
           home-manager.extraSpecialArgs = {
@@ -142,8 +141,6 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
