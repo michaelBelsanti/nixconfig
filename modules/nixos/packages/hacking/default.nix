@@ -1,8 +1,21 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   environment.pathsToLink = [ "/share/wordlists" ];
   environment.systemPackages = with pkgs; [
-    burpsuite
+    zap
+    (lib.wrapper-manager.build {
+      inherit pkgs;
+      modules = [
+        {
+          wrappers.stack = {
+            basePackage = pkgs.burpsuite;
+            flags = [
+              "--disable-auto-update"
+            ];
+          };
+        }
+      ];
+    })
     thc-hydra
     seclists
     hashcat
@@ -14,6 +27,6 @@
     exploitdb
     metasploit
     cyberchef
+    ffuf
   ];
 }
-
