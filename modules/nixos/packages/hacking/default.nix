@@ -13,6 +13,7 @@
     wireshark
     exploitdb
     metasploit
+    cyberchef
   ];
 }
 
