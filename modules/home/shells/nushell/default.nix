@@ -6,10 +6,13 @@
     nushell = {
       enable = true;
       shellAliases = {
-        l = "ls -a";
+        l = "ls";
+        la = "ls -a";
+        ll = "ls -al";
         lg = "lazygit";
         o = "xdg-open";
         nixup = "doas nixos-rebuild switch --flake '${flakePath}'";
+        cd = "z";
       };
       extraConfig = ''
         # carapace setup
