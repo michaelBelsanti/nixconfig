@@ -305,7 +305,7 @@
     virglrenderer
   ];
   virtualisation = {
-    waydroid.enable = true;
+    waydroid.enable = false;
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     podman.enable = true;
