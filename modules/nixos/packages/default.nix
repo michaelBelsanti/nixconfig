@@ -4,6 +4,7 @@
 {
   environment.systemPackages = with pkgs; [
     zen-browser
+    firefox
     libreoffice
     vesktop
     kdenlive
