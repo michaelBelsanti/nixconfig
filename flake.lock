@@ -685,21 +685,6 @@
         "type": "github"
       }
     },
-    "nix-flatpak": {
-      "locked": {
-        "lastModified": 1728416205,
-        "narHash": "sha256-t30gsrwiBc2oBsd89DwdsVZuEbMT5ed81PYY57CIOJE=",
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "rev": "d65dbf59900de4beaaaba8b42a15994f8433c1bc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "gmodena",
-        "repo": "nix-flatpak",
-        "type": "github"
-      }
-    },
     "nix-gaming": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -940,7 +925,6 @@
         "lix-module": "lix-module",
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
-        "nix-flatpak": "nix-flatpak",
         "nix-gaming": "nix-gaming",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
@@ -950,6 +934,7 @@
         "spicetify": "spicetify",
         "walker": "walker",
         "wezterm": "wezterm",
+        "wrapper-manager": "wrapper-manager",
         "zen-browser": "zen-browser"
       }
     },
@@ -1263,6 +1248,26 @@
         "dir": "nix",
         "owner": "wez",
         "repo": "wezterm",
+        "type": "github"
+      }
+    },
+    "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724503599,
+        "narHash": "sha256-WVhNq3QjnG/2mi772CkTxZCQcomKV5S03TbQKwe1Kj4=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "c936f9203217e654a6074d206505c16432edbc70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     },
