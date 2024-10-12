@@ -82,7 +82,7 @@
     golangci-lint-langserver
     golangci-lint
     taplo
-    python3Packages.python-lsp-server
+    ruff
     lua-language-server
     haskell-language-server
     nodePackages.bash-language-server
