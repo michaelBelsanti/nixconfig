@@ -59,10 +59,13 @@ in
       steam = {
         enable = true;
         remotePlay.openFirewall = true;
-        package = pkgs.steam.override {
-          # extraLibraries = pkgs: [pkgs.latencyflex];
+        localNetworkGameTransfers.openFirewall = true;
+        extest.enable = true;
+        # extraPackages = with pkgs; [ latencyflex ];
+        gamescopeSession = {
+          enable = true;
+          args = [ "--adaptive-sync" ];
         };
-        gamescopeSession.enable = true;
       };
       gamemode = {
         enable = true;
