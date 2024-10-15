@@ -68,7 +68,8 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:michaelBelsanti/nixpkgs/appimage-extrapackages";
 
     snowfall-lib = {
       url = "github:snowfallorg/lib/dev";

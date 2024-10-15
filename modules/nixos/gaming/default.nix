@@ -55,6 +55,8 @@ in
       opentabletdriver.enable = true;
     };
     programs = {
+      appimage.extraPackages = with pkgs; [ curl ];
+      # appimage.extraPackages = pkgs: [ pkgs.curl ];
       gamescope.enable = true;
       steam = {
         enable = true;
