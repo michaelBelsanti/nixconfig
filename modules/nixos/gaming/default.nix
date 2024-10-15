@@ -65,7 +65,7 @@ in
         gamescopeSession.enable = true;
       };
       gamemode = {
-        enable = false;
+        enable = true;
         settings = {
           general = {
             reaper_freq = 5;
