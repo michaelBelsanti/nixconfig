@@ -62,6 +62,7 @@
 
   gaming.enable = true;
   apps.unmanic.enable = true;
+  programs.steam.gamescopeSession.args = [ "--adaptive-sync --display-index 2"];
 
   networking = {
     hostName = "hades";
