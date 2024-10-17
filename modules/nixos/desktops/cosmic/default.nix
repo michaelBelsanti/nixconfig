@@ -45,36 +45,15 @@ in
       gnome.gnome-keyring.enable = true;
     };
     # workaround to avoid jank when copying from terminal
-    environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
+    environment.variables = {
+      COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes with maximized firefox
+      COSMIC_DATA_CONTROL_ENABLED = 1;
+    };
     home-manager.users.${config.users.mainUser} = {
       gtk.iconTheme = {
         name = "Cosmic";
         package = pkgs.cosmic-icons;
       };
     };
-    nixpkgs.overlays = [
-      (final: prev: {
-        cosmic-comp = prev.cosmic-comp.overrideAttrs (prevAttrs: {
-          patches = (prevAttrs.patches or [ ]) ++ [
-            (pkgs.writeText "cosmic-comp-disable-direct-scanout.patch" ''
-              diff --git a/src/backend/kms/surface/mod.rs b/src/backend/kms/surface/mod.rs
-              index d0cfb8d..32aaf4a 100644
-              --- a/src/backend/kms/surface/mod.rs
-              +++ b/src/backend/kms/surface/mod.rs
-              @@ -624,7 +624,8 @@ impl SurfaceThreadState {
-                           cursor_size,
-                           Some(gbm),
-                       ) {
-              -            Ok(compositor) => {
-              +            Ok(mut compositor) => {
-              +                compositor.use_direct_scanout(false);
-                               self.active.store(true, Ordering::SeqCst);
-                               self.compositor = Some(compositor);
-                               Ok(())
-            '')
-          ];
-        });
-      })
-    ];
   };
 }
