@@ -5,7 +5,7 @@
   environment.systemPackages = with pkgs; [
     zen-browser
     firefox
-    libreoffice
+    libreoffice hunspell hunspellDicts.en_US-large
     vesktop
     kdenlive
     bitwarden
