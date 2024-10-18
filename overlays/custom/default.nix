@@ -5,7 +5,7 @@
   nix-alien,
   hypr-contrib,
   spicetify,
-  wezterm,
+  # wezterm,
   zen-browser,
   ...
 }:
@@ -15,7 +15,7 @@ _self: super: {
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
   zen-browser = zen-browser.packages.${super.system}.specific;
-  wezterm-nightly = wezterm.packages.${super.system}.default;
+  # wezterm = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
   spicePkgs = spicetify.packages.${super.system}.default;
   discord = super.discord.override {

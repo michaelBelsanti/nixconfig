@@ -35,8 +35,8 @@
     };
     eza = {
       enable = true;
-      icons = true;
       git = true;
+      icons = "auto";
     };
     fzf.enable = true;
     skim.enable = true;

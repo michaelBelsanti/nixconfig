@@ -19,7 +19,6 @@
       experimental-features = [
         "nix-command"
         "flakes"
-        "repl-flake"
       ];
       log-lines = 25;
       keep-outputs = true;

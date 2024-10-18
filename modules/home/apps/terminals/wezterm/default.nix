@@ -14,7 +14,7 @@ in
   config = mkIf cfg.enable {
     programs.wezterm = {
       enable = true;
-      package = pkgs.wezterm-nightly;
+      package = pkgs.wezterm;
       extraConfig = builtins.readFile ./wezterm.lua;
     };
   };
