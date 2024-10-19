@@ -12,10 +12,6 @@
   snowfallorg.users.${config.users.mainUser}.home.config = {
     # Main user theming
     home.stateVersion = "22.05";
-    apps = {
-      kitty.enable = true;
-      wezterm.enable = true;
-    };
     theming = {
       enable = true;
       theme = "catppuccin";
