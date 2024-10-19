@@ -1,7 +1,7 @@
 # nixconfig
 My systems and user configurations in a Nix Flake
 
-This flake uses the [Snowfall Lib library](https://snowfall.org/guides/lib/quickstart/), which follows a particular opinionated structure.
+This flake is built using [Snowfall Lib](https://snowfall.org/guides/lib/quickstart/).
 
 # Inspiration and thanks
 - [Matthias Benaets](https://github.com/MatthiasBenaets/)
@@ -14,6 +14,6 @@ This flake uses the [Snowfall Lib library](https://snowfall.org/guides/lib/quick
   - [NixOS configuration](https://github.com/IogaMaster/dotfiles)
 
 # Images
-Hades running Hyprland, Foot, and Ironbar with a Catppuccin theme
-![image](https://github.com/michaelBelsanti/nixconfig/assets/62124625/9cbaa470-e93d-42a3-8b8b-0e371d395566)
+Hades running Cosmic with a Catppuccin theme
+![image](https://github.com/user-attachments/assets/6d36f57b-ca6a-45a4-a9a9-1a21da08ff84)
 
