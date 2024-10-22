@@ -29,18 +29,17 @@ in
         };
       };
     };
-    qt = {
-      enable = true;
-      platformTheme.name = "kvantum";
-      style = {
-        name = "kvantum";
-        catppuccin = {
-          enable = true;
-          accent = accent;
-          flavor = flavor;
-        };
-      };
-    };
+    # qt = {
+    #   platformTheme.name = "kvantum";
+    #   style = {
+    #     name = "kvantum";
+    #     catppuccin = {
+    #       enable = true;
+    #       accent = accent;
+    #       flavor = flavor;
+    #     };
+    #   };
+    # };
     home.file.".background-image".source = wallpaper;
     dconf.settings = {
       "org/gnome/desktop/background" = {
