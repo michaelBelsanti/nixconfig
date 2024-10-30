@@ -79,5 +79,6 @@
     vhs
     rclone
     inotify-tools
+    progress
   ];
 }
