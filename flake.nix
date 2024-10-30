@@ -18,7 +18,6 @@
       };
 
       homes.modules = with inputs; [
-        spicetify.homeManagerModules.default
         plasma-manager.homeManagerModules.plasma-manager
         nix-colors.homeManagerModules.default
         catppuccin-nix.homeManagerModules.catppuccin
@@ -109,16 +108,6 @@
 
     helix = {
       url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # wezterm = {
-    #   url = "github:wez/wezterm?dir=nix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    spicetify = {
-      url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

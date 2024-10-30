@@ -131,12 +131,6 @@ in
           + /dist/rose-pine.toml
         )
       );
-      spicetify = with pkgs.spicePkgs.themes; {
-        theme = Ziro;
-        # theme = Sleek;
-        colorScheme = "rose-pine"; # For Ziro
-        # colorScheme = "RosePine"; # For Sleek
-      };
       helix.settings.theme = "rose_pine";
     };
   };

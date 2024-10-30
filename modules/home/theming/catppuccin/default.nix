@@ -65,10 +65,6 @@ in
       starship.catppuccin.enable = true;
       yazi.catppuccin.enable = true;
       zellij.catppuccin.enable = true;
-      spicetify = with pkgs.spicePkgs.themes; {
-        theme = catppuccin;
-        colorScheme = "${flavor}";
-      };
     };
   };
 }

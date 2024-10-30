@@ -4,8 +4,6 @@
   plasma-manager,
   nix-alien,
   hypr-contrib,
-  spicetify,
-  # wezterm,
   zen-browser,
   ...
 }:
@@ -17,7 +15,6 @@ _self: super: {
   zen-browser = zen-browser.packages.${super.system}.specific;
   # wezterm = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
-  spicePkgs = spicetify.packages.${super.system}.default;
   discord = super.discord.override {
     # nss = super.nss_latest;
     withOpenASAR = true;
