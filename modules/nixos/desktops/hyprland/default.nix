@@ -76,10 +76,13 @@ in
         settings = import ./settings.nix pkgs;
       };
       services.udiskie.enable = true;
-      programs.ironbar = {
-        enable = true;
-        config = import ./ironbar.nix;
-      };
+      # requires ironbar input
+      # programs.ironbar = {
+      #   enable = true;
+      #   config = import ./ironbar.nix;
+      # };
+      # requires walker input
+      # programs.walker = import ./walker.nix;
       programs.hyprlock = {
         enable = true;
         settings = {

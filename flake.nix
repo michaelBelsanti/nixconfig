@@ -20,10 +20,8 @@
       homes.modules = with inputs; [
         spicetify.homeManagerModules.default
         plasma-manager.homeManagerModules.plasma-manager
-        ironbar.homeManagerModules.default
         nix-colors.homeManagerModules.default
         catppuccin-nix.homeManagerModules.catppuccin
-        walker.homeManagerModules.default
       ];
 
       systems.modules.nixos = with inputs; [
@@ -106,14 +104,6 @@
 
     hypr-contrib = {
       url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ironbar = {
-      url = "github:JakeStanger/ironbar";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    walker = {
-      url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
