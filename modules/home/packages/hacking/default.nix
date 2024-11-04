@@ -31,5 +31,6 @@
     metasploit
     cyberchef
     ffuf
+    imhex
   ];
 }
