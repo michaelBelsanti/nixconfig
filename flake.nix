@@ -53,7 +53,10 @@
         };
 
         zagreus = {
-          modules = with inputs; [ nixos-hardware.nixosModules.framework-13-7040-amd ];
+          modules = with inputs; [
+            nixos-hardware.nixosModules.framework-13-7040-amd
+            lanzaboote.nixosModules.lanzaboote
+          ];
 
           specialArgs = {
             inherit user flakePath;
@@ -128,6 +131,11 @@
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

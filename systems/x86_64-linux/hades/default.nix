@@ -53,6 +53,10 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.loader.systemd-boot = {
+    enable = true;
+    netbootxyz.enable = true;
+  };
   chaotic.scx.enable = true; # by default uses scx_rustland scheduler
 
   # Custom options
@@ -62,7 +66,7 @@
 
   gaming.enable = true;
   apps.unmanic.enable = true;
-  programs.steam.gamescopeSession.args = [ "--adaptive-sync --display-index 2"];
+  programs.steam.gamescopeSession.args = [ "--adaptive-sync --display-index 2" ];
 
   networking = {
     hostName = "hades";
