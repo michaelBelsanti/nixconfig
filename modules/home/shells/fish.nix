@@ -10,7 +10,7 @@
     pkgs.libnotify # notify-send for done
   ];
   programs.fish = {
-    enable = true;
+    enable = false;
     shellAliases = {
       nixup = "doas nixos-rebuild switch --flake ${flakePath} && source ~/.config/fish/config.fish";
       cleanup = "doas nix-collect-garbage -d";
