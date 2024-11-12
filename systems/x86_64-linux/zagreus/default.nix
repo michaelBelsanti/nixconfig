@@ -53,9 +53,9 @@
     xserver = {
       displayManager.gdm.enable = true;
     };
-    auto-cpufreq.enable = true;
+    # auto-cpufreq.enable = true;
     thermald.enable = true;
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
     fprintd.enable = false; # Enable fingerprint scanner
     fwupd = {
       enable = true; # Enable firmware updates with `fwupdmgr update`
