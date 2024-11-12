@@ -27,7 +27,6 @@
     ghc
     # JS
     bun
-    nodejs
 
     # Nix
     cachix
