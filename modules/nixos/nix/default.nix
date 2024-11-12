@@ -6,7 +6,6 @@
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
     daemonIOSchedPriority = 7;
-    package = pkgs.nixVersions.stable;
     registry.nixpkgs.flake = inputs.nixpkgs;
     gc.automatic = true;
     settings = {
