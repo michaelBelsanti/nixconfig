@@ -60,7 +60,7 @@ in
         enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
-        extest.enable = true;
+        # extest.enable = true;
         # extraPackages = with pkgs; [ latencyflex ];
         gamescopeSession = {
           enable = true;
