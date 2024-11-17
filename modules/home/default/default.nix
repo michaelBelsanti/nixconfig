@@ -14,6 +14,8 @@
   programs.home-manager.enable = true;
   nixpkgs.config.allowUnfree = true;
 
+  shells.nushell.enable = true;
+
   # Git
   services = {
     pueue.enable = true;

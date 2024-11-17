@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./nushell
     ./fish.nix
     ./zsh.nix
     ./ion.nix
