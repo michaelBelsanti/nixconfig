@@ -246,11 +246,6 @@
           "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         };
     };
-    fish = {
-      enable = true;
-      useBabelfish = true;
-    };
-    zsh.enable = true;
     kdeconnect = {
       enable = false;
       package = pkgs.valent;
