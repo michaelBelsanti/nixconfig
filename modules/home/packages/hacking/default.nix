@@ -32,5 +32,7 @@
     cyberchef
     ffuf
     imhex
+    mitmproxy
+    mitmproxy2swagger
   ];
 }
