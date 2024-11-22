@@ -95,7 +95,7 @@
       settings.PasswordAuthentication = false;
     };
     ollama = {
-      enable = true;
+      enable = false;
       acceleration = "rocm";
       loadModels = [
         "llama3.1"
