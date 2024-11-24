@@ -67,7 +67,7 @@
     wike
 
     # Not in modules/gaming.nix because any device can handle retro games
-    (retroarch.override { cores = with libretro; [ beetle-gba ]; })
+    retroarch-full
 
     doas-sudo-shim
   ];

@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   ...
@@ -118,6 +117,8 @@
 
   virtualisation.virtualbox.host.enable = true;
   # virtualisation.virtualbox.host.enableKvm = true;
+
+  nixpkgs.config.permittedInsecurePackages = [ "dotnet-runtime-6.0.36" "dotnet-sdk-wrapped-6.0.428" "dotnet-sdk-6.0.428" ]; # for open tablet driver, remove when 0f2680 is merged
 
   system.stateVersion = "22.05"; # Did you read the comment?
 }

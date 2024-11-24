@@ -122,12 +122,12 @@
   # Best fonts (Especially JetBrains Mono)
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
       jetbrains-mono
       montserrat
-      twemoji-color-font
       libertine
       inter
+      openmoji-color
+      nerd-fonts.symbols-only
     ];
     enableDefaultPackages = true;
     fontDir.enable = true;
