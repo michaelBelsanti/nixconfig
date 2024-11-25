@@ -13,18 +13,7 @@ _self: super: {
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
   zen-browser = zen-browser.packages.${super.system}.specific;
-  # wezterm = wezterm.packages.${super.system}.default;
   gaming = nix-gaming.packages.${super.system};
-  discord = super.discord.override {
-    # nss = super.nss_latest;
-    withOpenASAR = true;
-    withVencord = true;
-  };
-  discord-canary = super.discord-canary.override {
-    nss = super.nss_latest;
-    withOpenASAR = true;
-    withVencord = true;
-  };
   rosepine-wallpaper = super.fetchurl {
     url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/flower.jpg";
     hash = "sha256-A83dUw3QT7GpWGSV+JY7F+kU38CNk5uQrzFwyL5yFdE=";
