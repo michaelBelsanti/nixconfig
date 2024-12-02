@@ -2,7 +2,6 @@
 {
   home.file.wordlists = {
     source = pkgs.seclists + /share/wordlists;
-    recursive = true;
   };
   home.packages = with pkgs; [
     zap
