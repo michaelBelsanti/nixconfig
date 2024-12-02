@@ -2,6 +2,7 @@
 {
   # Enable flakes
   nix = {
+    package = pkgs.lix;
     # much is copied from https://github.com/nix-community/srvos/blob/main/nixos/common/nix.nix
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
