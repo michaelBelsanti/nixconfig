@@ -89,6 +89,7 @@ in
           obs-pipewire-audio-capture
           obs-gstreamer
           input-overlay
+          obs-backgroundremoval
         ];
       };
     };
