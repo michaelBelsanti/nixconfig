@@ -1,4 +1,4 @@
-{ ... }:
+_:
 _: super: {
   wallpapers.live = {
     killua = super.fetchurl {
