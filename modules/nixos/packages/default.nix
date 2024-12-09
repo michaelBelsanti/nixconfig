@@ -56,7 +56,6 @@
 
     jellyfin-media-player
     protonvpn-gui
-    protonvpn-cli
     tetrio-desktop
     element-desktop
     imagemagick
