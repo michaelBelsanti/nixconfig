@@ -21,7 +21,7 @@ in
       Service = {
         ExecStartPre = "/usr/bin/env mkdir -p %h/Proton";
         ExecStart = "${lib.getExe pkgs.rclone} mount --vfs-cache-mode full proton: %h/Proton";
-        ExecStop="/bin/fusermount -u %h/Proton";
+        ExecStop = "/bin/fusermount -u %h/Proton";
       };
     };
   };

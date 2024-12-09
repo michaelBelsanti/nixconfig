@@ -36,7 +36,10 @@
   fileSystems."/run/media/quasi/hdd" = {
     device = "/dev/disk/by-label/mainhdd";
     fsType = "btrfs";
-    options = [ "compress=zstd" "async" ];
+    options = [
+      "compress=zstd"
+      "async"
+    ];
   };
 
   # fileSystems."/run/media/quasi/gamessd" = {

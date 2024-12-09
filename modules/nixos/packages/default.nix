@@ -5,7 +5,9 @@
   environment.systemPackages = with pkgs; [
     zen-browser
     firefox
-    libreoffice hunspell hunspellDicts.en_US-large
+    libreoffice
+    hunspell
+    hunspellDicts.en_US-large
     vesktop
     kdenlive
     bitwarden
@@ -31,8 +33,8 @@
     helix
     (pkgs.buildFHSUserEnv {
       name = "zed";
-      targetPkgs = pkgs:
-        with pkgs; [
+      targetPkgs =
+        pkgs: with pkgs; [
           zed-editor
         ];
       runScript = "zed";
