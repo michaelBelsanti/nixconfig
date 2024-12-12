@@ -92,8 +92,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixos-cosmic.url = "github:michaelbelsanti/nixos-cosmic/cosmic-session-dbus-fix";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
