@@ -37,6 +37,9 @@ in
         cosmic-ext-applet-clipboard-manager
         cosmic-ext-calculator
         cosmic-ext-examine
+        cosmic-ext-observatory
+        cosmic-reader
+        cosmic-player
       ]);
     programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gtk2;
     services = {
@@ -50,9 +53,17 @@ in
       COSMIC_DATA_CONTROL_ENABLED = 1;
     };
     home-manager.users.${config.users.mainUser} = {
-      gtk.iconTheme = {
-        name = "Cosmic";
-        package = pkgs.cosmic-icons;
+      gtk = {
+        # Cosmic can make libadwaita apps follow the cosmic theme, so make gtk3 follow libadwaita
+        # mkForce because my theming modules set these
+        theme = lib.mkForce {
+          name = "adw-gtk3";
+          package = pkgs.adw-gtk3;
+        };
+        iconTheme = {
+          name = "Cosmic";
+          package = pkgs.cosmic-icons;
+        };
       };
     };
   };
