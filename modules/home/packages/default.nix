@@ -79,5 +79,7 @@
     rclone
     inotify-tools
     progress
+    try
+    inetutils
   ];
 }
