@@ -12,7 +12,7 @@ _self: super: {
   inherit (plasma-manager.packages.${super.system}) rc2nix;
   inherit (nix-alien.packages.${super.system}) nix-alien;
   inherit (hypr-contrib.packages.${super.system}) grimblast;
-  zen-browser = zen-browser.packages.${super.system}.specific;
+  inherit (zen-browser.packages.${super.system}) zen-browser;
   gaming = nix-gaming.packages.${super.system};
   rosepine-wallpaper = super.fetchurl {
     url = "https://raw.githubusercontent.com/rose-pine/wallpapers/main/flower.jpg";
