@@ -10,7 +10,6 @@
     hunspellDicts.en_US-large
     vesktop
     kdenlive
-    bitwarden
     remmina
     bottles
     wl-clipboard
