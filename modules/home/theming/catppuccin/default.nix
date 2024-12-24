@@ -18,7 +18,19 @@ let
 in
 {
   config = lib.mkIf catppuccinEnabled {
-    catppuccin.flavor = flavor;
+    catppuccin = {
+      flavor = flavor;
+      btop.enable = true;
+      fish.enable = true;
+      foot.enable = true;
+      helix.enable = true;
+      kitty.enable = true;
+      lazygit.enable = true;
+      rio.enable = true;
+      starship.enable = true;
+      yazi.enable = true;
+      zellij.enable = true;
+    };
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     gtk = {
       theme = {
@@ -53,18 +65,6 @@ in
     wayland.windowManager.hyprland.settings.general = {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
-    };
-    programs = {
-      btop.catppuccin.enable = true;
-      fish.catppuccin.enable = true;
-      foot.catppuccin.enable = true;
-      helix.catppuccin.enable = true;
-      kitty.catppuccin.enable = true;
-      lazygit.catppuccin.enable = true;
-      rio.catppuccin.enable = true;
-      starship.catppuccin.enable = true;
-      yazi.catppuccin.enable = true;
-      zellij.catppuccin.enable = true;
     };
   };
 }
