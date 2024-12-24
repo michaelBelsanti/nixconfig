@@ -73,6 +73,7 @@
   };
   home.packages = with pkgs; [
     # language servers / formatters
+    lldb
     nil
     nixd
     nixfmt-rfc-style
