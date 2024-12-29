@@ -19,7 +19,7 @@ in
 {
   config = lib.mkIf catppuccinEnabled {
     catppuccin = {
-      flavor = flavor;
+      inherit flavor;
       btop.enable = true;
       fish.enable = true;
       foot.enable = true;
