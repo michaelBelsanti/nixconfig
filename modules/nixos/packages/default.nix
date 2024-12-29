@@ -17,7 +17,7 @@
     localsend
     tidal-hifi
     varia
-    quickemu
+    # quickemu
     proton-pass
     zotero
 
@@ -30,7 +30,7 @@
 
     # Editor
     helix
-    (pkgs.buildFHSUserEnv {
+    (pkgs.buildFHSEnv {
       name = "zed";
       targetPkgs =
         pkgs: with pkgs; [

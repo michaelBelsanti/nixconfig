@@ -81,5 +81,6 @@
     progress
     try
     inetutils
+    waypipe
   ];
 }
