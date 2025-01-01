@@ -42,6 +42,9 @@ in
       # Emulation
       dolphin-emu
       dolphin-emu-primehack
+
+      gpu-screen-recorder
+      gpu-screen-recorder-gtk
     ];
     services.sunshine = {
       enable = false;

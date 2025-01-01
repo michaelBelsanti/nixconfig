@@ -24,4 +24,18 @@ _self: super: {
     rev = "8976fd7cd4ed2890cc4a324291bbac2813906f80";
     hash = "sha256-tUg0hCeSX6tFUZK3pp83UILSY0c71+dWbW93dL44Yc4=";
   };
+  gpu-screen-recorder = super.gpu-screen-recorder.overrideAttrs rec {
+    version = "5.0.0";
+    src = super.fetchurl {
+      url = "https://dec05eba.com/snapshot/gpu-screen-recorder.git.${version}.tar.gz";
+      hash = "sha256-w1dtFLSY71UileoF4b1QLKIHYWPE5c2KmsHyRPtn+sA=";
+    };
+  };
+  gpu-screen-recorder-gtk = super.gpu-screen-recorder-gtk.overrideAttrs rec {
+    version = "5.0.0";
+    src = super.fetchurl {
+      url = "https://dec05eba.com/snapshot/gpu-screen-recorder-gtk.git.${version}.tar.gz";
+      hash = "sha256-uXbiuA1XPWZVwQGLh47rKzCZSEUEPWqYALqMuCGA7do=";
+    };
+  };
 }
