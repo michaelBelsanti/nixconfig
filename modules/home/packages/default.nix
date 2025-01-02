@@ -48,6 +48,7 @@
     # Other CLI tools that are part of my workflow
     nitch
     bottom
+    nvtop-amd
     cheat
     edir
     gdu
