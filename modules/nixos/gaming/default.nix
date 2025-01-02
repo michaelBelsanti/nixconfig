@@ -12,6 +12,9 @@ let
 in
 {
   options.gaming.enable = mkBoolOpt false "Enable all gaming packages and configurations.";
+  options.gaming.replays.enable = mkBoolOpt false "Enable instant replays using gpu-screen-recorder.";
+  options.gaming.replays.portal = mkBoolOpt false "Use portal for instant replays";
+  options.gaming.replays.screen = mkBoolOpt false "Screen to be used for instant replays, if not using portal.";
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
@@ -84,6 +87,17 @@ in
       };
     };
     snowfallorg.users.${user}.home.config = {
+      systemd.user.services.gpu-screen-recorder-replay = {
+        # Save a video using `killall -SIGUSR1 gpu-screen-recorder` (or any other way to send a SIGUSR1 signal to gpu-screen-recorder)
+        Unit.Description = "gpu-screen-recorder replay service";
+        Install.WantedBy = [ "default.target" ];
+        Service = let
+          w = if cfg.replays.portal then "portal" else cfg.replays.screen;
+        in {
+          ExecStartPre = "/usr/bin/env mkdir -p %h/Videos/Replays";
+          ExecStart = "${lib.getExe pkgs.gpu-screen-recorder} -w ${w} -f 60 -r 60 -a 'default_output|default_input' -c mp4 -q very_high -o %h/Videos/Replays -restore-portal-session yes";
+        };
+      };
       programs.obs-studio = {
         enable = true;
         plugins = with pkgs.obs-studio-plugins; [

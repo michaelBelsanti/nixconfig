@@ -63,8 +63,14 @@
     cosmic.enable = true;
   };
 
-  gaming.enable = true;
-  apps.unmanic.enable = true;
+  gaming = {
+    enable = true;
+    replays = {
+      enable = true;
+      portal = true;
+    };
+  };
+  apps.unmanic.enable = false;
   programs.steam.gamescopeSession.args = [ "--adaptive-sync --display-index 2" ];
 
   networking = {
