@@ -478,6 +478,22 @@
         "type": "github"
       }
     },
+    "infuse": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1735727689,
+        "narHash": "sha256-/aTuYtM+ZJovkhJMNYl0sGpYxTBiFfm/hMKo8Nst+jM=",
+        "ref": "refs/heads/trunk",
+        "rev": "9773c94d65779efb420ed613ba9a7769c978bddd",
+        "revCount": 46,
+        "type": "git",
+        "url": "https://codeberg.org/amjoseph/infuse.nix.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/amjoseph/infuse.nix.git"
+      }
+    },
     "jovian": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
@@ -901,6 +917,7 @@
         "helix": "helix",
         "home-manager": "home-manager_2",
         "hypr-contrib": "hypr-contrib",
+        "infuse": "infuse",
         "lanzaboote": "lanzaboote",
         "lix-module": "lix-module",
         "nix-alien": "nix-alien",
