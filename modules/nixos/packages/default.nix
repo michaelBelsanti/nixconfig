@@ -13,7 +13,7 @@
     remmina
     bottles
     wl-clipboard
-    # custom.affine
+    affine
     localsend
     tidal-hifi
     varia

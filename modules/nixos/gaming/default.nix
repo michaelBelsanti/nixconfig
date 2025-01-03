@@ -41,6 +41,7 @@ in
       r2modman
       winetricks
       ludusavi
+      nexusmods-app
 
       # Emulation
       dolphin-emu

@@ -23,8 +23,7 @@ in
       kdePackages.breeze
       kdePackages.breeze-icons
 
-      # inputs.hyprsome.packages.${pkgs.system}.default
-      custom.hyprsome
+      hyprsome
       hyprlock
       swaybg
       mpvpaper

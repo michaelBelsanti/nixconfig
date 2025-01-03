@@ -44,7 +44,7 @@
       };
     };
     home.pointerCursor = {
-      package = pkgs.custom.posy-cursor;
+      package = pkgs.posy-cursors;
       name = "Posy_Cursor";
       x11.enable = true;
       gtk.enable = true;
