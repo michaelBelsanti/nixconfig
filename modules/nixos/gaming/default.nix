@@ -19,7 +19,7 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       # Games
-      minetest
+      luanti
       gaming.osu-lazer-bin
 
       # Launchers
