@@ -41,6 +41,10 @@
           display-messages = true;
           display-inlay-hints = true;
         };
+        inline-diagnostics = {
+          cursor-line = "hint";
+          other-lines = "error";
+        };
         soft-wrap.enable = true;
         cursor-shape = {
           insert = "bar";
@@ -93,7 +97,7 @@
     vscode-langservers-extracted
     nodePackages_latest.typescript-language-server
     marksman
-    custom.markdown-oxide
+    markdown-oxide
 
     (writeScriptBin "toggle" ''
       #!${lib.getExe pkgs.nushell}
