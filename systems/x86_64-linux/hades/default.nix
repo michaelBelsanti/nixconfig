@@ -67,7 +67,8 @@
     enable = true;
     replays = {
       enable = true;
-      portal = true;
+      portal = false;
+      screen = "DP-1";
     };
   };
   apps.unmanic.enable = false;
