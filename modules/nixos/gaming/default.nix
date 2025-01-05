@@ -6,7 +6,6 @@
 }:
 let
   inherit (lib) mkIf getExe getExe';
-  inherit (lib.strings) optionalString;
   inherit (lib.custom) mkBoolOpt mkOpt;
   cfg = config.gaming;
   user = config.users.mainUser;
@@ -106,7 +105,7 @@ in
           in
           {
             ExecStartPre = "/usr/bin/env mkdir -p %h/Videos/Replays";
-            ExecStart = "${getExe pkgs.gpu-screen-recorder} -w ${w} -f 60 -r 60 -a 'default_output|default_input' -c mp4 -q very_high -o %h/Videos/Replays -restore-portal-session yes";
+            ExecStart = "${getExe pkgs.gpu-screen-recorder} -w ${w} -f 60 -r 60 -a 'default_output|default_input' -c mp4 -q very_high -o %h/Videos/Replays -restore-portal-session yes -v no";
           };
       };
       programs.obs-studio = {
