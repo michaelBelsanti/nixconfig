@@ -5,19 +5,6 @@
   };
   home.packages = with pkgs; [
     zap
-    (lib.wrapper-manager.build {
-      inherit pkgs;
-      modules = [
-        {
-          wrappers.stack = {
-            basePackage = pkgs.burpsuite;
-            flags = [
-              "--disable-auto-update"
-            ];
-          };
-        }
-      ];
-    })
     thc-hydra
     seclists
     hashcat
@@ -34,4 +21,10 @@
     mitmproxy
     mitmproxy2swagger
   ];
+  wrapper-manager.packages.hacking = {
+    wrappers.burpsuite = {
+      arg0 = lib.getExe pkgs.burpsuite;
+      appendArgs = [ "--disable-auto-update" ];
+    };
+  };
 }

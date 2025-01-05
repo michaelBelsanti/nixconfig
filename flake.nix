@@ -21,6 +21,7 @@
         plasma-manager.homeManagerModules.plasma-manager
         nix-colors.homeManagerModules.default
         catppuccin-nix.homeManagerModules.catppuccin
+        wrapper-manager.homeModules.default
       ];
 
       systems.modules.nixos = with inputs; [
@@ -29,6 +30,7 @@
         catppuccin-nix.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         nixos-cosmic.nixosModules.default
+        wrapper-manager.nixosModules.default
         {
           home-manager.useGlobalPkgs = true;
           home-manager.extraSpecialArgs = {
@@ -125,10 +127,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wrapper-manager = {
-      url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    wrapper-manager.url = "github:foo-dogsquared/nix-module-wrapper-manager-fds";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
