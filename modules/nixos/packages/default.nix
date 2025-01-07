@@ -1,6 +1,6 @@
 # These are packages that I need specifically in NixOS
 # Most cli tools are installed via home-manager, so I can use them on non NixOS systems
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   environment.systemPackages = with pkgs; [
     zen-browser
@@ -70,5 +70,5 @@
     retroarch-full
 
     doas-sudo-shim
-  ];
+  ] ++ config.snowfallorg.users.quasi.home.config.home.packages;
 }
