@@ -51,7 +51,7 @@
     };
   };
 
-  # boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.loader.systemd-boot = {
     enable = true;
     netbootxyz.enable = true;

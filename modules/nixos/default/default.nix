@@ -219,7 +219,7 @@
     qemuGuest.enable = true;
     gvfs.enable = true;
     input-remapper.enable = true;
-    # system76-scheduler.enable = true;
+    system76-scheduler.enable = true;
   };
 
   programs = {
@@ -295,7 +295,7 @@
     virglrenderer
   ];
   virtualisation = {
-    waydroid.enable = false;
+    waydroid.enable = true;
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
     podman.enable = true;

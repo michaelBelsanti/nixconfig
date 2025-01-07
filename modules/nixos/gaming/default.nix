@@ -82,7 +82,7 @@ in
         };
       };
       gamemode = {
-        enable = true;
+        enable = false;
         settings = {
           general = {
             reaper_freq = 5;
