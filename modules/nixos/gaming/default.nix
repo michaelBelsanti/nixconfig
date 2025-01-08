@@ -14,7 +14,9 @@ in
   options.gaming.enable = mkBoolOpt false "Enable all gaming packages and configurations.";
   options.gaming.replays.enable = mkBoolOpt false "Enable instant replays using gpu-screen-recorder.";
   options.gaming.replays.portal = mkBoolOpt false "Use portal for instant replays";
-  options.gaming.replays.screen = mkOpt lib.types.str "" "Screen to be used for instant replays, if not using portal.";
+  options.gaming.replays.screen =
+    mkOpt lib.types.str ""
+      "Screen to be used for instant replays, if not using portal.";
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
@@ -71,10 +73,13 @@ in
     programs = {
       gamescope.enable = true;
       steam = {
+        package = pkgs.steam.override {
+          # https://github.com/ValveSoftware/steam-for-linux/issues/11446
+          extraEnv.LD_PRELOAD = "";
+        };
         enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
-        # extest.enable = true;
         # extraPackages = with pkgs; [ latencyflex ];
         gamescopeSession = {
           enable = true;

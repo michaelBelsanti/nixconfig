@@ -14,6 +14,4 @@ _self: super: {
   inherit (hypr-contrib.packages.${super.system}) grimblast;
   inherit (zen-browser.packages.${super.system}) zen-browser;
   gaming = nix-gaming.packages.${super.system};
-
-  # inherit (nixpkgs-master.legacyPackages.${super.system}) rocmPackages;
 }

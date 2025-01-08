@@ -221,11 +221,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1736274689,
-        "narHash": "sha256-A5T/h0m7NbltUNhuHLx1g+LvIvNCAk5QsQn4AmjGqrQ=",
+        "lastModified": 1736352998,
+        "narHash": "sha256-g//Z3MtItLGvQdHIp4JOtVS4i033m7Xh5giwZoPKp5k=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "c3597857ef21d68651e08a8b581c4dd5c14a3d48",
+        "rev": "b66159778669c9d044e45459ac93164d7278d98b",
         "type": "github"
       },
       "original": {
@@ -465,11 +465,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1736277415,
-        "narHash": "sha256-kPDXF6cIPsVqSK08XF5EC6KM7BdMnM9vtJDzsnf+lLU=",
+        "lastModified": 1736366465,
+        "narHash": "sha256-Fo68EF6p/N9GJyHiAUbXtiE7IJlb3IMjK86LuxFMsRU=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5c4302313d9207f7ec0886d68f8ff4a3c71209a1",
+        "rev": "7e00856596891850ba5ad4c5ecd2ed74468c08c5",
         "type": "github"
       },
       "original": {
@@ -636,15 +636,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1729360442,
-        "narHash": "sha256-6U0CyPycIBc04hbYy2hBINnVso58n/ZyywY2BD3hu+s=",
-        "rev": "9098ac95768f7006d7e070b88bae76939f6034e6",
+        "lastModified": 1732605668,
+        "narHash": "sha256-DN5/166jhiiAW0Uw6nueXaGTueVxhfZISAkoxasmz/g=",
+        "rev": "f19bd752910bbe3a861c9cad269bd078689d50fe",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/9098ac95768f7006d7e070b88bae76939f6034e6.tar.gz?rev=9098ac95768f7006d7e070b88bae76939f6034e6"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/f19bd752910bbe3a861c9cad269bd078689d50fe.tar.gz?rev=f19bd752910bbe3a861c9cad269bd078689d50fe"
       },
       "original": {
         "type": "tarball",
-        "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz"
+        "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz"
       }
     },
     "nix-alien": {
@@ -779,11 +779,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1736300250,
-        "narHash": "sha256-TlIgvil72D5LuAKO5QHE+AbK8IDkwnWCkE8cI2W8ZXo=",
+        "lastModified": 1736363956,
+        "narHash": "sha256-cToe5P+lj0ATu3hfqxnNwkjRWp6E5rBbTFlvpy6b4a8=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "a17b5f107b49c5e9f70dd503eeba667561fb5eda",
+        "rev": "257cd359b4d8a831f95fa639c8b0cf114b75bd06",
         "type": "github"
       },
       "original": {
@@ -852,11 +852,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1736315373,
-        "narHash": "sha256-UzTrnKZm/Jpp+TerjtS5hF7Ve1aVmihTZ79oTiRAmS0=",
+        "lastModified": 1736371119,
+        "narHash": "sha256-euQN0ebL0W/vVnMdmYfXa+0gChkl3oss7pVbdHBDfq8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9f044318532c9e80c40a1a7e3a16c1ca9e56e629",
+        "rev": "0bada71884a39e8c39c36c31cc91cf1884389ec6",
         "type": "github"
       },
       "original": {
