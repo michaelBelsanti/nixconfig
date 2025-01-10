@@ -21,8 +21,9 @@
     # Go
     go
     # Python
-    # poetry
+    poetry
     pipx
+    uv
     # Haskell
     ghc
     # JS
@@ -67,6 +68,7 @@
     fd
     ripgrep
     skim
+    television
     ncdu
     edir
     dogdns
