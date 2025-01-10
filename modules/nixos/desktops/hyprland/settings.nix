@@ -1,7 +1,7 @@
 pkgs: {
   "$fm" = "nautilus";
   "$browser" = "floorp";
-  "$terminal" = "wezterm";
+  "$terminal" = "alacritty";
 
   "exec-once" = [
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
@@ -76,7 +76,7 @@ pkgs: {
     "SUPERSHIFT,Q,exec,hyprctl kill"
 
     "SUPER,F,fullscreen"
-    "SUPERALT,F,fakefullscreen"
+    # "SUPERALT,F,fakefullscreen"
     "SUPERSHIFT,F,togglefloating,"
 
     "SUPER,h,movefocus,l"

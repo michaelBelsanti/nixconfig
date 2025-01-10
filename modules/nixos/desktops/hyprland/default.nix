@@ -20,6 +20,7 @@ in
     xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     environment.systemPackages = with pkgs; [
       # QT stuff
+      walker
       kdePackages.breeze
       kdePackages.breeze-icons
 
@@ -41,6 +42,7 @@ in
       wl-clipboard
       grimblast
       hyprpicker
+      alacritty
       (writeScriptBin "walker-power" ''
         #!${lib.getExe pkgs.nushell}
 

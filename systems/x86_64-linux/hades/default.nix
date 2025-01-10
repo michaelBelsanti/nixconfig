@@ -11,7 +11,7 @@
     home.packages = with pkgs; [ custom.obs-cmd ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
-        "mpvpaper -p DP-2 -o 'loop-file' ${pkgs.wallpapers.live.chainsawman}"
+        "mpvpaper -p DP-1 -o 'loop-file' ${pkgs.wallpapers.live.chainsawman}"
         "mpvpaper -p HDMI-A-1 -o 'loop-file' ${pkgs.wallpapers.live.killua}"
         "hyprctl setcursor Posy_Cursor 32"
         "obs --startreplaybuffer --minimize-to-tray --disable-shutdown-check"
@@ -24,20 +24,20 @@
       };
 
       monitor = [
-        "DP-2,highrr,0x0,1"
+        "DP-1,highrr,0x0,1"
         "HDMI-A-1,1920x1080@60,-1920x0,1"
       ];
 
       workspace = [
-        "1,monitor:DP-2"
-        "2,monitor:DP-2"
-        "3,monitor:DP-2"
-        "4,monitor:DP-2"
-        "5,monitor:DP-2"
-        "6,monitor:DP-2"
-        "7,monitor:DP-2"
-        "8,monitor:DP-2"
-        "9,monitor:DP-2"
+        "1,monitor:DP-1"
+        "2,monitor:DP-1"
+        "3,monitor:DP-1"
+        "4,monitor:DP-1"
+        "5,monitor:DP-1"
+        "6,monitor:DP-1"
+        "7,monitor:DP-1"
+        "8,monitor:DP-1"
+        "9,monitor:DP-1"
         "11,monitor:HDMI-A-1,default:true"
         "12,monitor:HDMI-A-1"
         "13,monitor:HDMI-A-1"
@@ -61,6 +61,8 @@
   # Custom options
   desktop = {
     cosmic.enable = true;
+    # sway.enable = true;
+    # hyprland.enable = true;
   };
 
   gaming = {
