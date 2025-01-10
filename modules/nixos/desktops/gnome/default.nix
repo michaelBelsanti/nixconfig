@@ -18,7 +18,6 @@ in
       desktopManager.gnome.enable = true;
       displayManager = {
         gdm.enable = true;
-        defaultSession = "gnome";
       };
     };
     qt = {
@@ -28,7 +27,7 @@ in
     };
     environment = {
       systemPackages = with pkgs; [
-        gnome.gnome-tweaks
+        gnome-tweaks
         dconf2nix
         nautilus-open-any-terminal
       ];
