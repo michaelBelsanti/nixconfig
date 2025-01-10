@@ -20,6 +20,7 @@ in
   config = lib.mkIf catppuccinEnabled {
     catppuccin = {
       inherit flavor;
+      bat.enable = true;
       btop.enable = true;
       fish.enable = true;
       foot.enable = true;
