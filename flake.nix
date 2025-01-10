@@ -1,81 +1,36 @@
 {
   description = "Quasigod's NixOS config";
 
-  outputs =
-    inputs@{ snowfall-lib, ... }:
-    let
-      user = "quasi";
-      flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-    in
-    snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
-      snowfall.namespace = "custom";
-      channels-config.allowUnfree = true;
+  outputs = {
+    denix,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    mkConfigurations = isHomeManager:
+      denix.lib.configurations rec {
+        homeManagerNixpkgs = nixpkgs;
+        homeManagerUser = "quasi";
+        inherit isHomeManager;
 
-      homes.users."quasi@nyx".specialArgs = {
-        inherit flakePath;
-      };
+        paths = [./hosts ./modules ./rices];
 
-      homes.modules = with inputs; [
-        plasma-manager.homeManagerModules.plasma-manager
-        nix-colors.homeManagerModules.default
-        catppuccin-nix.homeManagerModules.catppuccin
-        wrapper-manager.homeModules.default
-      ];
-
-      systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.default
-        flake-programs-sqlite.nixosModules.programs-sqlite
-        catppuccin-nix.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        nixos-cosmic.nixosModules.default
-        wrapper-manager.nixosModules.default
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = {
-            inherit inputs user flakePath;
-          };
-        }
-      ];
-
-      systems.hosts = {
-        hades = {
-          modules = with inputs; [
-            nix-gaming.nixosModules.pipewireLowLatency
-            nixos-hardware.nixosModules.common-cpu-amd
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-pc-ssd
-            chaotic.nixosModules.default
-          ];
-
-          specialArgs = {
-            inherit user flakePath;
-          };
-        };
-
-        zagreus = {
-          modules = with inputs; [
-            nixos-hardware.nixosModules.framework-13-7040-amd
-            lanzaboote.nixosModules.lanzaboote
-          ];
-
-          specialArgs = {
-            inherit user flakePath;
-          };
+        specialArgs = {
+          inherit inputs isHomeManager homeManagerUser;
         };
       };
-
-      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
-    };
+  in {
+    nixosConfigurations = mkConfigurations false;
+    homeConfigurations = mkConfigurations true;
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
+    denix = {
+      url = "github:yunfachi/denix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     home-manager = {
@@ -88,14 +43,14 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin-nix.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix";
 
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic/0855bf33427209e4f5e3d2d0968a14784525e929";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
