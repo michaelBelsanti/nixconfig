@@ -1,4 +1,4 @@
-{ delib, ... }:
+{ delib, host, lib, ... }:
 delib.module {
   name = "shells.utils";
   home.always.programs = {
@@ -11,6 +11,8 @@ delib.module {
           error_symbol = "[➜](maroon)";
         };
         shell.disabled = false;
+        # for showing name when using something like sshmux
+        hostname.ssh_only = lib.mkIf host.isServer true;
       };
     };
     bat.enable = true;

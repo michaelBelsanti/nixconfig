@@ -9,10 +9,11 @@ delib.module {
         { config, ... }:
         {
           options = hostSubmoduleOptions // {
-            type = noDefault (enumOption [ "desktop" "laptop" ] null);
+            type = noDefault (enumOption [ "desktop" "laptop" "server" ] null);
 
             isDesktop = boolOption (config.type == "desktop");
             isLaptop = boolOption (config.type == "laptop");
+            isServer = boolOption (config.type == "isServer");
             displays = listOfOption (submodule {
               options = {
                 enable = boolOption true;
