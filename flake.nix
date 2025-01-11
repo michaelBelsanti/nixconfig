@@ -50,7 +50,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic/0855bf33427209e4f5e3d2d0968a14784525e929";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
