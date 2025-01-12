@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "apps.proton-drive";
+  name = "programs.proton-drive";
   options = delib.singleEnableOption true;
   home.ifEnabled = {
     systemd.user.services.proton-drive = {

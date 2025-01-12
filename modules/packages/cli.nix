@@ -1,9 +1,8 @@
 { delib, pkgs, ... }:
 delib.module rec {
-  name = "packages.cli";
+  name = "programs.cli";
   nixos.always.environment.systemPackages = home.always.home.packages;
   home.always.home.packages = with pkgs; [
-    
     # Dev
     helix
     lazygit
@@ -49,7 +48,6 @@ delib.module rec {
 
     # Other CLI tools that are part of my workflow
     nitch
-    bottom
     nvtopPackages.amd
     cheat
     edir
@@ -62,13 +60,10 @@ delib.module rec {
     cachix
     aria2
     ouch
-    bat
-    tealdeer
     lsof
     dig
     fd
     ripgrep
-    skim
     television
     ncdu
     edir
@@ -86,6 +81,5 @@ delib.module rec {
     try
     inetutils
     waypipe
-  
   ];
 }

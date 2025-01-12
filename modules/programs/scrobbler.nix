@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "apps.scrobbler";
+  name = "programs.scrobbler";
   options = delib.singleEnableOption true;
   home.ifEnabled = {
     systemd.user.services.scrobbler = {

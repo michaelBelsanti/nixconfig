@@ -2,7 +2,6 @@
 delib.module {
   name = "packages.gui";
   nixos.always.environment.systemPackages = with pkgs; [
-    zen-browser
     firefox
     libreoffice
     hunspell

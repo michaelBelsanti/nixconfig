@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "apps.rofi";
+  name = "programs.rofi";
   options = delib.singleEnableOption false;
   home.ifEnabled =  {
     xdg.configFile = {

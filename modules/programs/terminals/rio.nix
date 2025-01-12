@@ -3,7 +3,7 @@
   ...
 }:
 delib.module {
-  name = "apps.terminals.rio";
+  name = "programs.rio";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     programs.rio = {

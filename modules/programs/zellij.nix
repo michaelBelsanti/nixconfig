@@ -1,6 +1,6 @@
 { delib, lib, config, ... }:
 delib.module {
-  name = "apps.zellij";
+  name = "programs.zellij";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     programs.zellij = {

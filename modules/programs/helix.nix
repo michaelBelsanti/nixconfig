@@ -5,10 +5,15 @@
   ...
 }:
 delib.module {
-  name = "apps.helix";
+  name = "programs.helix";
   options = delib.singleEnableOption true;
 
   home.ifEnabled = {
+    home.sessionVariables = {
+      EDITOR = "hx";
+      VISUAL = "hx";
+      EDIR_EDITOR = "hx";
+    };
     programs.helix = {
       enable = true;
       languages = {
@@ -38,7 +43,7 @@ delib.module {
         };
         editor = {
           shell = [
-            "fish"
+            "bash"
             "-c"
           ];
           cursorline = true;

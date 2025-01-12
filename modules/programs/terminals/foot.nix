@@ -1,6 +1,6 @@
 { delib, ... }:
 delib.module {
-  name = "apps.terminals.foot";
+  name = "programs.foot";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     programs.foot = {

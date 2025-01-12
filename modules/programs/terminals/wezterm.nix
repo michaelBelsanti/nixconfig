@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "apps.terminals.wezterm";
+  name = "programs.wezterm";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     programs.wezterm = {

@@ -1,6 +1,7 @@
 {
   delib,
   pkgs,
+  inputs,
   ...
 }:
 delib.module {
@@ -10,7 +11,7 @@ delib.module {
     environment.systemPackages = with pkgs; [
       # Games
       luanti
-      gaming.osu-lazer-bin
+      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
 
       # Launchers
       cartridges

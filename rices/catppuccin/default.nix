@@ -1,4 +1,10 @@
-{delib, inputs, pkgs, ...}: let
+{
+  delib,
+  inputs,
+  pkgs,
+  ...
+}:
+let
   flavor = "macchiato";
   accent = "lavender";
   wallpaper = ./background_upscaled.png;
@@ -7,7 +13,7 @@ delib.rice {
   name = "catppuccin";
 
   nixos = {
-    imports = [inputs.catppuccin.nixosModules.catppuccin];
+    imports = [ inputs.catppuccin.nixosModules.catppuccin ];
     catppuccin = {
       inherit flavor;
       enable = true;
@@ -15,7 +21,10 @@ delib.rice {
   };
 
   home = {
-    imports = [inputs.catppuccin.homeManagerModules.catppuccin];
+    imports = [
+      inputs.catppuccin.homeManagerModules.catppuccin
+      inputs.nix-colors.homeManagerModule
+    ];
     catppuccin = {
       inherit flavor;
       enable = true;
@@ -45,7 +54,6 @@ delib.rice {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
     };
-    
+
   };
 }
-

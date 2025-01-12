@@ -24,7 +24,7 @@ delib.host {
 
   myconfig = {
     desktops.cosmic.enable = true;
-    apps = {
+    programs = {
       scrobbler.enable = true;
       easyeffects.enable = true;
     };

@@ -10,7 +10,7 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: " 󰀘  Apps ";
+    display-drun: "programs  Apps ";
     display-run: "   Run ";
     display-window: " 󰕰  Window ";
   	kb-row-up: "Up,Control+k";

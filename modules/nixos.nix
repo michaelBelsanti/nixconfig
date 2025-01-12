@@ -11,11 +11,6 @@ delib.module {
   home.always =
     { myconfig, ... }:
     {
-      imports = with inputs; [
-        plasma-manager.homeManagerModules.plasma-manager
-        nix-colors.homeManagerModules.default
-        wrapper-manager.homeModules.default
-      ];
       # Main user theming
       home.stateVersion = "22.05";
       xsession = {
@@ -61,8 +56,6 @@ delib.module {
       imports = with inputs; [
         lix-module.nixosModules.default
         flake-programs-sqlite.nixosModules.programs-sqlite
-        home-manager.nixosModules.home-manager
-        nixos-cosmic.nixosModules.default
         wrapper-manager.nixosModules.default
       ];
       boot = {
@@ -76,19 +69,11 @@ delib.module {
           "vm.compact_memory" = 0;
           "vm.max_map_count" = 2097152;
         };
-        tmp.useTmpfs = false;
-        # Cute boot animation
         loader = {
-          grub = {
-            enable = false;
-            device = "nodev";
-            efiSupport = true;
-          };
           efi.canTouchEfiVariables = true;
           timeout = 3;
         };
         supportedFilesystems = [ "ntfs" ]; # Adds NTFS driver
-        # Allow appimages to be run directly
       };
 
       # These units regularly causes problems
@@ -136,18 +121,6 @@ delib.module {
       # Environment
       environment = {
         binsh = "${pkgs.dash}/bin/dash";
-        shells = with pkgs; [
-          fish
-          nushell
-          ion
-        ];
-        defaultPackages = with pkgs; [
-          micro
-          git
-          perl
-          rsync
-          strace
-        ];
         sessionVariables = {
           EDITOR = "hx";
           VISUAL = "hx";
@@ -157,15 +130,10 @@ delib.module {
       };
 
       ### Services and hardware ###
-
       # Others (things that for some reason aren't in services, hardware, or programs)
       appstream.enable = true;
       networking.wireguard.enable = true;
       zramSwap.enable = true;
-      xdg.portal = {
-        enable = true;
-        config.common.default = "*";
-      };
 
       # Services
       services = {
@@ -305,27 +273,6 @@ delib.module {
             cores = 4;
           };
         };
-      };
-
-      security = {
-        sudo.enable = false;
-        doas.enable = true;
-        doas.extraRules = [
-          {
-            users = [ "${username}" ];
-            keepEnv = true;
-            persist = true;
-          }
-        ];
-        polkit.enable = true;
-        pam.loginLimits = [
-          {
-            domain = "*";
-            type = "soft";
-            item = "nofile";
-            value = "8192";
-          }
-        ];
       };
 
       system.activationScripts = {

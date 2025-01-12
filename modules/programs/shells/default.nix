@@ -1,6 +1,10 @@
-{ delib, pkgs, ... }:
+{
+  delib,
+  pkgs,
+  ...
+}:
 delib.module {
-  name = "shells.bash";
+  name = "programs.shells";
   nixos.always.environment.shells = [ pkgs.bash ];
   home.always =
     { myconfig, ... }:

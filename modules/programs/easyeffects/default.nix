@@ -4,7 +4,7 @@
   ...
 }:
 delib.module {
-  name = "apps.easyeffects";
+  name = "programs.easyeffects";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     services.easyeffects.enable = true;

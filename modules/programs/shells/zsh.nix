@@ -1,6 +1,6 @@
 { delib, pkgs, config, ... }:
 delib.module {
-  name = "shells.zsh";
+  name = "programs.shells.zsh";
   options = with delib; {
     enable = enableOption true;
     default = enableOption true;

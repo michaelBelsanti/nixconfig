@@ -5,7 +5,7 @@
   ...
 }:
 delib.module {
-  name = "shells.fish";
+  name = "programs.shells.fish";
   options = with delib; {
     enable = enableOption true;
     default = enableOption true;

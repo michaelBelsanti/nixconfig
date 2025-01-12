@@ -1,6 +1,6 @@
 { delib, host, lib, ... }:
 delib.module {
-  name = "shells.utils";
+  name = "programs.shells.utils";
   home.always.programs = {
     starship = {
       enable = true;

@@ -1,6 +1,6 @@
 { delib, pkgs, ... }:
 delib.module {
-  name = "shells.nushell";
+  name = "programs.shells.nushell";
   options = with delib; {
     enable = enableOption true;
     default = enableOption true;

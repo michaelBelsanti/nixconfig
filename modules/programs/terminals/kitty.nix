@@ -3,7 +3,7 @@
   ...
 }:
 delib.module {
-  name = "apps.terminals.kitty";
+  name = "programs.kitty";
   options = delib.singleEnableOption false;
   home.ifEnabled = {
     programs.kitty = {
