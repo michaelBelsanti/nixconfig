@@ -1,4 +1,4 @@
-{ delib, pkgs, ... }:
+{ delib, pkgs, inputs, ... }:
 delib.module {
   name = "packages.gui";
   nixos.always.environment.systemPackages = with pkgs; [
@@ -68,5 +68,7 @@ delib.module {
     retroarch-full
 
     doas-sudo-shim
-  ];
+  ] ++ (with inputs; [
+    mypkgs.packages.${system}.grayjay
+  ]);
 }

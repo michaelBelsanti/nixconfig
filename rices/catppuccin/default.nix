@@ -54,6 +54,12 @@ delib.rice {
       "col.active_border" = "0xfff28fad";
       "col.inactive_border" = "0xff1e1d2f";
     };
+  };
 
+  myconfig = {
+    programs.television.settings = {
+      ui.theme = "catppuccin";
+      previewers.file.theme = "Catppuccin Macchiato";
+    };
   };
 }

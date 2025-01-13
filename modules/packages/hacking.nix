@@ -32,6 +32,7 @@ delib.module rec {
       wrappers.burpsuite = {
         arg0 = lib.getExe pkgs.burpsuite;
         appendArgs = [ "--disable-auto-update" ];
+        xdg.desktopEntry.enable = true;
       };
     };
   };

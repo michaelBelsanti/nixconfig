@@ -4,14 +4,20 @@
 }:
 delib.module {
   name = "programs.git";
-  home.always = {
+  options = delib.singleEnableOption true;
+  home.always.programs = {
     git = {
       enable = true;
       userName = "michaelBelsanti";
       userEmail = "quasigod-io@proton.me";
       difftastic.enable = true;
+      aliases = {
+        ci = "commit";
+        co = "checkout";
+        st = "status";
+      };
       signing = {
-        key = "~/.ssh/github.pub";
+        key = "~/.ssh/git.pub";
         signByDefault = true;
       };
       extraConfig = {
@@ -20,6 +26,8 @@ delib.module {
         pull.rebase = true;
         rerere.enabled = true;
         column.ui = "auto";
+        fetch.prune = true;
+        interactive.singlekey = true;
       };
     };
   };

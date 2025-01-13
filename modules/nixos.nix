@@ -125,7 +125,7 @@ delib.module {
           EDITOR = "hx";
           VISUAL = "hx";
           WINEDLLOVERRIDES = "winemenubuilder.exe=d";
-          FLAKE = "~/.flake";
+          FLAKE = "/home/${myconfig.constants.username}/.flake";
         };
       };
 

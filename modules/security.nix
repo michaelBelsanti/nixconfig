@@ -1,5 +1,6 @@
 { delib, ... }:
 delib.module {
+  name = "security";
   nixos.always =
     { myconfig, ... }:
     {
@@ -8,7 +9,7 @@ delib.module {
         doas.enable = true;
         doas.extraRules = [
           {
-            users = [ "${myconfig.constans.username}" ];
+            users = [ "${myconfig.constants.username}" ];
             keepEnv = true;
             persist = true;
           }

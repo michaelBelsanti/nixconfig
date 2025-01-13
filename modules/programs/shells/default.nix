@@ -9,6 +9,13 @@ delib.module {
   home.always =
     { myconfig, ... }:
     {
+      home.shellAliases = {
+        cd = "z";
+        lg = "lazygit";
+        open = "xdg-open";
+        mkdir = "mkdir -p";
+        tree = "eza -T";
+      };
       programs.bash = {
         enable = true;
         enableVteIntegration = true;
