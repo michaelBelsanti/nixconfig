@@ -22,11 +22,6 @@ delib.module {
       };
       gtk = {
         enable = true;
-        font = {
-          name = "Montserrat Semibold";
-          package = pkgs.montserrat;
-          size = 12;
-        };
         gtk2.configLocation = "${myconfig.constants.configHome}/gtk-2.0/gtkrc";
         gtk3 = {
           bookmarks = [
@@ -37,12 +32,6 @@ delib.module {
             "file:///home/quasi/Games Games"
           ];
         };
-      };
-      home.pointerCursor = {
-        package = pkgs.posy-cursors;
-        name = "Posy_Cursor";
-        x11.enable = true;
-        gtk.enable = true;
       };
     };
 
@@ -84,12 +73,10 @@ delib.module {
       time.timeZone = "America/New_York";
       i18n.defaultLocale = "en_US.UTF-8";
 
-      # Xserver input
+      # xserver
       services = {
-        libinput.enable = true;
         xserver = {
           enable = true;
-          desktopManager.wallpaper.mode = "fill";
           excludePackages = [ pkgs.xterm ];
         };
       };
@@ -99,23 +86,6 @@ delib.module {
         # Graphics
         graphics.enable = true;
         bluetooth.enable = true; # Enable bluetooth
-      };
-
-      # Best fonts (Especially JetBrains Mono)
-      fonts = {
-        packages = with pkgs; [
-          jetbrains-mono
-          montserrat
-          libertine
-          inter
-          openmoji-color
-          nerd-fonts.symbols-only
-        ];
-        enableDefaultPackages = true;
-        fontDir.enable = true;
-        fontconfig.defaultFonts = {
-          monospace = [ "JetBrains Mono" ];
-        };
       };
 
       # Environment
@@ -154,10 +124,8 @@ delib.module {
             ];
           };
         };
-        espanso.enable = false;
         flatpak.enable = true;
         fstrim.enable = true;
-        btrfs.autoScrub.enable = true;
         tailscale.enable = true;
         # Pipewire
         pipewire = {
@@ -234,10 +202,6 @@ delib.module {
           };
         };
         mtr.enable = true;
-        gnupg.agent = {
-          enable = true;
-          # pinentryFlavor = "curses";
-        };
         nix-ld.enable = true;
         appimage = {
           enable = true;

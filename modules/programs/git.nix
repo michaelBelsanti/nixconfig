@@ -8,6 +8,7 @@ delib.module {
   home.always.programs = {
     git = {
       enable = true;
+      lfs.enable = true;
       userName = "michaelBelsanti";
       userEmail = "quasigod-io@proton.me";
       difftastic.enable = true;

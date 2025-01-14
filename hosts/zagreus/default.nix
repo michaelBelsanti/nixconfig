@@ -49,6 +49,7 @@ delib.host {
     };
 
     services = {
+      btrfs.autoScrub.enable = true;
       libinput = {
         mouse = {
           accelProfile = "flat";

@@ -14,6 +14,7 @@ delib.module {
             isDesktop = boolOption (config.type == "desktop");
             isLaptop = boolOption (config.type == "laptop");
             isServer = boolOption (config.type == "isServer");
+            hasGUI = boolOption (config.type == "laptop" || config.type == "desktop");
             displays = listOfOption (submodule {
               options = {
                 enable = boolOption true;

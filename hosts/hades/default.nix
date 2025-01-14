@@ -73,6 +73,7 @@ delib.host {
     };
 
     services = {
+      btrfs.autoScrub.enable = true;
       xserver.videoDrivers = [ "amdgpu" ];
       libinput.mouse = {
         accelProfile = "flat";

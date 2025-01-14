@@ -11,6 +11,7 @@ let
 in
 delib.rice {
   name = "catppuccin";
+  inherits = ["base"];
 
   nixos = {
     imports = [ inputs.catppuccin.nixosModules.catppuccin ];

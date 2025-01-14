@@ -1,7 +1,8 @@
-{ delib, pkgs, inputs, ... }:
+{ delib, pkgs, inputs, host, ... }:
 delib.module {
   name = "packages.gui";
-  nixos.always.environment.systemPackages = with pkgs; [
+  options = delib.singleEnableOption host.hasGUI;
+  nixos.ifEnabled.environment.systemPackages = with pkgs; [
     firefox
     libreoffice
     hunspell
