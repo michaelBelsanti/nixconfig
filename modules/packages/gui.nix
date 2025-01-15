@@ -69,6 +69,6 @@ delib.module {
 
     doas-sudo-shim
   ] ++ (with inputs; [
-    mypkgs.packages.${system}.grayjay
+    mypkgs.packages.${system}.grayjay-desktop
   ]);
 }
