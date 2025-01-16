@@ -42,7 +42,7 @@ delib.module {
         loupe
         celluloid
         gnome-disk-utility
-        peazip
+        file-roller
       ])
       ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
         chronos

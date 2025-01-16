@@ -1,10 +1,21 @@
 {
   delib,
+  pkgs,
+  lib,
   ...
 }:
 delib.module {
   name = "programs.rio";
-  options = delib.singleEnableOption false;
+  options.programs.rio = with delib; {
+    enable = boolOption false;
+    default = boolOption false;
+  };
+  nixos.ifEnabled =
+    { cfg, ... }:
+    {
+      environment.systemPackages = [ pkgs.rio ];
+      xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "rio.desktop" ];
+    };
   home.ifEnabled = {
     programs.rio = {
       enable = true;

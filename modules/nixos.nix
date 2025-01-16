@@ -89,6 +89,7 @@ delib.module {
       };
 
       # Environment
+      xdg.terminal-exec.enable = true;
       environment = {
         binsh = "${pkgs.dash}/bin/dash";
         sessionVariables = {

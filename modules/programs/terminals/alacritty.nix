@@ -1,10 +1,21 @@
 {
   delib,
+  pkgs,
+  lib,
   ...
 }:
 delib.module {
   name = "programs.alacritty";
-  options = delib.singleEnableOption false;
+  options.programs.alacritty = with delib; {
+    enable = boolOption false;
+    default = boolOption false;
+  };
+  nixos.ifEnabled =
+    { cfg, ... }:
+    {
+      environment.systemPackages = [ pkgs.alacritty ];
+      xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "Alacritty.desktop" ];
+    };
   home.ifEnabled = {
     programs.alacritty.enable = true;
     programs.alacritty.settings = {

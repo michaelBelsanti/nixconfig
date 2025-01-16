@@ -52,13 +52,13 @@ delib.module {
           file-picker.hidden = true;
           line-number = "relative";
           lsp = {
-            display-messages = true;
+            # display-messages = true;
             display-inlay-hints = true;
           };
           inline-diagnostics = {
             cursor-line = "hint";
-            other-lines = "error";
           };
+          end-of-line-diagnostics = "error";
           soft-wrap.enable = true;
           cursor-shape = {
             insert = "bar";

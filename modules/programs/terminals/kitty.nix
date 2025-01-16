@@ -1,10 +1,21 @@
 {
   delib,
+  pkgs,
+  lib,
   ...
 }:
 delib.module {
   name = "programs.kitty";
-  options = delib.singleEnableOption false;
+  options.programs.kitty = with delib; {
+    enable = boolOption false;
+    default = boolOption false;
+  };
+  nixos.ifEnabled =
+    { cfg, ... }:
+    {
+      environment.systemPackages = [ pkgs.kitty ];
+      xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "kitty.desktop" ];
+    };
   home.ifEnabled = {
     programs.kitty = {
       enable = true;

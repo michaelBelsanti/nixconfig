@@ -7,9 +7,9 @@
 }:
 delib.module rec {
   name = "packages.hacking";
+  options = delib.singleEnableOption true;
   nixos.always.environment.systemPackages = home.always.home.packages;
   home.always = {
-    imports = [ inputs.wrapper-manager.homeModules.default ];
     home.packages = with pkgs; [
       zap
       thc-hydra
