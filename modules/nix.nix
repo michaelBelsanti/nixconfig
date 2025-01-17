@@ -7,6 +7,19 @@
 delib.module {
   name = "nix";
   # Enable flakes
+  home.always = {
+    nix.registry.develop = {
+      exact = true;
+      from = {
+        id = "develop";
+        type = "indirect";
+      };
+      to = {
+        type = "git";
+        url = "https://codeberg.org:quasigod/develop";
+      };
+    };
+  };
   nixos.always = {
     nixpkgs.config.allowUnfree = true;
     nix = {
