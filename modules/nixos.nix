@@ -38,9 +38,6 @@ delib.module {
   # Boot options
   nixos.always =
     { myconfig, ... }:
-    let
-      inherit (myconfig.constants) username;
-    in
     {
       imports = with inputs; [
         lix-module.nixosModules.default
