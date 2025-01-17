@@ -1,4 +1,4 @@
-{ delib, inputs, ... }:
+{ delib, pkgs, inputs, ... }:
 delib.host {
   name = "hades";
   rice = "catppuccin";
@@ -55,7 +55,11 @@ delib.host {
     hardware = {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
+      graphics.extraPackages = with pkgs; [
+        amdvlk
+      ];
     };
+
 
     virtualisation.virtualbox.host.enable = true;
 

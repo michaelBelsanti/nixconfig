@@ -42,7 +42,10 @@ delib.module {
       gpu-screen-recorder-gtk
     ];
     # Allows gpu-screen-recorder to record screens without escalating
-    hardware.opentabletdriver.enable = true;
+    hardware = {
+      opentabletdriver.enable = true;
+      graphics.enable32Bit = true;
+    };
     programs = {
       gamescope.enable = true;
       steam = {
