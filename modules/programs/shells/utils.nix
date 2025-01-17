@@ -15,7 +15,10 @@ delib.module {
         hostname.ssh_only = lib.mkIf host.isServer true;
       };
     };
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config.style = "plain";
+    };
     bottom.enable = true;
     carapace.enable = true;
     direnv = {
