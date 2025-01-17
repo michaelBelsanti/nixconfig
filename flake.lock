@@ -701,11 +701,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1736901312,
-        "narHash": "sha256-DFVoNC7xVxL3bmyWyUs5wt9J5oCJl6gUNBD+A7WLkFU=",
+        "lastModified": 1737080455,
+        "narHash": "sha256-ANOYrpK2Lj3kmypp4uv24DbCYvSj3GZ58I5+y/hCb1k=",
         "ref": "refs/heads/main",
-        "rev": "0f80e3170683d53b0a5f14f1fe5d4efe3f8bf1b2",
-        "revCount": 5,
+        "rev": "d3d743bf804a78726cdd8f47d13c6f28b4080d9d",
+        "revCount": 8,
         "type": "git",
         "url": "https://codeberg.org/quasigod/nur.git"
       },
