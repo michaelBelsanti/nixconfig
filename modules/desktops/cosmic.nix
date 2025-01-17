@@ -58,7 +58,7 @@ delib.module {
         cosmic-player
       ]);
     environment.variables = {
-      COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes with maximized firefox
+      # COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes with maximized firefox
       COSMIC_DATA_CONTROL_ENABLED = 1;
     };
   };
