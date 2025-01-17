@@ -2,6 +2,7 @@
   description = "Quasigod's NixOS config";
 
   outputs = {
+    self,
     denix,
     nixpkgs,
     ...
@@ -15,7 +16,7 @@
         paths = [./hosts ./modules ./rices];
 
         specialArgs = {
-          inherit inputs isHomeManager homeManagerUser;
+          inherit self inputs isHomeManager homeManagerUser;
         };
       };
   in {

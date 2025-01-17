@@ -2,21 +2,35 @@
   delib,
   pkgs,
   inputs,
+  self,
   ...
 }:
 delib.module {
   name = "nix";
   # Enable flakes
   home.always = {
-    nix.registry.develop = {
-      exact = true;
-      from = {
-        id = "develop";
-        type = "indirect";
+    nix.registry = {
+      develop = {
+        exact = true;
+        from = {
+          id = "develop";
+          type = "indirect";
+        };
+        to = {
+          type = "git";
+          url = "https://codeberg.org:quasigod/develop";
+        };
       };
-      to = {
-        type = "git";
-        url = "https://codeberg.org:quasigod/develop";
+      nixconfig = {
+        exact = true;
+        from = {
+          id = "nixconfig";
+          type = "indirect";
+        };
+        to = {
+          type = "path";
+          path = "${self.outPath}";
+        };
       };
     };
   };

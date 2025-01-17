@@ -144,11 +144,6 @@ delib.module {
         avahi = {
           enable = true;
           nssmdns4 = true;
-          publish = {
-            enable = true;
-            addresses = true;
-            userServices = true;
-          };
         };
         qemuGuest.enable = true;
         gvfs.enable = true;
@@ -238,12 +233,6 @@ delib.module {
             cores = 4;
           };
         };
-      };
-
-      system.activationScripts = {
-        registryAdd.text = ''
-          ${pkgs.nix}/bin/nix registry add nixconfig ~/.flake
-        '';
       };
 
       system.stateVersion = "22.05"; # Did you read the comment?
