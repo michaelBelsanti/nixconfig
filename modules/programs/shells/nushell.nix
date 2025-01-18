@@ -24,8 +24,6 @@ delib.module {
           cd = "z";
         };
         extraConfig = ''
-          # carapace setup
-          source ~/.cache/carapace/init.nu
           $env.config = {
             show_banner: false
             display_errors: {
@@ -37,10 +35,6 @@ delib.module {
         extraEnv = ''
           sh -c "source /etc/profile"
           sh -c "source ~/.profile"
-
-          # carapace setup
-          mkdir ~/.cache/carapace
-          carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
         '';
       };
     };
