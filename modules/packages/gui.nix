@@ -13,7 +13,7 @@ delib.module rec {
   home.always.imports = [ inputs.wrapper-manager.homeModules.default ];
   nixos.ifEnabled = {
     environment.systemPackages = home.ifEnabled.home.packages ++ [
-        pkgs.doas-sudo-shim
+      pkgs.doas-sudo-shim
     ];
   };
   home.ifEnabled = {
@@ -26,7 +26,7 @@ delib.module rec {
         hunspellDicts.en_US-large
         kdenlive
         remmina
-        bottles
+        (bottles.override { removeWarningPopup = true; })
         wl-clipboard
         affine
         localsend
@@ -90,13 +90,5 @@ delib.module rec {
       ++ (with inputs; [
         mypkgs.packages.${system}.grayjay-desktop
       ]);
-
-    # wrapper-manager.packages.gui = {
-      # wrappers.vesktop = {
-        # arg0 = lib.getExe pkgs.vesktop;
-        # appendArgs = [ "--disable-features=WebRtcAllowInputVolumeAdjustment" ];
-        # xdg.desktopEntryenable = true;
-      # };
-    # };
   };
 }
