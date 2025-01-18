@@ -7,20 +7,21 @@
 delib.module {
   name = "gaming";
   options = delib.singleEnableOption false;
+  nixos.always.imports = with inputs.nix-gaming.nixosModules; [
+    pipewireLowLatency
+    platformOptimizations
+  ];
   nixos.ifEnabled = {
+    nixpkgs.overlays = [ inputs.nix-gaming.overlays.default ];
     environment.systemPackages = with pkgs; [
       # Games
       luanti
-      inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
 
       # Launchers
       cartridges
       heroic
       lunar-client
-      (lutris.override {
-        extraPkgs = _pkgs: [ wineWowPackages.full ];
-        # extraLibraries = pkgs: [latencyflex];
-      })
+      lutris
       prismlauncher
 
       # Utility
@@ -38,17 +39,24 @@ delib.module {
       dolphin-emu
       dolphin-emu-primehack
 
+      # Recording
       gpu-screen-recorder
       gpu-screen-recorder-gtk
+
+      # nix-gaming
+      osu-lazer-bin
+      umu
     ];
     # Allows gpu-screen-recorder to record screens without escalating
     hardware = {
       opentabletdriver.enable = true;
       graphics.enable32Bit = true;
     };
+    services.pipewire.lowLatency.enable = true;
     programs = {
       gamescope.enable = true;
       steam = {
+        platformOptimizations.enable = true;
         package = pkgs.steam.override {
           # https://github.com/ValveSoftware/steam-for-linux/issues/11446
           extraEnv.LD_PRELOAD = "";
@@ -56,7 +64,10 @@ delib.module {
         enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
-        # extraPackages = with pkgs; [ latencyflex ];
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
+          steamtinkerlaunch
+        ];
         gamescopeSession = {
           enable = true;
           args = [ "--adaptive-sync" ];

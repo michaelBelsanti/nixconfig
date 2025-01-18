@@ -53,7 +53,6 @@ delib.module {
           "hugepagesz" = "1G";
           "vm.swappiness" = 1;
           "vm.compact_memory" = 0;
-          "vm.max_map_count" = 2097152;
         };
         loader = {
           efi.canTouchEfiVariables = true;

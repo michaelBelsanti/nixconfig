@@ -39,15 +39,16 @@ delib.host {
   };
 
   nixos = {
-    imports = with inputs; [
+    # services.desktopManager.plasma6.enable = true;
+    # services.displayManager.sddm.enable = true;
+    # services.displayManager.sddm.wayland.enable = true;
 
-      nix-gaming.nixosModules.pipewireLowLatency
+    imports = with inputs; [
       nixos-hardware.nixosModules.common-cpu-amd
       nixos-hardware.nixosModules.common-gpu-amd
       nixos-hardware.nixosModules.common-pc-ssd
-      chaotic.nixosModules.default
-
     ];
+
     boot.loader.systemd-boot = {
       enable = true;
       netbootxyz.enable = true;
@@ -56,7 +57,7 @@ delib.host {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
       graphics.extraPackages = with pkgs; [
-        amdvlk
+        # amdvlk
       ];
     };
 
@@ -83,7 +84,6 @@ delib.host {
         accelProfile = "flat";
         middleEmulation = false;
       };
-      pipewire.lowLatency.enable = true;
       openssh = {
         enable = true;
         ports = [ 42069 ];
