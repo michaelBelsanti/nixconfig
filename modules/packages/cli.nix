@@ -81,5 +81,9 @@ delib.module rec {
     try
     inetutils
     waypipe
+    codeberg-cli
+    gh
+    gh-dash
+    glab
   ];
 }
