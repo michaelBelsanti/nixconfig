@@ -39,11 +39,7 @@ delib.module {
   nixos.always =
     { myconfig, ... }:
     {
-      imports = with inputs; [
-        lix-module.nixosModules.default
-        flake-programs-sqlite.nixosModules.programs-sqlite
-        wrapper-manager.nixosModules.default
-      ];
+      imports = with inputs; [ flake-programs-sqlite.nixosModules.programs-sqlite ];
       boot = {
         kernel.sysctl = {
           "transparent_hugepage" = "always";
