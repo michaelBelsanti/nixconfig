@@ -17,10 +17,7 @@ delib.module {
         };
       })
     ];
-    chaotic.nyx = {
-      overlay.enable = true;
-      cache.enable = true;
-    };
+    chaotic.nyx.overlay.enable = true;
     environment.systemPackages = with pkgs; [
       latencyflex-vulkan
     ];
