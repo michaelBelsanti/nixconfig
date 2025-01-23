@@ -16,6 +16,7 @@ delib.host {
   myconfig = {
     desktops.cosmic.enable = true;
     gaming.enable = true;
+    services.tailscale.remote = true;
   };
 
   nixos = {

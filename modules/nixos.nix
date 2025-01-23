@@ -119,7 +119,6 @@ delib.module {
         };
         flatpak.enable = true;
         fstrim.enable = true;
-        tailscale.enable = true;
         # Pipewire
         pipewire = {
           enable = true;
@@ -139,8 +138,6 @@ delib.module {
         };
         qemuGuest.enable = true;
         gvfs.enable = true;
-        input-remapper.enable = true;
-        system76-scheduler.enable = true;
       };
 
       programs = {

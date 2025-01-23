@@ -52,16 +52,16 @@ delib.module {
       opentabletdriver.enable = true;
       graphics.enable32Bit = true;
     };
-    services.pipewire.lowLatency.enable = true;
+    services = {
+      pipewire.lowLatency.enable = true;
+      input-remapper.enable = true;
+      system76-scheduler.enable = true;
+    };
     programs = {
       gamescope.enable = true;
       steam = {
-        platformOptimizations.enable = true;
-        package = pkgs.steam.override {
-          # https://github.com/ValveSoftware/steam-for-linux/issues/11446
-          extraEnv.LD_PRELOAD = "";
-        };
         enable = true;
+        platformOptimizations.enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
         extraCompatPackages = with pkgs; [
