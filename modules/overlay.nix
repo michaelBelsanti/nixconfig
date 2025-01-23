@@ -4,6 +4,13 @@ let
   overlay = _self: super: {
     inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
     inherit (inputs.nixpkgs-master.legacyPackages.${super.system}) television;
+    rocmPackages = {
+      llvm = {
+        libcxx = super.rocmPackages.llvm.libcxx.overrideAttrs {
+          doCheck = false;
+        };
+      } // super.rocmPackages.llvm;
+    } // super.rocmPackages;
   };
 in
 delib.module {
