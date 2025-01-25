@@ -2,6 +2,7 @@
   delib,
   pkgs,
   lib,
+  constants,
   ...
 }:
 delib.module {
@@ -14,7 +15,7 @@ delib.module {
     enableNushellIntegration = boolOption true;
   };
   home.ifEnabled =
-    { cfg, ... }:
+    { cfg, constants, ... }:
     let
       inherit (lib) mkIf;
     in

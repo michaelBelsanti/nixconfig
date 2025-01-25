@@ -8,7 +8,7 @@
 delib.module {
   name = "desktops.cosmic";
   options = delib.singleEnableOption true;
-  myconfig.ifEnabled.desktops.wayland.enable = true;
+  myconfig.ifEnabled.desktops.wayland = true;
 
   home.ifEnabled = {
     # avoid bug with cosmic deleting gtk.css file
@@ -34,7 +34,6 @@ delib.module {
       displayManager.cosmic-greeter.enable = true;
       gnome.gnome-keyring.enable = true;
     };
-    environment.sessionVariables.NIXOS_OZONE_WL = 1;
     environment.systemPackages =
       (with pkgs; [
         pwvucontrol

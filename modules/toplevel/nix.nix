@@ -37,6 +37,7 @@ delib.module {
     };
   };
   home.always = {
+    nixpkgs.config.allowUnfree = true;
     nix.registry = {
       develop = {
         exact = true;

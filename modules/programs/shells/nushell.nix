@@ -1,4 +1,10 @@
-{ delib, pkgs, lib, ... }:
+{
+  delib,
+  pkgs,
+  lib,
+  constants,
+  ...
+}:
 delib.module {
   name = "programs.shells.nushell";
   options.programs.shells.nushell = with delib; {
@@ -6,10 +12,10 @@ delib.module {
     default = boolOption false;
   };
   nixos.ifEnabled =
-    { cfg, myconfig, ... }:
+    { cfg, ... }:
     {
       environment.shells = [ pkgs.nushell ];
-      users.users.${myconfig.constants.username}.shell = lib.mkIf cfg.default pkgs.nushell;
+      users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.nushell;
     };
   home.ifEnabled = {
     programs = {

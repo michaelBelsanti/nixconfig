@@ -1,4 +1,10 @@
-{ delib, host, lib, ... }:
+{
+  delib,
+  host,
+  lib,
+  constants,
+  ...
+}:
 delib.module {
   name = "programs.shells.utils";
   home.always.programs = {

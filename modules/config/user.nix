@@ -1,16 +1,14 @@
-{delib, ...}:
+{ delib, constants, ... }:
 delib.module {
   name = "user";
 
-  nixos.always = {myconfig, ...}: let
-    inherit (myconfig.constants) username;
-  in {
+  nixos.always = {
     users = {
-      groups.${username} = {};
+      groups.${constants.username} = { };
 
-      users.${username} = {
+      users.${constants.username} = {
         isNormalUser = true;
-        initialPassword = username;
+        initialPassword = constants.username;
         extraGroups = [
           "wheel"
           "video"

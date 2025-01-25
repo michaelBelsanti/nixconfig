@@ -49,10 +49,6 @@ delib.host {
       nixos-hardware.nixosModules.common-pc-ssd
     ];
 
-    boot.loader.systemd-boot = {
-      enable = true;
-      netbootxyz.enable = true;
-    };
     hardware = {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;

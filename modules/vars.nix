@@ -1,11 +1,10 @@
-{ delib, ... }:
+{ delib, constants, ... }:
 delib.module {
   name = "home";
 
   home.always =
-    { myconfig, ... }:
     let
-      inherit (myconfig.constants) configHome cacheHome dataHome;
+      inherit (constants) configHome cacheHome dataHome;
     in
     {
       home.sessionVariables = {

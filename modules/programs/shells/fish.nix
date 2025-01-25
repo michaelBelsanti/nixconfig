@@ -2,6 +2,7 @@
   delib,
   pkgs,
   lib,
+  constants,
   ...
 }:
 delib.module {
@@ -11,10 +12,10 @@ delib.module {
     default = boolOption true;
   };
   nixos.ifEnabled =
-    { cfg, myconfig, ... }:
+    { cfg, ... }:
     {
       programs.fish.enable = true;
-      users.users.${myconfig.constants.username}.shell = lib.mkIf cfg.default pkgs.fish;
+      users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.fish;
     };
   home.ifEnabled = {
     home.packages = with pkgs.fishPlugins; [

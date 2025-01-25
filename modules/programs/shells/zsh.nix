@@ -3,6 +3,7 @@
   pkgs,
   config,
   lib,
+  constants,
   ...
 }:
 delib.module {
@@ -12,13 +13,13 @@ delib.module {
     default = boolOption false;
   };
   nixos.ifEnabled =
-    { cfg, myconfig, ... }:
+    { cfg, ... }:
     {
       programs.zsh.enable = true;
-      users.users.${myconfig.constants.username}.shell = lib.mkIf cfg.default pkgs.zsh;
+      users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.zsh;
     };
   home.ifEnabled =
-    { myconfig, ... }:
+
     {
       programs = {
         zsh = {
@@ -41,7 +42,7 @@ delib.module {
             nixos-rebuild = "noglob nixos-rebuild";
           };
           initExtraBeforeCompInit = ''
-            export ZINIT_HOME="${myconfig.constants.dataHome}/zinit/"
+            export ZINIT_HOME="${constants.dataHome}/zinit/"
             if [ ! -d "$ZINIT_HOME" ]; then
                mkdir -p "$(dirname $ZINIT_HOME)"
             fi

@@ -29,19 +29,7 @@ delib.host {
 
     hardware.framework.enableKmod = false;
 
-    boot = {
-      kernelParams = [ "acpi_backlight=native" ];
-      kernelPackages = pkgs.linuxPackages_latest;
-      # blacklistedKernelModules = [ "hid_sensor_hub" ];
-      # plymouth.enable = true;
-      initrd.systemd.enable = true; # To load gui for decryption
-      # Lanzaboote currently replaces the systemd-boot module.
-      loader.systemd-boot.enable = false;
-      lanzaboote = {
-        enable = true;
-        pkiBundle = "/var/lib/sbctl";
-      };
-    };
+    boot.kernelParams = [ "acpi_backlight=native" ];
 
     # Make fingerprint sensor work at boot
     systemd.services.fprintd = {

@@ -18,10 +18,7 @@ delib.module {
       })
     ];
     chaotic.nyx.overlay.enable = true;
-    environment.systemPackages = with pkgs; [
-      latencyflex-vulkan
-    ];
+    environment.systemPackages = with pkgs; [ latencyflex-vulkan ];
     programs.steam.extraPackages = with pkgs; [ latencyflex-vulkan ];
-    boot.kernelPackages = pkgs.linuxPackages_cachyos;
   };
 }
