@@ -9,7 +9,7 @@ delib.module {
   nixos.ifEnabled =
     { cfg, ... }:
     {
-      environment.systemPackage = [ pkgs.trayscale ];
+      environment.systemPackages = [ pkgs.trayscale ];
       services.tailscale = {
         enable = true;
         extraSetFlags =
