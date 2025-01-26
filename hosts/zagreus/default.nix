@@ -31,12 +31,6 @@ delib.host {
 
     boot.kernelParams = [ "acpi_backlight=native" ];
 
-    # Make fingerprint sensor work at boot
-    systemd.services.fprintd = {
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig.Type = "simple";
-    };
-
     services = {
       btrfs.autoScrub.enable = true;
       libinput = {
@@ -51,10 +45,6 @@ delib.host {
           accelProfile = "adaptive";
         };
       };
-      xserver = {
-        displayManager.gdm.enable = true;
-      };
-      # auto-cpufreq.enable = true;
       fprintd.enable = false; # Enable fingerprint scanner
       fwupd = {
         enable = true; # Enable firmware updates with `fwupdmgr update`
