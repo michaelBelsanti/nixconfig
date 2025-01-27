@@ -12,6 +12,7 @@ delib.host {
   home.home.stateVersion = "22.05";
 
   nixos = {
+    system.stateVersion = "22.05";
     imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
     ];

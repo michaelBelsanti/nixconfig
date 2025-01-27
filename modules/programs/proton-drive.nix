@@ -6,7 +6,7 @@
 }:
 delib.module {
   name = "programs.proton-drive";
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption false;
   home.ifEnabled = {
     systemd.user.services.proton-drive = {
       Unit = {

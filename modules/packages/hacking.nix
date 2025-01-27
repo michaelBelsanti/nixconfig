@@ -11,22 +11,33 @@ delib.module rec {
   nixos.always.environment.systemPackages = home.always.home.packages;
   home.always = {
     home.packages = with pkgs; [
-      zap
+      # general
+      wordlists
+
+      # cracker 
       thc-hydra
-      seclists
       hashcat
       hashcat-utils
-      responder
+
+      # web
+      zap
+      ffuf
+      #burpsuite
+      mitmproxy
+      mitmproxy2swagger
+
+      # enumeration
       nmap
-      dnschef
+      theharvester
+
+      
+      responder
       wireshark
       exploitdb
       metasploit
       cyberchef
-      ffuf
       imhex
-      mitmproxy
-      mitmproxy2swagger
+      python3Packages.scapy
     ];
     wrapper-manager.packages.hacking = {
       wrappers.burpsuite = {

@@ -2,11 +2,12 @@
   delib,
   lib,
   pkgs,
+  host,
   ...
 }:
 delib.module {
   name = "programs.scrobbler";
-  options = delib.singleEnableOption true;
+  options = delib.singleEnableOption host.hasGUI;
   home.ifEnabled = {
     systemd.user.services.scrobbler = {
       Unit.Description = "scrobbler background service";
