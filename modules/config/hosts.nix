@@ -16,11 +16,10 @@ delib.module {
             isServer = boolOption (config.type == "isServer");
             hasGUI = boolOption (config.type == "laptop" || config.type == "desktop");
             displays = listOfOption (submodule {
-              options = {
+              options = rec {
                 enable = boolOption true;
                 touchscreen = boolOption false;
 
-                # e.g. DP-1, HDMI-A-1
                 name = noDefault (strOption null);
                 primary = boolOption (builtins.length config.displays == 1);
                 refreshRate = intOption 60;
@@ -29,6 +28,8 @@ delib.module {
                 height = intOption 1080;
                 x = intOption 0;
                 y = intOption 0;
+                scaling = floatOption 1;
+                roundScaling = intOption builtins.ciel scaling;
               };
             }) [ ];
           };

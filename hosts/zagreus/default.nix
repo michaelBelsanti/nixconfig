@@ -10,6 +10,7 @@ delib.host {
       refreshrate = 60;
       width = 2256;
       height = 1504;
+      scaling = 1.75;
     }
   ];
 
