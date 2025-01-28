@@ -85,5 +85,6 @@ delib.module rec {
     gh
     gh-dash
     glab
+    comma
   ];
 }
