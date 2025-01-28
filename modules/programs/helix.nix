@@ -49,7 +49,10 @@ delib.module {
           cursorline = true;
           cursorcolumn = true;
           color-modes = true;
-          file-picker.hidden = true;
+          file-picker = {
+            hidden = false;
+            git-ignore = false;
+          };
           line-number = "relative";
           lsp = {
             # display-messages = true;
