@@ -227,11 +227,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1738013154,
-        "narHash": "sha256-yA8AwQM3bws/snp0sDscjrz7xiqZuq9LIHu12lxcb+g=",
+        "lastModified": 1738062913,
+        "narHash": "sha256-/HZGOZAO+8PYHwCp9eTUwkbm0/4KhIeBbnTaV+oYPys=",
         "owner": "wamserma",
         "repo": "flake-programs-sqlite",
-        "rev": "dcd8417121581ad263ca789345666a390d140eb5",
+        "rev": "8ceb77e5e6f82f4cad47d1e008a7717e360060a1",
         "type": "github"
       },
       "original": {
@@ -552,11 +552,11 @@
         "snowfall-lib": "snowfall-lib"
       },
       "locked": {
-        "lastModified": 1737411593,
-        "narHash": "sha256-FY0trE10kiFKehvjnynciry1F6zoRtPEvahCz4V0PXI=",
+        "lastModified": 1738083602,
+        "narHash": "sha256-ptgHL8aae0v98UCNl41BIpeljeIpJ7SUxqwB7vSecUM=",
         "ref": "refs/heads/main",
-        "rev": "7c06fc186a7f0755f188d2929997a37f9480b4f7",
-        "revCount": 10,
+        "rev": "87b7c01e503938cde6f574ba29c76b2d38abd434",
+        "revCount": 11,
         "type": "git",
         "url": "https://codeberg.org/quasigod/nur.git"
       },
@@ -696,11 +696,11 @@
         "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
-        "lastModified": 1737953949,
-        "narHash": "sha256-T+ugEB5AXFR/g4qESQ5BzICH869oUTb/2XmInqzH6T4=",
+        "lastModified": 1738041275,
+        "narHash": "sha256-4Oqq357Q//Ra5qV9PdPLMkdH0uFFxy1stQF8hTe8xEM=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "41a91a592a8b8c81358c726027ac7e66da8f97cc",
+        "rev": "36eabddc2d033f4fd31c53570db7e1e21591cba3",
         "type": "github"
       },
       "original": {
@@ -769,11 +769,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1738017595,
-        "narHash": "sha256-S1tg+T3BhD0oa2vowQUabsiBb7xw/V2SofWapXbUgh8=",
+        "lastModified": 1738083375,
+        "narHash": "sha256-1VeCNga84owW5OVFNTUM5pYAluXyKntwC3HNe2zgzvg=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "e16e376ee3ece686725bbf454255a5dcc9a40c7a",
+        "rev": "ac24885fb5e9b15729a5fa78f14cfe159e5a86ec",
         "type": "github"
       },
       "original": {
@@ -801,11 +801,11 @@
     },
     "nixpkgs-stable_2": {
       "locked": {
-        "lastModified": 1737672001,
-        "narHash": "sha256-YnHJJ19wqmibLQdUeq9xzE6CjrMA568KN/lFPuSVs4I=",
+        "lastModified": 1737885640,
+        "narHash": "sha256-GFzPxJzTd1rPIVD4IW+GwJlyGwBDV1Tj5FLYwDQQ9sM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "035f8c0853c2977b24ffc4d0a42c74f00b182cd8",
+        "rev": "4e96537f163fad24ed9eb317798a79afc85b51b7",
         "type": "github"
       },
       "original": {
@@ -1103,11 +1103,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1737951684,
-        "narHash": "sha256-Hr9sztSHICvJjTS6P33KInXoPTyB/Uq+fYbY8HIGl6c=",
+        "lastModified": 1738038026,
+        "narHash": "sha256-9Lm/QBT9ImIwtA6XzlHXsz/U5SN2+G3MIvjZQSxXYyc=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "81fb38c54aa23db4de28b1b9f3d9eb697443abfb",
+        "rev": "555d5d3951f8bfae7a421928ec6402765980538c",
         "type": "github"
       },
       "original": {
