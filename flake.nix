@@ -1,81 +1,41 @@
 {
   description = "Quasigod's NixOS config";
 
-  outputs =
-    inputs@{ snowfall-lib, ... }:
-    let
-      user = "quasi";
-      flakePath = "/home/${user}/.flake"; # Used for commands and aliases
-    in
-    snowfall-lib.mkFlake {
-      inherit inputs;
-      src = ./.;
-      snowfall.namespace = "custom";
-      channels-config.allowUnfree = true;
+  outputs = {
+    self,
+    denix,
+    nixpkgs,
+    ...
+  } @ inputs: let
+    mkConfigurations = isHomeManager:
+      denix.lib.configurations rec {
+        homeManagerNixpkgs = nixpkgs;
+        homeManagerUser = "quasi";
+        inherit isHomeManager;
 
-      homes.users."quasi@nyx".specialArgs = {
-        inherit flakePath;
-      };
+        paths = [./hosts ./modules ./rices];
 
-      homes.modules = with inputs; [
-        plasma-manager.homeManagerModules.plasma-manager
-        nix-colors.homeManagerModules.default
-        catppuccin-nix.homeManagerModules.catppuccin
-        wrapper-manager.homeModules.default
-      ];
-
-      systems.modules.nixos = with inputs; [
-        lix-module.nixosModules.default
-        flake-programs-sqlite.nixosModules.programs-sqlite
-        catppuccin-nix.nixosModules.catppuccin
-        home-manager.nixosModules.home-manager
-        nixos-cosmic.nixosModules.default
-        wrapper-manager.nixosModules.default
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = {
-            inherit inputs user flakePath;
-          };
-        }
-      ];
-
-      systems.hosts = {
-        hades = {
-          modules = with inputs; [
-            nix-gaming.nixosModules.pipewireLowLatency
-            nixos-hardware.nixosModules.common-cpu-amd
-            nixos-hardware.nixosModules.common-gpu-amd
-            nixos-hardware.nixosModules.common-pc-ssd
-            chaotic.nixosModules.default
-          ];
-
-          specialArgs = {
-            inherit user flakePath;
-          };
-        };
-
-        zagreus = {
-          modules = with inputs; [
-            nixos-hardware.nixosModules.framework-13-7040-amd
-            lanzaboote.nixosModules.lanzaboote
-          ];
-
-          specialArgs = {
-            inherit user flakePath;
-          };
+        specialArgs = {
+          inherit self inputs isHomeManager homeManagerUser;
         };
       };
-
-      outputs-builder = channels: { formatter = channels.nixpkgs.nixfmt-rfc-style; };
-    };
+  in {
+    nixosConfigurations = mkConfigurations false;
+    homeConfigurations = mkConfigurations true;
+  };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
-
-    snowfall-lib = {
-      url = "github:snowfallorg/lib";
+    mypkgs = {
+      url = "git+https://codeberg.org/quasigod/nur.git";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    denix = {
+      url = "github:yunfachi/denix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     home-manager = {
@@ -88,7 +48,7 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin-nix.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix";
 
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -98,7 +58,7 @@
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -125,12 +85,12 @@
     wrapper-manager.url = "github:foo-dogsquared/nix-module-wrapper-manager-fds";
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.1";
+      url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -147,6 +107,8 @@
       "https://cosmic.cachix.org/"
       "https://cache.garnix.io"
       "https://nix-community.cachix.org"
+      "https://chaotic-nyx.cachix.org/"
+      "https://cache.lix.systems"
     ];
     extra-trusted-public-keys = [
       "quasigod.cachix.org-1:z+auA/0uS8vy6DDtUZhRQagZvVdl5WYnE/7lveoM3Do="
@@ -155,6 +117,8 @@
       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
+      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
     ];
   };
 }
