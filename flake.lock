@@ -219,27 +219,6 @@
         "type": "github"
       }
     },
-    "flake-programs-sqlite": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": "utils"
-      },
-      "locked": {
-        "lastModified": 1738062913,
-        "narHash": "sha256-/HZGOZAO+8PYHwCp9eTUwkbm0/4KhIeBbnTaV+oYPys=",
-        "owner": "wamserma",
-        "repo": "flake-programs-sqlite",
-        "rev": "8ceb77e5e6f82f4cad47d1e008a7717e360060a1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "wamserma",
-        "repo": "flake-programs-sqlite",
-        "type": "github"
-      }
-    },
     "flake-schemas": {
       "locked": {
         "lastModified": 1721999734,
@@ -689,6 +668,26 @@
         "type": "github"
       }
     },
+    "nix-index-database_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1737861961,
+        "narHash": "sha256-LIRtMvAwLGb8pBoamzgEF67oKlNPz4LuXiRPVZf+TpE=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "79b7b8eae3243fc5aa9aad34ba6b9bbb2266f523",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixos-cosmic": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -916,7 +915,6 @@
         "catppuccin": "catppuccin",
         "chaotic": "chaotic",
         "denix": "denix",
-        "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager_2",
         "hypr-contrib": "hypr-contrib",
         "infuse": "infuse",
@@ -926,6 +924,7 @@
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
+        "nix-index-database": "nix-index-database_2",
         "nixos-cosmic": "nixos-cosmic",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_4",
@@ -1064,21 +1063,6 @@
         "submodules": true,
         "type": "git",
         "url": "https://github.com/Open-Wine-Components/umu-launcher/"
-      }
-    },
-    "utils": {
-      "locked": {
-        "lastModified": 1678901627,
-        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
       }
     },
     "wrapper-manager": {

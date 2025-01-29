@@ -77,8 +77,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-programs-sqlite = {
-      url = "github:wamserma/flake-programs-sqlite";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

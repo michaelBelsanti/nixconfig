@@ -35,7 +35,6 @@ delib.module rec {
     manix
     nh
     nix-alien
-    nix-index
     nix-init
     nix-inspect
     nix-output-monitor
@@ -85,6 +84,5 @@ delib.module rec {
     gh
     gh-dash
     glab
-    comma
   ];
 }
