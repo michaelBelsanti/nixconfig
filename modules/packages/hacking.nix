@@ -38,6 +38,7 @@ delib.module rec {
       cyberchef
       imhex
       python3Packages.scapy
+      xh
     ];
     wrapper-manager.packages.hacking = {
       wrappers.burpsuite = {
