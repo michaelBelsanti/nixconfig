@@ -1,4 +1,8 @@
-{ delib, pkgs, inputs, ... }:
+{
+  delib,
+  inputs,
+  ...
+}:
 delib.host {
   name = "zagreus";
   rice = "catppuccin";
@@ -18,19 +22,21 @@ delib.host {
     desktops.cosmic.enable = true;
     gaming.enable = true;
     services.tailscale.remote = true;
+    boot.lanzaboote = true;
   };
 
   nixos = {
-    imports = with inputs; [
-      nixos-hardware.nixosModules.framework-13-7040-amd
-      lanzaboote.nixosModules.lanzaboote
-    ];
+    imports = with inputs; [ nixos-hardware.nixosModules.framework-13-7040-amd ];
 
     networking.hostName = "zagreus"; # Define your hostname.
 
     hardware.framework.enableKmod = false;
 
-    boot.kernelParams = [ "acpi_backlight=native" ];
+    boot = {
+      kernelParams = [ "acpi_backlight=native" ];
+      initrd.kernelModules = [ "amdgpu" ];
+      plymouth.enable = true;
+    };
 
     services = {
       btrfs.autoScrub.enable = true;
