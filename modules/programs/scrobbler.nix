@@ -7,7 +7,7 @@
 }:
 delib.module {
   name = "programs.scrobbler";
-  options = delib.singleEnableOption host.hasGUI;
+  options = delib.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
     systemd.user.services.scrobbler = {
       Unit.Description = "scrobbler background service";

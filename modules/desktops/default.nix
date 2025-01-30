@@ -9,7 +9,7 @@
 delib.module {
   name = "desktops";
   options.desktops = {
-    enable = delib.boolOption host.hasGUI;
+    enable = delib.boolOption host.isWorkstation;
     wayland = delib.boolOption true;
   };
   nixos.ifEnabled =

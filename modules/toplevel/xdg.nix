@@ -1,7 +1,7 @@
 { delib, host, ... }:
 delib.module {
   name = "xdg";
-  options = delib.singleEnableOption host.hasGUI;
+  options = delib.singleEnableOption host.isWorkstation;
   nixos.ifEnabled.xdg.terminal-exec.enable = true;
   home.ifEnabled = {
     xdg.enable = true;
