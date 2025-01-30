@@ -2,6 +2,7 @@
   delib,
   lib,
   inputs,
+  host,
   ...
 }:
 delib.module {
@@ -12,7 +13,10 @@ delib.module {
     {
       imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
       boot = {
-        kernelPackages = inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos;
+        kernelPackages = lib.mkMerge [
+          (lib.mkIf host.isWorkstation inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos)
+          (lib.mkIf host.isServer inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server)
+        ];
         initrd.systemd.enable = true;
         lanzaboote = lib.mkIf cfg.lanzaboote {
           enable = true;
