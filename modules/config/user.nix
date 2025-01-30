@@ -1,4 +1,4 @@
-{ delib, constants, ... }:
+{ delib, constants, host, ... }:
 delib.module {
   name = "user";
 
@@ -9,6 +9,7 @@ delib.module {
       users.${constants.username} = {
         isNormalUser = true;
         initialPassword = constants.username;
+        linger = host.isServer;
         extraGroups = [
           "wheel"
           "video"
