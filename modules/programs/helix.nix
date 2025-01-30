@@ -58,10 +58,6 @@ delib.module {
             # display-messages = true;
             display-inlay-hints = true;
           };
-          inline-diagnostics = {
-            cursor-line = "hint";
-          };
-          end-of-line-diagnostics = "error";
           soft-wrap.enable = true;
           cursor-shape = {
             insert = "bar";
