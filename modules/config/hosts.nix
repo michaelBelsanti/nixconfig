@@ -13,7 +13,7 @@ delib.module {
 
             isDesktop = boolOption (config.type == "desktop");
             isLaptop = boolOption (config.type == "laptop");
-            isServer = boolOption (config.type == "isServer");
+            isServer = boolOption (config.type == "server");
             hasGUI = boolOption (config.type == "laptop" || config.type == "desktop");
             isWorkstation = boolOption (config.type == "laptop" || config.type == "desktop");
 
