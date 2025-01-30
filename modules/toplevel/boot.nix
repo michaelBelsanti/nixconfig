@@ -7,7 +7,10 @@
 }:
 delib.module {
   name = "boot";
-  options.boot.lanzaboote = delib.boolOption false;
+  options.boot = {
+    lanzaboote = delib.boolOption false;
+    plymouth = delib.boolOption host.isWorkstation;
+  };
   nixos.always =
     { cfg, ... }:
     {
@@ -18,6 +21,7 @@ delib.module {
           (lib.mkIf host.isServer inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server)
         ];
         initrd.systemd.enable = true;
+        plymouth.enable = cfg.plymouth;
         lanzaboote = lib.mkIf cfg.lanzaboote {
           enable = true;
           pkiBundle = "/var/lib/sbctl";
