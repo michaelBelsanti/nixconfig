@@ -1,28 +1,43 @@
 {
   description = "Quasigod's NixOS config";
 
-  outputs = {
-    self,
-    denix,
-    nixpkgs,
-    ...
-  } @ inputs: let
-    mkConfigurations = isHomeManager:
-      denix.lib.configurations rec {
-        homeManagerNixpkgs = nixpkgs;
-        homeManagerUser = "quasi";
-        inherit isHomeManager;
+  outputs =
+    {
+      self,
+      denix,
+      nixpkgs,
+      ...
+    }@inputs:
+    let
+      mkConfigurations =
+        isHomeManager:
+        denix.lib.configurations rec {
+          homeManagerNixpkgs = nixpkgs;
+          homeManagerUser = "quasi";
+          inherit isHomeManager;
 
-        paths = [./hosts ./modules ./rices];
+          # REMINDER: add '.?submodules=1' to flake path to use private module in nix commands
+          paths = [
+            ./hosts
+            ./modules
+            ./rices
+            ./private
+          ];
 
-        specialArgs = {
-          inherit self inputs isHomeManager homeManagerUser;
+          specialArgs = {
+            inherit
+              self
+              inputs
+              isHomeManager
+              homeManagerUser
+              ;
+          };
         };
-      };
-  in {
-    nixosConfigurations = mkConfigurations false;
-    homeConfigurations = mkConfigurations true;
-  };
+    in
+    {
+      nixosConfigurations = mkConfigurations false;
+      homeConfigurations = mkConfigurations true;
+    };
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
