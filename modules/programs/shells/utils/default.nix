@@ -25,7 +25,6 @@ delib.module {
       config.style = "plain";
     };
     bottom.enable = true;
-    carapace.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
