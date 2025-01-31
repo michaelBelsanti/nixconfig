@@ -8,8 +8,8 @@
 delib.module rec {
   name = "packages.hacking";
   options = delib.singleEnableOption true;
-  nixos.always.environment.systemPackages = home.always.home.packages;
-  home.always = {
+  nixos.ifEnabled.environment.systemPackages = home.ifEnabled.home.packages;
+  home.ifEnabled = {
     home.packages = with pkgs; [
       # general
       wordlists
