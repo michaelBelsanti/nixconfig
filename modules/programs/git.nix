@@ -6,6 +6,7 @@
 delib.module {
   name = "programs.git";
   options = delib.singleEnableOption true;
+  nixos.ifEnabled.environment.systemPackages = [ pkgs.git ]; # bad things happen if git isnt installed globally
   home.ifEnabled = {
     home.packages = with pkgs; [ git-crypt ];
     programs = {
