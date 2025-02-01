@@ -57,31 +57,21 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    jovian = "github:Jovian-Experiments/Jovian-NixOS";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin.url = "github:catppuccin/nix";
-
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-colors.url = "github:misterio77/nix-colors";
+    catppuccin.url = "github:catppuccin/nix";
+
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    plasma-manager = {
-      url = "github:pjones/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hypr-contrib = {
-      url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
