@@ -45,17 +45,17 @@ delib.module {
         file-roller
       ])
       ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
+        cosmic-reader
+        cosmic-player
+        tasks
         chronos
-        cosmic-ext-tweaks
-        cosmic-ext-forecast
-        cosmic-ext-tasks
+        examine
+        forecast
+        observatory
         cosmic-ext-applet-emoji-selector
         cosmic-ext-applet-clipboard-manager
         cosmic-ext-calculator
-        cosmic-ext-examine
-        cosmic-ext-observatory
-        cosmic-reader
-        cosmic-player
+        cosmic-ext-tweaks
       ]);
     environment.variables = {
       # COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes with maximized firefox

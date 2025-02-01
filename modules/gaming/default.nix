@@ -45,7 +45,7 @@ delib.module {
 
       # nix-gaming
       osu-lazer-bin
-      umu
+      umu-launcher
     ];
     # Allows gpu-screen-recorder to record screens without escalating
     hardware = {
