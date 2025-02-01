@@ -1,7 +1,7 @@
 { delib, pkgs, ... }:
-delib.module rec {
-  name = "programs.cli";
-  nixos.always.environment.systemPackages = home.always.home.packages;
+delib.module {
+  name = "packages.cli";
+  options = delib.singleEnableOption true;
   home.always.home.packages = with pkgs; [
     # Dev
     helix
