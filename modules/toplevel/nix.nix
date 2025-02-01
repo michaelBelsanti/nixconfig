@@ -47,7 +47,7 @@ delib.module {
         };
         to = {
           type = "git";
-          url = "https://codeberg.org:quasigod/develop";
+          url = "https://codeberg.org/quasigod/develop";
         };
       };
       nixconfig = {
