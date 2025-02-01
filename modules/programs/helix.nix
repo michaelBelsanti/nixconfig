@@ -40,6 +40,8 @@ delib.module {
           C-k = "jump_view_up";
           C-l = "jump_view_right";
           C-r = ":reload";
+          A-r = ":reset-diff-change";
+          "space"."=" = ":format";
         };
         editor = {
           shell = [
