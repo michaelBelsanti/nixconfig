@@ -51,7 +51,7 @@ delib.module {
           color-modes = true;
           file-picker = {
             hidden = false;
-            git-ignore = false;
+            git-ignore = true;
           };
           line-number = "relative";
           lsp = {
