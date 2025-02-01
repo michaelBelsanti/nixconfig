@@ -57,7 +57,7 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
-    jovian = "github:Jovian-Experiments/Jovian-NixOS";
+    jovian.url = "github:Jovian-Experiments/Jovian-NixOS";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-gaming = {
