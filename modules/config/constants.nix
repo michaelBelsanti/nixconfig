@@ -1,10 +1,10 @@
-{ delib, ... }:
+{ delib, homeManagerUser, ... }:
 delib.module {
   name = "constants";
 
   options.constants =
     let
-      user = "quasi";
+      user = homeManagerUser;
     in
     with delib;
     {
