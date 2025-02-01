@@ -23,7 +23,7 @@ delib.module {
       };
       iconTheme = {
         name = "Cosmic";
-        package = pkgs.cosmic-icons;
+        package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
       };
     };
   };
