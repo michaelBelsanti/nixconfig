@@ -16,12 +16,10 @@
           homeManagerUser = "quasi";
           inherit isHomeManager;
 
-          # REMINDER: add '.?submodules=1' to flake path to use private module in nix commands
           paths = [
             ./hosts
             ./modules
             ./rices
-            ./private
           ];
 
           specialArgs = {

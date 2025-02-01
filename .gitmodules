@@ -1,4 +1,0 @@
-[submodule "private"]
-	path = private
-	url = git@codeberg.org:quasigod/nixconfig-private
-	branch = main
