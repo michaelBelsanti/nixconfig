@@ -33,7 +33,6 @@ delib.rice {
     home.pointerCursor = {
       package = pkgs.posy-cursors;
       name = "Posy_Cursor";
-      x11.enable = true;
       gtk.enable = true;
     };
   };
