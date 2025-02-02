@@ -4,23 +4,20 @@ delib.host {
   rice = "catppuccin";
   type = "desktop";
 
-  displays = [
-    {
-      name = "DP-1";
+  displays = {
+    DP-1 = {
       primary = true;
-      refreshrate = 240;
+      refreshRate = 240;
       width = 1920;
       height = 1080;
-    }
-    {
-      name = "HDMI-A-1";
-      primary = false;
-      refreshrate = 60;
+    };
+    HDMI-A-1 = {
+      refreshRate = 60;
       width = 1920;
       height = 1080;
       x = -1920;
-    }
-  ];
+    };
+  };
 
   myconfig = {
     desktops.cosmic.enable = true;

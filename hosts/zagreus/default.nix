@@ -8,15 +8,14 @@ delib.host {
   rice = "catppuccin";
   type = "laptop";
 
-  displays = [
-    {
-      name = "eDP-1";
-      refreshrate = 60;
+  displays = {
+    eDP-1 = {
+      refreshRate = 60;
       width = 2256;
       height = 1504;
       scaling = 1.75;
-    }
-  ];
+    };
+  };
 
   myconfig = {
     desktops.cosmic.enable = true;
