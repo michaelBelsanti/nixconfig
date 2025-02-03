@@ -28,7 +28,10 @@ delib.module rec {
 
       # enumeration
       nmap
+      rustscan
       theharvester
+      enum4linux-ng
+      smbmap
 
       
       responder
