@@ -3,8 +3,6 @@ My systems and user configurations in a Nix Flake
 
 This flake is designed using [Denix](https://yunfachi.github.io/denix/).
 
-Note: The server branch contains a private module that contains my server information.
-
 # Inspiration and thanks
 - [Matthias Benaets](https://github.com/MatthiasBenaets/)
   - [NixOS configuration](https://github.com/MatthiasBenaets/nixos-config)
