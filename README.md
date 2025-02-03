@@ -3,7 +3,7 @@ My systems and user configurations in a Nix Flake
 
 This flake is designed using [Denix](https://yunfachi.github.io/denix/).
 
-Note: Some of the files in this repo are encrypted using git-crypt, which unfortunately will prevent the flake from evaulating when they are encrypted. To fix this, simply remove hosts/nyx and modules/private before evaluating.
+Note: The server branch contains a private module that contains my server information.
 
 # Inspiration and thanks
 - [Matthias Benaets](https://github.com/MatthiasBenaets/)
