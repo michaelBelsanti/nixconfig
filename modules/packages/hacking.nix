@@ -8,7 +8,9 @@
 delib.module rec {
   name = "packages.hacking";
   options = delib.singleEnableOption true;
-  nixos.ifEnabled.environment.systemPackages = home.ifEnabled.home.packages;
+  nixos.ifEnabled = {
+    programs.wireshark.enable = true;
+  };
   home.ifEnabled = {
     home.packages = with pkgs; [
       # general
