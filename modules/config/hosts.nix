@@ -18,7 +18,7 @@ delib.module {
             isWorkstation = boolOption (config.type == "laptop" || config.type == "desktop");
             primaryDisplay = attrsOption (lib.filterAttrs (_: v: v.primary) config.displays);
 
-            displays = attrsOfOption (submodule (
+            displays = allowNull (attrsOfOption (submodule (
               { name, ... }:
               {
                 options = {
@@ -37,7 +37,7 @@ delib.module {
                   roundScaling = intOption (builtins.ceil config.displays."${name}".scaling);
                 };
               }
-            )) [ ];
+            )) { });
           };
 
         };
