@@ -60,7 +60,7 @@ delib.module {
     {
       assertions = delib.hostNamesAssertions myconfig.hosts
       ++ lib.singleton {
-        assertion = builtins.length (lib.attrNames myconfig.host.primaryDisplay) == 1;
+        assertion = builtins.length (lib.attrNames myconfig.host.primaryDisplay) <= 1;
         message = "Only one display may be set as primary.";
       };
     };
