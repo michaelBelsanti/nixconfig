@@ -1,11 +1,10 @@
 {
   delib,
   pkgs,
-  lib,
-  inputs,
+  wrapper-manager,
   ...
 }:
-delib.module rec {
+delib.module {
   name = "packages.hacking";
   options = delib.singleEnableOption true;
   nixos.ifEnabled = {
@@ -16,7 +15,7 @@ delib.module rec {
       # general
       wordlists
 
-      # cracker 
+      # crackers
       thc-hydra
       hashcat
       hashcat-utils
@@ -24,33 +23,46 @@ delib.module rec {
       # web
       zap
       ffuf
-      #burpsuite
       mitmproxy
       mitmproxy2swagger
 
       # enumeration
       nmap
-      rustscan
       theharvester
       enum4linux-ng
       smbmap
 
-      
       responder
       wireshark
       exploitdb
-      metasploit
       cyberchef
       imhex
       python3Packages.scapy
       xh
+
+      (wrapper-manager.lib.build {
+        inherit pkgs;
+        modules = [
+          {
+            wrappers.burpsuite = {
+              basePackage = pkgs.burpsuite;
+              flags = [ "--disable-auto-update" ];
+            };
+          }
+          {
+            wrappers.rustscan = {
+              basePackage = pkgs.rustscan;
+              flags = [ "-c $XDG_CONFIG_HOME" ];
+            };
+          }
+          {
+            wrappers.metasploit = {
+             basePackage = pkgs.metasploit; 
+              flags = ["--defer-module-loads"];
+            };
+          }
+        ];
+      })
     ];
-    wrapper-manager.packages.hacking = {
-      wrappers.burpsuite = {
-        arg0 = lib.getExe pkgs.burpsuite;
-        appendArgs = [ "--disable-auto-update" ];
-        xdg.desktopEntry.enable = true;
-      };
-    };
   };
 }

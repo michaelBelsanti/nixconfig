@@ -10,7 +10,6 @@
 delib.module rec {
   name = "packages.gui";
   options = delib.singleEnableOption host.isWorkstation;
-  home.always.imports = [ inputs.wrapper-manager.homeModules.default ];
   nixos.ifEnabled = {
     environment.systemPackages = home.ifEnabled.home.packages ++ [
       pkgs.doas-sudo-shim

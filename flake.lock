@@ -1019,17 +1019,20 @@
       }
     },
     "wrapper-manager": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
       "locked": {
-        "lastModified": 1738465916,
-        "narHash": "sha256-2zkiQnaitfJQ8gFcBjANGoeeGB3hJVEl7njL23J1Clc=",
-        "owner": "foo-dogsquared",
-        "repo": "nix-module-wrapper-manager-fds",
-        "rev": "f48ff49635de252e380adc630340310fc555534f",
+        "lastModified": 1724503599,
+        "narHash": "sha256-WVhNq3QjnG/2mi772CkTxZCQcomKV5S03TbQKwe1Kj4=",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
+        "rev": "c936f9203217e654a6074d206505c16432edbc70",
         "type": "github"
       },
       "original": {
-        "owner": "foo-dogsquared",
-        "repo": "nix-module-wrapper-manager-fds",
+        "owner": "viperML",
+        "repo": "wrapper-manager",
         "type": "github"
       }
     },

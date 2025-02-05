@@ -6,6 +6,7 @@
       self,
       denix,
       nixpkgs,
+      wrapper-manager,
       ...
     }@inputs:
     let
@@ -28,6 +29,7 @@
               inputs
               isHomeManager
               homeManagerUser
+              wrapper-manager
               ;
           };
         };
@@ -87,7 +89,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wrapper-manager.url = "github:foo-dogsquared/nix-module-wrapper-manager-fds";
+    wrapper-manager.url = "github:viperML/wrapper-manager";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
