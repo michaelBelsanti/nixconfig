@@ -1,4 +1,7 @@
 { delib, lib, ... }:
+let
+  getPrimaryDisplays = lib.attrsToList (lib.filterAttrs (_: v: v.primary));
+in
 delib.module {
   name = "hosts";
 
@@ -16,28 +19,32 @@ delib.module {
             isServer = boolOption (config.type == "server");
             hasGUI = boolOption (config.type == "laptop" || config.type == "desktop");
             isWorkstation = boolOption (config.type == "laptop" || config.type == "desktop");
-            primaryDisplay = attrsOption (lib.filterAttrs (_: v: v.primary) config.displays);
+            primaryDisplay =
+              attrsOption
+                (builtins.head (lib.attrsToList (lib.filterAttrs (_: v: v.primary) config.displays))).value;
 
-            displays = allowNull (attrsOfOption (submodule (
-              { name, ... }:
-              {
-                options = {
-                  enable = boolOption true;
-                  touchscreen = boolOption false;
+            displays = allowNull (
+              attrsOfOption (submodule (
+                { name, ... }:
+                {
+                  options = {
+                    enable = boolOption true;
+                    touchscreen = boolOption false;
 
-                  name = strOption name;
-                  primary = boolOption (builtins.length (lib.attrNames config.displays) == 1);
-                  refreshRate = intOption 60;
+                    name = strOption name;
+                    primary = boolOption (builtins.length (lib.attrNames config.displays) == 1);
+                    refreshRate = intOption 60;
 
-                  width = intOption 1920;
-                  height = intOption 1080;
-                  x = intOption 0;
-                  y = intOption 0;
-                  scaling = floatOption 1.0;
-                  roundScaling = intOption (builtins.ceil config.displays."${name}".scaling);
-                };
-              }
-            )) { });
+                    width = intOption 1920;
+                    height = intOption 1080;
+                    x = intOption 0;
+                    y = intOption 0;
+                    scaling = floatOption 1.0;
+                    roundScaling = intOption (builtins.ceil config.displays."${name}".scaling);
+                  };
+                }
+              )) { }
+            );
           };
 
         };
@@ -58,10 +65,12 @@ delib.module {
   home.always =
     { myconfig, ... }:
     {
-      assertions = delib.hostNamesAssertions myconfig.hosts
-      ++ lib.singleton {
-        assertion = builtins.length (lib.attrNames myconfig.host.primaryDisplay) <= 1;
-        message = "Only one display may be set as primary.";
-      };
+      assertions =
+        delib.hostNamesAssertions myconfig.hosts
+        ++ lib.singleton {
+          assertion =
+            builtins.length (lib.attrsToList (lib.filterAttrs (_: v: v.primary) myconfig.host.displays)) <= 1;
+          message = "Only one display may be set as primary.";
+        };
     };
 }
