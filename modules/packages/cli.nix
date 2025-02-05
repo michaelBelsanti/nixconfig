@@ -21,7 +21,6 @@ delib.module {
     # Go
     go
     # Python
-    poetry
     pipx
     uv
     # Haskell
