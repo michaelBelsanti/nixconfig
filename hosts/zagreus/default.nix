@@ -1,6 +1,7 @@
 {
   delib,
   inputs,
+  pkgs,
   ...
 }:
 delib.host {
@@ -30,6 +31,7 @@ delib.host {
     networking.hostName = "zagreus"; # Define your hostname.
 
     hardware.framework.enableKmod = false;
+    hardware.graphics.extraPackages = [ pkgs.rocmPackages.clr.icd ];
 
     boot = {
       kernelParams = [ "acpi_backlight=native" ];
