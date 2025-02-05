@@ -2,6 +2,7 @@
   delib,
   pkgs,
   inputs,
+  host,
   ...
 }:
 delib.module {
@@ -12,20 +13,16 @@ delib.module {
     platformOptimizations
   ];
   nixos.ifEnabled = {
-    nixpkgs.overlays = [ inputs.nix-gaming.overlays.default ];
     environment.systemPackages = with pkgs; [
-      # Games
-      luanti
-
       # Launchers
       cartridges
       heroic
       lunar-client
       lutris
       prismlauncher
+      umu-launcher
 
       # Utility
-      gamescope
       goverlay
       mangohud
       protontricks
@@ -35,17 +32,10 @@ delib.module {
       ludusavi
       nexusmods-app
 
-      # Emulation
-      dolphin-emu
-      dolphin-emu-primehack
-
       # Recording
       gpu-screen-recorder
       gpu-screen-recorder-gtk
 
-      # nix-gaming
-      osu-lazer-bin
-      umu-launcher
     ];
     # Allows gpu-screen-recorder to record screens without escalating
     hardware = {
@@ -58,7 +48,6 @@ delib.module {
       system76-scheduler.enable = true;
     };
     programs = {
-      gamescope.enable = true;
       steam = {
         enable = true;
         platformOptimizations.enable = true;
@@ -69,10 +58,19 @@ delib.module {
           steamtinkerlaunch
           inputs.mypkgs.packages.${pkgs.system}.proton-cachyos
         ];
-        gamescopeSession = {
-          enable = true;
-          args = [ "--adaptive-sync" ];
-        };
+        gamescopeSession. enable = true;
+      };
+      gamescope = {
+        enable = true;
+        args = [
+          "-W ${toString host.primaryDisplay.width}"
+          "-W ${toString host.primaryDisplay.height}"
+          "-r ${toString host.primaryDisplay.refreshRate}"
+          "-O ${host.primaryDisplay.name}"
+          "-f"
+          "--adaptive-sync"
+          "--mangoapp"
+        ];
       };
     };
   };
@@ -81,7 +79,7 @@ delib.module {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-nvfbc
-        # obs-vkcapture
+        obs-vkcapture
         obs-pipewire-audio-capture
         obs-gstreamer
         input-overlay
