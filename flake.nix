@@ -60,6 +60,8 @@
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin.url = "github:catppuccin/nix";
 
