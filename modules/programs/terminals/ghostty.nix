@@ -33,6 +33,7 @@ delib.module {
         "ctrl+shift+j=goto_split:bottom"
         "ctrl+shift+k=goto_split:top"
         "ctrl+shift+l=goto_split:right"
+        "ctrl+shift+w=close_surface"
       ];
     };
   };
