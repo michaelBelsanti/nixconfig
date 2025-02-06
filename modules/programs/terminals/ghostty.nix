@@ -22,7 +22,7 @@ delib.module {
     enableFishIntegration = true;
     enableZshIntegration = true;
     settings = {
-      window-decoration = false;
+      window-decoration = "server";
       window-padding-x = 4;
       window-padding-color = "extend";
       keybind = [
