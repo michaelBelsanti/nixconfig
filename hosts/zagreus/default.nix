@@ -31,7 +31,7 @@ delib.host {
     networking.hostName = "zagreus"; # Define your hostname.
 
     hardware.framework.enableKmod = false;
-    hardware.graphics.extraPackages = [ pkgs.rocmPackages.clr.icd ];
+    hardware.amdgpu.opencl.enable = true;
 
     boot = {
       kernelParams = [ "acpi_backlight=native" ];
