@@ -11,6 +11,9 @@ delib.module {
         disable = [
           "system"
           "helix"
+          "uv"
+          "bun"
+          "github_cli_extensions"
         ];
         cleanup = true;
       };
