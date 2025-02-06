@@ -2,6 +2,7 @@
   delib,
   host,
   lib,
+  pkgs,
   ...
 }:
 delib.module {
@@ -23,6 +24,14 @@ delib.module {
     bat = {
       enable = true;
       config.style = "plain";
+      extraPackages = with pkgs.bat-extras; [
+        prettybat
+        batwatch
+        batpipe
+        batman
+        batgrep
+        batdiff
+      ];
     };
     bottom.enable = true;
     direnv = {
