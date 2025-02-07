@@ -72,9 +72,6 @@ delib.module rec {
         pomodoro
         wike
 
-        # Not in modules/gaming.nix because any device can handle retro games
-        retroarch-full
-
         vesktop
         ghostty
       ]
