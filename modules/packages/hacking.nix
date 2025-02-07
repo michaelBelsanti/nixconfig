@@ -2,6 +2,7 @@
   delib,
   pkgs,
   wrapper-manager,
+  constants,
   ...
 }:
 delib.module {
@@ -52,7 +53,7 @@ delib.module {
           {
             wrappers.rustscan = {
               basePackage = pkgs.rustscan;
-              flags = [ "-c $XDG_CONFIG_HOME" ];
+              flags = [ "-c ${constants.configHome}" ];
             };
           }
           {
