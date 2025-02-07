@@ -62,10 +62,21 @@
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
+    wrapper-manager = {
+      url = "github:viperML/wrapper-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nixpak = {
+      url = "github:nixpak/nixpak";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-colors.url = "github:misterio77/nix-colors";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
@@ -89,7 +100,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    wrapper-manager.url = "github:viperML/wrapper-manager";
 
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
