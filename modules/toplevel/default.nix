@@ -1,6 +1,6 @@
 { delib, pkgs, host, homeConfig, ...}:
 delib.module {
-  name = "nixos";
+  name = "toplevel";
   nixos.always = {
     environment = {
       binsh = "${pkgs.dash}/bin/dash";

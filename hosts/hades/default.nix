@@ -1,4 +1,9 @@
-{ delib, pkgs, inputs, ... }:
+{
+  delib,
+  pkgs,
+  inputs,
+  ...
+}:
 delib.host {
   name = "hades";
   rice = "catppuccin";
@@ -42,6 +47,7 @@ delib.host {
       nixos-hardware.nixosModules.common-pc-ssd
     ];
 
+    facter.reportPath = ./facter.json;
     hardware = {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
