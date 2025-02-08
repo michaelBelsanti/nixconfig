@@ -49,9 +49,6 @@ delib.host {
     hardware = {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
-      graphics.extraPackages = with pkgs; [
-        # amdvlk
-      ];
     };
 
 
@@ -59,7 +56,6 @@ delib.host {
 
     networking = {
       hostName = "hades";
-      # preferred for a wired connection
       useNetworkd = true;
       firewall = {
         enable = false;
