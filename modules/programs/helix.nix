@@ -23,12 +23,14 @@ delib.module {
             formatter.command = "nixfmt";
           }
           {
-            name = "css";
-            language-servers = [ ];
+            name = "markdown";
+            language-servers = [ "ltex-ls-plus" "marksman" "markdown-oxide" ];
           }
           {
-            name = "scss";
-            language-servers = [ ];
+            name = "text";
+            scope = "source.txt";
+            file-types = ["txt"];
+            language-servers = ["ltex-ls-plus"];
           }
         ];
       };
@@ -117,6 +119,7 @@ delib.module {
       nodePackages_latest.typescript-language-server
       marksman
       markdown-oxide
+      ltex-ls-plus
 
       (writeScriptBin "toggle" ''
         #!${lib.getExe pkgs.nushell}
