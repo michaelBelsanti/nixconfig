@@ -36,10 +36,6 @@ delib.host {
   };
 
   nixos = {
-    # services.desktopManager.plasma6.enable = true;
-    # services.displayManager.sddm.enable = true;
-    # services.displayManager.sddm.wayland.enable = true;
-
     imports = with inputs; [
       nixos-hardware.nixosModules.common-cpu-amd
       nixos-hardware.nixosModules.common-gpu-amd
@@ -50,9 +46,6 @@ delib.host {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
     };
-
-
-    virtualisation.virtualbox.host.enable = true;
 
     networking = {
       hostName = "hades";
@@ -68,7 +61,6 @@ delib.host {
 
     services = {
       btrfs.autoScrub.enable = true;
-      xserver.videoDrivers = [ "amdgpu" ];
       libinput.mouse = {
         accelProfile = "flat";
         middleEmulation = false;
