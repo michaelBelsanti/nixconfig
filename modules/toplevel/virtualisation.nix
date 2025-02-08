@@ -1,8 +1,16 @@
-{ delib, lib, pkgs, ... }:
+{
+  delib,
+  lib,
+  pkgs,
+  constants,
+  ...
+}:
 delib.module {
   name = "virtualisation";
   options = delib.singleEnableOption true;
   nixos.ifEnabled = {
+    users.users.${constants.username}.extraGroups = [ "kvm" ];
+    programs.virt-manager.enable = true;
     environment.systemPackages = with pkgs; [
       gnome-boxes
       virglrenderer
