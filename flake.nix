@@ -59,6 +59,7 @@
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 

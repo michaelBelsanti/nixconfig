@@ -26,7 +26,11 @@ delib.host {
   };
 
   nixos = {
-    imports = with inputs; [ nixos-hardware.nixosModules.framework-13-7040-amd ];
+    imports = with inputs; [
+      nixos-facter-modules.nixosModules.facter
+      nixos-hardware.nixosModules.framework-13-7040-amd
+    ];
+    facter.reportPath = ./facter.json;
 
     networking.hostName = "zagreus"; # Define your hostname.
 
@@ -35,7 +39,7 @@ delib.host {
 
     boot = {
       kernelParams = [ "acpi_backlight=native" ];
-      initrd.kernelModules = [ "amdgpu" ];
+      # initrd.kernelModules = [ "amdgpu" ];
       plymouth.enable = true;
     };
 
