@@ -9,6 +9,7 @@ delib.module {
   name = "virtualisation";
   options = delib.singleEnableOption true;
   nixos.ifEnabled = {
+    boot.kernelParams = [ "amd_iommu=on" ];
     users.users.${constants.username}.extraGroups = [ "kvm" ];
     programs.virt-manager.enable = true;
     environment.systemPackages = with pkgs; [
