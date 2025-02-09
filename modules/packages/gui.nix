@@ -1,10 +1,8 @@
 {
   delib,
   pkgs,
-  lib,
   inputs,
   host,
-  config,
   ...
 }:
 delib.module rec {
@@ -19,15 +17,12 @@ delib.module rec {
     home.packages =
       with pkgs;
       [
-        firefox
         libreoffice
         hunspell
         hunspellDicts.en_US-large
         kdenlive
         remmina
         (bottles.override { removeWarningPopup = true; })
-        wl-clipboard
-        affine
         localsend
         tidal-hifi
         varia
@@ -40,40 +35,17 @@ delib.module rec {
           python-pkgs.requests
         ]))
 
-        input-leap
-
-        # Editor
-        helix
-
-        # Containers
-        distrobox
-        podman-compose
-
-        # NFS
-        nfs-utils
-
-        # Packages distros will probably already have
-        file
-        git
-        gptfdisk
-        killall
-        unrar
-        unzip
-        wget
+        lan-mouse
 
         jellyfin-media-player
-        protonvpn-gui
         tetrio-desktop
         element-desktop
-        imagemagick
-        ffmpeg
         filelight
         gnome-frog
         pomodoro
         wike
 
         vesktop
-        ghostty
       ]
       ++ (with inputs; [
         mypkgs.packages.${system}.grayjay-desktop

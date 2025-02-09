@@ -4,12 +4,9 @@ delib.module {
   options = delib.singleEnableOption true;
   home.always.home.packages = with pkgs; [
     # Dev
-    helix
     lazygit
     devenv
-    so
     jq
-    ngrok
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
     # Rust
@@ -46,7 +43,7 @@ delib.module {
 
     # Other CLI tools that are part of my workflow
     nitch
-    nvtopPackages.amd
+    nvtopPackages.full
     cheat
     edir
     gdu
@@ -62,14 +59,11 @@ delib.module {
     dig
     fd
     ripgrep
-    television
-    ncdu
     edir
     dogdns
     xxd
     clipboard-jh
     choose
-    slides
     psmisc
     difftastic
     vhs
@@ -82,6 +76,19 @@ delib.module {
     codeberg-cli
     gh
     gh-dash
-    glab
+    isd
+    systeroid
+    sd
+    distrobox
+    nfs-utils
+    file
+    git
+    gptfdisk
+    killall
+    unrar
+    unzip
+    wget
+    imagemagick
+    ffmpeg
   ];
 }

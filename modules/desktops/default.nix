@@ -37,6 +37,7 @@ delib.module {
         systemPackages = with pkgs; [
           wl-clipboard
           qt6.qtwayland
+          wl-clipboard
         ];
         sessionVariables = lib.mkIf (cfg.wayland) {
           NIXOS_OZONE_WL = "1";
