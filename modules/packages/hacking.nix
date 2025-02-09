@@ -32,6 +32,7 @@ delib.module {
       theharvester
       enum4linux-ng
       smbmap
+      whatweb
 
       responder
       wireshark
