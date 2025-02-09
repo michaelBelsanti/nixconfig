@@ -66,6 +66,17 @@ delib.host {
     };
 
     services = {
+      ollama = {
+        enable = true;
+        acceleration = "rocm";
+        rocmOverrideGfx = "11.0.1";
+        user = "ollama";
+        environmentVariables.OLLAMA_DEBUG = "1";
+      };
+      open-webui = {
+        enable = true;
+        port = 8008;
+      };
       btrfs.autoScrub.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
