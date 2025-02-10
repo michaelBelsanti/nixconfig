@@ -17,7 +17,6 @@ delib.module {
         ];
         cleanup = true;
       };
-      pre_commands."System upgrade" = "nh os switch -u";
     };
   };
 }
