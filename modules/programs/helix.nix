@@ -26,12 +26,6 @@ delib.module {
             name = "markdown";
             language-servers = [ "ltex-ls-plus" "marksman" "markdown-oxide" ];
           }
-          {
-            name = "text";
-            scope = "source.txt";
-            file-types = ["txt"];
-            language-servers = ["ltex-ls-plus"];
-          }
         ];
       };
       settings = {
