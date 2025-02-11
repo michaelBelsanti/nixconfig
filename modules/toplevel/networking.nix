@@ -9,11 +9,26 @@
 delib.module {
   name = "networking";
   options.networking = {
+    addresses = delib.allowNull (
+      delib.submodule {
+        options = {
+          localIp = delib.noDefault (delib.strOption);
+          remoteIp = delib.noDefault (delib.strOption);
+        };
+      }
+    );
     tailscale = {
       enable = delib.boolOption true;
       remote = delib.boolOption false;
     };
   };
+  myconfig.always =
+    { cfg, ... }:
+    {
+      args.shared = {
+        inherit (cfg) addresses;
+      };
+    };
   nixos.always =
     { cfg, ... }:
     {
