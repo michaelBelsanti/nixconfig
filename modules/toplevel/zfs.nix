@@ -3,6 +3,7 @@
   lib,
   pkgs,
   host,
+  config,
   ...
 }:
 delib.module {
@@ -22,12 +23,14 @@ delib.module {
         trim.enable = true;
         autoScrub.enable = true;
       };
+      sops.secrets.ntfy_creds = { };
       systemd = {
         services."zpool-check" = {
           path = with pkgs; [
             curl
             zfs
             choose
+            ntfy-sh
           ];
           script = ''
             ${pkgs.writeScript "zpool-check-script" ''
@@ -37,7 +40,9 @@ delib.module {
                 print $"($status.stdout)"
               } else {
                 print $"($status.stdout)"
-                curl -d $"($status.stdout)" ntfy.sh/streamquasimedia
+                ntfy publish \
+                  -u $"(cat ${config.sops.secrets.ntfy_creds.path})"
+                  $"($status.stdout)"
               }
             ''}
           '';
