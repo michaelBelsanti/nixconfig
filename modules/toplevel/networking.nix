@@ -3,7 +3,6 @@ delib.module {
   name = "networking";
   nixos.always = {
     networking = {
-      useNetworkd = true;
       nftables.enable = true;
       wireguard.enable = true;
       firewall.interfaces.tailscale0.allowedUDPPortRanges = lib.singleton {
