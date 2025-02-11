@@ -24,6 +24,7 @@ delib.rice {
       enableDefaultPackages = true;
       fontDir.enable = true;
       fontconfig.defaultFonts = {
+        sansSerif = [ "Inter" ];
         monospace = [ "JetBrains Mono" ];
       };
     };
