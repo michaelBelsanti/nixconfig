@@ -31,6 +31,11 @@ delib.rice {
       enable = true;
     };
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+    qt = {
+      enable = true;
+      style.name = "kvantum";
+      platformTheme.name = "kvantum";
+    };
     gtk = {
       theme = {
         name = "catppuccin-${flavor}-${accent}-standard";
