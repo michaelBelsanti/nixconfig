@@ -55,9 +55,7 @@ delib.host {
 
     networking = {
       hostName = "hades";
-      useNetworkd = true;
       firewall = {
-        enable = false;
         allowedUDPPorts = [
           3074 # BO2
           24872 # Yuzu
