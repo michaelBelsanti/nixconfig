@@ -21,7 +21,7 @@ delib.host {
   myconfig = {
     desktops.cosmic.enable = true;
     gaming.enable = true;
-    services.tailscale.remote = true;
+    networking.tailscale.remote = true;
     boot.lanzaboote = true;
   };
 
