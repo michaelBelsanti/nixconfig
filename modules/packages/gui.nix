@@ -46,6 +46,8 @@ delib.module rec {
         wike
 
         vesktop
+
+        obsidian
       ]
       ++ (with inputs; [
         mypkgs.packages.${system}.grayjay-desktop
