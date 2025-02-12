@@ -1,7 +1,6 @@
 {
   delib,
   inputs,
-  pkgs,
   ...
 }:
 delib.host {
@@ -17,6 +16,9 @@ delib.host {
       scaling = 1.75;
     };
   };
+
+  shared.myconfig.services.syncthing.devices.zagreus.id =
+    "SV6C3ZK-SEQTM4Y-JFTX2MZ-KAGFTKK-EOENBIP-34XGXDI-DVMCCXR-XM5TQAW";
 
   myconfig = {
     desktops.cosmic.enable = true;

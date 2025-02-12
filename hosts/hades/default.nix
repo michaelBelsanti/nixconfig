@@ -1,6 +1,5 @@
 {
   delib,
-  pkgs,
   inputs,
   ...
 }:
@@ -23,6 +22,8 @@ delib.host {
       x = -1920;
     };
   };
+
+  shared.myconfig.services.syncthing.devices.hades.id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
 
   myconfig = {
     desktops.cosmic.enable = true;

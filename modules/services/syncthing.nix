@@ -11,6 +11,16 @@ delib.module {
   options.services.syncthing = {
     enable = delib.boolOption true;
     headless = delib.boolOption host.isServer;
+    devices = delib.attrsOfOption (delib.submodule (
+      { name, ... }:
+      {
+        options = {
+          name = delib.strOption name;
+          id = delib.noDefault (delib.strOption null);
+          addresses = delib.listOfOption delib.str [ "dynamic" ];
+        };
+      }
+    )) { };
   };
   home.ifEnabled =
     { cfg, ... }:
@@ -21,19 +31,29 @@ delib.module {
     { cfg, ... }:
     {
       users.users.${constants.username}.extraGroups = [ "syncthing" ];
-      services.syncthing = lib.mkMerge [
-        { enable = true; }
-        (lib.mkIf (!cfg.headless) {
-          user = "${constants.username}";
-          group = "users";
-          dataDir = "${constants.home}/sync";
-          configDir = "${constants.configHome}/syncthing";
-          settings.folders."/home/${constants.username}/sync".id = "default";
-        })
-        (lib.mkIf (cfg.headless) {
-          settings.folders."/var/lib/syncthing/sync".id = "default";
-          guiAddress = "0.0.0.0:8384";
-        })
-      ];
+      services.syncthing =
+        let
+          default = {
+            id = "default";
+            devices = builtins.attrNames cfg.devices;
+          };
+        in
+        lib.mkMerge [
+          {
+            enable = true;
+            settings.devices = cfg.devices;
+          }
+          (lib.mkIf (!cfg.headless) {
+            user = "${constants.username}";
+            group = "users";
+            dataDir = "${constants.home}/sync";
+            configDir = "${constants.configHome}/syncthing";
+            settings.folders."/home/${constants.username}/sync" = default;
+          })
+          (lib.mkIf (cfg.headless) {
+            settings.folders."/var/lib/syncthing/sync" = default;
+            guiAddress = "0.0.0.0:8384";
+          })
+        ];
     };
 }
