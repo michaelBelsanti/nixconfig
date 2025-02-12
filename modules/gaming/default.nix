@@ -11,14 +11,17 @@ delib.module {
   nixos.always.imports = with inputs.nix-gaming.nixosModules; [
     pipewireLowLatency
     platformOptimizations
-  ];
+  ] ++ [ inputs.chaotic.nixosModules.default ];
   nixos.ifEnabled = {
+    chaotic.nyx.overlay.enable = true;
     environment.systemPackages = with pkgs; [
       # Launchers
       cartridges
       heroic
       lunar-client
-      lutris
+      (lutris.override {
+        extraLibraries = pkgs: [ pkgs.latencyflex-vulkan ];
+      })
       prismlauncher
       umu-launcher
 
@@ -31,11 +34,11 @@ delib.module {
       winetricks
       ludusavi
       nexusmods-app
+      latencyflex-vulkan
 
       # Recording
       gpu-screen-recorder
       gpu-screen-recorder-gtk
-
     ];
     # Allows gpu-screen-recorder to record screens without escalating
     hardware = {
@@ -53,12 +56,13 @@ delib.module {
         platformOptimizations.enable = true;
         remotePlay.openFirewall = true;
         localNetworkGameTransfers.openFirewall = true;
+        extraPackages = [ pkgs.latencyflex-vulkan ];
         extraCompatPackages = with pkgs; [
           proton-ge-bin
           steamtinkerlaunch
           inputs.mypkgs.packages.${pkgs.system}.proton-cachyos
         ];
-        gamescopeSession. enable = true;
+        gamescopeSession.enable = true;
       };
       gamescope = {
         enable = true;
