@@ -1,7 +1,4 @@
 { delib, lib, ... }:
-let
-  getPrimaryDisplays = lib.attrsToList (lib.filterAttrs (_: v: v.primary));
-in
 delib.module {
   name = "hosts";
 
