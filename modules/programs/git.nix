@@ -22,7 +22,7 @@ delib.module {
           st = "status";
         };
         signing = {
-          key = "~/.ssh/git.pub";
+          key = "~/.ssh/id_ed25519.pub";
           signByDefault = true;
         };
         extraConfig = {
