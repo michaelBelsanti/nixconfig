@@ -29,7 +29,7 @@ delib.module {
 
       # enumeration
       nmap
-      theharvester
+      # theharvester
       enum4linux-ng
       smbmap
       whatweb

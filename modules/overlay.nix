@@ -9,6 +9,7 @@ let
   infuse = (import inputs.infuse.outPath { inherit lib; }).v1.infuse;
   inherits = _: super: {
     inherit (inputs.nix-alien.packages.${super.system}) nix-alien;
+    inherit (inputs.nixpkgs-master.legacyPackages.${super.system}) lldb;
   };
   overlay =
     _self: super:

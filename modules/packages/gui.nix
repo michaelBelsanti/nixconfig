@@ -25,7 +25,7 @@ delib.module rec {
         (bottles.override { removeWarningPopup = true; })
         localsend
         tidal-hifi
-        varia
+        # varia
         # quickemu
         proton-pass
         zotero
