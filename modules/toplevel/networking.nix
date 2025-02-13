@@ -3,6 +3,7 @@
   lib,
   pkgs,
   host,
+  constants,
   ...
 }:
 delib.module {
@@ -22,7 +23,8 @@ delib.module {
       services.tailscale = lib.mkIf cfg.tailscale.enable {
         enable = true;
         extraSetFlags =
-          lib.optional cfg.tailscale.remote "--accept-routes"
+          [ "--operator=${constants.username}" ]
+          ++ lib.optional cfg.tailscale.remote "--accept-routes"
           ++ lib.optional (!cfg.tailscale.remote) "--accept-dns=false";
       };
       networking = {
