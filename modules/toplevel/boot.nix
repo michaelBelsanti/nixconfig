@@ -1,6 +1,7 @@
 {
   delib,
   lib,
+  pkgs,
   inputs,
   host,
   ...
@@ -16,10 +17,7 @@ delib.module {
     {
       imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
       boot = {
-        kernelPackages = lib.mkMerge [
-          (lib.mkIf host.isWorkstation inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos)
-          (lib.mkIf host.isServer inputs.chaotic.legacyPackages.x86_64-linux.linuxPackages_cachyos-server)
-        ];
+        kernelPackages = lib.mkIf host.isWorkstation pkgs.linuxPackages_xanmod_latest;
         initrd.systemd.enable = true;
         plymouth.enable = cfg.plymouth;
         lanzaboote = lib.mkIf cfg.lanzaboote {
