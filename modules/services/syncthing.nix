@@ -22,6 +22,7 @@ delib.module {
       }
     )) { };
   };
+  myconfig.ifEnabled.services.syncthing.devices.hypnos.id = "AOZRHZZ-JNO6DES-VPPRHK5-HW2IRRO-7XTYMQX-2J3RM4Q-C4VM6F7-RZ5LOQD";
   home.ifEnabled =
     { cfg, ... }:
     {
