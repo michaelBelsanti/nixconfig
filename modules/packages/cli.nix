@@ -2,6 +2,9 @@
 delib.module {
   name = "packages.cli";
   options = delib.singleEnableOption true;
+  nixos.always.environment.systemPackages = [
+    pkgs.doas-sudo-shim
+  ];
   home.always.home.packages = with pkgs; [
     # Dev
     lazygit

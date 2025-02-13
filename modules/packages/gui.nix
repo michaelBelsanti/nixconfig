@@ -8,11 +8,6 @@
 delib.module rec {
   name = "packages.gui";
   options = delib.singleEnableOption host.isWorkstation;
-  nixos.ifEnabled = {
-    environment.systemPackages = home.ifEnabled.home.packages ++ [
-      pkgs.doas-sudo-shim
-    ];
-  };
   home.ifEnabled = {
     home.packages =
       with pkgs;
