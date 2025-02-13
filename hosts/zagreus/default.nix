@@ -18,7 +18,7 @@ delib.host {
   };
 
   shared.myconfig.services.syncthing.devices.zagreus.id =
-    "SV6C3ZK-SEQTM4Y-JFTX2MZ-KAGFTKK-EOENBIP-34XGXDI-DVMCCXR-XM5TQAW";
+    "V3CJAAW-V5ZRINB-SIDYUZH-L6CRFTW-ZOOHA3W-KYMW5ZU-Q4IUMLS-47QSTQQ";
 
   myconfig = {
     desktops.cosmic.enable = true;
