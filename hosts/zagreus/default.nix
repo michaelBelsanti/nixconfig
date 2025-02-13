@@ -44,6 +44,8 @@ delib.host {
       plymouth.enable = true;
     };
 
+    environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
+
     services = {
       btrfs.autoScrub.enable = true;
       libinput = {
