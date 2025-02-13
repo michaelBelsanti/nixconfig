@@ -34,15 +34,8 @@ delib.module {
         jack.enable = true;
       };
       environment = lib.mkIf (cfg.wayland) {
-        systemPackages = with pkgs; [
-          wl-clipboard
-          qt6.qtwayland
-          wl-clipboard
-        ];
-        sessionVariables = lib.mkIf (cfg.wayland) {
-          NIXOS_OZONE_WL = "1";
-          QT_QPA_PLATFORM = "wayland;xcb";
-        };
+        systemPackages = [ pkgs.wl-clipboard ];
+        sessionVariables.NIXOS_OZONE_WL = "1";
       };
     };
 
