@@ -1,6 +1,6 @@
 {
   delib,
-  inputs,
+  inputs, pkgs,
   ...
 }:
 delib.host {
@@ -53,6 +53,8 @@ delib.host {
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
     };
+
+    kernelPackages =  pkgs.linuxPackages_xanmod_latest;
 
     networking = {
       hostName = "hades";

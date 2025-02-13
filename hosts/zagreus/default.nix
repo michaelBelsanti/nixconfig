@@ -1,6 +1,6 @@
 {
   delib,
-  inputs,
+  inputs, pkgs,
   ...
 }:
 delib.host {
@@ -33,6 +33,8 @@ delib.host {
     facter.reportPath = ./facter.json;
     hardware.framework.enableKmod = false;
     hardware.amdgpu.opencl.enable = true;
+
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     networking.hostName = "zagreus"; # Define your hostname.
 

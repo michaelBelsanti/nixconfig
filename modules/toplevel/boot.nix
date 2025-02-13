@@ -17,7 +17,6 @@ delib.module {
     {
       imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
       boot = {
-        kernelPackages = lib.mkIf host.isWorkstation pkgs.linuxPackages_xanmod_latest;
         initrd.systemd.enable = true;
         plymouth.enable = cfg.plymouth;
         lanzaboote = lib.mkIf cfg.lanzaboote {
