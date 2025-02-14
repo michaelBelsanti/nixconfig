@@ -22,11 +22,11 @@ delib.module {
           st = "status";
         };
         signing = {
+          format = "ssh";
           key = "~/.ssh/id_ed25519.pub";
           signByDefault = true;
         };
         extraConfig = {
-          gpg.format = "ssh";
           init.defaultBranch = "main";
           pull.rebase = true;
           rerere.enabled = true;
