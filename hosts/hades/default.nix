@@ -54,7 +54,7 @@ delib.host {
       amdgpu.opencl.enable = true;
     };
 
-    kernelPackages =  pkgs.linuxPackages_xanmod_latest;
+    boot.kernelPackages =  pkgs.linuxPackages_xanmod_latest;
 
     networking = {
       hostName = "hades";
