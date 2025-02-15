@@ -1,6 +1,7 @@
 {
   delib,
-  inputs, pkgs,
+  inputs,
+  pkgs,
   ...
 }:
 delib.host {
@@ -23,7 +24,8 @@ delib.host {
     };
   };
 
-  shared.myconfig.services.syncthing.devices.hades.id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
+  shared.myconfig.services.syncthing.devices.hades.id =
+    "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
 
   myconfig = {
     desktops.cosmic.enable = true;
@@ -54,7 +56,7 @@ delib.host {
       amdgpu.opencl.enable = true;
     };
 
-    boot.kernelPackages =  pkgs.linuxPackages_xanmod_latest;
+    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
     networking = {
       hostName = "hades";
