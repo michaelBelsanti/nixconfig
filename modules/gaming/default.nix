@@ -82,7 +82,6 @@ delib.module {
     programs.obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
-        obs-nvfbc
         obs-vkcapture
         obs-pipewire-audio-capture
         obs-gstreamer
