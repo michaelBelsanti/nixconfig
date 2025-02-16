@@ -21,7 +21,7 @@ delib.module rec {
         localsend
         tidal-hifi
         # varia
-        # quickemu
+        quickemu
         proton-pass
         zotero
 

@@ -68,7 +68,7 @@ delib.host {
 
     services = {
       ollama = {
-        # enable = true;
+        enable = true;
         acceleration = "rocm";
         rocmOverrideGfx = "11.0.1";
         user = "ollama";
