@@ -28,7 +28,6 @@ delib.module {
         experimental-features = [
           "nix-command"
           "flakes"
-          "pipe-operator"
         ];
         log-lines = 25;
         keep-outputs = true;
