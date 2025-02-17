@@ -1,12 +1,11 @@
 {
   delib,
-  pkgs,
   inputs,
+  pkgs,
   ...
 }:
 delib.host {
   name = "nyx";
-  # rice = "catppuccin";
   type = "server";
 
   homeManagerSystem = "x86_64-linux";
@@ -27,18 +26,18 @@ delib.host {
       nixos-hardware.nixosModules.common-gpu-intel
       nixos-hardware.nixosModules.common-pc-ssd
     ];
-    # facter.reportPath = ./facter.json;
-    hardware.graphics.extraPackages = with pkgs; [
-      intel-media-driver
-      intel-compute-runtime
-      vpl-gpu-rt
-    ];
-    hardware.intelgpu = {
-      vaapiDriver = null;
-      enableHybridCodec = true;
+    facter.reportPath = ./facter.json;
+    hardware = {
+      graphics.enable = true;
+      intelgpu = {
+        vaapiDriver = null;
+        enableHybridCodec = true;
+      };
     };
+    boot.kernelPackages = pkgs.linuxPackages_6_11;
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
     networking = {
+      hostName = "nyx";
       hostId = "18190aed";
       defaultGateway = {
         address = "192.168.1.1";
