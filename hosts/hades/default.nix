@@ -52,9 +52,12 @@ delib.host {
 
     facter.reportPath = ./facter.json;
     hardware = {
+      keyboard.zsa.enable = true;
       keyboard.qmk.enable = true;
       amdgpu.opencl.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [keymapp];
 
     boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
