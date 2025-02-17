@@ -3,6 +3,7 @@
   host,
   lib,
   pkgs,
+  config,
   ...
 }:
 delib.module {
@@ -17,6 +18,7 @@ delib.module {
           error_symbol = "[➜](maroon)";
         };
         shell.disabled = false;
+        git.disabled = config.myconfig.programs.jujutsu.enable;
         # for showing name when using something like sshmux
         hostname.ssh_only = lib.mkIf host.isServer true;
       };
