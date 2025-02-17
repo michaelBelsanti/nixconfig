@@ -10,10 +10,19 @@ delib.module {
   home.ifEnabled = {
     home.packages = with pkgs; [ git-crypt ];
     programs = {
+      jujutsu = {
+        enable = true;
+        settings = {
+          user = {
+            name = "quasigod";
+            email = "quasigod-io@proton.me";
+          };
+        };
+      };
       git = {
         enable = true;
         lfs.enable = true;
-        userName = "michaelBelsanti";
+        userName = "quasigod";
         userEmail = "quasigod-io@proton.me";
         difftastic.enable = true;
         aliases = {
