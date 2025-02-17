@@ -11,17 +11,24 @@ delib.module {
   home.always.programs = {
     starship = {
       enable = true;
-      settings = {
-        format = "$all";
-        character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](maroon)";
+      settings =
+        {
+          format = "$all";
+          character = {
+            success_symbol = "[➜](bold green)";
+            error_symbol = "[➜](maroon)";
+          };
+          shell.disabled = false;
+          # for showing name when using something like sshmux
+          hostname.ssh_only = lib.mkIf host.isServer true;
+        }
+        // lib.optionalAttrs config.myconfig.programs.jujutsu.enable {
+          git_branch.disabled = true;
+          git_commit.disabled = true;
+          git_state.disabled = true;
+          git_metrics.disabled = true;
+          git_status.disabled = true;
         };
-        shell.disabled = false;
-        git.disabled = config.myconfig.programs.jujutsu.enable;
-        # for showing name when using something like sshmux
-        hostname.ssh_only = lib.mkIf host.isServer true;
-      };
     };
     bat = {
       enable = true;
