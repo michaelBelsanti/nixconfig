@@ -7,7 +7,7 @@
 }:
 delib.module {
   name = "nix";
-  options.nix.lix.enable = delib.boolOption true;
+  options.nix.lix.enable = delib.boolOption false;
   nixos.always =
     { cfg, ... }:
     {
