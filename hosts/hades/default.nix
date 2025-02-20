@@ -28,6 +28,7 @@ delib.host {
     "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
 
   myconfig = {
+    nix.lix.enable = true;
     desktops.cosmic.enable = true;
     programs = {
       scrobbler.enable = true;
@@ -57,9 +58,12 @@ delib.host {
       amdgpu.opencl.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [keymapp];
+    environment.systemPackages = with pkgs; [
+      keymapp
+      wally-cli
+    ];
 
-    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    boot.kernelPackages = pkgs.linuxPackages_6_11;
 
     networking = {
       hostName = "hades";
