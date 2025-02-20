@@ -2,12 +2,13 @@
   delib,
   pkgs,
   lib,
+  host,
   ...
 }:
 delib.module {
   name = "programs.ghostty";
   options.programs.ghostty = with delib; {
-    enable = boolOption true;
+    enable = boolOption host.isWorkstation;
     default = boolOption true;
   };
   nixos.ifEnabled =

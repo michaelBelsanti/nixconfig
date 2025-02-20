@@ -11,6 +11,12 @@ delib.module {
   home.always.programs = {
     starship = {
       enable = true;
+      package = pkgs.starship.overrideAttrs {
+        patches = pkgs.fetchurl {
+          url = "https://patch-diff.githubusercontent.com/raw/starship/starship/pull/6089.patch";
+          hash = "sha256-6hSVUvVRr8UHHrfgzn/JOooELxz8xvZQwyQY5KJLvPU=";
+        };
+      };
       settings =
         {
           format = "$all";
