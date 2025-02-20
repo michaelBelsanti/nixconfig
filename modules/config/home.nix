@@ -5,7 +5,7 @@ delib.module {
     if isHomeManager
     then config
     else config.home-manager.users.${constants.username};
-
+  nixos.always.home-manager.useGlobalPkgs = true;
   home.always = {
     home = {
       inherit (constants) username;
@@ -15,6 +15,5 @@ delib.module {
       sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
     };
     programs.home-manager.enable = true;
-    nixpkgs.config.allowUnfree = true;
   };
 }
