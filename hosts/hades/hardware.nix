@@ -17,14 +17,5 @@ delib.host {
       device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
     };
-
-    fileSystems."/run/media/quasi/hdd" = {
-      device = "/dev/disk/by-label/mainhdd";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "async"
-      ];
-    };
   };
 }
