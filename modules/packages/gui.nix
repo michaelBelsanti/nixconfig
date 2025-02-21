@@ -41,7 +41,6 @@ delib.module rec {
         wike
 
         vesktop
-        equibop
         legcord
 
         obsidian
