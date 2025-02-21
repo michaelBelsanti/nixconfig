@@ -28,7 +28,7 @@ delib.host {
     "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
 
   myconfig = {
-    nix.lix.enable = true;
+    nix.lix.enable = false;
     desktops.cosmic.enable = true;
     programs = {
       scrobbler.enable = true;
