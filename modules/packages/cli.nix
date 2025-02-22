@@ -7,6 +7,7 @@ delib.module {
   ];
   home.always.home.packages = with pkgs; [
     # Dev
+    lazyjj
     lazygit
     devenv
     jq

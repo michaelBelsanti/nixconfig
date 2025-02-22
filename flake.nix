@@ -40,7 +40,7 @@
     };
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:michaelBelsanti/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
     mypkgs = {
       url = "git+https://codeberg.org/quasigod/nur.git";
