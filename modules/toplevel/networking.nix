@@ -41,7 +41,7 @@ delib.module {
           };
         };
       };
-      systemd.services.NetworkManager-wait-online.enable = false;
+      systemd.services.NetworkManager-wait-online.enable = false; # nixpkgs #180175
       systemd.network.wait-online.enable = false;
     };
 }
