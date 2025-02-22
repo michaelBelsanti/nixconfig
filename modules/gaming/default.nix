@@ -68,7 +68,7 @@ delib.module {
         enable = true;
         args = [
           "-W ${toString host.primaryDisplay.width}"
-          "-W ${toString host.primaryDisplay.height}"
+          "-H ${toString host.primaryDisplay.height}"
           "-r ${toString host.primaryDisplay.refreshRate}"
           "-O ${host.primaryDisplay.name}"
           "-f"
