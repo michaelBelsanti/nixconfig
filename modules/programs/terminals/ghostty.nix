@@ -35,6 +35,8 @@ delib.module {
         "ctrl+shift+k=goto_split:top"
         "ctrl+shift+l=goto_split:right"
         "ctrl+shift+w=close_surface"
+        "page_up=scroll_page_fractional:-0.5"
+        "page_down=scroll_page_fractional:+0.5"
       ];
     };
   };
