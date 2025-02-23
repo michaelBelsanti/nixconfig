@@ -35,14 +35,15 @@ delib.module {
           script = ''
             ${pkgs.writeScript "zpool-check-script" ''
               #!${lib.getExe pkgs.nushell}
-              let status = zpool status -x | complete
-              if ($status.stdout | str trim) == "all pools are healthy" {
-                print $"($status.stdout)"
+              let status = zpool status -x
+              if ($status | str trim) == "all pools are healthy" {
+                print $"($status)"
               } else {
-                print $"($status.stdout)"
-                ntfy publish \
-                  -u $"(cat ${config.sops.secrets.ntfy_creds.path})"
-                  $"($status.stdout)"
+                print $"($status)"
+                (ntfy publish 
+                  -u $"(cat ${config.sops.secrets.ntfy_creds.path}) 
+                  $"(cat ${config.sops.secrets.ntfy_url.path})
+                  $status)
               }
             ''}
           '';
