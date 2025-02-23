@@ -5,7 +5,7 @@
   host,
   ...
 }:
-delib.module rec {
+delib.module {
   name = "packages.gui";
   options = delib.singleEnableOption host.isWorkstation;
   home.ifEnabled = {

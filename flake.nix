@@ -12,10 +12,12 @@
     let
       mkConfigurations =
         isHomeManager:
-        denix.lib.configurations rec {
-          homeManagerNixpkgs = nixpkgs;
+        let
           homeManagerUser = "quasi";
-          inherit isHomeManager;
+        in
+        denix.lib.configurations {
+          inherit isHomeManager homeManagerUser;
+          homeManagerNixpkgs = nixpkgs;
 
           paths = [
             ./hosts
@@ -101,7 +103,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     lix-module = {
       url = "git+https://git.lix.systems/lix-project/nixos-module";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -116,6 +117,8 @@
       url = "git+https://codeberg.org/amjoseph/infuse.nix.git";
       flake = false;
     };
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
   nixConfig = {
     extra-substituters = [
