@@ -40,7 +40,6 @@ delib.module {
         pomodoro
         wike
 
-        vesktop
         legcord
 
         obsidian
