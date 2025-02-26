@@ -20,6 +20,7 @@ delib.module {
       thc-hydra
       hashcat
       hashcat-utils
+      john
 
       # web
       zap
