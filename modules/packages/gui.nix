@@ -15,7 +15,7 @@ delib.module {
         libreoffice
         hunspell
         hunspellDicts.en_US-large
-        kdenlive
+        kdePackages.kdenlive
         remmina
         (bottles.override { removeWarningPopup = true; })
         localsend
@@ -35,7 +35,7 @@ delib.module {
         jellyfin-media-player
         tetrio-desktop
         element-desktop
-        filelight
+        kdePackages.filelight
         gnome-frog
         pomodoro
         wike
