@@ -37,6 +37,7 @@ delib.module {
         "ctrl+shift+w=close_surface"
         "page_up=scroll_page_fractional:-0.5"
         "page_down=scroll_page_fractional:+0.5"
+        "performable:ctrl+c=copy_to_clipboard"
       ];
     };
   };
