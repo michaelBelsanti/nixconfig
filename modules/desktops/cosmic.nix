@@ -30,6 +30,11 @@ delib.module {
 
   nixos.always.imports = [ inputs.nixos-cosmic.nixosModules.default ];
   nixos.ifEnabled = {
+    # maybe remove after Wayland Proton releases
+    systemd.user.services."xwayland-primary-output" = {
+      script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
+      wantedBy = [ "graphical-session.target" ];
+    };
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
