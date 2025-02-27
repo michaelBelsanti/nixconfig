@@ -22,7 +22,7 @@ delib.module {
       }
     )) { };
   };
-  myconfig.ifEnabled.services.syncthing.devices.hypnos.id = "AOZRHZZ-JNO6DES-VPPRHK5-HW2IRRO-7XTYMQX-2J3RM4Q-C4VM6F7-RZ5LOQD";
+  myconfig.ifEnabled.services.syncthing.devices.shit_phone.id = "2M5G4SD-LSEKDXK-5KB3EYF-CXIFVKY-3YSM35Y-KJTWQH2-ATNGIF4-RUBDTQ7";
   home.ifEnabled =
     { cfg, ... }:
     {
@@ -34,25 +34,31 @@ delib.module {
       users.users.${constants.username}.extraGroups = [ "syncthing" ];
       services.syncthing =
         let
-          default = {
-            id = "default";
-            devices = builtins.attrNames cfg.devices;
-          };
+          all_devices = builtins.attrNames cfg.devices;
         in
         lib.mkMerge [
           {
             enable = true;
             settings.devices = cfg.devices;
+            settings.folders."~/Documents/vault" = {
+              id = "vault";
+              devices = all_devices;
+            };
+            settings.folders."~/sync" = {
+              id = "general";
+              devices = all_devices;
+            };
+            settings.folders."~/projects" = {
+              id = "projects";
+              devices = all_devices;
+            };
           }
           (lib.mkIf (!cfg.headless) {
-            user = "${constants.username}";
-            group = "users";
-            dataDir = "${constants.home}/sync";
-            configDir = "${constants.configHome}/syncthing";
-            settings.folders."/home/${constants.username}/sync" = default;
+            user = constants.username;
+            dataDir = constants.home;
           })
           (lib.mkIf (cfg.headless) {
-            settings.folders."/var/lib/syncthing/sync" = default;
+            dataDir = "/var/lib/syncthing";
             guiAddress = "0.0.0.0:8384";
           })
         ];
