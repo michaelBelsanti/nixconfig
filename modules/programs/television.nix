@@ -9,7 +9,7 @@ in
 delib.module {
   name = "programs.television";
   options.programs.television = {
-    enable = delib.boolOption true;
+    enable = delib.boolOption false;
     settings = lib.mkOption {
       type = settingsFormat.type;
       default = television-config;
