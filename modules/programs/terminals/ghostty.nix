@@ -23,6 +23,7 @@ delib.module {
     enableFishIntegration = true;
     enableZshIntegration = true;
     settings = {
+      shell-integration-features = true;
       window-decoration = "server";
       window-padding-x = 4;
       window-padding-color = "extend";
