@@ -1,12 +1,19 @@
-{ delib, constants, ... }:
+{
+  delib,
+  constants,
+  lib,
+  ...
+}:
 delib.module {
   name = "security";
+  options.security.doas.enable = delib.boolOption false;
   nixos.always =
+    { cfg, ... }:
     {
       security = {
-        sudo.enable = false;
-        doas.enable = true;
-        doas.extraRules = [
+        sudo.enable = !cfg.doas.enable;
+        doas.enable = cfg.doas.enable;
+        doas.extraRules = lib.mkIf cfg.doas.enable [
           {
             users = [ "${constants.username}" ];
             keepEnv = true;
