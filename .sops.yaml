@@ -1,9 +1,11 @@
 keys:
+  - &hades age1kvslvlmssjy32nd5vgcmxahdtupv0th2cgxklwuk4nlsghfyufyql5zmh9
   - &zagreus age1pc8hwt5a9wc87f6nh6rkk6mdlc7mvrqfmh00da2egsth7tp505fqm92m6x
   - &nyx age1d4d4ayt7qgv20ks2g8c7z8dnk50kl3s4clmt2xgd6trcawjavd6qh4nuwl
 creation_rules:
   - path_regex: modules/secrets/[^/]+\.(yaml|json|env|ini|sops)$
     key_groups:
       - age:
+        - *hades
         - *zagreus
         - *nyx
