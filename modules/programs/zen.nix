@@ -54,7 +54,6 @@ let
             (sloth.concat' sloth.runtimeDir "/bus")
             (sloth.concat' sloth.runtimeDir "/dconf")
             (sloth.concat' sloth.runtimeDir "/doc")
-            (sloth.mkdir (sloth.concat' sloth.xdgDownloadDir "/zen"))
           ];
           bind.ro = [
             "/etc/localtime"
