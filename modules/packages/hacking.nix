@@ -38,10 +38,13 @@ delib.module {
       responder
       wireshark
       exploitdb
-      cyberchef
       imhex
       python3Packages.scapy
       xh
+
+      (pkgs.writeScriptBin "cyberchef" ''
+        echo ${pkgs.cyberchef}/share/cyberchef/index.html
+      '')
 
       (wrapper-manager.lib.build {
         inherit pkgs;
