@@ -36,6 +36,12 @@ delib.module {
           git_status.disabled = true;
         };
     };
+    atuin = {
+      enable = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+      flags = [ "--disable-up-arrow" ];
+    };
     bat = {
       enable = true;
       config.style = "plain";
