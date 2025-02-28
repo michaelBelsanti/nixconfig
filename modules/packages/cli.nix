@@ -3,6 +3,20 @@ delib.module {
   name = "packages.cli";
   options = delib.singleEnableOption true;
   home.always.home.packages = with pkgs; [
+    # essential utils
+    file
+    git
+    gptfdisk
+    inetutils
+    killall
+    pciutils
+    traceroute
+    unrar
+    unzip
+    usbutils
+    wget
+    whois
+
     # Dev
     lazyjj
     lazygit
@@ -42,54 +56,40 @@ delib.module {
     statix
     vulnix
 
-    # Other CLI tools that are part of my workflow
-    nitch
-    nvtopPackages.full
-    cheat
-    edir
-    gdu
-    glow
-    du-dust
-    lf
-    traceroute
-    whois
-    cachix
+    # nice to have tools
     aria2
-    ouch
-    lsof
-    dig
-    fd
-    ripgrep
-    edir
-    dogdns
-    xxd
-    clipboard-jh
+    cachix
+    cheat
     choose
-    psmisc
-    difftastic
-    vhs
-    rclone
-    inotify-tools
-    progress
-    try
-    inetutils
-    waypipe
+    clipboard-jh
     codeberg-cli
+    difftastic
+    dig
+    distrobox
+    dogdns
+    du-dust
+    edir
+    fd
+    ffmpeg
+    gdu
     gh
     gh-dash
-    isd
-    systeroid
-    sd
-    distrobox
-    nfs-utils
-    file
-    git
-    gptfdisk
-    killall
-    unrar
-    unzip
-    wget
+    glow
     imagemagick
-    ffmpeg
+    inotify-tools
+    isd
+    nitch
+    nvtopPackages.full
+    ouch
+    progress
+    psmisc
+    rclone
+    ripgrep
+    sd
+    systeroid
+    try
+    vhs
+    waypipe
+    xxd
   ];
 }
