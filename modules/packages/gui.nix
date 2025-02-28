@@ -41,6 +41,7 @@ delib.module {
         wike
 
         legcord
+        goofcord
 
         obsidian
       ]
