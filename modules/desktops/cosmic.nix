@@ -31,9 +31,29 @@ delib.module {
   nixos.always.imports = [ inputs.nixos-cosmic.nixosModules.default ];
   nixos.ifEnabled = {
     # maybe remove after Wayland Proton releases
-    systemd.user.services."xwayland-primary-output" = {
-      script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
-      wantedBy = [ "graphical-session.target" ];
+    systemd.user = {
+      services."wl-x11-clipsync" = {
+        script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
+        wantedBy = [ "graphical-session.target" ];
+      };
+      services."sync-wayland-xwayland-clipboard" =
+        let
+          clipsync = pkgs.fetchurl {
+            url = "https://raw.githubusercontent.com/arabianq/wl-x11-clipsync/fc3ac4d1d57ffdc3222e818c8a58d20c91f3fcf3/clipsync.py";
+            hash = "sha256-0ZxgSKTRHUTGAzzJeCh+gCThn308pRdadW6xyNId8CE=";
+          };
+        in
+        {
+          path = with pkgs; [
+            python3
+            wl-clipboard
+            xclip
+            clipnotify
+            which
+          ];
+          script = "python ${clipsync}";
+          wantedBy = [ "graphical-session.target" ];
+        };
     };
     services = {
       desktopManager.cosmic.enable = true;
