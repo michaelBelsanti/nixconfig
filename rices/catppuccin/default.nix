@@ -5,8 +5,8 @@
   ...
 }:
 let
-  flavor = "macchiato";
-  accent = "lavender";
+  flavor = "mocha";
+  accent = "pink";
   wallpaper = ./background_upscaled.png;
 in
 delib.rice {
@@ -16,8 +16,8 @@ delib.rice {
   nixos = {
     imports = [ inputs.catppuccin.nixosModules.catppuccin ];
     catppuccin = {
-      inherit flavor;
       enable = true;
+      inherit flavor accent;
     };
   };
 
@@ -27,8 +27,8 @@ delib.rice {
       inputs.nix-colors.homeManagerModule
     ];
     catppuccin = {
-      inherit flavor;
       enable = true;
+      inherit flavor accent;
     };
     colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
     qt = {
