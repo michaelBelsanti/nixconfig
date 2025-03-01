@@ -9,3 +9,9 @@ creation_rules:
         - *hades
         - *zagreus
         - *nyx
+  - path_regex: private/modules/secrets/[^/]+\.(yaml|json|env|ini|sops)$
+    key_groups:
+      - age:
+        - *hades
+        - *zagreus
+        - *nyx
