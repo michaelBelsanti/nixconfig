@@ -42,7 +42,7 @@ delib.module {
                 print $"($status)"
                 (ntfy publish 
                   -u (cat /run/secrets/ntfy_creds) 
-                  ntfy.quasi.lol/zpool-check
+                  (cat /run/secrets/ntfy_url)
                   $status)
               }
             ''}
