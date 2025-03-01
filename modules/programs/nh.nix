@@ -15,7 +15,7 @@ delib.module {
   home.always = {
     home.packages = [ pkgs.nh ];
     home.sessionVariables = {
-      FLAKE = constants.flakePath + "?submodules=1";
+      FLAKE = constants.flakePath;
     };
   };
 }
