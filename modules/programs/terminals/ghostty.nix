@@ -27,6 +27,7 @@ delib.module {
       window-decoration = "server";
       window-padding-x = 4;
       window-padding-color = "extend";
+      window-padding-balance = true;
       keybind = [
         "ctrl+alt+v=new_split:right"
         "ctrl+alt+s=new_split:down"
@@ -39,6 +40,7 @@ delib.module {
         "page_up=scroll_page_fractional:-0.5"
         "page_down=scroll_page_fractional:+0.5"
         "performable:ctrl+c=copy_to_clipboard"
+        "ctrl+shift+r=reload_config"
       ];
     };
   };
