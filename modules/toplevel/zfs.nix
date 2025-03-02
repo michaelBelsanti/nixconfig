@@ -24,6 +24,7 @@ delib.module {
         autoScrub.enable = true;
       };
       sops.secrets.ntfy_creds = { };
+      sops.secrets.ntfy_url = { };
       systemd = {
         services."zpool-check" = {
           path = with pkgs; [
