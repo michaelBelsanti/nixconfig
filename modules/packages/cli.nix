@@ -69,6 +69,7 @@ delib.module {
     dogdns
     du-dust
     edir
+    eternal-terminal
     fd
     ffmpeg
     gdu
@@ -86,6 +87,7 @@ delib.module {
     rclone
     ripgrep
     sd
+    superfile
     systeroid
     try
     vhs
