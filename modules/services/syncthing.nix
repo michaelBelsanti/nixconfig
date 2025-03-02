@@ -40,10 +40,10 @@ delib.module {
           {
             enable = true;
             settings.devices = cfg.devices;
-            settings.folders."~/Documents/vault" = {
-              id = "vault";
-              devices = all_devices;
-            };
+            # settings.folders."~/Documents/vault" = {
+            #   id = "vault";
+            #   devices = all_devices;
+            # };
             settings.folders."~/sync" = {
               id = "general";
               devices = all_devices;
