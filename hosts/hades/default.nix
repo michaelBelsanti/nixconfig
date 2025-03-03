@@ -44,7 +44,11 @@ delib.host {
     };
   };
 
+  homeManagerSystem = "x86_64-linux";
+  home.home.stateVersion = "22.05";
+
   nixos = {
+    system.stateVersion = "22.05";
     imports = with inputs; [
       nixos-hardware.nixosModules.common-cpu-amd
       nixos-hardware.nixosModules.common-gpu-amd
@@ -87,7 +91,6 @@ delib.host {
         enable = true;
         port = 8008;
       };
-      btrfs.autoScrub.enable = true;
       libinput.mouse = {
         accelProfile = "flat";
         middleEmulation = false;
