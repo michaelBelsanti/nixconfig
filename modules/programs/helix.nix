@@ -48,8 +48,8 @@ delib.module {
           cursorcolumn = true;
           color-modes = true;
           file-picker = {
-            hidden = false;
-            git-ignore = true;
+            hidden = true;
+            git-ignore = false;
           };
           line-number = "relative";
           lsp = {
