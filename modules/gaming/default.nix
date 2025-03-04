@@ -20,6 +20,7 @@ delib.module {
       heroic
       lunar-client
       (lutris.override {
+        extraPkgs = pkgs: [ umu-launcher ];
         extraLibraries = pkgs: [ pkgs.latencyflex-vulkan ];
       })
       prismlauncher
