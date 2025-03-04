@@ -1,6 +1,7 @@
 {
   delib,
-  inputs, pkgs,
+  inputs,
+  pkgs,
   ...
 }:
 delib.host {
@@ -27,7 +28,11 @@ delib.host {
     boot.lanzaboote = true;
   };
 
+  homeManagerSystem = "x86_64-linux";
+  home.home.stateVersion = "22.05";
+
   nixos = {
+    system.stateVersion = "22.05";
     imports = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
 
     facter.reportPath = ./facter.json;
@@ -47,7 +52,6 @@ delib.host {
     environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
 
     services = {
-      btrfs.autoScrub.enable = true;
       libinput = {
         mouse = {
           accelProfile = "flat";

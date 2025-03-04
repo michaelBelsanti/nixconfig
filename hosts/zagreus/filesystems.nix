@@ -1,18 +1,8 @@
-{
-  delib,
-  config,
-  lib,
-  modulesPath,
-  ...
-}:
+{ delib, ... }:
 delib.host {
   name = "zagreus";
 
-  homeManagerSystem = "x86_64-linux";
-  home.home.stateVersion = "22.05";
-
   nixos = {
-    system.stateVersion = "22.05";
     fileSystems."/" = {
       device = "/dev/disk/by-uuid/c3fde0b2-d7da-4109-b4cb-27c7a2e53e4b";
       fsType = "btrfs";
@@ -29,6 +19,18 @@ delib.host {
         "fmask=0022"
         "dmask=0022"
       ];
+    };
+    services = {
+      btrfs.autoScrub.enable = true;
+      beesd.filesystems.root = {
+        spec = "LABEL=nixroot";
+        hashTableSizeMB = 256;
+        verbosity = "crit";
+        extraOptions = [
+          "--loadavg-target"
+          "2.0"
+        ];
+      };
     };
   };
 }
