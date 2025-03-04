@@ -48,6 +48,7 @@ delib.module {
     nix-alien
     nix-init
     nix-inspect
+    nixos-rebuild-ng
     nix-output-monitor
     nixpkgs-review
     nix-tree
