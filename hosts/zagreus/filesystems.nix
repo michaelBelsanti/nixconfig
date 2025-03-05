@@ -23,7 +23,7 @@ delib.host {
     services = {
       btrfs.autoScrub.enable = true;
       beesd.filesystems.root = {
-        spec = "LABEL=nixroot";
+        spec = "LABEL=root";
         hashTableSizeMB = 256;
         verbosity = "crit";
         extraOptions = [
