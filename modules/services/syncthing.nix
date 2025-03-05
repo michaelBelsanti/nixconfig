@@ -2,7 +2,6 @@
   delib,
   host,
   constants,
-  pkgs,
   lib,
   ...
 }:
@@ -23,11 +22,6 @@ delib.module {
     )) { };
   };
   myconfig.ifEnabled.services.syncthing.devices.shit_phone.id = "2M5G4SD-LSEKDXK-5KB3EYF-CXIFVKY-3YSM35Y-KJTWQH2-ATNGIF4-RUBDTQ7";
-  home.ifEnabled =
-    { cfg, ... }:
-    {
-      home.packages = lib.mkIf (!cfg.headless) [ pkgs.syncthingtray ];
-    };
   nixos.ifEnabled =
     { cfg, ... }:
     {
