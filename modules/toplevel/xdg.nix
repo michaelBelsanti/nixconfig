@@ -2,26 +2,28 @@
   delib,
   host,
   lib,
+  constants,
   ...
 }:
 let
+  inherit (constants) dataHome configHome cacheHome;
   vars = {
     # cleaning up ~
-    ANDROID_USER_HOME = "$XDG_DATA_HOME/android";
-    CARGO_HOME = "$XDG_DATA_HOME/cargo";
-    CUDA_CACHE_PATH = "$XDG_CACHE_HOME/nv";
-    DOTNET_CLI_HOME ="$XDG_DATA_HOME/dotnet";
-    GOPATH = "$XDG_DATA_HOME/go";
-    GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
-    LESSHISTFILE = "$XDG_CACHE_HOME/less/history";
-    MPLAYER_HOME = "$XDG_CONFIG_HOME/mplayer";
-    NUGET_PACKAGES = "$XDG_CACHE_HOME/NuGetPackages";
-    OCTAVE_HISTFILE = "$XDG_CACHE_HOME/octave-hsts";
-    OCTAVE_SITE_INITFILE = "$XDG_CONFIG_HOME/octave/octaverc";
-    STACK_ROOT = "$XDG_DATA_HOME/stack";
-    WINEPREFIX = "$XDG_DATA_HOME/wine";
-    XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose";
-    _Z_DATA = "$XDG_DATA_HOME/z";
+    ANDROID_USER_HOME = "${dataHome}/android";
+    CARGO_HOME = "${dataHome}/cargo";
+    CUDA_CACHE_PATH = "${cacheHome}/nv";
+    DOTNET_CLI_HOME ="${dataHome}/dotnet";
+    GOPATH = "${dataHome}/go";
+    GRADLE_USER_HOME = "${dataHome}/gradle";
+    LESSHISTFILE = "${cacheHome}/less/history";
+    MPLAYER_HOME = "${configHome}/mplayer";
+    NUGET_PACKAGES = "${cacheHome}/NuGetPackages";
+    OCTAVE_HISTFILE = "${cacheHome}/octave-hsts";
+    OCTAVE_SITE_INITFILE = "${configHome}/octave/octaverc";
+    STACK_ROOT = "${dataHome}/stack";
+    WINEPREFIX = "${dataHome}/wine";
+    XCOMPOSECACHE = "${cacheHome}/X11/xcompose";
+    _Z_DATA = "${dataHome}/z";
   };
 in
 delib.module {
