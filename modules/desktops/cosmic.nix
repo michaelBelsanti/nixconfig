@@ -70,17 +70,18 @@ delib.module {
         file-roller
       ])
       ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
-        cosmic-reader
-        cosmic-player
-        tasks
+        andromeda
         chronos
+        cosmic-ext-applet-clipboard-manager
+        cosmic-ext-applet-emoji-selector
+        cosmic-ext-calculator
+        cosmic-ext-tweaks
+        cosmic-player
+        cosmic-reader
         examine
         forecast
         observatory
-        cosmic-ext-applet-emoji-selector
-        cosmic-ext-applet-clipboard-manager
-        cosmic-ext-calculator
-        cosmic-ext-tweaks
+        tasks
       ]);
     environment.variables = {
       COSMIC_DATA_CONTROL_ENABLED = 1;
