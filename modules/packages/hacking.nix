@@ -30,10 +30,11 @@ delib.module {
 
       # enumeration
       nmap
-      # theharvester
+      theharvester
       enum4linux-ng
       smbmap
       whatweb
+      gobuster
 
       responder
       wireshark
