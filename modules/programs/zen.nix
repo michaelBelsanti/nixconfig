@@ -3,9 +3,7 @@
   inputs,
   host,
   pkgs,
-  lib,
   config,
-  homeConfig,
   ...
 }:
 let
@@ -19,7 +17,10 @@ let
       { sloth, ... }:
       {
         app.package = inputs.zen-browser.packages.${pkgs.system}.default;
-        app.extraEntrypoints = [ "/bin/zen" "/bin/zen-beta" ];
+        app.extraEntrypoints = [
+          "/bin/zen"
+          "/bin/zen-beta"
+        ];
         flatpak.appId = "app.zen_browser.zen";
         etc.sslCertificates.enable = true;
         fonts = {
@@ -55,35 +56,27 @@ let
             (sloth.concat' sloth.runtimeDir "/dconf")
             (sloth.concat' sloth.runtimeDir "/doc")
           ];
-          bind.ro = [
-            "/etc/localtime"
-            (sloth.concat' sloth.xdgConfigHome "/gtk-2.0")
-            (sloth.concat' sloth.xdgConfigHome "/gtk-3.0")
-            (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
-            (sloth.concat' sloth.xdgConfigHome "/dconf")
-            [
-              "${inputs.zen-browser.packages.${pkgs.system}.default}/lib/firefox"
-              "/app/etc/firefox"
-            ]
-          ];
-          env =
+          bind.ro =
             let
-              cursorPackage = homeConfig.home.pointerCursor.package;
-              iconPackage = homeConfig.gtk.iconTheme.package;
-              gtkPackage = homeConfig.gtk.theme.package;
+              themingPaths = [
+                (sloth.concat' sloth.homeDir ".nix-profile/share/themes")
+                (sloth.concat' sloth.homeDir ".nix-profile/share/icons")
+                "/run/current-system/sw/share/themes"
+                "/run/current-system/sw/share/icons"
+              ];
             in
-            {
-              XDG_DATA_DIRS = lib.makeSearchPath "share" [
-                pkgs.shared-mime-info
-                cursorPackage
-                iconPackage
-                gtkPackage
-              ];
-              XCURSOR_PATH = lib.concatStringsSep ":" [
-                "${cursorPackage}/share/icons"
-                "${cursorPackage}/share/pixmaps"
-              ];
-            };
+            [
+              "/etc/localtime"
+              (sloth.concat' sloth.xdgConfigHome "/gtk-2.0")
+              (sloth.concat' sloth.xdgConfigHome "/gtk-3.0")
+              (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
+              (sloth.concat' sloth.xdgConfigHome "/dconf")
+              [
+                "${inputs.zen-browser.packages.${pkgs.system}.default}/lib/firefox"
+                "/app/etc/firefox"
+              ]
+            ]
+            ++ themingPaths;
         };
       };
   };
