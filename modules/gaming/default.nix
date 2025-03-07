@@ -63,7 +63,6 @@ delib.module {
           steamtinkerlaunch
           inputs.mypkgs.packages.${pkgs.system}.proton-cachyos
         ];
-        gamescopeSession.enable = true;
       };
       gamescope = {
         enable = true;
