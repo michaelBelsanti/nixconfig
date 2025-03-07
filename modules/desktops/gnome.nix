@@ -1,22 +1,22 @@
 { delib, pkgs, ... }:
 delib.module {
-  name = "desktops.plasma";
+  name = "desktops.gnome";
   options = delib.singleEnableOption false;
   myconfig.ifEnabled.desktops.wayland = true;
 
   home.ifEnabled = {
     gtk = {
       iconTheme = {
-        name = "Breeze";
-        package = pkgs.kdePackages.breeze-icons;
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
       };
     };
   };
 
   nixos.ifEnabled = {
-    services = {
-      desktopManager.plasma6.enable = true;
-      displayManager.cosmic-greeter.enable = true;
+    services.xserver = {
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
     };
   };
 }
