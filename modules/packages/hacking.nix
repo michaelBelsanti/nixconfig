@@ -64,8 +64,8 @@ delib.module {
           }
           {
             wrappers.metasploit = {
-             basePackage = pkgs.metasploit; 
-              flags = ["--defer-module-loads"];
+              basePackage = pkgs.metasploit;
+              flags = [ "--defer-module-loads" ];
             };
           }
         ];
