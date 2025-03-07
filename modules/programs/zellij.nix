@@ -1,4 +1,9 @@
-{ delib, lib, config, ... }:
+{
+  delib,
+  lib,
+  config,
+  ...
+}:
 delib.module {
   name = "programs.zellij";
   options = delib.singleEnableOption false;

@@ -18,7 +18,10 @@ delib.host {
         spec = "LABEL=NIXROOT";
         hashTableSizeMB = 256;
         verbosity = "crit";
-        extraOptions = [ "--loadavg-target" "2.0" ];
+        extraOptions = [
+          "--loadavg-target"
+          "2.0"
+        ];
       };
     };
   };

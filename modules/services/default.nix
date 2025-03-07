@@ -11,14 +11,16 @@ delib.module {
   };
 
   nixos.always = {
-    services.dbus.implementation = "broker";
-    services.printing = {
-      enable = true;
-      drivers = [ pkgs.hplip ];
-    };
-    services.avahi = {
-      enable = true;
-      nssmdns4 = true;
+    services = {
+      dbus.implementation = "broker";
+      printing = {
+        enable = true;
+        drivers = [ pkgs.hplip ];
+      };
+      avahi = {
+        enable = true;
+        nssmdns4 = true;
+      };
     };
   };
 }

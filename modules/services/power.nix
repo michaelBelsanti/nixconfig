@@ -1,4 +1,4 @@
-{delib, host, ...}:
+{ delib, host, ... }:
 delib.module {
   name = "services.power";
   options = delib.singleEnableOption host.isLaptop;

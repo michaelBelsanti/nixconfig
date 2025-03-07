@@ -12,7 +12,7 @@ let
     ANDROID_USER_HOME = "${dataHome}/android";
     CARGO_HOME = "${dataHome}/cargo";
     CUDA_CACHE_PATH = "${cacheHome}/nv";
-    DOTNET_CLI_HOME ="${dataHome}/dotnet";
+    DOTNET_CLI_HOME = "${dataHome}/dotnet";
     GOPATH = "${dataHome}/go";
     GRADLE_USER_HOME = "${dataHome}/gradle";
     LESSHISTFILE = "${cacheHome}/less/history";

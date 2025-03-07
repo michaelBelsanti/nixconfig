@@ -21,7 +21,8 @@ delib.module {
       }
     )) { };
   };
-  myconfig.ifEnabled.services.syncthing.devices.shit_phone.id = "2M5G4SD-LSEKDXK-5KB3EYF-CXIFVKY-3YSM35Y-KJTWQH2-ATNGIF4-RUBDTQ7";
+  myconfig.ifEnabled.services.syncthing.devices.shit_phone.id =
+    "2M5G4SD-LSEKDXK-5KB3EYF-CXIFVKY-3YSM35Y-KJTWQH2-ATNGIF4-RUBDTQ7";
   nixos.ifEnabled =
     { cfg, ... }:
     {
@@ -33,25 +34,23 @@ delib.module {
         lib.mkMerge [
           {
             enable = true;
-            settings.devices = cfg.devices;
-            # settings.folders."~/Documents/vault" = {
-            #   id = "vault";
-            #   devices = all_devices;
-            # };
-            settings.folders."~/sync" = {
-              id = "general";
-              devices = all_devices;
-            };
-            settings.folders."~/projects" = {
-              id = "projects";
-              devices = all_devices;
+            settings = {
+              inherit (cfg) devices;
+              folders."~/sync" = {
+                id = "general";
+                devices = all_devices;
+              };
+              folders."~/projects" = {
+                id = "projects";
+                devices = all_devices;
+              };
             };
           }
           (lib.mkIf (!cfg.headless) {
             user = constants.username;
             dataDir = constants.home;
           })
-          (lib.mkIf (cfg.headless) {
+          (lib.mkIf cfg.headless {
             dataDir = "/var/lib/syncthing";
             guiAddress = "0.0.0.0:8384";
           })

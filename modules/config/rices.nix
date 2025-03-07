@@ -1,17 +1,22 @@
-{delib, ...}:
+{ delib, ... }:
 delib.module {
   name = "rices";
 
-  options = with delib; let
-    rice = {
-      options = riceSubmoduleOptions;
+  options =
+    with delib;
+    let
+      rice = {
+        options = riceSubmoduleOptions;
+      };
+    in
+    {
+      rice = riceOption rice;
+      rices = ricesOption rice;
     };
-  in {
-    rice = riceOption rice;
-    rices = ricesOption rice;
-  };
 
-  home.always = {myconfig, ...}: {
-    assertions = delib.riceNamesAssertions myconfig.rices;
-  };
+  home.always =
+    { myconfig, ... }:
+    {
+      assertions = delib.riceNamesAssertions myconfig.rices;
+    };
 }

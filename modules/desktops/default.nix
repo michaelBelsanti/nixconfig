@@ -33,7 +33,7 @@ delib.module {
         pulse.enable = true;
         jack.enable = true;
       };
-      environment = lib.mkIf (cfg.wayland) {
+      environment = lib.mkIf cfg.wayland {
         systemPackages = [ pkgs.wl-clipboard ];
         sessionVariables.NIXOS_OZONE_WL = "1";
       };

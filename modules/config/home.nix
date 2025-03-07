@@ -1,10 +1,14 @@
-{ delib, constants, config, isHomeManager, ... }:
+{
+  delib,
+  constants,
+  config,
+  isHomeManager,
+  ...
+}:
 delib.module {
   name = "home";
   myconfig.always.args.shared.homeConfig =
-    if isHomeManager
-    then config
-    else config.home-manager.users.${constants.username};
+    if isHomeManager then config else config.home-manager.users.${constants.username};
   nixos.always.home-manager.useGlobalPkgs = true;
   home.always = {
     home = {

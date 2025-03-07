@@ -6,7 +6,7 @@
 delib.module {
   name = "programs.rofi";
   options = delib.singleEnableOption false;
-  home.ifEnabled =  {
+  home.ifEnabled = {
     xdg.configFile = {
       "rofi" = {
         source = ./rofi;

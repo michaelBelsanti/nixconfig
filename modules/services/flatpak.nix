@@ -1,4 +1,9 @@
-{ delib, host, inputs, ... }:
+{
+  delib,
+  host,
+  inputs,
+  ...
+}:
 delib.module {
   name = "services.flatpak";
   options = delib.singleEnableOption host.isWorkstation;

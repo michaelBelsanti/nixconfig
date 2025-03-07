@@ -8,10 +8,13 @@
 delib.module {
   name = "gaming";
   options = delib.singleEnableOption false;
-  nixos.always.imports = with inputs.nix-gaming.nixosModules; [
-    pipewireLowLatency
-    platformOptimizations
-  ] ++ [ inputs.chaotic.nixosModules.default ];
+  nixos.always.imports =
+    with inputs.nix-gaming.nixosModules;
+    [
+      pipewireLowLatency
+      platformOptimizations
+    ]
+    ++ [ inputs.chaotic.nixosModules.default ];
   nixos.ifEnabled = {
     chaotic.nyx.overlay.enable = true;
     environment.systemPackages = with pkgs; [

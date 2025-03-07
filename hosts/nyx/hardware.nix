@@ -18,28 +18,31 @@ delib.host {
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-    boot.initrd.availableKernelModules = [
-      "xhci_pci"
-      "ahci"
-      "usbhid"
-      "sd_mod"
-    ];
-    boot.initrd.kernelModules = [ ];
-    boot.kernelModules = [ "kvm-amd" ];
-    boot.extraModulePackages = [ ];
-
-    fileSystems."/" = {
-      device = "/dev/disk/by-uuid/d43a8ea4-3f83-4455-bf66-ad13600ea6d7";
-      fsType = "ext4";
+    boot = {
+      initrd.availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "sd_mod"
+      ];
+      initrd.kernelModules = [ ];
+      kernelModules = [ "kvm-amd" ];
+      extraModulePackages = [ ];
     };
 
-    fileSystems."/boot/efi" = {
-      device = "/dev/disk/by-uuid/4A59-A124";
-      fsType = "vfat";
-      options = [
-        "fmask=0022"
-        "dmask=0022"
-      ];
+    fileSystems = {
+      "/" = {
+        device = "/dev/disk/by-uuid/d43a8ea4-3f83-4455-bf66-ad13600ea6d7";
+        fsType = "ext4";
+      };
+      "/boot/efi" = {
+        device = "/dev/disk/by-uuid/4A59-A124";
+        fsType = "vfat";
+        options = [
+          "fmask=0022"
+          "dmask=0022"
+        ];
+      };
     };
 
     swapDevices = [ ];

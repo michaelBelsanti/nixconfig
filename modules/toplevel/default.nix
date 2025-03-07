@@ -1,4 +1,10 @@
-{ delib, pkgs, host, homeConfig, ...}:
+{
+  delib,
+  pkgs,
+  host,
+  homeConfig,
+  ...
+}:
 delib.module {
   name = "toplevel";
   nixos.always = {

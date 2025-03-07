@@ -1,4 +1,4 @@
-{ delib, host, ...}:
+{ delib, host, ... }:
 delib.module {
   name = "programs.adb";
   options = delib.singleEnableOption host.isWorkstation;

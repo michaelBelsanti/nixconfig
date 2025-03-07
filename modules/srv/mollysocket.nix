@@ -23,7 +23,7 @@ delib.module {
         };
       };
       caddy.virtualHosts."molly.quasi.lol" = mylib.caddy.mkReverseProxy {
-        port = config.services.mollysocket.settings.port;
+        inherit (config.services.mollysocket.settings) port;
       };
     };
   };

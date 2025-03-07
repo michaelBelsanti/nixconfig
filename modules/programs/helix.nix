@@ -24,7 +24,11 @@ delib.module {
           }
           {
             name = "markdown";
-            language-servers = [ "ltex-ls-plus" "marksman" "markdown-oxide" ];
+            language-servers = [
+              "ltex-ls-plus"
+              "marksman"
+              "markdown-oxide"
+            ];
           }
         ];
       };
