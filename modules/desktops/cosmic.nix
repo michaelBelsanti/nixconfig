@@ -12,19 +12,15 @@ delib.module {
   myconfig.ifEnabled.desktops.wayland = true;
 
   home.ifEnabled = {
-    # avoid bug with cosmic deleting gtk.css file
-    xdg.configFile."gtk-4.0/gtk.css".enable = false;
-    gtk = {
-      # Cosmic can make libadwaita apps follow the cosmic theme, so make gtk3 follow libadwaita
-      # mkForce because my theming modules set these
-      theme = lib.mkForce {
-        name = "adw-gtk3";
-        package = pkgs.adw-gtk3;
-      };
-      iconTheme = {
-        name = "Cosmic";
-        package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
-      };
+    xdg.configFile = {
+      # using cosmics automatic gtk theming
+      "gtk-4.0/assets".enable = false;
+      "gtk-4.0/gtk.css".enable = false;
+      "gtk-4.0/gtk-dark.css".enable = false;
+    };
+    gtk.iconTheme = {
+      name = "Cosmic";
+      package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
     };
   };
 

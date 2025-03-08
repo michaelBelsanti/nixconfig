@@ -38,11 +38,8 @@ delib.rice {
     };
     gtk = {
       theme = {
-        name = "catppuccin-${flavor}-${accent}-standard";
-        package = pkgs.catppuccin-gtk.override {
-          variant = flavor;
-          accents = [ accent ];
-        };
+        name = "adw-gtk3";
+        package = pkgs.adw-gtk3;
       };
     };
 
