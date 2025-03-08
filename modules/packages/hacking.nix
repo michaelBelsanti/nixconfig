@@ -15,6 +15,9 @@ delib.module {
     home.packages = with pkgs; [
       # general
       wordlists
+      (pkgs.writeScriptBin "wlfuzz" ''
+        ${lib.getExe fd} ${wordlists}/share/wordlists | ${lib.getExe television} files
+      '')
 
       # crackers
       thc-hydra
