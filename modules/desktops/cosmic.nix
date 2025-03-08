@@ -32,11 +32,11 @@ delib.module {
   nixos.ifEnabled = {
     # maybe remove after Wayland Proton releases
     systemd.user = {
-      services."wl-x11-clipsync" = {
+      services."xwayland-primary-display" = {
         script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
         wantedBy = [ "graphical-session.target" ];
       };
-      services."sync-wayland-xwayland-clipboard" =
+      services."wl-x11-clipsync" =
         let
           clipsync = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/arabianq/wl-x11-clipsync/fc3ac4d1d57ffdc3222e818c8a58d20c91f3fcf3/clipsync.py";
