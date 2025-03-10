@@ -64,6 +64,7 @@ delib.module {
         celluloid
         gnome-disk-utility
         file-roller
+        networkmanagerapplet
       ])
       ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
         andromeda
