@@ -1,4 +1,4 @@
-{ delib, pkgs, ... }:
+{ delib, pkgs, inputs, ... }:
 delib.module {
   name = "packages.cli";
   options = delib.singleEnableOption true;
@@ -45,7 +45,7 @@ delib.module {
     deadnix
     manix
     nh
-    nix-alien
+    inputs.nix-alien.packages.${system}.nix-alien
     nix-init
     nix-inspect
     nixos-rebuild-ng
