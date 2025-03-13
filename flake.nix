@@ -10,20 +10,19 @@
       ...
     }@inputs:
     let
+      paths = [
+        ./hosts
+        ./modules
+        ./rices
+      ];
       mkConfigurations =
         isHomeManager:
         let
           homeManagerUser = "quasi";
         in
         denix.lib.configurations {
-          inherit isHomeManager homeManagerUser;
+          inherit isHomeManager homeManagerUser paths;
           homeManagerNixpkgs = nixpkgs;
-
-          paths = [
-            ./hosts
-            ./modules
-            ./rices
-          ];
 
           specialArgs = {
             inherit
@@ -39,6 +38,9 @@
     {
       nixosConfigurations = mkConfigurations false;
       homeConfigurations = mkConfigurations true;
+    }
+    // {
+      denixModules = denix.lib.umport { inherit paths; };
     };
 
   inputs = {
@@ -69,7 +71,6 @@
       url = "github:viperML/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     nixpak = {
       url = "github:nixpak/nixpak";
       inputs.nixpkgs.follows = "nixpkgs";
