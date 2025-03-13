@@ -119,6 +119,8 @@
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    nilla-cli.url = "github:nilla-nix/cli";
   };
   nixConfig = {
     extra-substituters = [

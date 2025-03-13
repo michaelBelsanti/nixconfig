@@ -574,6 +574,21 @@
         "url": "https://codeberg.org/quasigod/nur.git"
       }
     },
+    "nilla-cli": {
+      "locked": {
+        "lastModified": 1741790852,
+        "narHash": "sha256-A2WujQVaO3XeYneTsI1Sq44HrFVNhGWP4lrCzSKabsk=",
+        "owner": "nilla-nix",
+        "repo": "cli",
+        "rev": "a42c555b98d239ada21691fe4d63bb550fb44bf7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nilla-nix",
+        "repo": "cli",
+        "type": "github"
+      }
+    },
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -957,6 +972,7 @@
         "lanzaboote": "lanzaboote",
         "lix-module": "lix-module",
         "mypkgs": "mypkgs",
+        "nilla-cli": "nilla-cli",
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
         "nix-flatpak": "nix-flatpak",
