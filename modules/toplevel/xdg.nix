@@ -31,6 +31,7 @@ delib.module {
   nixos.always.xdg = {
     terminal-exec.enable = host.isWorkstation;
     portal.xdgOpenUsePortal = host.isWorkstation;
+    autostart.enable = false;
   };
   home.always = {
     home.sessionVariables = vars;
