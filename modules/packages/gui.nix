@@ -46,7 +46,7 @@ delib.module {
         obsidian
       ]
       ++ (with inputs; [
-        mypkgs.packages.${system}.grayjay-desktop
+        mypkgs.packages.${system}.grayjay
       ]);
   };
 }
