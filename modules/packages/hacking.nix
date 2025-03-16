@@ -38,6 +38,7 @@ delib.module {
       smbmap
       whatweb
       gobuster
+      sqlmap
 
       responder
       wireshark
