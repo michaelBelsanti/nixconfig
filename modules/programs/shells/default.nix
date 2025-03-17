@@ -20,7 +20,7 @@ delib.module {
     programs.bash = {
       enable = true;
       enableVteIntegration = true;
-      historyFile = "${constants.dataHome}/bash/history";
+      historyFile = "${constants.configHome}/bash/history";
     };
   };
 }
