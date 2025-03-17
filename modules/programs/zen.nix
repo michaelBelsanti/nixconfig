@@ -86,7 +86,8 @@ delib.module {
   name = "programs.zen";
   options = delib.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
-    home.packages = [ zen.config.env ];
+    home.packages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
+    # home.packages = [ zen.config.env ];
     home.sessionVariables.BROWSER = "zen";
   };
 }
