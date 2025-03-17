@@ -1,7 +1,7 @@
 {
   delib,
-  inputs,
   pkgs,
+  inputs,
   ...
 }:
 delib.host {
@@ -67,7 +67,8 @@ delib.host {
       wally-cli
     ];
 
-    boot.kernelPackages = pkgs.linuxPackages_6_11;
+    # boot.kernelPackages = pkgs.linuxPackages_6_11;
+    boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
     networking = {
       hostName = "hades";
@@ -85,11 +86,12 @@ delib.host {
         acceleration = "rocm";
         rocmOverrideGfx = "11.0.1";
         user = "ollama";
-        environmentVariables.OLLAMA_DEBUG = "1";
+        # environmentVariables.OLLAMA_DEBUG = "1";
       };
       open-webui = {
         enable = true;
         port = 8008;
+        environment.WEBUI_AUTH = "False";
       };
       libinput.mouse = {
         accelProfile = "flat";
