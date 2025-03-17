@@ -121,10 +121,10 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
-    # nilla-cli = {
-    #   url = "github:nilla-nix/cli";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nilla-cli = {
+      url = "github:nilla-nix/cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   nixConfig = {
     extra-substituters = [
