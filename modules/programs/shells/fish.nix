@@ -31,7 +31,6 @@ delib.module {
       enable = true;
       interactiveShellInit = ''
         set fish_greeting
-        ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
       '';
     };
   };
