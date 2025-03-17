@@ -18,7 +18,6 @@ delib.module {
         kdePackages.kdenlive
         remmina
         (bottles.override { removeWarningPopup = true; })
-        localsend
         tidal-hifi
         # varia # TODO #380746
         quickemu
