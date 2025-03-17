@@ -34,6 +34,7 @@ delib.module {
         lib.mkMerge [
           {
             enable = true;
+            openDefaultPorts = true;
             settings = {
               inherit (cfg) devices;
               folders."~/sync" = {
