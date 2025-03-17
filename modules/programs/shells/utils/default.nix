@@ -26,7 +26,7 @@ delib.module {
           };
           shell.disabled = false;
           # for showing name when using something like sshmux
-          hostname.ssh_only = lib.mkIf host.isServer true;
+          hostname.ssh_only = !host.isServer;
         }
         // lib.optionalAttrs config.myconfig.programs.jujutsu.enable {
           git_branch.disabled = true;
