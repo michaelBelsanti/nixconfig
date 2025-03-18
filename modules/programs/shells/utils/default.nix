@@ -4,6 +4,7 @@
   lib,
   pkgs,
   config,
+  compat,
   ...
 }:
 delib.module {
@@ -70,10 +71,6 @@ delib.module {
         git = true;
         icons = "auto";
       };
-      nix-your-shell = {
-        enable = true;
-        inherit enableFishIntegration enableNushellIntegration enableZshIntegration;
-      };
       skim.enable = true;
       tealdeer = {
         enable = true;
@@ -89,5 +86,10 @@ delib.module {
           ;
       };
       zoxide.enable = true;
-    };
+    } // compat.mkCompat {
+      nix-your-shell = {
+        enable = true;
+        inherit enableFishIntegration enableNushellIntegration enableZshIntegration;
+      };
+    } {};
 }
