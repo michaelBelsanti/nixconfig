@@ -576,16 +576,16 @@
     },
     "nilla-cli": {
       "locked": {
-        "lastModified": 1742134384,
-        "narHash": "sha256-m8zcZtwM+t13FxL+k91tTc6XboSj8ZowJyX7MU/9EjM=",
-        "owner": "bbjubjub2494",
-        "repo": "nilla-cli",
-        "rev": "d1d6b017c2aa6a315dbf3834e42834afd12ef8b0",
+        "lastModified": 1742486689,
+        "narHash": "sha256-dEiksQJg7prkN8Sdz9UvlA2TviwqfAhPraeTVMKlR44=",
+        "owner": "nilla-nix",
+        "repo": "cli",
+        "rev": "ba92d0f5b464050162748df22f62259fd59cbc41",
         "type": "github"
       },
       "original": {
-        "owner": "bbjubjub2494",
-        "repo": "nilla-cli",
+        "owner": "nilla-nix",
+        "repo": "cli",
         "type": "github"
       }
     },
@@ -1107,11 +1107,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1742152409,
-        "narHash": "sha256-4SzEgAF/kPwReFVVHmXIAyTjjVmEj9bn0yPixXPvF4k=",
+        "lastModified": 1742487854,
+        "narHash": "sha256-54fVm0G80AssEbq8POn+rYehnF/G/x3StBeckxc/i9k=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "d6a8c61396f9e010f0799574ea67c01a211cbf41",
+        "rev": "d19fab1586636ff01fa6f10c58dffd0efedf1411",
         "type": "github"
       },
       "original": {

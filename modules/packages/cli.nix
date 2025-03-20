@@ -48,7 +48,7 @@ delib.module {
     # Nix
     cachix
     deadnix
-    inputs.nilla-cli.nilla.config.packages.nilla.build.${pkgs.system}
+    inputs.nilla-cli.packages.${system}.nilla
     inputs.nix-alien.packages.${system}.nix-alien
     manix
     nh
