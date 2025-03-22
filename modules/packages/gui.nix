@@ -12,6 +12,7 @@ delib.module {
     home.packages =
       with pkgs;
       [
+        mullvad
         libreoffice
         hunspell
         hunspellDicts.en_US-large
