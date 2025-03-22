@@ -47,6 +47,8 @@ delib.module {
       python3Packages.scapy
       xh
 
+      metasploit
+
       (pkgs.writeScriptBin "cyberchef" ''
         echo ${pkgs.cyberchef}/share/cyberchef/index.html
       '')
@@ -63,15 +65,15 @@ delib.module {
           {
             wrappers.rustscan = {
               basePackage = pkgs.rustscan;
-              flags = [ "-c ${constants.configHome}" ];
+              flags = [ "-c ${constants.configHome}/rustscan.toml" ];
             };
           }
-          {
-            wrappers.metasploit = {
-              basePackage = pkgs.metasploit;
-              flags = [ "--defer-module-loads" ];
-            };
-          }
+          # {
+          #   wrappers.metasploit = {
+          #     basePackage = pkgs.metasploit;
+          #     flags = [ "--defer-module-loads" ];
+          #   };
+          # }
         ];
       })
     ];
