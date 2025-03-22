@@ -20,11 +20,12 @@ delib.rice {
         inter
         openmoji-color
         nerd-fonts.symbols-only
+        atkinson-hyperlegible-next
       ];
       enableDefaultPackages = true;
       fontDir.enable = true;
       fontconfig.defaultFonts = {
-        sansSerif = [ "Inter" ];
+        sansSerif = [ "Atkinson Hyperlegible Next" ];
         monospace = [ "JetBrains Mono" ];
       };
     };
