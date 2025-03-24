@@ -6,7 +6,12 @@
   ...
 }:
 let
-  inherit (constants) dataHome configHome cacheHome;
+  inherit (constants)
+    dataHome
+    configHome
+    cacheHome
+    stateHome
+    ;
   vars = {
     # cleaning up ~
     ANDROID_USER_HOME = "${dataHome}/android";
@@ -17,6 +22,7 @@ let
     GRADLE_USER_HOME = "${dataHome}/gradle";
     LESSHISTFILE = "${cacheHome}/less/history";
     MPLAYER_HOME = "${configHome}/mplayer";
+    NODE_REPL_HISTORY = "${stateHome}/node_repl_history";
     NUGET_PACKAGES = "${cacheHome}/NuGetPackages";
     OCTAVE_HISTFILE = "${cacheHome}/octave-hsts";
     OCTAVE_SITE_INITFILE = "${configHome}/octave/octaverc";
@@ -37,6 +43,12 @@ delib.module {
     home.sessionVariables = vars;
     xdg = {
       enable = true;
+      inherit
+        configHome
+        dataHome
+        cacheHome
+        stateHome
+        ;
       userDirs = lib.mkIf host.isWorkstation {
         enable = true;
         createDirectories = true;
