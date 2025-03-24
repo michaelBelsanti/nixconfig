@@ -10,12 +10,6 @@
 delib.module {
   name = "programs.shells.utils";
   home.always.programs =
-    let
-      enableBashIntegration = true;
-      enableFishIntegration = true;
-      enableNushellIntegration = true;
-      enableZshIntegration = true;
-    in
     {
       starship = {
         enable = true;
@@ -47,7 +41,6 @@ delib.module {
       atuin = {
         enable = true;
         flags = [ "--disable-up-arrow" ];
-        inherit enableFishIntegration enableNushellIntegration;
       };
       bat = {
         enable = true;
@@ -70,26 +63,17 @@ delib.module {
         enable = true;
         git = true;
         icons = "auto";
+        enableNushellIntegration = false;
       };
       skim.enable = true;
       tealdeer = {
         enable = true;
         settings.updates.auto_update = true;
       };
-      yazi = {
-        enable = true;
-        inherit
-          enableBashIntegration
-          enableFishIntegration
-          enableZshIntegration
-          enableNushellIntegration
-          ;
-      };
+      yazi.enable = true;
       zoxide.enable = true;
-    } // compat.mkCompat {
-      nix-your-shell = {
-        enable = true;
-        inherit enableFishIntegration enableNushellIntegration enableZshIntegration;
-      };
-    } {};
+    }
+    // compat.mkCompat {
+      nix-your-shell.enable = true;
+    } { };
 }
