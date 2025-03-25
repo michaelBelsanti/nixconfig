@@ -41,6 +41,12 @@ let
           "org.freedesktop.NetworkManager" = "talk";
           "org.freedesktop.FileManager1" = "talk";
           "org.freedesktop.UPower" = "talk";
+          "org.a11y.Bus" = "talk";
+          "org.gtk.vfs.AfcVolumeMonitor" = "talk";
+          "org.gtk.vfs.GoaVolumeMonitor" = "talk";
+          "org.gtk.vfs.GPhoto2VolumeMonitor" = "talk";
+          "org.gtk.vfs.MTPVolumeMonitor" = "talk";
+
         };
 
         bubblewrap = {
@@ -55,6 +61,7 @@ let
             (sloth.concat' sloth.runtimeDir "/bus")
             (sloth.concat' sloth.runtimeDir "/dconf")
             (sloth.concat' sloth.runtimeDir "/doc")
+            "xdg-download"
           ];
           bind.ro =
             let
@@ -86,8 +93,8 @@ delib.module {
   name = "programs.zen";
   options = delib.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
-    home.packages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
-    # home.packages = [ zen.config.env ];
+    # home.packages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
+    home.packages = [ zen.config.env ];
     home.sessionVariables.BROWSER = "zen";
   };
 }
