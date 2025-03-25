@@ -1,4 +1,9 @@
-{ delib, host, pkgs, ... }:
+{
+  delib,
+  host,
+  pkgs,
+  ...
+}:
 delib.module {
   name = "programs.localsend";
   options = delib.singleEnableOption host.isWorkstation;

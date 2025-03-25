@@ -10,6 +10,12 @@
       ...
     }@inputs:
     let
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       paths = [
         ./hosts
         ./modules
@@ -41,6 +47,7 @@
     }
     // {
       denixModules = denix.lib.umport { inherit paths; };
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
 
   inputs = {
