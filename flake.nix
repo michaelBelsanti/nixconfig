@@ -44,8 +44,6 @@
     {
       nixosConfigurations = mkConfigurations false;
       homeConfigurations = mkConfigurations true;
-    }
-    // {
       denixModules = denix.lib.umport { inherit paths; };
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
     };
