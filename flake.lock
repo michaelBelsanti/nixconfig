@@ -576,11 +576,11 @@
     },
     "nilla-cli": {
       "locked": {
-        "lastModified": 1742812317,
-        "narHash": "sha256-hyt2pR7bW+NFlDOG14iOALVcswT/GaVurvrNJha7mVE=",
+        "lastModified": 1742880524,
+        "narHash": "sha256-Ph9OgHyV+pH1wzz+17Nld3lM2dYQ9WfLDeD31Dns1x0=",
         "owner": "nilla-nix",
         "repo": "cli",
-        "rev": "5927d96aa761f34f57249d93bf9ade6145d72839",
+        "rev": "8b363fe1c2ee7e09cb66e363eb2be2e492d22f70",
         "type": "github"
       },
       "original": {
