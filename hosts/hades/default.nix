@@ -86,10 +86,9 @@ delib.host {
         acceleration = "rocm";
         rocmOverrideGfx = "11.0.1";
         user = "ollama";
-        # environmentVariables.OLLAMA_DEBUG = "1";
       };
       open-webui = {
-        enable = true;
+        enable = false;
         port = 8008;
         environment.WEBUI_AUTH = "False";
       };
