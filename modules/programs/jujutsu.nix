@@ -15,6 +15,7 @@ delib.module {
           paginate = "never";
           default-command = "log";
         };
+        git.private-commits = "description(glob:'private:*')";
       };
     };
   };
