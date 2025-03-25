@@ -38,8 +38,8 @@ delib.module {
     # Go
     go
     # Python
-    pipx
     uv
+    poetry
     # Haskell
     ghc
     # JS

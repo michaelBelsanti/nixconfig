@@ -19,7 +19,6 @@ delib.module {
         kdePackages.kdenlive
         remmina
         (bottles.override { removeWarningPopup = true; })
-        tidal-hifi
         # varia # TODO #380746
         quickemu
         proton-pass
