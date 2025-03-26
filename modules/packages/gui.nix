@@ -20,12 +20,6 @@ delib.module {
         (bottles.override { removeWarningPopup = true; })
         varia
         proton-pass
-
-        (python3.withPackages (python-pkgs: [
-          python-pkgs.pandas
-          python-pkgs.requests
-        ]))
-
         jellyfin-media-player
         element-desktop
         gnome-frog

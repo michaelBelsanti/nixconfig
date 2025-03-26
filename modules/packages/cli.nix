@@ -25,7 +25,6 @@ delib.module {
     # Dev
     lazyjj
     lazygit
-    devenv
     jq
     ## Programming/Scripting
     # I use devshells for projects, but keep these installed for starting small projects easily
@@ -40,22 +39,19 @@ delib.module {
     # Python
     uv
     poetry
-    # Haskell
-    ghc
-    # JS
-    bun
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pandas
+      python-pkgs.requests
+    ]))
 
     # Nix
-    cachix
     deadnix
     inputs.nilla-cli.packages.${system}.nilla
     inputs.nix-alien.packages.${system}.nix-alien
-    manix
     nh
     nix-init
     nix-inspect
     nixos-rebuild-ng
-    nix-output-monitor
     nixpkgs-review
     nix-tree
     nix-update
@@ -66,20 +62,16 @@ delib.module {
 
     # nice to have tools
     aria2
-    cachix
-    cheat
     choose
     clipboard-jh
     codeberg-cli
     difftastic
-    dig
     distrobox
     dogdns
     du-dust
     edir
     eternal-terminal
     fd
-    ffmpeg
     gdu
     gh
     gh-dash
@@ -98,7 +90,6 @@ delib.module {
     superfile
     # systeroid # TODO
     try
-    vhs
     waypipe
     xxd
   ];
