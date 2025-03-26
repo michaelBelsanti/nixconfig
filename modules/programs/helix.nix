@@ -103,8 +103,8 @@ delib.module {
       rust-analyzer
       gopls
       delve
-      golangci-lint-langserver
-      golangci-lint
+      # golangci-lint-langserver # TODO
+      # golangci-lint
       taplo
       ruff
       python3Packages.jedi-language-server

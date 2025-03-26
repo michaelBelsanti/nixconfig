@@ -96,7 +96,7 @@ delib.module {
     ripgrep
     sd
     superfile
-    systeroid
+    # systeroid # TODO
     try
     vhs
     waypipe
