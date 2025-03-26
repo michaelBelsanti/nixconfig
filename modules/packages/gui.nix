@@ -16,32 +16,20 @@ delib.module {
         libreoffice
         hunspell
         hunspellDicts.en_US-large
-        kdePackages.kdenlive
         remmina
         (bottles.override { removeWarningPopup = true; })
-        # varia # TODO #380746
-        quickemu
+        varia
         proton-pass
-        zotero
 
         (python3.withPackages (python-pkgs: [
           python-pkgs.pandas
           python-pkgs.requests
         ]))
 
-        lan-mouse
-
         jellyfin-media-player
-        tetrio-desktop
         element-desktop
-        kdePackages.filelight
         gnome-frog
-        pomodoro
-        wike
-
         legcord
-        goofcord
-
         obsidian
       ]
       ++ (with inputs; [
