@@ -1,13 +1,12 @@
 {
   delib,
-  pkgs,
   inputs,
   self,
   ...
 }:
 delib.module {
   name = "nix";
-  options.nix.lix.enable = delib.boolOption false;
+  options.nix.lix.enable = delib.boolOption true;
   nixos.always =
     { cfg, ... }:
     {
