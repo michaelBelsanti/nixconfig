@@ -11,6 +11,7 @@ delib.module {
   options.zfs = with delib; {
     enable = boolOption host.isServer;
     pools = listOfOption str [ ];
+    sanoid = boolOption config.myconfig.zfs.enable;
   };
   nixos.ifEnabled =
     { cfg, ... }:
@@ -22,6 +23,22 @@ delib.module {
       services.zfs = {
         trim.enable = true;
         autoScrub.enable = true;
+      };
+      services.sanoid = {
+        enable = cfg.sanoid;
+        templates.main = {
+          daily = 30;
+          hourly = 24;
+        };
+        datasets =
+          builtins.listToAttrs (
+            map (pool: {
+              name = pool;
+              value = {
+                useTemplate = [ "main" ];
+              };
+            }) cfg.pools
+          );
       };
       sops.secrets.ntfy_creds = { };
       sops.secrets.ntfy_url = { };
