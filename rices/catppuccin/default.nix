@@ -44,6 +44,14 @@ delib.rice {
     };
 
     home.file.".background-image".source = wallpaper;
+    # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
+    xdg.configFile."kdeglobals" = {
+      enable = true;
+      text = ''
+        [UiSettings]
+        ColorScheme=*
+      '';
+    };
     dconf.settings = {
       "org/gnome/desktop/background" = {
         picture-uri = "${wallpaper}";
