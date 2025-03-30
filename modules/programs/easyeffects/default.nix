@@ -1,7 +1,7 @@
-{ delib, ... }:
+{ delib, host, ... }:
 delib.module {
   name = "programs.easyeffects";
-  options = delib.singleEnableOption false;
+  options = delib.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
     services.easyeffects.enable = true;
     xdg.configFile."easyeffects" = {
