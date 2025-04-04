@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   inputs,
   ...
 }:
-delib.module {
+unify.module {
   name = "packages.cli";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   home.always.home.packages = with pkgs; [
     # essential utils
     file

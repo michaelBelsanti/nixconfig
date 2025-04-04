@@ -1,14 +1,14 @@
 {
-  delib,
+  unify,
   pkgs,
   config,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells.zsh";
-  options.programs.shells.zsh = with delib; {
+  options.programs.shells.zsh = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.alacritty";
-  options.programs.alacritty = with delib; {
+  options.programs.alacritty = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

@@ -1,10 +1,10 @@
 {
-  delib,
+  unify,
   constants,
   pkgs,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.nh";
   nixos.always = {
     programs.nh = {

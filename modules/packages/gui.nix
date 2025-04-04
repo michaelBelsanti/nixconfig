@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   inputs,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "packages.gui";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
     home.packages =
       with pkgs;

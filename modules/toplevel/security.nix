@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   constants,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "security";
-  options.security.doas.enable = delib.boolOption false;
+  options.security.doas.enable = unify.boolOption false;
   nixos.always =
     { cfg, ... }:
     {

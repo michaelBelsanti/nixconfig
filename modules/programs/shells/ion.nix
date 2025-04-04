@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells.ion";
-  options.programs.shells.ion = with delib; {
+  options.programs.shells.ion = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

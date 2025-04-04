@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   host,
   lib,
   pkgs,
@@ -7,7 +7,7 @@
   compat,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells.utils";
   home.always.programs =
     {

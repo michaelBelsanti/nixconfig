@@ -1,5 +1,5 @@
-{ delib, lib, ... }:
-delib.module {
+{ unify, lib, ... }:
+unify.module {
   name = "compat";
   myconfig.always.args.shared.compat.mkCompat =
     unstableOptions: stableOptions:

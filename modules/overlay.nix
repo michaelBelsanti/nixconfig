@@ -1,6 +1,6 @@
 # Packages to inherit from an input
 {
-  delib,
+  unify,
   inputs,
   lib,
   ...
@@ -12,9 +12,9 @@
 #     infuse super {
 #     };
 # in
-delib.module {
+unify.module {
   name = "overlay";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   # home.always.nixpkgs.overlays = [ overlay ];
   # nixos.always.nixpkgs.overlays = [ overlay ];
 }

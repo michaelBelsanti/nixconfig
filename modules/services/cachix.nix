@@ -1,7 +1,7 @@
-{ delib, host, ... }:
-delib.module {
+{ unify, host, ... }:
+unify.module {
   name = "services.cachix";
-  options = delib.singleEnableOption host.isDesktop;
+  options = unify.singleEnableOption host.isDesktop;
   nixos.ifEnabled = {
     services.cachix-watch-store = {
       enable = true;

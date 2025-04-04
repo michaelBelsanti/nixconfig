@@ -1,7 +1,7 @@
-{ delib, host, ... }:
-delib.module {
+{ unify, host, ... }:
+unify.module {
   name = "services.power";
-  options = delib.singleEnableOption host.isLaptop;
+  options = unify.singleEnableOption host.isLaptop;
 
   nixos.ifEnabled.services = {
     thermald.enable = true;

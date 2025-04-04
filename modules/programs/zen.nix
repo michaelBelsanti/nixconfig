@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   inputs,
   host,
   pkgs,
@@ -82,9 +82,9 @@ let
   };
 
 in
-delib.module {
+unify.module {
   name = "programs.zen";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   home.ifEnabled = {
     home.packages = [ inputs.zen-browser.packages.${pkgs.system}.default ];
     # home.packages = [ zen.config.env ];

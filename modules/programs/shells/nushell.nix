@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells.nushell";
-  options.programs.shells.nushell = with delib; {
+  options.programs.shells.nushell = with unify; {
     enable = boolOption true;
     default = boolOption false;
   };

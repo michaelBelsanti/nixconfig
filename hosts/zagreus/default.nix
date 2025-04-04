@@ -1,10 +1,10 @@
 {
-  delib,
+  unify,
   inputs,
   pkgs,
   ...
 }:
-delib.host {
+unify.host {
   name = "zagreus";
   rice = "catppuccin";
   type = "laptop";

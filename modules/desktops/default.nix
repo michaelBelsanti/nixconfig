@@ -1,16 +1,16 @@
 {
-  delib,
+  unify,
   pkgs,
   host,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "desktops";
   options.desktops = {
-    enable = delib.boolOption host.isWorkstation;
-    wayland = delib.boolOption true;
+    enable = unify.boolOption host.isWorkstation;
+    wayland = unify.boolOption true;
   };
   nixos.ifEnabled =
     { cfg, ... }:

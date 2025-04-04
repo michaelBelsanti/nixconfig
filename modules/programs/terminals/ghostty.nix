@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.ghostty";
-  options.programs.ghostty = with delib; {
+  options.programs.ghostty = with unify; {
     enable = boolOption host.isWorkstation;
     default = boolOption true;
   };

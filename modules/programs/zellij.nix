@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   lib,
   config,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.zellij";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   home.ifEnabled = {
     programs.zellij = {
       enable = true;

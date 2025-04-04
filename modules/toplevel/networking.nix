@@ -1,17 +1,17 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   host,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "networking";
   options.networking = {
     tailscale = {
-      enable = delib.boolOption true;
-      remote = delib.boolOption false;
+      enable = unify.boolOption true;
+      remote = unify.boolOption false;
     };
   };
   nixos.always =

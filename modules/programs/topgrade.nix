@@ -1,7 +1,7 @@
-{ delib, lib, ... }:
-delib.module {
+{ unify, lib, ... }:
+unify.module {
   name = "programs.topgrade";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   home.ifEnabled =
     { myconfig, ... }:
     {

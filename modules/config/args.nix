@@ -1,8 +1,8 @@
-{ delib, ... }:
-delib.module {
+{ unify, ... }:
+unify.module {
   name = "args";
 
-  options.args = with delib; {
+  options.args = with unify; {
     shared = attrsLegacyOption { };
     nixos = attrsLegacyOption { };
     home = attrsLegacyOption { };

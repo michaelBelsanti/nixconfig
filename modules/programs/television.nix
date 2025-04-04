@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
@@ -12,10 +12,10 @@ let
     };
   };
 in
-delib.module {
+unify.module {
   name = "programs.television";
   options.programs.television = {
-    enable = delib.boolOption false;
+    enable = unify.boolOption false;
     settings = lib.mkOption {
       inherit (settingsFormat) type;
       default = television-config;

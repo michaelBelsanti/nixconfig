@@ -1,10 +1,10 @@
 {
-  delib,
+  unify,
   constants,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "user";
 
   nixos.always = {

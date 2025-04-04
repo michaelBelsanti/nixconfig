@@ -1,22 +1,22 @@
 {
-  delib,
+  unify,
   host,
   constants,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "services.syncthing";
   options.services.syncthing = {
-    enable = delib.boolOption true;
-    headless = delib.boolOption host.isServer;
-    devices = delib.attrsOfOption (delib.submodule (
+    enable = unify.boolOption true;
+    headless = unify.boolOption host.isServer;
+    devices = unify.attrsOfOption (unify.submodule (
       { name, ... }:
       {
         options = {
-          name = delib.strOption name;
-          id = delib.noDefault (delib.strOption null);
-          addresses = delib.listOfOption delib.str [ "dynamic" ];
+          name = unify.strOption name;
+          id = unify.noDefault (unify.strOption null);
+          addresses = unify.listOfOption unify.str [ "dynamic" ];
         };
       }
     )) { };

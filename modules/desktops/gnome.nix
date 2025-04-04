@@ -1,7 +1,7 @@
-{ delib, pkgs, ... }:
-delib.module {
+{ unify, pkgs, ... }:
+unify.module {
   name = "desktops.gnome";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   myconfig.ifEnabled.desktops.wayland = true;
 
   home.ifEnabled = {

@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   inputs,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "gaming";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   nixos.always.imports =
     with inputs.nix-gaming.nixosModules;
     [

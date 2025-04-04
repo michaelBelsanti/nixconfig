@@ -1,16 +1,16 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   constants,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "virtualisation";
   options.virtualisation = {
-    enable = delib.boolOption host.isWorkstation;
-    waydroid.enable = delib.boolOption false;
+    enable = unify.boolOption host.isWorkstation;
+    waydroid.enable = unify.boolOption false;
   };
   nixos.ifEnabled =
     { cfg, ... }:

@@ -1,9 +1,9 @@
-{ delib, ... }:
-delib.module {
+{ unify, ... }:
+unify.module {
   name = "rices";
 
   options =
-    with delib;
+    with unify;
     let
       rice = {
         options = riceSubmoduleOptions;
@@ -17,6 +17,6 @@ delib.module {
   home.always =
     { myconfig, ... }:
     {
-      assertions = delib.riceNamesAssertions myconfig.rices;
+      assertions = unify.riceNamesAssertions myconfig.rices;
     };
 }

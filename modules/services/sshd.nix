@@ -1,9 +1,9 @@
-{ delib, host, ... }:
-delib.module {
+{ unify, host, ... }:
+unify.module {
   name = "services.sshd";
   options.services.sshd = {
-    enable = delib.boolOption host.isServer;
-    eternal-terminal.enable = delib.boolOption host.isServer;
+    enable = unify.boolOption host.isServer;
+    eternal-terminal.enable = unify.boolOption host.isServer;
   };
   nixos.ifEnabled =
     { cfg, ... }:

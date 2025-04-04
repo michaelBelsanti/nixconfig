@@ -1,5 +1,5 @@
-{ delib, ... }:
-delib.host {
+{ unify, ... }:
+unify.host {
   name = "hades";
 
   nixos = {

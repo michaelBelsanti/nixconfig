@@ -1,14 +1,14 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   inputs,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "desktops.cosmic";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   myconfig.ifEnabled.desktops.wayland = true;
 
   home.ifEnabled = {

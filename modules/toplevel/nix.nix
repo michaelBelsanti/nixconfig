@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   inputs,
   self,
   ...
 }:
-delib.module {
+unify.module {
   name = "nix";
-  options.nix.lix.enable = delib.boolOption true;
+  options.nix.lix.enable = unify.boolOption true;
   nixos.always =
     { cfg, ... }:
     {

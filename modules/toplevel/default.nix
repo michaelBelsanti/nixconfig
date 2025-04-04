@@ -1,11 +1,11 @@
 {
-  delib,
+  unify,
   pkgs,
   host,
   homeConfig,
   ...
 }:
-delib.module {
+unify.module {
   name = "toplevel";
   nixos.always = {
     environment = {

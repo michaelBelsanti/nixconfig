@@ -1,11 +1,11 @@
 {
-  delib,
+  unify,
   pkgs,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.rofi";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   home.ifEnabled = {
     xdg.configFile = {
       "rofi" = {

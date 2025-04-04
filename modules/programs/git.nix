@@ -1,11 +1,11 @@
 {
-  delib,
+  unify,
   compat,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.git";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   home.ifEnabled.programs.git =
     {
       enable = true;

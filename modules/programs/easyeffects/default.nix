@@ -1,7 +1,7 @@
-{ delib, host, ... }:
-delib.module {
+{ unify, host, ... }:
+unify.module {
   name = "programs.easyeffects";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   home.ifEnabled.services.easyeffects = {
     enable = true;
     extraPresets =

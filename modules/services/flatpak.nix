@@ -1,11 +1,11 @@
 {
-  delib,
+  unify,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "services.flatpak";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   nixos.ifEnabled = {
     appstream.enable = true;
     services.flatpak.enable = true;

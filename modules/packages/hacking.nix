@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   wrapper-manager,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "packages.hacking";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   nixos.ifEnabled = {
     programs.wireshark.enable = true;
   };

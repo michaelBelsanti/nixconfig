@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.proton-drive";
-  options = delib.singleEnableOption false;
+  options = unify.singleEnableOption false;
   home.ifEnabled = {
     systemd.user.services.proton-drive = {
       Unit = {

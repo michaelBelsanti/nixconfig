@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "shells.utils.inshellisense";
-  options.shells.utils.inshellisense = with delib; {
+  options.shells.utils.inshellisense = with unify; {
     enable = boolOption false;
     enableBashIntegration = boolOption true;
     enableFishIntegration = boolOption true;

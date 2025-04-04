@@ -1,14 +1,14 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   host,
   config,
   ...
 }:
-delib.module {
+unify.module {
   name = "zfs";
-  options.zfs = with delib; {
+  options.zfs = with unify; {
     enable = boolOption host.isServer;
     pools = listOfOption str [ ];
     sanoid = boolOption config.myconfig.zfs.enable;

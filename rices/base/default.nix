@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
@@ -7,7 +7,7 @@
 let
   inherit (lib) mkIf;
 in
-delib.rice {
+unify.rice {
   name = "base";
   inheritanceOnly = true;
 

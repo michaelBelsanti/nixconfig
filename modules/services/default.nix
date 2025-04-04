@@ -1,6 +1,6 @@
 # Services that don't need much configuration and won't need to be explicitly disabled on any systems.
-{ delib, pkgs, ... }:
-delib.module {
+{ unify, pkgs, ... }:
+unify.module {
   name = "services";
 
   home.always = {

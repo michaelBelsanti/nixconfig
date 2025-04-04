@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.foot";
-  options.programs.foot = with delib; {
+  options.programs.foot = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

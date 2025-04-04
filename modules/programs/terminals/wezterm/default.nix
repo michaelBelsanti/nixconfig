@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.wezterm";
-  options.programs.wezterm = with delib; {
+  options.programs.wezterm = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

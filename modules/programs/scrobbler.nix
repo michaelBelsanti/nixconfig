@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   host,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.scrobbler";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   home.ifEnabled =
     let
       mpris-scrobbler = pkgs.mpris-scrobbler.overrideAttrs {

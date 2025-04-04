@@ -1,13 +1,13 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells.fish";
-  options.programs.shells.fish = with delib; {
+  options.programs.shells.fish = with unify; {
     enable = boolOption true;
     default = boolOption true;
   };

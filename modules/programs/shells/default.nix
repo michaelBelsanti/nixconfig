@@ -1,10 +1,10 @@
 {
-  delib,
+  unify,
   pkgs,
   constants,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.shells";
   nixos.always.environment.shells = [ pkgs.bashInteractive ];
   home.always = {

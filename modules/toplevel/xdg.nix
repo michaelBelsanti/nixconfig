@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   host,
   lib,
   constants,
@@ -32,7 +32,7 @@ let
     _Z_DATA = "${dataHome}/z";
   };
 in
-delib.module {
+unify.module {
   name = "xdg";
   nixos.always.xdg = {
     terminal-exec.enable = host.isWorkstation;

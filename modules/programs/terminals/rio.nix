@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.rio";
-  options.programs.rio = with delib; {
+  options.programs.rio = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

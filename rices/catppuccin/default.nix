@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   inputs,
   pkgs,
   ...
@@ -9,7 +9,7 @@ let
   accent = "pink";
   wallpaper = ./background_upscaled.png;
 in
-delib.rice {
+unify.rice {
   name = "catppuccin";
   inherits = [ "base" ];
 

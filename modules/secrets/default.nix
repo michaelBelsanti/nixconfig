@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   inputs,
   constants,
   pkgs,
@@ -12,9 +12,9 @@ let
     age.keyFile = "${constants.configHome}/sops/age/keys.txt";
   };
 in
-delib.module {
+unify.module {
   name = "secrets";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   home.always = {
     imports = [ inputs.sops-nix.homeManagerModules.sops ];
     sops = sops_config;

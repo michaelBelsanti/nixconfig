@@ -1,9 +1,9 @@
-{ delib, lib, ... }:
-delib.module {
+{ unify, lib, ... }:
+unify.module {
   name = "hosts";
 
   options =
-    with delib;
+    with unify;
     let
       host =
         { config, ... }:
@@ -60,7 +60,7 @@ delib.module {
     { myconfig, ... }:
     {
       assertions =
-        delib.hostNamesAssertions myconfig.hosts
+        unify.hostNamesAssertions myconfig.hosts
         ++ lib.singleton {
           assertion =
             builtins.length (lib.attrsToList (lib.filterAttrs (_: v: v.primary) myconfig.host.displays)) <= 1;

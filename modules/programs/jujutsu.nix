@@ -1,7 +1,7 @@
-{ delib, ... }:
-delib.module {
+{ unify, ... }:
+unify.module {
   name = "programs.jujutsu";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
   home.ifEnabled = {
     home.shellAliases.jji = "jj --ignore-immutable";
     programs.jujutsu = {

@@ -1,5 +1,5 @@
-{ delib, inputs, ... }:
-delib.module {
+{ unify, inputs, ... }:
+unify.module {
   name = "programs.nix-index-db";
   nixos.always = {
     imports = [ inputs.nix-index-database.nixosModules.nix-index ];

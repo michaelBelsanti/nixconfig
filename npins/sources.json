@@ -30,14 +30,27 @@
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "michaelBelsanti",
-        "repo": "denilla"
+        "owner": "yunfachi",
+        "repo": "denix"
       },
-      "branch": "nilla",
+      "branch": "master",
       "submodules": false,
-      "revision": "4c13d1c45e80c5b36c259b6fd6c725b19c1c95c6",
-      "url": "https://github.com/michaelBelsanti/denilla/archive/4c13d1c45e80c5b36c259b6fd6c725b19c1c95c6.tar.gz",
-      "hash": "1whdc6cvmq00hrf3l7frn2cabiywwj6bzy0dvb616mskyazw07wd"
+      "revision": "a14d098367f55024334951418691bf00f7a5f2dc",
+      "url": "https://github.com/yunfachi/denix/archive/a14d098367f55024334951418691bf00f7a5f2dc.tar.gz",
+      "hash": "1l3nwykq6nc06ls84dckjjlkl2422sc272p25imw1ydmb770hlql"
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "0f5908daf890c3d7e7052bef1d6deb0f2710aaa1",
+      "url": "https://github.com/nix-community/home-manager/archive/0f5908daf890c3d7e7052bef1d6deb0f2710aaa1.tar.gz",
+      "hash": "0f9m2gzhcyxdl9a2a73qd9axg64hgxrvw2rk9gj09ns80v4rbdyq"
     },
     "infuse": {
       "type": "Git",
@@ -256,6 +269,20 @@
       "revision": "cff8437c5fe8c68fc3a840a21bf1f4dc801da40d",
       "url": "https://github.com/Mic92/sops-nix/archive/cff8437c5fe8c68fc3a840a21bf1f4dc801da40d.tar.gz",
       "hash": "1ddxjbwlygzcylvmj1vbgwv2hl0vwh911wsxk21qmwmlhq8pbgfr"
+    },
+    "unify": {
+      "type": "Git",
+      "repository": {
+        "type": "Forgejo",
+        "server": "https://codeberg.org/",
+        "owner": "quasigod",
+        "repo": "unify"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "a83ecb31168cd6fab5d602aea14c07eddc30acab",
+      "url": "https://codeberg.org/quasigod/unify/archive/a83ecb31168cd6fab5d602aea14c07eddc30acab.tar.gz",
+      "hash": "1yd28583faizhs0b5blbmpy6yy1isxg2cqwaa6s1gv9vz09xhygs"
     },
     "wrapper-manager": {
       "type": "Git",

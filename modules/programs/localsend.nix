@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   host,
   pkgs,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.localsend";
-  options = delib.singleEnableOption host.isWorkstation;
+  options = unify.singleEnableOption host.isWorkstation;
   nixos.ifEnabled.programs.localsend.enable = true;
   home.ifEnabled.home.packages = [ pkgs.localsend ];
 }

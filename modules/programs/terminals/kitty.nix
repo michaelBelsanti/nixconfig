@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   pkgs,
   lib,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.kitty";
-  options.programs.kitty = with delib; {
+  options.programs.kitty = with unify; {
     enable = boolOption false;
     default = boolOption false;
   };

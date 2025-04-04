@@ -1,16 +1,16 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   inputs,
   host,
   ...
 }:
-delib.module {
+unify.module {
   name = "boot";
   options.boot = {
-    lanzaboote = delib.boolOption false;
-    plymouth = delib.boolOption host.isWorkstation;
+    lanzaboote = unify.boolOption false;
+    plymouth = unify.boolOption host.isWorkstation;
   };
   nixos.always =
     { cfg, ... }:

@@ -1,12 +1,12 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   ...
 }:
-delib.module {
+unify.module {
   name = "programs.helix";
-  options = delib.singleEnableOption true;
+  options = unify.singleEnableOption true;
 
   home.ifEnabled = {
     home.sessionVariables = {

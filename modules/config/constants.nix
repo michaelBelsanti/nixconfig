@@ -1,12 +1,12 @@
-{ delib, homeManagerUser, ... }:
-delib.module {
+{ unify, homeManagerUser, ... }:
+unify.module {
   name = "constants";
 
   options.constants =
     let
       user = homeManagerUser;
     in
-    with delib;
+    with unify;
     {
       username = readOnly (strOption user);
       home = readOnly (strOption "/home/${user}");

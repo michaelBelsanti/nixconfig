@@ -1,5 +1,5 @@
-{ delib, ... }:
-delib.module {
+{ unify, ... }:
+unify.module {
   name = "locale";
   nixos.always = {
     time.timeZone = "America/New_York";

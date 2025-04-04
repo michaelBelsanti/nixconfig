@@ -1,5 +1,5 @@
 {
-  delib,
+  unify,
   lib,
   pkgs,
   ...
@@ -7,9 +7,9 @@
 let
   inherit (lib) mkIf getExe getExe';
 in
-delib.module {
+unify.module {
   name = "gaming.replays";
-  options.gaming.replays = with delib; {
+  options.gaming.replays = with unify; {
     enable = boolOption false;
     portal = boolOption false;
     screen = noDefault (strOption null);

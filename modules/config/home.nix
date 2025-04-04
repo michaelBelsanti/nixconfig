@@ -1,11 +1,11 @@
 {
-  delib,
+  unify,
   constants,
   config,
   isHomeManager,
   ...
 }:
-delib.module {
+unify.module {
   name = "home";
   myconfig.always.args.shared.homeConfig =
     if isHomeManager then config else config.home-manager.users.${constants.username};
