@@ -280,9 +280,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "a83ecb31168cd6fab5d602aea14c07eddc30acab",
-      "url": "https://codeberg.org/quasigod/unify/archive/a83ecb31168cd6fab5d602aea14c07eddc30acab.tar.gz",
-      "hash": "1yd28583faizhs0b5blbmpy6yy1isxg2cqwaa6s1gv9vz09xhygs"
+      "revision": "e26efb4c3830a656a3ec59384bce50d54dcf7b10",
+      "url": "https://codeberg.org/quasigod/unify/archive/e26efb4c3830a656a3ec59384bce50d54dcf7b10.tar.gz",
+      "hash": "1iw01g90p1pyc6zma9320hy7m9acy27q5gv45l9k3n22llkqjwzz"
     },
     "wrapper-manager": {
       "type": "Git",

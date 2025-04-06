@@ -6,7 +6,6 @@
 }:
 unify.host {
   name = "hades";
-  rice = "catppuccin";
   type = "desktop";
 
   displays = {

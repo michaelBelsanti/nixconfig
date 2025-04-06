@@ -15,19 +15,39 @@ nilla.create (
       in
       {
         lib.unify = inputs.unify.lib.unify;
-        unify.systems.hades = {
-          paths = [
-            ./hosts
-            ./modules
-            ./rices
-          ];
-          systemType = "nixos";
-          args = {
-            inherit inputs;
-            nillaConfig = config;
-            wrapper-manager = inputs.wrapper-manager;
+        unify.systems =
+          let
+            args = {
+              inherit inputs;
+              nillaConfig = config;
+              wrapper-manager = inputs.wrapper-manager;
+            };
+            systemType = "nixos";
+            rice = "catppuccin";
+            paths = [
+              ./hosts
+              ./modules
+              ./rices
+            ];
+          in
+          {
+            hades = {
+              inherit
+                args
+                systemType
+                rice
+                paths
+                ;
+            };
+            zagreus = {
+              inherit
+                args
+                systemType
+                rice
+                paths
+                ;
+            };
           };
-        };
         inputs = {
           nixpkgs = {
             src = pins.nixpkgs;

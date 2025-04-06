@@ -6,7 +6,6 @@
 }:
 unify.host {
   name = "zagreus";
-  rice = "catppuccin";
   type = "laptop";
 
   displays = {
