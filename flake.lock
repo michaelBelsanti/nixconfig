@@ -610,6 +610,21 @@
         "type": "github"
       }
     },
+    "nilla-nixos": {
+      "locked": {
+        "lastModified": 1743744989,
+        "narHash": "sha256-kCPyzuiLo4lCyTW5rB7qB/ugN5bdgVXaK1g4A+7VBjg=",
+        "owner": "nilla-nix",
+        "repo": "nixos",
+        "rev": "2d1baf07fd814421a8f4a275287def5ba4e6d9a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nilla-nix",
+        "repo": "nixos",
+        "type": "github"
+      }
+    },
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -979,6 +994,7 @@
         "lix-module": "lix-module",
         "mypkgs": "mypkgs",
         "nilla-cli": "nilla-cli",
+        "nilla-nixos": "nilla-nixos",
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",

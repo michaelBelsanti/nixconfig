@@ -127,6 +127,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     nilla-cli.url = "github:nilla-nix/cli";
+    nilla-nixos.url = "github:nilla-nix/nixos";
   };
   nixConfig = {
     extra-substituters = [

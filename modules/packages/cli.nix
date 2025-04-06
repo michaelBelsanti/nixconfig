@@ -47,6 +47,7 @@ delib.module {
     # Nix
     deadnix
     inputs.nilla-cli.packages.${system}.nilla
+    inputs.nilla-nixos.packages.${system}.nilla
     inputs.nix-alien.packages.${system}.nix-alien
     nh
     nix-init
