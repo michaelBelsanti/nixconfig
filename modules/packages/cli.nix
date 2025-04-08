@@ -89,7 +89,7 @@ delib.module {
     ripgrep
     sd
     superfile
-    # systeroid # TODO
+    systeroid
     try
     waypipe
     xxd
