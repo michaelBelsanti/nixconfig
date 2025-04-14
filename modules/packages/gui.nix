@@ -25,9 +25,9 @@ delib.module {
         gnome-frog
         legcord
         obsidian
-      ]
-      ++ (with inputs; [
-        mypkgs.packages.${system}.grayjay
-      ]);
+      ];
+      # ++ (with inputs; [
+      #   mypkgs.packages.${system}.grayjay
+      # ]);
   };
 }

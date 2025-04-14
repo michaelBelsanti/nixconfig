@@ -39,7 +39,7 @@ delib.host {
     hardware.framework.enableKmod = false;
     hardware.amdgpu.opencl.enable = true;
 
-    boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
     networking.hostName = "zagreus"; # Define your hostname.
 
