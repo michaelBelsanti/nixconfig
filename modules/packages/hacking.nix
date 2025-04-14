@@ -3,6 +3,8 @@
   pkgs,
   wrapper-manager,
   constants,
+  host,
+  homeConfig,
   ...
 }:
 delib.module {
@@ -60,6 +62,12 @@ delib.module {
             wrappers.burpsuite = {
               basePackage = pkgs.burpsuite;
               flags = [ "--disable-auto-update" ];
+              env.XCURSOR_SIZE = {
+                force = true;
+                value = toString (
+                  (homeConfig.home.pointerCursor.size or 32) * host.primaryDisplay.scaling
+                );
+              };
             };
           }
           {
