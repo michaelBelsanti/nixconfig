@@ -88,7 +88,7 @@ delib.host {
         user = "ollama";
       };
       open-webui = {
-        enable = false;
+        enable = true;
         port = 8008;
         environment.WEBUI_AUTH = "False";
       };
