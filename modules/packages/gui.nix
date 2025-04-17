@@ -4,6 +4,7 @@
   inputs,
   host,
   config,
+  wrapper-manager,
   ...
 }:
 delib.module {
@@ -23,10 +24,18 @@ delib.module {
       element-desktop
       gnome-frog
       legcord
-      obsidian
       (warpd.override {
         withWayland = config.myconfig.desktops.wayland;
         withX = !config.myconfig.desktops.wayland;
+      })
+      (wrapper-manager.lib.build {
+        inherit pkgs;
+        modules = lib.singleton {
+          wrappers.obsidian = {
+            basePackage = (obsidian.override { electron = electron_35; });
+            flags = [ "--enable-unsafe-webgpu" ];
+          };
+        };
       })
     ];
     # ++ (with inputs; [
