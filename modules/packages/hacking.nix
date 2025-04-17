@@ -28,6 +28,7 @@ delib.module {
       john
 
       # web
+      burpsuite
       zap
       ffuf
       mitmproxy
@@ -58,18 +59,6 @@ delib.module {
       (wrapper-manager.lib.build {
         inherit pkgs;
         modules = [
-          {
-            wrappers.burpsuite = {
-              basePackage = pkgs.burpsuite;
-              flags = [ "--disable-auto-update" ];
-              env.XCURSOR_SIZE = {
-                force = true;
-                value = toString (
-                  (homeConfig.home.pointerCursor.size or 32) * host.primaryDisplay.scaling
-                );
-              };
-            };
-          }
           {
             wrappers.rustscan = {
               basePackage = pkgs.rustscan;
