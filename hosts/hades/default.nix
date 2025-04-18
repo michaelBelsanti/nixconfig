@@ -92,10 +92,6 @@ delib.host {
         port = 8008;
         environment.WEBUI_AUTH = "False";
       };
-      libinput.mouse = {
-        accelProfile = "flat";
-        middleEmulation = false;
-      };
       openssh = {
         enable = true;
         ports = [ 42069 ];

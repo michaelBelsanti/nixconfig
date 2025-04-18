@@ -52,18 +52,6 @@ delib.host {
     environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
 
     services = {
-      libinput = {
-        mouse = {
-          accelProfile = "flat";
-          middleEmulation = false;
-          additionalOptions = ''
-            Option "MiddleEmulation" "off"
-          '';
-        };
-        touchpad = {
-          accelProfile = "adaptive";
-        };
-      };
       fprintd.enable = false; # Enable fingerprint scanner
       fwupd = {
         enable = true; # Enable firmware updates with `fwupdmgr update`
