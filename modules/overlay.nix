@@ -15,6 +15,5 @@ in
 delib.module {
   name = "overlay";
   options = delib.singleEnableOption false;
-  home.always.nixpkgs.overlays = [ overlay ];
   nixos.always.nixpkgs.overlays = [ overlay ];
 }

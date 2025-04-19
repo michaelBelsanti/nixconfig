@@ -84,6 +84,7 @@ delib.module {
     nvtopPackages.full
     ouch
     progress
+    procs
     psmisc
     rclone
     ripgrep
