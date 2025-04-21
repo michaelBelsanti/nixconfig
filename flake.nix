@@ -92,7 +92,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.url = "github:michaelBelsanti/nixos-cosmic/fix-files-tests";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
