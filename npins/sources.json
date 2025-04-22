@@ -1,0 +1,289 @@
+{
+  "pins": {
+    "catppuccin": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "nix"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "592094a02c4e43a9fa33559ade84d1ca015e8ada",
+      "url": "https://github.com/catppuccin/nix/archive/592094a02c4e43a9fa33559ade84d1ca015e8ada.tar.gz",
+      "hash": "0d9z1d14mp0ldhl0bjnn4k3pi15aw84fn7ffly7r3j979il5gqz0"
+    },
+    "chaotic": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "chaotic-cx",
+        "repo": "nyx"
+      },
+      "branch": "nyxpkgs-unstable",
+      "submodules": false,
+      "revision": "a8ecbd631f095169413bf74e6f728a8910440567",
+      "url": "https://github.com/chaotic-cx/nyx/archive/a8ecbd631f095169413bf74e6f728a8910440567.tar.gz",
+      "hash": "0l8lcyw10614a1gz6h53p98cpgswwjwwqazqhij5z8jy87ccl3bl"
+    },
+    "home-manager_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "c9433ae62fbb4bd09609e242569edc3b551e21a9",
+      "url": "https://github.com/nix-community/home-manager/archive/c9433ae62fbb4bd09609e242569edc3b551e21a9.tar.gz",
+      "hash": "0pmf3g0wpnfn6m3pkqmbpj1w3wqrhavcldc58a03h6jgyabww16d"
+    },
+    "infuse": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://codeberg.org/amjoseph/infuse.nix.git"
+      },
+      "branch": "trunk",
+      "submodules": false,
+      "revision": "c8fb7397039215e1444c835e36a0da7dc3c743f8",
+      "url": null,
+      "hash": "11pxx0c5pix216ai5blspcrnvgyszbxgxqz0ab5jbkxpfazbgsrp"
+    },
+    "lanzaboote": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "lanzaboote"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "995637eb3ab78eac33f8ee6b45cc2ecd5ede12ba",
+      "url": "https://github.com/nix-community/lanzaboote/archive/995637eb3ab78eac33f8ee6b45cc2ecd5ede12ba.tar.gz",
+      "hash": "1nrbs9bbl1vm6d0lkzn5n20fqgr38n430kjl3mc1l99sxf70fq70"
+    },
+    "lix-module": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://git.lix.systems/lix-project/nixos-module"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "fa69ae26cc32dda178117b46487c2165c0e08316",
+      "url": null,
+      "hash": "13x2dca4s049m8fa2y4b45kgqnpk3cf26j0j0yascah32zzxn7rh"
+    },
+    "mypkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "Git",
+        "url": "https://codeberg.org/quasigod/nur.git"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "1ff3576e04af40bd5be416916d4468f8ad526a07",
+      "url": null,
+      "hash": "0s1csz8q5ajzc7nb3fq75jck2w5dz0rrhc5wd56ggjzw6f4n9rgs"
+    },
+    "nilla-cli": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "cli"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "3cf22075a47bfadd408725037390249826e42080",
+      "url": "https://github.com/nilla-nix/cli/archive/3cf22075a47bfadd408725037390249826e42080.tar.gz",
+      "hash": "0ppb01lf1zf7yl1kw3558ij6dcxmvla7iaixk6l94ds1h0h5bvn1"
+    },
+    "nilla-utils": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "arnarg",
+        "repo": "nilla-utils"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "79c10f2ac836947c5d1e04d2690b5077e93ecf15",
+      "url": "https://github.com/arnarg/nilla-utils/archive/79c10f2ac836947c5d1e04d2690b5077e93ecf15.tar.gz",
+      "hash": "1scmhingig23ms5m778bhg5aaw416pj0h64nnji0a0w75isy723g"
+    },
+    "nix-alien": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "thiagokokada",
+        "repo": "nix-alien"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "5970d8560eb0f454ffac11fe01c9a0dc3fd83ca9",
+      "url": "https://github.com/thiagokokada/nix-alien/archive/5970d8560eb0f454ffac11fe01c9a0dc3fd83ca9.tar.gz",
+      "hash": "06556zv02v5phjf4byybf4lk28srwcmkz1qikyv1590i8bv26v33"
+    },
+    "nix-colors": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "misterio77",
+        "repo": "nix-colors"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "b01f024090d2c4fc3152cd0cf12027a7b8453ba1",
+      "url": "https://github.com/misterio77/nix-colors/archive/b01f024090d2c4fc3152cd0cf12027a7b8453ba1.tar.gz",
+      "hash": "0y9h042qrfjfys1gga65mkxd8j723xwivmcy94vfwnvnc9xy0dw5"
+    },
+    "nix-gaming": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "fufexan",
+        "repo": "nix-gaming"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "0f5d74ee88e75edada4d80ce4f9d6671ac6ff3ae",
+      "url": "https://github.com/fufexan/nix-gaming/archive/0f5d74ee88e75edada4d80ce4f9d6671ac6ff3ae.tar.gz",
+      "hash": "1nhxzvgm6vir4fic8lznfdqgmd6z9skjg1zqswlc1mr2x4znxz61"
+    },
+    "nix-index-database_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nix-index-database"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "69716041f881a2af935021c1182ed5b0cc04d40e",
+      "url": "https://github.com/nix-community/nix-index-database/archive/69716041f881a2af935021c1182ed5b0cc04d40e.tar.gz",
+      "hash": "0wa39n801jsqhnppn6hv1vckcchk2s9nkwak9nkjcwdv1xak8153"
+    },
+    "nixos-cosmic": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "michaelBelsanti",
+        "repo": "nixos-cosmic"
+      },
+      "branch": "fix-files-tests",
+      "submodules": false,
+      "revision": "75a92e084aefb3c79519fe2b47440a41345b9bdc",
+      "url": "https://github.com/michaelBelsanti/nixos-cosmic/archive/75a92e084aefb3c79519fe2b47440a41345b9bdc.tar.gz",
+      "hash": "1sq7ynjz70va2271vhz0vanwsymp55apdz2c91hn9s0kqsazvhg3"
+    },
+    "nixos-facter-modules": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "nixos-facter-modules"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "58ad9691670d293a15221d4a78818e0088d2e086",
+      "url": "https://github.com/nix-community/nixos-facter-modules/archive/58ad9691670d293a15221d4a78818e0088d2e086.tar.gz",
+      "hash": "09cgh59si6pha8kvfgw4gi84bfm5mknk7yg2n1vv8wli9y1j5ipf"
+    },
+    "nixos-hardware": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixos-hardware"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "9a049b4a421076d27fee3eec664a18b2066824cb",
+      "url": "https://github.com/nixos/nixos-hardware/archive/9a049b4a421076d27fee3eec664a18b2066824cb.tar.gz",
+      "hash": "0fadhgi4dba981fdr6l5m6916g5qillzp9x88gsf3sbhgbhq9dbx"
+    },
+    "nixpak": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixpak",
+        "repo": "nixpak"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "c99853b3e1973b95b86882e3f49763f9be168596",
+      "url": "https://github.com/nixpak/nixpak/archive/c99853b3e1973b95b86882e3f49763f9be168596.tar.gz",
+      "hash": "1xf6sz388i70vjhjm506d3idvps5m255hakzj75rspsi6s5jq0af"
+    },
+    "nixpkgs_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-unstable",
+      "submodules": false,
+      "revision": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
+      "url": "https://github.com/nixos/nixpkgs/archive/b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef.tar.gz",
+      "hash": "09dahi81cn02gnzsc8a00n945dxc18656ar0ffx5vgxjj1nhgsvy"
+    },
+    "sops-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Mic92",
+        "repo": "sops-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "5e3e92b16d6fdf9923425a8d4df7496b2434f39c",
+      "url": "https://github.com/Mic92/sops-nix/archive/5e3e92b16d6fdf9923425a8d4df7496b2434f39c.tar.gz",
+      "hash": "005awn8ldz5ybffbm4a817g101mmgdkl23gqhbs0akh9l6j97z3q"
+    },
+    "unify": {
+      "type": "Git",
+      "repository": {
+        "type": "Forgejo",
+        "server": "https://codeberg.org/",
+        "owner": "quasigod",
+        "repo": "unify"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "e10b15a36a428a10ed93b503b0925a463173af38",
+      "url": "https://codeberg.org/quasigod/unify/archive/e10b15a36a428a10ed93b503b0925a463173af38.tar.gz",
+      "hash": "055ca09qaknvnhlqyq3har9xr1yasqw49gkzjlnb6hvr605j11vm"
+    },
+    "wrapper-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "viperML",
+        "repo": "wrapper-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "a4990b7da8e7845974031599e7f6104226cfb43e",
+      "url": "https://github.com/viperML/wrapper-manager/archive/a4990b7da8e7845974031599e7f6104226cfb43e.tar.gz",
+      "hash": "0sggf71ain4m94xxlz3sxi51siaj32j2rpfmr9fiyvis01i1sszd"
+    },
+    "zen-browser": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "0xc000022070",
+        "repo": "zen-browser-flake"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "67df3e64a216db8ac3c8bc669143af090bf4e6ad",
+      "url": "https://github.com/0xc000022070/zen-browser-flake/archive/67df3e64a216db8ac3c8bc669143af090bf4e6ad.tar.gz",
+      "hash": "0j3swzxslbxy0ab1csfrndrmspzh91wqld9cm9w0nqqjnz814nqm"
+    }
+  },
+  "version": 5
+}
