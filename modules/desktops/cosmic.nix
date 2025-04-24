@@ -20,19 +20,20 @@ delib.module {
     };
     gtk.iconTheme = {
       name = "Cosmic";
-      package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
+      package = pkgs.cosmic-icons;
+      # package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
     };
   };
 
-  nixos.always.imports = [ inputs.nixos-cosmic.nixosModules.default ];
+  # nixos.always.imports = [ inputs.nixos-cosmic.nixosModules.default ];
   nixos.ifEnabled = {
     # maybe remove after Wayland Proton releases
-    systemd.user = {
-      services."xwayland-primary-display" = {
-        script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
-        wantedBy = [ "graphical-session.target" ];
-      };
-    };
+    # systemd.user = {
+    #   services."xwayland-primary-display" = {
+    #     script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
+    #     wantedBy = [ "graphical-session.target" ];
+    #   };
+    # };
     services = {
       desktopManager.cosmic.enable = true;
       displayManager.cosmic-greeter.enable = true;
@@ -47,20 +48,16 @@ delib.module {
         gnome-disk-utility
         file-roller
         networkmanagerapplet
-      ])
-      ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
-        andromeda
-        chronos
-        cosmic-ext-applet-clipboard-manager
-        cosmic-ext-applet-emoji-selector
         cosmic-ext-calculator
         cosmic-ext-tweaks
         cosmic-player
-        cosmic-reader
-        examine
         forecast
-        observatory
         tasks
+      ])
+      ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
+        andromeda
+        examine
+        observatory
       ]);
     environment.variables = {
       COSMIC_DATA_CONTROL_ENABLED = 1;

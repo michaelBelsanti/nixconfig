@@ -50,7 +50,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs-master.url = "github:nixos/nixpkgs/master";
     mypkgs = {
       url = "git+https://codeberg.org/quasigod/nur.git";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -92,7 +91,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic.url = "github:michaelBelsanti/nixos-cosmic/fix-files-tests";
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

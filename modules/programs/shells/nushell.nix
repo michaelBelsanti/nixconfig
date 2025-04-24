@@ -18,7 +18,6 @@ delib.module {
       users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.nushell;
     };
   home.ifEnabled = {
-    home.shell.enableNushellIntegration = false;
     programs = {
       nushell = {
         enable = true;
@@ -29,6 +28,9 @@ delib.module {
           lg = "lazygit";
           o = "xdg-open";
           cd = "z";
+          # overrides for global aliases
+          mkdir = lib.mkForce "mkdir";
+          open = lib.mkForce "open";
         };
         extraConfig = ''
           $env.config = {
@@ -38,10 +40,6 @@ delib.module {
                 termination_signal: true
             }
           }
-        '';
-        extraEnv = ''
-          sh -c "source /etc/profile"
-          sh -c "source ~/.profile"
         '';
       };
     };
