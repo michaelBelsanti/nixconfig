@@ -3,8 +3,9 @@ delib.module {
   name = "services.power";
   options = delib.singleEnableOption host.isLaptop;
 
-  nixos.ifEnabled.services = {
-    thermald.enable = true;
-    power-profiles-daemon.enable = true;
+  nixos.ifEnabled = {
+    services.power-profiles-daemon.enable = false;
+    hardware.system76.power-daemon.enable = true;
+    services.thermald.enable = true;
   };
 }
