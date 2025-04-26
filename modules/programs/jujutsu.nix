@@ -1,8 +1,6 @@
-{ delib, ... }:
-delib.module {
-  name = "programs.jujutsu";
-  options = delib.singleEnableOption true;
-  home.ifEnabled = {
+{ ... }:
+{
+  config.home = {
     home.shellAliases.jji = "jj --ignore-immutable";
     programs.jujutsu = {
       enable = true;

@@ -1,5 +1,4 @@
 {
-  delib,
   host,
   lib,
   constants,
@@ -32,14 +31,13 @@ let
     _Z_DATA = "${dataHome}/z";
   };
 in
-delib.module {
-  name = "xdg";
-  nixos.always.xdg = {
-    terminal-exec.enable = host.isWorkstation;
-    portal.xdgOpenUsePortal = host.isWorkstation;
+{
+  nixos.xdg = {
+    terminal-exec.enable = host.is "workstation";
+    portal.xdgOpenUsePortal = host.is "workstation";
     autostart.enable = lib.mkForce false;
   };
-  home.always = {
+  home = {
     home.sessionVariables = vars;
     xdg = {
       enable = true;
@@ -49,7 +47,7 @@ delib.module {
         cacheHome
         stateHome
         ;
-      userDirs = lib.mkIf host.isWorkstation {
+      userDirs = lib.mkIf host.is "workstation" {
         enable = true;
         createDirectories = true;
         desktop = null;

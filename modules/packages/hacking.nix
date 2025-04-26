@@ -1,20 +1,18 @@
 {
-  delib,
   pkgs,
   wrapper-manager,
   constants,
-  host,
-  homeConfig,
+  mylib,
+  lib,
+  config,
   ...
 }:
-delib.module {
+{
   name = "packages.hacking";
-  options = delib.singleEnableOption true;
-  nixos.ifEnabled = {
-    programs.wireshark.enable = true;
-  };
-  home.ifEnabled = {
-    home.packages = with pkgs; [
+  options.packages.hacking.enable = mylib.mkEnabledIf "workstation";
+  config = lib.mkIf config.packages.hacking.enable {
+    nixos.programs.wireshark.enable = true;
+    home.home.packages = with pkgs; [
       # general
       wordlists
       (pkgs.writeScriptBin "wlfuzz" ''

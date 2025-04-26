@@ -1,12 +1,14 @@
-{ delib, host, ... }:
-delib.module {
-  name = "services.cachix";
-  options = delib.singleEnableOption host.isDesktop;
-  nixos.ifEnabled = {
-    services.cachix-watch-store = {
-      enable = true;
-      cacheName = "quasigod";
-      cachixTokenFile = "/var/lib/secret/cachix.txt";
-    };
+{
+  mylib,
+  config,
+  lib,
+  ...
+}:
+{
+  options.services.cachix.enable = mylib.mkEnabledIf "desktop";
+  config.nixos.services.cachix-watch-store = lib.mkIf config.services.cachix.enable {
+    enable = true;
+    cacheName = "quasigod";
+    cachixTokenFile = "/var/lib/secret/cachix.txt";
   };
 }

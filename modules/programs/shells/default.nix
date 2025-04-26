@@ -1,13 +1,7 @@
+{ pkgs, constants, ... }:
 {
-  delib,
-  pkgs,
-  constants,
-  ...
-}:
-delib.module {
-  name = "programs.shells";
-  nixos.always.environment.shells = [ pkgs.bashInteractive ];
-  home.always = {
+  nixos.environment.shells = [ pkgs.bashInteractive ];
+  home = {
     home.shellAliases = {
       cd = "z";
       lj = "lazyjj";

@@ -1,5 +1,4 @@
 {
-  delib,
   host,
   lib,
   pkgs,
@@ -7,9 +6,8 @@
   compat,
   ...
 }:
-delib.module {
-  name = "programs.shells.utils";
-  home.always.programs =
+{
+  config.home.programs =
     {
       starship = {
         enable = true;
@@ -19,24 +17,22 @@ delib.module {
             hash = "sha256-6hSVUvVRr8UHHrfgzn/JOooELxz8xvZQwyQY5KJLvPU=";
           };
         };
-        settings =
-          {
-            format = "$all";
-            character = {
-              success_symbol = "[➜](bold green)";
-              error_symbol = "[➜](maroon)";
-            };
-            shell.disabled = false;
-            # for showing name when using something like sshmux
-            hostname.ssh_only = !host.isServer;
-          }
-          // lib.optionalAttrs config.myconfig.programs.jujutsu.enable {
-            git_branch.disabled = true;
-            git_commit.disabled = true;
-            git_state.disabled = true;
-            git_metrics.disabled = true;
-            git_status.disabled = true;
+        settings = {
+          format = "$all";
+          character = {
+            success_symbol = "[➜](bold green)";
+            error_symbol = "[➜](maroon)";
           };
+          shell.disabled = false;
+          # for showing name when using something like sshmux
+          hostname.ssh_only = host.is "server";
+          # For jujutsu
+          git_branch.disabled = true;
+          git_commit.disabled = true;
+          git_state.disabled = true;
+          git_metrics.disabled = true;
+          git_status.disabled = true;
+        };
       };
       atuin = {
         enable = true;

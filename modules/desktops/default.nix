@@ -1,20 +1,21 @@
 {
-  delib,
+  config,
   pkgs,
-  host,
   lib,
+  mylib,
   constants,
   ...
 }:
-delib.module {
-  name = "desktops";
+let
+  cfg = config.desktops;
+in
+{
   options.desktops = {
-    enable = delib.boolOption host.isWorkstation;
-    wayland = delib.boolOption true;
+    enable = mylib.mkEnabledIf "workstation";
+    wayland = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       services.xserver = lib.mkIf (!cfg.wayland) {
         enable = true;
         excludePackages = [ pkgs.xterm ];
@@ -39,18 +40,19 @@ delib.module {
       };
     };
 
-  home.ifEnabled = {
-    gtk = {
-      enable = true;
-      gtk2.configLocation = "${constants.configHome}/gtk-2.0/gtkrc";
-      gtk3 = {
-        bookmarks = [
-          "file:///home/quasi/Downloads Downloads"
-          "file:///home/quasi/Documents Documents"
-          "file:///home/quasi/Pictures Pictures"
-          "file:///home/quasi/Videos Videos"
-          "file:///home/quasi/Games Games"
-        ];
+    home = {
+      gtk = {
+        enable = true;
+        gtk2.configLocation = "${constants.configHome}/gtk-2.0/gtkrc";
+        gtk3 = {
+          bookmarks = [
+            "file:///home/quasi/Downloads Downloads"
+            "file:///home/quasi/Documents Documents"
+            "file:///home/quasi/Pictures Pictures"
+            "file:///home/quasi/Videos Videos"
+            "file:///home/quasi/Games Games"
+          ];
+        };
       };
     };
   };

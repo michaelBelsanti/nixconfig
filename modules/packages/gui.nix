@@ -1,17 +1,16 @@
 {
-  delib,
   pkgs,
-  inputs,
-  host,
   config,
   wrapper-manager,
+  mylib,
+  lib,
   ...
 }:
-delib.module {
-  name = "packages.gui";
-  options = delib.singleEnableOption host.isWorkstation;
-  home.ifEnabled = {
-    home.packages = with pkgs; [
+{
+  options.packages.gui.enable = mylib.mkEnabledIf "workstation";
+  config.home.home.packages = lib.mkIf config.packages.gui.enable (
+    with pkgs;
+    [
       mullvad
       libreoffice
       hunspell
@@ -25,8 +24,8 @@ delib.module {
       gnome-frog
       legcord
       (warpd.override {
-        withWayland = config.myconfig.desktops.wayland;
-        withX = !config.myconfig.desktops.wayland;
+        withWayland = config.desktops.wayland;
+        withX = !config.desktops.wayland;
       })
       (wrapper-manager.lib.build {
         inherit pkgs;
@@ -37,9 +36,9 @@ delib.module {
           };
         };
       })
-    ];
-    # ++ (with inputs; [
-    #   mypkgs.packages.${system}.grayjay
-    # ]);
-  };
+    ]
+  );
+  # ++ (with inputs; [
+  #   mypkgs.packages.${system}.grayjay
+  # ]);
 }

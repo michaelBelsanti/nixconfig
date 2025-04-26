@@ -1,13 +1,12 @@
 {
-  delib,
-  lib,
+  mylib,
   config,
+  lib,
   ...
 }:
-delib.module {
-  name = "programs.zellij";
-  options = delib.singleEnableOption false;
-  home.ifEnabled = {
+{
+  options.programs.zellij.enable = mylib.mkBool false;
+  config.home = lib.mkIf config.programs.zellij.enable {
     programs.zellij = {
       enable = true;
       enableFishIntegration = true;

@@ -1,26 +1,25 @@
 {
-  delib,
   pkgs,
   config,
   lib,
-  constants,
+  mylib,
+  user,
   ...
 }:
-delib.module {
-  name = "programs.shells.zsh";
-  options.programs.shells.zsh = with delib; {
-    enable = boolOption false;
-    default = boolOption false;
+let
+  cfg = config.programs.shells.zsh;
+in
+{
+  options.programs.shells.zsh = {
+    enable = mylib.mkBool false;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       programs.zsh.enable = true;
-      users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.zsh;
+      users.users.${user}.shell = lib.mkIf cfg.default pkgs.zsh;
     };
-  home.ifEnabled =
-
-    {
+    home = {
       programs = {
         zsh = {
           enable = true;
@@ -72,4 +71,5 @@ delib.module {
         };
       };
     };
+  };
 }

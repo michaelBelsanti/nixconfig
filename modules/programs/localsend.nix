@@ -1,12 +1,14 @@
 {
-  delib,
-  host,
   pkgs,
+  mylib,
+  config,
+  lib,
   ...
 }:
-delib.module {
-  name = "programs.localsend";
-  options = delib.singleEnableOption host.isWorkstation;
-  nixos.ifEnabled.programs.localsend.enable = true;
-  home.ifEnabled.home.packages = [ pkgs.localsend ];
+{
+  options.programs.localsend.enable = mylib.mkEnabledIf "workstation";
+  config = lib.mkIf config.programs.localsend.enable {
+    nixos.programs.localsend.enable = true;
+    home.home.packages = [ pkgs.localsend ];
+  };
 }

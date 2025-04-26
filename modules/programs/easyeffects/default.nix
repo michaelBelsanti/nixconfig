@@ -1,8 +1,12 @@
-{ delib, host, ... }:
-delib.module {
-  name = "programs.easyeffects";
-  options = delib.singleEnableOption host.isWorkstation;
-  home.ifEnabled.services.easyeffects = {
+{
+  mylib,
+  config,
+  lib,
+  ...
+}:
+{
+  options.programs.easyeffects.enable = mylib.mkEnabledIf "workstation";
+  config.home.services.easyeffects = lib.mkIf config.programs.easyeffects.enable {
     enable = true;
     extraPresets =
       let

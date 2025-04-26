@@ -1,8 +1,8 @@
 # Packages to inherit from an input
 {
-  delib,
   inputs,
   lib,
+  mylib,
   ...
 }:
 let
@@ -12,8 +12,7 @@ let
     infuse super {
     };
 in
-delib.module {
-  name = "overlay";
-  options = delib.singleEnableOption false;
-  nixos.always.nixpkgs.overlays = [ overlay ];
+{
+  options.overlay.enable = mylib.mkBool false;
+  config.nixos.nixpkgs.overlays = lib.mkIf overlay.enable [ overlay ];
 }

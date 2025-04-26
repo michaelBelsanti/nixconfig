@@ -1,18 +1,20 @@
 {
-  delib,
   pkgs,
+  mylib,
   lib,
+  config,
   ...
 }:
 let
-  inherit (lib) mkIf;
+  cfg = config.themes;
 in
-delib.rice {
-  name = "base";
-  inheritanceOnly = true;
-
-  nixos = {
-    fonts = {
+{
+  options.themes = {
+    enable = mylib.mkEnabledIf "workstation";
+    wallpaper = mylib.mkOption lib.types.path null;
+  };
+  config = lib.mkIf cfg.enable {
+    nixos.fonts = {
       packages = with pkgs; [
         jetbrains-mono
         montserrat
@@ -29,14 +31,14 @@ delib.rice {
         monospace = [ "JetBrains Mono" ];
       };
     };
-  };
 
-  home = {
-    home.pointerCursor = {
-      package = pkgs.posy-cursors;
-      name = "Posy_Cursor";
-      gtk.enable = true;
+    home.home = {
+      home.file.".background-image".source = lib.mkIf (!builtins.isNull cfg.wallpaper);
+      pointerCursor = {
+        package = pkgs.posy-cursors;
+        name = "Posy_Cursor";
+        gtk.enable = true;
+      };
     };
   };
-
 }

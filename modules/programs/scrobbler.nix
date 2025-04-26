@@ -1,14 +1,13 @@
 {
-  delib,
   pkgs,
-  host,
   lib,
+  mylib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.scrobbler";
-  options = delib.singleEnableOption host.isWorkstation;
-  home.ifEnabled =
+{
+  options.programs.scrobbler.enable = mylib.mkEnabledIf "workstation";
+  config.home =
     let
       mpris-scrobbler = pkgs.mpris-scrobbler.overrideAttrs {
         src = pkgs.fetchFromGitHub {
@@ -19,7 +18,7 @@ delib.module {
         };
       };
     in
-    {
+    lib.mkIf config.programs.scrobbler.enable {
       home.packages = [ mpris-scrobbler ];
       systemd.user.services.scrobbler = {
         Unit.Description = "scrobbler background service";

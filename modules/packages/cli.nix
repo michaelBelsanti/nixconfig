@@ -1,13 +1,10 @@
 {
-  delib,
   pkgs,
   inputs,
   ...
 }:
-delib.module {
-  name = "packages.cli";
-  options = delib.singleEnableOption true;
-  home.always.home.packages = with pkgs; [
+{
+  home.home.packages = with pkgs; [
     # essential utils
     file
     git

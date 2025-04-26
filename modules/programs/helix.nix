@@ -1,14 +1,14 @@
 {
-  delib,
   lib,
   pkgs,
+  mylib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.helix";
-  options = delib.singleEnableOption true;
+{
+  options.programs.helix.enable = mylib.mkEnabledIf true;
 
-  home.ifEnabled = {
+  config.home = lib.mkIf config.programs.helix.enable {
     home.sessionVariables = {
       EDITOR = "hx";
       VISUAL = "hx";

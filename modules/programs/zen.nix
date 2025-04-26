@@ -1,9 +1,10 @@
 {
-  delib,
   inputs,
   host,
   pkgs,
   config,
+  mylib,
+  lib,
   ...
 }:
 let
@@ -82,15 +83,11 @@ let
   };
 
 in
-delib.module {
-  name = "programs.zen";
-  options = delib.singleEnableOption host.isWorkstation;
-  home.ifEnabled = {
+{
+  options.programs.zen.enable = mylib.mkEnabledIf "workstation";
+  home = lib.mkIf config.programs.zen.enable {
     imports = [ inputs.zen-browser.homeModules.default ];
-    programs.zen-browser = {
-      enable = true;
-      # package = [ zen.config.env ];
-    };
+    programs.zen-browser.enable = true;
     home.sessionVariables.BROWSER = "zen";
   };
 }

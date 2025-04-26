@@ -1,12 +1,12 @@
 {
   delib,
   compat,
+  mylib,
+  lib,
   ...
 }:
-delib.module {
-  name = "programs.git";
-  options = delib.singleEnableOption true;
-  home.ifEnabled.programs.git =
+{
+  config.home.programs.git =
     {
       enable = true;
       lfs.enable = true;

@@ -2,22 +2,23 @@
   delib,
   pkgs,
   lib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.kitty";
+let
+  cfg = config.programs.kitty;
+in
+{
   options.programs.kitty = with delib; {
-    enable = boolOption false;
-    default = boolOption false;
+    enable = mylib.mkBool false;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       environment.systemPackages = [ pkgs.kitty ];
       xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "kitty.desktop" ];
     };
-  home.ifEnabled = {
-    programs.kitty = {
+    home.programs.kitty = {
       enable = true;
       font = {
         name = "monospace";

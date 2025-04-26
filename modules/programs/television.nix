@@ -1,10 +1,12 @@
 {
-  delib,
   pkgs,
   lib,
+  mylib,
+  config,
   ...
 }:
 let
+  cfg = config.programs.television;
   settingsFormat = pkgs.formats.toml { };
   television-config = {
     shell_integration.commands = {
@@ -12,23 +14,21 @@ let
     };
   };
 in
-delib.module {
-  name = "programs.television";
+{
   options.programs.television = {
-    enable = delib.boolOption false;
+    enable = mylib.mkBool false;
     settings = lib.mkOption {
       inherit (settingsFormat) type;
       default = television-config;
     };
   };
 
-  nixos.ifEnabled.environment.systemPackages = [ pkgs.television ];
-  home.ifEnabled =
-    { cfg, ... }:
-    {
-      xdg.configFile = {
-        "television/config.toml".source = settingsFormat.generate "television-config" cfg.settings;
-      };
+  config = lib.mkIf cfg.enable {
+    nixos.environment.systemPackages = [ pkgs.television ];
+    home = {
+      xdg.configFile."television/config.toml".source =
+        settingsFormat.generate "television-config" cfg.settings;
       programs.fish.interactiveShellInit = "tv init fish | source";
     };
+  };
 }

@@ -1,20 +1,22 @@
 {
-  delib,
+  mylib,
   lib,
   pkgs,
   constants,
   host,
+  config,
   ...
 }:
-delib.module {
-  name = "virtualisation";
+let
+  cfg = config.virtualisation;
+in
+{
   options.virtualisation = {
-    enable = delib.boolOption host.isWorkstation;
-    waydroid.enable = delib.boolOption false;
+    enable = mylib.boolOption host.isWorkstation;
+    waydroid.enable = mylib.boolOption false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config.nixos = lib.mkMerge [
+    (lib.mkIf cfg.enable {
       boot.kernelParams = [ "amd_iommu=on" ];
       users.users.${constants.username}.extraGroups = [ "kvm" ];
       programs.virt-manager.enable = true;
@@ -29,14 +31,17 @@ delib.module {
         spiceUSBRedirection.enable = true;
         podman.enable = true;
       };
-    };
-  nixos.always.virtualisation.vmVariant = {
-    services.btrfs.autoScrub.enable = lib.mkForce false;
-    virtualisation = {
-      qemu.guestAgent.enable = true;
-      memorySize = 6144;
-      diskSize = 10240;
-      cores = 4;
-    };
-  };
+    })
+    {
+      virtualisation.vmVariant = {
+        services.btrfs.autoScrub.enable = lib.mkForce false;
+        virtualisation = {
+          qemu.guestAgent.enable = true;
+          memorySize = 6144;
+          diskSize = 10240;
+          cores = 4;
+        };
+      };
+    }
+  ];
 }

@@ -2,22 +2,23 @@
   delib,
   pkgs,
   lib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.foot";
+let
+  cfg = config.programs.foot;
+in
+{
   options.programs.foot = with delib; {
-    enable = boolOption false;
-    default = boolOption false;
+    enable = mylib.mkBool false;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       environment.systemPackages = [ pkgs.foot ];
       xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "footclient.desktop" ];
     };
-  home.ifEnabled = {
-    programs.foot = {
+    home.programs.foot = {
       enable = true;
       server.enable = true;
       settings = {

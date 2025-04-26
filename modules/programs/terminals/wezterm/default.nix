@@ -1,23 +1,24 @@
 {
-  delib,
   pkgs,
   lib,
+  config,
+  mylib,
   ...
 }:
-delib.module {
-  name = "programs.wezterm";
-  options.programs.wezterm = with delib; {
-    enable = boolOption false;
-    default = boolOption false;
+let
+  cfg = config.programs.wezterm;
+in
+{
+  options.programs.wezterm = {
+    enable = mylib.mkBool false;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       environment.systemPackages = [ pkgs.wezterm ];
       xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "org.wezfurlong.wezterm.desktop" ];
     };
-  home.ifEnabled = {
-    programs.wezterm = {
+    home.programs.wezterm = {
       enable = true;
       package = pkgs.wezterm;
       extraConfig = builtins.readFile ./wezterm.lua;

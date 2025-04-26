@@ -1,30 +1,33 @@
 {
-  delib,
   pkgs,
   lib,
+  mylib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.rio";
-  options.programs.rio = with delib; {
-    enable = boolOption false;
-    default = boolOption false;
+let
+  cfg = config.programs.rio;
+in
+{
+  options.programs.rio = {
+    enable = mylib.mkBool false;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       environment.systemPackages = [ pkgs.rio ];
       xdg.terminal-exec.settings.default = lib.mkIf cfg.default [ "rio.desktop" ];
     };
-  home.ifEnabled = {
-    programs.rio = {
-      enable = true;
-      settings = {
-        window.decorations = "Disabled";
-        fonts = {
-          size = 18;
+    home = {
+      programs.rio = {
+        enable = true;
+        settings = {
+          window.decorations = "Disabled";
+          fonts = {
+            size = 18;
+          };
+          keyboard.use-kitty-keyboard-protocol = true;
         };
-        keyboard.use-kitty-keyboard-protocol = true;
       };
     };
   };

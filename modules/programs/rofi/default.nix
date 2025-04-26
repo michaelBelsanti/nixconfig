@@ -1,12 +1,13 @@
 {
-  delib,
   pkgs,
+  mylib,
+  config,
+  lib,
   ...
 }:
-delib.module {
-  name = "programs.rofi";
-  options = delib.singleEnableOption false;
-  home.ifEnabled = {
+{
+  options.programs.rofi.enable = mylib.mkBool false;
+  config.home = lib.mkIf config.programs.rofi.enable {
     xdg.configFile = {
       "rofi" = {
         source = ./rofi;

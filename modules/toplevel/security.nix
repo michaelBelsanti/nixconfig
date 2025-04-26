@@ -1,21 +1,23 @@
 {
-  delib,
+  mylib,
   constants,
   lib,
+  config,
   ...
 }:
-delib.module {
-  name = "security";
-  options.security.doas.enable = delib.boolOption false;
-  nixos.always =
-    { cfg, ... }:
+{
+  options.security.doas.enable = mylib.boolOption false;
+  config.nixos =
+    let
+      doas = config.security.doas.enable;
+    in
     {
       security = {
-        sudo.enable = !cfg.doas.enable;
-        doas.enable = cfg.doas.enable;
-        doas.extraRules = lib.mkIf cfg.doas.enable [
+        sudo.enable = !doas;
+        doas.enable = doas;
+        doas.extraRules = lib.mkIf doas [
           {
-            users = [ "${constants.username}" ];
+            users = [ "${constants.user}" ];
             keepEnv = true;
             persist = true;
           }

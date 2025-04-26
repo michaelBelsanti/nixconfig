@@ -1,13 +1,13 @@
 {
-  delib,
   lib,
   pkgs,
+  mylib,
+  config,
   ...
 }:
-delib.module {
-  name = "programs.proton-drive";
-  options = delib.singleEnableOption false;
-  home.ifEnabled = {
+{
+  options.programs.proton-drive.enable = mylib.mkBool false;
+  config.home = lib.mkIf config.options.programs.proton-drive.enable {
     systemd.user.services.proton-drive = {
       Unit = {
         Description = "proton-drive background service";

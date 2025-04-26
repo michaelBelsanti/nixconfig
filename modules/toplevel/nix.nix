@@ -1,15 +1,17 @@
 {
-  delib,
+  mylib,
   inputs,
   self,
+  config,
   ...
 }:
-delib.module {
-  name = "nix";
-  options.nix.lix.enable = delib.boolOption true;
-  nixos.always =
-    { cfg, ... }:
-    {
+let
+  cfg = config.nix;
+in
+{
+  options.nix.lix.enable = mylib.boolOption true;
+  config = {
+    nixos = {
       imports = [ inputs.lix-module.nixosModules.default ];
       nixpkgs.config.allowUnfree = true;
       lix.enable = cfg.lix.enable;
@@ -37,8 +39,7 @@ delib.module {
         };
       };
     };
-  home.always = {
-    nix.registry = {
+    home.nix.registry = {
       develop = {
         exact = true;
         from = {
@@ -62,5 +63,6 @@ delib.module {
         };
       };
     };
+
   };
 }

@@ -1,20 +1,20 @@
-{ delib, pkgs, ... }:
-delib.module {
-  name = "desktops.gnome";
-  options = delib.singleEnableOption false;
-  myconfig.ifEnabled.desktops.wayland = true;
-
-  home.ifEnabled = {
-    gtk = {
-      iconTheme = {
-        name = "Adwaita";
-        package = pkgs.adwaita-icon-theme;
-      };
+{
+  pkgs,
+  mylib,
+  lib,
+  config,
+  ...
+}:
+{
+  options.desktops.gnome.enable = mylib.mkBool false;
+  config = lib.mkIf config.options.desktops.gnome.enable {
+    desktops.wayland = true;
+    home.gtk.iconTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
     };
-  };
 
-  nixos.ifEnabled = {
-    services.xserver = {
+    nixos.services.xserver = {
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
     };

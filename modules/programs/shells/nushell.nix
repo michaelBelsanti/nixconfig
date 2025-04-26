@@ -1,24 +1,25 @@
 {
-  delib,
   pkgs,
   lib,
-  constants,
+  user,
+  config,
+  mylib,
   ...
 }:
-delib.module {
-  name = "programs.shells.nushell";
-  options.programs.shells.nushell = with delib; {
-    enable = boolOption true;
-    default = boolOption false;
+let
+  cfg = config.programs.shells.nushell;
+in
+{
+  options.programs.shells.nushell = {
+    enable = mylib.mkBool true;
+    default = mylib.mkBool false;
   };
-  nixos.ifEnabled =
-    { cfg, ... }:
-    {
+  config = lib.mkIf cfg.enable {
+    nixos = {
       environment.shells = [ pkgs.nushell ];
-      users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.nushell;
+      users.users.${user}.shell = lib.mkIf cfg.default pkgs.nushell;
     };
-  home.ifEnabled = {
-    programs = {
+    home.programs = {
       nushell = {
         enable = true;
         shellAliases = {

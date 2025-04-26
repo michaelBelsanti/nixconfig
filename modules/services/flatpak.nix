@@ -1,12 +1,12 @@
 {
-  delib,
-  host,
+  config,
+  lib,
+  mylib,
   ...
 }:
-delib.module {
-  name = "services.flatpak";
-  options = delib.singleEnableOption host.isWorkstation;
-  nixos.ifEnabled = {
+{
+  options.services.flatpak.enable = mylib.mkEnabledIf "workstation";
+  config.nixos = lib.mkIf config.services.flatpak.enable {
     appstream.enable = true;
     services.flatpak.enable = true;
   };
