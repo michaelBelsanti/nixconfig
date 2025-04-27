@@ -9,9 +9,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "592094a02c4e43a9fa33559ade84d1ca015e8ada",
-      "url": "https://github.com/catppuccin/nix/archive/592094a02c4e43a9fa33559ade84d1ca015e8ada.tar.gz",
-      "hash": "0d9z1d14mp0ldhl0bjnn4k3pi15aw84fn7ffly7r3j979il5gqz0"
+      "revision": "199cb288a85b15ed203089804c024ae5b3eacd7c",
+      "url": "https://github.com/catppuccin/nix/archive/199cb288a85b15ed203089804c024ae5b3eacd7c.tar.gz",
+      "hash": "0j346w60kla8vb6zp54v12zyg68k796azq4ymv4h86z0z7n02rhr"
     },
     "chaotic": {
       "type": "Git",
@@ -22,11 +22,11 @@
       },
       "branch": "nyxpkgs-unstable",
       "submodules": false,
-      "revision": "a8ecbd631f095169413bf74e6f728a8910440567",
-      "url": "https://github.com/chaotic-cx/nyx/archive/a8ecbd631f095169413bf74e6f728a8910440567.tar.gz",
-      "hash": "0l8lcyw10614a1gz6h53p98cpgswwjwwqazqhij5z8jy87ccl3bl"
+      "revision": "6f06893b89a33074b7036e076010b235ddd6ad51",
+      "url": "https://github.com/chaotic-cx/nyx/archive/6f06893b89a33074b7036e076010b235ddd6ad51.tar.gz",
+      "hash": "00z254fmmwj31q5bavl4dqkwz9gp4qkdq672c3wmcii99zpnyaqf"
     },
-    "home-manager_2": {
+    "home-manager": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -35,9 +35,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c9433ae62fbb4bd09609e242569edc3b551e21a9",
-      "url": "https://github.com/nix-community/home-manager/archive/c9433ae62fbb4bd09609e242569edc3b551e21a9.tar.gz",
-      "hash": "0pmf3g0wpnfn6m3pkqmbpj1w3wqrhavcldc58a03h6jgyabww16d"
+      "revision": "50bb714a8259b0c29b6c3429099a3b837771dab4",
+      "url": "https://github.com/nix-community/home-manager/archive/50bb714a8259b0c29b6c3429099a3b837771dab4.tar.gz",
+      "hash": "1b1b3yhqdm4awvpysrgg6v48lzhm3m60zmx16z6cr4abjqk1948q"
     },
     "infuse": {
       "type": "Git",
@@ -87,6 +87,19 @@
       "revision": "1ff3576e04af40bd5be416916d4468f8ad526a07",
       "url": null,
       "hash": "0s1csz8q5ajzc7nb3fq75jck2w5dz0rrhc5wd56ggjzw6f4n9rgs"
+    },
+    "nilla": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nilla"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "6747fe62879d7d15c96808bc370a52941287772c",
+      "url": "https://github.com/nilla-nix/nilla/archive/6747fe62879d7d15c96808bc370a52941287772c.tar.gz",
+      "hash": "0sg9chk7y8h8sh8647vi0d2liqxa0vnidpd3acs763p6alxnf23y"
     },
     "nilla-cli": {
       "type": "Git",
@@ -149,11 +162,11 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0f5d74ee88e75edada4d80ce4f9d6671ac6ff3ae",
-      "url": "https://github.com/fufexan/nix-gaming/archive/0f5d74ee88e75edada4d80ce4f9d6671ac6ff3ae.tar.gz",
-      "hash": "1nhxzvgm6vir4fic8lznfdqgmd6z9skjg1zqswlc1mr2x4znxz61"
+      "revision": "f42092f4379fe71bf810a71c1c33f1f807b97746",
+      "url": "https://github.com/fufexan/nix-gaming/archive/f42092f4379fe71bf810a71c1c33f1f807b97746.tar.gz",
+      "hash": "0mfgal7wzj4242wn34f8pg5hm26lh6fckymz9nk8qxplky5j9vs3"
     },
-    "nix-index-database_2": {
+    "nix-index-database": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -162,9 +175,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "69716041f881a2af935021c1182ed5b0cc04d40e",
-      "url": "https://github.com/nix-community/nix-index-database/archive/69716041f881a2af935021c1182ed5b0cc04d40e.tar.gz",
-      "hash": "0wa39n801jsqhnppn6hv1vckcchk2s9nkwak9nkjcwdv1xak8153"
+      "revision": "187524713d0d9b2d2c6f688b81835114d4c2a7c6",
+      "url": "https://github.com/nix-community/nix-index-database/archive/187524713d0d9b2d2c6f688b81835114d4c2a7c6.tar.gz",
+      "hash": "14736a4d8gpwqgclnkjncpq0gm47ccjmyhd3cdfdvms9crsa47w9"
     },
     "nixos-cosmic": {
       "type": "Git",
@@ -201,9 +214,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "9a049b4a421076d27fee3eec664a18b2066824cb",
-      "url": "https://github.com/nixos/nixos-hardware/archive/9a049b4a421076d27fee3eec664a18b2066824cb.tar.gz",
-      "hash": "0fadhgi4dba981fdr6l5m6916g5qillzp9x88gsf3sbhgbhq9dbx"
+      "revision": "f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1",
+      "url": "https://github.com/nixos/nixos-hardware/archive/f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1.tar.gz",
+      "hash": "1311w59q8rcjnj8415z1pjlz5c1lsfrgxz9wg78fgc6mlfys6hbd"
     },
     "nixpak": {
       "type": "Git",
@@ -214,22 +227,22 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "c99853b3e1973b95b86882e3f49763f9be168596",
-      "url": "https://github.com/nixpak/nixpak/archive/c99853b3e1973b95b86882e3f49763f9be168596.tar.gz",
-      "hash": "1xf6sz388i70vjhjm506d3idvps5m255hakzj75rspsi6s5jq0af"
+      "revision": "90f23bd2f4f37054a5ba5ce139b0269ff38f38b7",
+      "url": "https://github.com/nixpak/nixpak/archive/90f23bd2f4f37054a5ba5ce139b0269ff38f38b7.tar.gz",
+      "hash": "12dvr8q96jrrrck69wahnxqylijxhhzczymkawhnk9bff7w0wlb4"
     },
-    "nixpkgs_3": {
+    "nixpkgs": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
         "owner": "nixos",
         "repo": "nixpkgs"
       },
-      "branch": "nixos-unstable",
+      "branch": "nixpkgs-unstable",
       "submodules": false,
-      "revision": "b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef",
-      "url": "https://github.com/nixos/nixpkgs/archive/b024ced1aac25639f8ca8fdfc2f8c4fbd66c48ef.tar.gz",
-      "hash": "09dahi81cn02gnzsc8a00n945dxc18656ar0ffx5vgxjj1nhgsvy"
+      "revision": "507b63021ada5fee621b6ca371c4fca9ca46f52c",
+      "url": "https://github.com/nixos/nixpkgs/archive/507b63021ada5fee621b6ca371c4fca9ca46f52c.tar.gz",
+      "hash": "1h645aidj2cnbfmchl5rmvc1jhdwa19cr821939kwx2afmyl65lf"
     },
     "sops-nix": {
       "type": "Git",
@@ -254,9 +267,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e10b15a36a428a10ed93b503b0925a463173af38",
-      "url": "https://codeberg.org/quasigod/unify/archive/e10b15a36a428a10ed93b503b0925a463173af38.tar.gz",
-      "hash": "055ca09qaknvnhlqyq3har9xr1yasqw49gkzjlnb6hvr605j11vm"
+      "revision": "39c647f12563eb6f33f1cdb75cf4053a76c2f115",
+      "url": "https://codeberg.org/quasigod/unify/archive/39c647f12563eb6f33f1cdb75cf4053a76c2f115.tar.gz",
+      "hash": "18jaw0pj1w2c7kl4jfmdzwiqbd8j1w1ixawzws925438yk1jza0l"
     },
     "wrapper-manager": {
       "type": "Git",
@@ -280,9 +293,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "67df3e64a216db8ac3c8bc669143af090bf4e6ad",
-      "url": "https://github.com/0xc000022070/zen-browser-flake/archive/67df3e64a216db8ac3c8bc669143af090bf4e6ad.tar.gz",
-      "hash": "0j3swzxslbxy0ab1csfrndrmspzh91wqld9cm9w0nqqjnz814nqm"
+      "revision": "e70d270a3927d8e78254ad049908b3535ba40f73",
+      "url": "https://github.com/0xc000022070/zen-browser-flake/archive/e70d270a3927d8e78254ad049908b3535ba40f73.tar.gz",
+      "hash": "1d4i1vi2qln94whhgdxnii3zgz78axbrqbnf4k504z00xgxsyc4h"
     }
   },
   "version": 5
