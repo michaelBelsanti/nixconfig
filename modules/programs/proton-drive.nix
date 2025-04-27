@@ -7,7 +7,7 @@
 }:
 {
   options.programs.proton-drive.enable = mylib.mkBool false;
-  config.home = lib.mkIf config.options.programs.proton-drive.enable {
+  config.home = lib.mkIf config.programs.proton-drive.enable {
     systemd.user.services.proton-drive = {
       Unit = {
         Description = "proton-drive background service";

@@ -35,9 +35,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "50bb714a8259b0c29b6c3429099a3b837771dab4",
-      "url": "https://github.com/nix-community/home-manager/archive/50bb714a8259b0c29b6c3429099a3b837771dab4.tar.gz",
-      "hash": "1b1b3yhqdm4awvpysrgg6v48lzhm3m60zmx16z6cr4abjqk1948q"
+      "revision": "0fbd8207e913b2d1660a7662f9ae80e5e639de65",
+      "url": "https://github.com/nix-community/home-manager/archive/0fbd8207e913b2d1660a7662f9ae80e5e639de65.tar.gz",
+      "hash": "0a21g60chj9vwbqlwi07rb0iv6dvy5a41ryr8fsdisqfs1h74bch"
     },
     "infuse": {
       "type": "Git",
@@ -64,17 +64,28 @@
       "url": "https://github.com/nix-community/lanzaboote/archive/995637eb3ab78eac33f8ee6b45cc2ecd5ede12ba.tar.gz",
       "hash": "1nrbs9bbl1vm6d0lkzn5n20fqgr38n430kjl3mc1l99sxf70fq70"
     },
-    "lix-module": {
-      "type": "Git",
+    "lix": {
+      "type": "GitRelease",
       "repository": {
-        "type": "Git",
-        "url": "https://git.lix.systems/lix-project/nixos-module"
+        "type": "Forgejo",
+        "server": "https://git.lix.systems/",
+        "owner": "lix-project",
+        "repo": "lix"
       },
-      "branch": "main",
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
       "submodules": false,
-      "revision": "fa69ae26cc32dda178117b46487c2165c0e08316",
-      "url": null,
-      "hash": "13x2dca4s049m8fa2y4b45kgqnpk3cf26j0j0yascah32zzxn7rh"
+      "version": "2.92.0",
+      "revision": "2837da71ec1588c1187d2e554719b15904a46c8b",
+      "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/2.92.0.tar.gz",
+      "hash": "126vm9m517gwfqdy1c4zghzk3w3xfahhhjawkqmkjxrq9w08h8h8"
+    },
+    "lix-module": {
+      "type": "Tarball",
+      "url": "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz",
+      "locked_url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/868d97695bab9d21f6070b03957bcace249fbe3c.tar.gz?rev=868d97695bab9d21f6070b03957bcace249fbe3c",
+      "hash": "0yi28psklcdxgn8aqcg4cgf5cq1dwvm5i5nqyv7crf1ml5jg16ky"
     },
     "mypkgs": {
       "type": "Git",
@@ -179,6 +190,19 @@
       "url": "https://github.com/nix-community/nix-index-database/archive/187524713d0d9b2d2c6f688b81835114d4c2a7c6.tar.gz",
       "hash": "14736a4d8gpwqgclnkjncpq0gm47ccjmyhd3cdfdvms9crsa47w9"
     },
+    "nixos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nilla-nix",
+        "repo": "nixos"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "2d1baf07fd814421a8f4a275287def5ba4e6d9a4",
+      "url": "https://github.com/nilla-nix/nixos/archive/2d1baf07fd814421a8f4a275287def5ba4e6d9a4.tar.gz",
+      "hash": "0f06spp06f2q5gd5b0fxjqvs1yq7x8garf9mr518k8wbx37g48wh"
+    },
     "nixos-cosmic": {
       "type": "Git",
       "repository": {
@@ -217,6 +241,23 @@
       "revision": "f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1",
       "url": "https://github.com/nixos/nixos-hardware/archive/f7bee55a5e551bd8e7b5b82c9bc559bc50d868d1.tar.gz",
       "hash": "1311w59q8rcjnj8415z1pjlz5c1lsfrgxz9wg78fgc6mlfys6hbd"
+    },
+    "nixos-module": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "Forgejo",
+        "server": "https://git.lix.systems/",
+        "owner": "lix-project",
+        "repo": "nixos-module"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "2.92.0",
+      "revision": "b90bf629bbd835e61f1317b99e12f8c831017006",
+      "url": "https://git.lix.systems/api/v1/repos/lix-project/nixos-module/archive/2.92.0.tar.gz",
+      "hash": "1gzrpdv2p74is4mjmi4kkmm4ycf74mpsm6ppmxwk9laz39qfphk0"
     },
     "nixpak": {
       "type": "Git",
@@ -267,9 +308,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "39c647f12563eb6f33f1cdb75cf4053a76c2f115",
-      "url": "https://codeberg.org/quasigod/unify/archive/39c647f12563eb6f33f1cdb75cf4053a76c2f115.tar.gz",
-      "hash": "18jaw0pj1w2c7kl4jfmdzwiqbd8j1w1ixawzws925438yk1jza0l"
+      "revision": "778e1d383903f2120d29311497c376ae2fc7932f",
+      "url": "https://codeberg.org/quasigod/unify/archive/778e1d383903f2120d29311497c376ae2fc7932f.tar.gz",
+      "hash": "1r8j4ybznxgvbykkjv5zip1ihypy8jjcvj7wf7xwbnasfv89bnj9"
     },
     "wrapper-manager": {
       "type": "Git",

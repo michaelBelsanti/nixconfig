@@ -2,9 +2,8 @@
   lib,
   pkgs,
   inputs,
-  host,
   config,
-  mylib,
+  mylib, hostname,
   ...
 }:
 {
@@ -22,16 +21,15 @@
       };
       gtk.iconTheme = {
         name = "Cosmic";
-        package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
+        package = inputs.nixos-cosmic.result.packages.${pkgs.system}.cosmic-icons;
       };
     };
 
     nixos = {
-      imports = [ inputs.nixos-cosmic.result.nixosModules.default ];
       # maybe remove after Wayland Proton releases
       systemd.user = {
         services."xwayland-primary-display" = {
-          script = "${lib.getExe pkgs.xorg.xrandr} --output ${host.primaryDisplay.name} --primary";
+          script = "${lib.getExe pkgs.xorg.xrandr} --output ${config.host.${hostname}.primaryDisplay.name} --primary";
           wantedBy = [ "graphical-session.target" ];
         };
       };
@@ -49,20 +47,16 @@
           gnome-disk-utility
           file-roller
           networkmanagerapplet
-        ])
-        ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
-          andromeda
-          chronos
-          cosmic-ext-applet-clipboard-manager
-          cosmic-ext-applet-emoji-selector
           cosmic-ext-calculator
           cosmic-ext-tweaks
           cosmic-player
-          cosmic-reader
-          examine
           forecast
-          observatory
           tasks
+        ])
+        ++ (with inputs.nixos-cosmic.result.packages.${pkgs.system}; [
+          andromeda
+          examine
+          observatory
         ]);
       environment.variables = {
         COSMIC_DATA_CONTROL_ENABLED = 1;

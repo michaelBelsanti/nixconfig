@@ -1,9 +1,15 @@
 { pins }:
 {
   config.inputs = {
-    nixpkgs.src = pins.nixpkgs;
-    mypkgs.src = pins.mypkgs;
     unify.src = pins.unify;
+    nixpkgs = {
+      src = pins.nixpkgs;
+      loader = "nixpkgs";
+      settings.configuration = {
+        allowUnfree = true;
+      };
+    };
+    mypkgs.src = pins.mypkgs;
     home-manager.src = pins.home-manager;
     nixos-hardware.src = pins.nixos-hardware;
     nixos-facter-modules.src = pins.nixos-facter-modules;
@@ -17,11 +23,15 @@
     zen-browser.src = pins.zen-browser;
     nix-alien.src = pins.nix-alien;
     nix-index-database.src = pins.nix-index-database;
-    lix-module.src = pins.lix-module;
+    lix.src = pins.lix;
+    lix-module = {
+      src = pins.lix-module;
+      loader = "raw";
+    };
     lanzaboote.src = pins.lanzaboote;
     infuse.src = pins.infuse;
     sops-nix.src = pins.sops-nix;
     nilla-cli.src = pins.nilla-cli;
-    nilla-utils.src = pins.nilla-utils;
+    nixos.src = pins.nixos;
   };
 }

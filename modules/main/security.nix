@@ -6,7 +6,7 @@
   ...
 }:
 {
-  options.security.doas.enable = mylib.boolOption false;
+  options.security.doas.enable = mylib.mkBool false;
   config.nixos =
     let
       doas = config.security.doas.enable;

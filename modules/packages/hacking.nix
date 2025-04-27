@@ -8,7 +8,6 @@
   ...
 }:
 {
-  name = "packages.hacking";
   options.packages.hacking.enable = mylib.mkEnabledIf "workstation";
   config = lib.mkIf config.packages.hacking.enable {
     nixos.programs.wireshark.enable = true;

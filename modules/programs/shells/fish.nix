@@ -3,7 +3,7 @@
   lib,
   mylib,
   config,
-  user,
+  constants,
   ...
 }:
 let
@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     nixos = {
       programs.fish.enable = true;
-      users.users.${user}.shell = lib.mkIf cfg.default pkgs.fish;
+      users.users.${constants.user}.shell = lib.mkIf cfg.default pkgs.fish;
     };
     home = {
       home.packages = with pkgs.fishPlugins; [

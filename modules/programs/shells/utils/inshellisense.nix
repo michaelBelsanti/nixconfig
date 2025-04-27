@@ -16,7 +16,7 @@ in
     enableZshIntegration = mylib.mkBool true;
     enableNushellIntegration = mylib.mkBool true;
   };
-  home = lib.mkIf cfg.enable {
+  config.home = lib.mkIf cfg.enable {
     home.packages = [ pkgs.inshellisense ];
     programs = {
       bash.initExtra = lib.mkIf cfg.enableBashIntegration "is init bash";

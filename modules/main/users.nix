@@ -1,14 +1,10 @@
-{
-  username,
-  host,
-  ...
-}:
+{ constants, host, ... }:
 {
   nixos.users = {
-    groups.${username} = { };
-    users.${username} = {
+    groups.${constants.user} = { };
+    users.${constants.user} = {
       isNormalUser = true;
-      initialPassword = username;
+      initialPassword = constants.user;
       linger = host.is "server";
       extraGroups = [
         "wheel"
@@ -21,4 +17,5 @@
       ];
     };
   };
+
 }

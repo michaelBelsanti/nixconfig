@@ -1,5 +1,5 @@
 {
-  delib,
+  mylib,
   pkgs,
   lib,
   config,
@@ -9,7 +9,7 @@ let
   cfg = config.programs.kitty;
 in
 {
-  options.programs.kitty = with delib; {
+  options.programs.kitty = {
     enable = mylib.mkBool false;
     default = mylib.mkBool false;
   };

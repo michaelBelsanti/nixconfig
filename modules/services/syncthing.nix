@@ -1,5 +1,4 @@
 {
-  host,
   constants,
   lib,
   mylib,
@@ -11,8 +10,8 @@ let
 in
 {
   options.services.syncthing = {
-    enable = mylib.boolOption true;
-    headless = mylib.mkEnabledIf host.is "server";
+    enable = mylib.mkBool true;
+    headless = mylib.mkEnabledIf "server";
     devices = mylib.mkOption (lib.types.submodule (
       { name, ... }:
       {

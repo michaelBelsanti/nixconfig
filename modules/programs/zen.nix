@@ -1,6 +1,5 @@
 {
   inputs,
-  host,
   pkgs,
   config,
   mylib,
@@ -9,7 +8,7 @@
 }:
 let
   # https://git.eriedaberrie.me/eriedaberrie/dotfiles/src/branch/main/modules/home/graphical/firefox.nix
-  mkNixPak = inputs.nixpak.lib.nixpak {
+  mkNixPak = inputs.nixpak.result.lib.nixpak {
     inherit (pkgs) lib;
     inherit pkgs;
   };
@@ -17,7 +16,7 @@ let
     config =
       { sloth, ... }:
       {
-        app.package = inputs.zen-browser.packages.${pkgs.system}.default;
+        app.package = inputs.zen-browser.result.packages.${pkgs.system}.default;
         app.extraEntrypoints = [
           "/bin/zen"
           "/bin/zen-beta"
@@ -73,7 +72,7 @@ let
               (sloth.concat' sloth.xdgConfigHome "/gtk-4.0")
               (sloth.concat' sloth.xdgConfigHome "/dconf")
               [
-                "${inputs.zen-browser.packages.${pkgs.system}.default}/lib/firefox"
+                "${inputs.zen-browser.result.packages.${pkgs.system}.default}/lib/firefox"
                 "/app/etc/firefox"
               ]
             ]
@@ -85,8 +84,7 @@ let
 in
 {
   options.programs.zen.enable = mylib.mkEnabledIf "workstation";
-  home = lib.mkIf config.programs.zen.enable {
-    imports = [ inputs.zen-browser.homeModules.default ];
+  config.home = lib.mkIf config.programs.zen.enable {
     programs.zen-browser.enable = true;
     home.sessionVariables.BROWSER = "zen";
   };

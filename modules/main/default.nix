@@ -2,12 +2,10 @@
   pkgs,
   host,
   homeConfig,
-  inputs,
   ...
 }:
 {
   nixos = {
-    imports = [ inputs.nixos-facter-modules.nixosModules.facter ];
     environment = {
       binsh = "${pkgs.dash}/bin/dash";
       enableAllTerminfo = host.is "server";

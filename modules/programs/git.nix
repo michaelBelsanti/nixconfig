@@ -1,10 +1,4 @@
-{
-  delib,
-  compat,
-  mylib,
-  lib,
-  ...
-}:
+{ compat, ... }:
 {
   config.home.programs.git =
     {

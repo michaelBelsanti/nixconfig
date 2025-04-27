@@ -9,7 +9,6 @@ let
   cfg = config.gaming.replays;
 in
 {
-  name = "gaming.replays";
   options.gaming.replays = {
     enable = mylib.mkBool false;
     portal = mylib.mkBool false;

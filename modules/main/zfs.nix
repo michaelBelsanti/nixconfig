@@ -2,7 +2,6 @@
   mylib,
   lib,
   pkgs,
-  host,
   config,
   ...
 }:
@@ -10,9 +9,8 @@ let
   cfg = config.zfs;
 in
 {
-  name = "zfs";
   options.zfs = {
-    enable = mylib.mkEnabledIf host.is "server";
+    enable = mylib.mkEnabledIf "server";
     pools = mylib.mkOption (lib.types.listOf lib.types.str) [ ];
     sanoid = mylib.mkBool cfg.enable;
   };

@@ -22,7 +22,6 @@
       };
     };
 
-    nix.lix.enable = true;
     desktops.cosmic.enable = true;
     programs = {
       scrobbler.enable = true;
@@ -41,10 +40,10 @@
 
     nixos = {
       system.stateVersion = "22.05";
-      imports = with inputs; [
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-gpu-amd
-        nixos-hardware.nixosModules.common-pc-ssd
+      imports = with inputs.nixos-hardware.result.nixosModules; [
+        common-cpu-amd
+        common-gpu-amd
+        common-pc-ssd
       ];
 
       facter.reportPath = ./facter.json;
@@ -60,7 +59,7 @@
       ];
 
       # boot.kernelPackages = pkgs.linuxPackages_6_11;
-      boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
+      boot.kernelPackages = inputs.chaotic.result.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
       networking = {
         hostName = "hades";

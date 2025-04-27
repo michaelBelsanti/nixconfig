@@ -10,13 +10,6 @@
 {
   options.gaming.enable = mylib.mkBool false;
   config = lib.mkIf config.gaming.enable {
-    imports =
-      with inputs.nix-gaming.nixosModules;
-      [
-        pipewireLowLatency
-        platformOptimizations
-      ]
-      ++ [ inputs.chaotic.result.nixosModules.default ];
     nixos = {
       chaotic.nyx.overlay.enable = true;
       environment.systemPackages = with pkgs; [
@@ -66,7 +59,7 @@
           extraCompatPackages = with pkgs; [
             proton-ge-bin
             steamtinkerlaunch
-            inputs.mypkgs.packages.${pkgs.system}.proton-cachyos
+            inputs.mypkgs.result.packages.${pkgs.system}.proton-cachyos
           ];
         };
         gamescope = {

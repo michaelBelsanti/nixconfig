@@ -7,7 +7,7 @@
 }:
 {
   options.desktops.gnome.enable = mylib.mkBool false;
-  config = lib.mkIf config.options.desktops.gnome.enable {
+  config = lib.mkIf config.desktops.gnome.enable {
     desktops.wayland = true;
     home.gtk.iconTheme = {
       name = "Adwaita";

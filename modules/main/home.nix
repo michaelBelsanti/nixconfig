@@ -1,10 +1,10 @@
-{ username, ... }:
+{ constants, ... }:
 {
-  nixos.always.home-manager.useGlobalPkgs = true;
+  nixos.home-manager.useGlobalPkgs = true;
   home = {
     home = {
-      inherit username;
-      homeDirectory = "/home/${username}";
+      inherit (constants) username;
+      homeDirectory = "/home/${constants.user}";
       stateVersion = "22.05";
       sessionPath = [ "$HOME/.local/bin" ];
       sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";

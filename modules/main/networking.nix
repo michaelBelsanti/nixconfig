@@ -12,8 +12,8 @@ let
 in
 {
   options.networking.tailscale = {
-    enable = mylib.boolOption true;
-    remote = mylib.boolOption false;
+    enable = mylib.mkBool true;
+    remote = mylib.mkBool false;
   };
   config.nixos = {
     environment.systemPackages = lib.mkIf (cfg.tailscale.enable && host.is "workstation") [

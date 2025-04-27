@@ -3,7 +3,6 @@
   lib,
   pkgs,
   constants,
-  host,
   config,
   ...
 }:
@@ -12,8 +11,8 @@ let
 in
 {
   options.virtualisation = {
-    enable = mylib.boolOption host.isWorkstation;
-    waydroid.enable = mylib.boolOption false;
+    enable = mylib.mkEnabledIf "workstation";
+    waydroid.enable = mylib.mkBool false;
   };
   config.nixos = lib.mkMerge [
     (lib.mkIf cfg.enable {

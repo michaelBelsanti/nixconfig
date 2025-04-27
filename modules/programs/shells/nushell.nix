@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  user,
+  constants,
   config,
   mylib,
   ...
@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     nixos = {
       environment.shells = [ pkgs.nushell ];
-      users.users.${user}.shell = lib.mkIf cfg.default pkgs.nushell;
+      users.users.${constants.user}.shell = lib.mkIf cfg.default pkgs.nushell;
     };
     home.programs = {
       nushell = {

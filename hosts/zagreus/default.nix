@@ -24,13 +24,13 @@
 
     nixos = {
       system.stateVersion = "22.05";
-      imports = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
+      imports = [ inputs.nixos-hardware.result.nixosModules.framework-13-7040-amd ];
 
       facter.reportPath = ./facter.json;
       hardware.framework.enableKmod = false;
       hardware.amdgpu.opencl.enable = true;
 
-      boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
+      boot.kernelPackages = inputs.chaotic.result.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
       networking.hostName = "zagreus"; # Define your hostname.
 

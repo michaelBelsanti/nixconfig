@@ -41,6 +41,7 @@ in
     };
 
     home = {
+      qt.enable = true;
       gtk = {
         enable = true;
         gtk2.configLocation = "${constants.configHome}/gtk-2.0/gtkrc";

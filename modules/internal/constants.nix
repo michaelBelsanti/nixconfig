@@ -1,8 +1,8 @@
-{ user, ... }:
+{ hostConfig, ... }:
 {
-  name = "constants";
-
-  args = {
+  args.constants = let
+    inherit (hostConfig) user;
+  in {
     inherit user;
     username = user;
     home = "/home/${user}";

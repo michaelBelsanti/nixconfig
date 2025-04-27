@@ -4,6 +4,8 @@
   ...
 }:
 {
+  nixos.programs.nix-index-database.comma.enable = true;
+  home.programs.nix-index-database.comma.enable = true;
   home.home.packages = with pkgs; [
     # essential utils
     file
@@ -43,9 +45,10 @@
 
     # Nix
     deadnix
-    inputs.nilla-cli.packages.${system}.nilla
-    inputs.nilla-nixos.packages.${system}.nilla
-    inputs.nix-alien.packages.${system}.nix-alien
+    inputs.nilla-cli.result.packages.default.result.${system}
+    inputs.nilla-nixos.result.packages.default.result.${system}
+    inputs.nilla-utils.result.packages.default.result.${system}
+    inputs.nix-alien.result.packages.${system}.nix-alien
     nh
     nix-init
     nix-inspect

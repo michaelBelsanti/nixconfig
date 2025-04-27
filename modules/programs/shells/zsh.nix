@@ -3,7 +3,7 @@
   config,
   lib,
   mylib,
-  user,
+  constants,
   ...
 }:
 let
@@ -17,7 +17,7 @@ in
   config = lib.mkIf cfg.enable {
     nixos = {
       programs.zsh.enable = true;
-      users.users.${user}.shell = lib.mkIf cfg.default pkgs.zsh;
+      users.users.${constants.user}.shell = lib.mkIf cfg.default pkgs.zsh;
     };
     home = {
       programs = {

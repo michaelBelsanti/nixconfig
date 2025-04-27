@@ -12,6 +12,7 @@ let
 in
 {
   options.themes.catppuccin = {
+    enable = mylib.mkBool true;
     flavor = mylib.mkOption (lib.types.enum [
       "latte"
       "frappe"
@@ -39,7 +40,6 @@ in
   config = lib.mkIf cfg.enable {
     themes.wallpaper = ./background.png;
     nixos = {
-      imports = [ inputs.catppuccin.nixosModules.catppuccin ];
       catppuccin = {
         enable = true;
         inherit (cfg) flavor accent;
@@ -47,17 +47,13 @@ in
     };
 
     home = {
-      imports = [
-        inputs.catppuccin.homeModules.catppuccin
-        inputs.nix-colors.homeManagerModule
-      ];
       catppuccin = {
         enable = true;
+        kvantum.enable = false;
         inherit (cfg) flavor accent;
       };
-      colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+      colorScheme = inputs.nix-colors.result.colorSchemes.catppuccin-macchiato;
       qt = {
-        enable = true;
         style.name = "kvantum";
         platformTheme.name = "kvantum";
       };
@@ -70,7 +66,7 @@ in
 
       home.file.".background-image".source = wallpaper;
       # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
-      xdg.configFile."kdeglobals" = {
+      xdg.configFile."kdeglobals" = lib.mkIf config.home.qt.enable {
         enable = true;
         text = ''
           [UiSettings]
@@ -92,11 +88,9 @@ in
       };
     };
 
-    myconfig = {
-      programs.television.settings = {
-        ui.theme = "catppuccin";
-        previewers.file.theme = "Catppuccin Macchiato";
-      };
+    programs.television.settings = {
+      ui.theme = "catppuccin";
+      previewers.file.theme = "Catppuccin Macchiato";
     };
   };
 }

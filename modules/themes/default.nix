@@ -3,17 +3,15 @@
   mylib,
   lib,
   config,
+  host,
   ...
 }:
 let
   cfg = config.themes;
 in
 {
-  options.themes = {
-    enable = mylib.mkEnabledIf "workstation";
-    wallpaper = mylib.mkOption lib.types.path null;
-  };
-  config = lib.mkIf cfg.enable {
+  options.themes.wallpaper = mylib.mkOption lib.types.path null;
+  config = lib.mkIf (host.is "workstation") {
     nixos.fonts = {
       packages = with pkgs; [
         jetbrains-mono

@@ -11,10 +11,10 @@
     extraPresets =
       let
         presets = [
-          "AKG K7XX"
-          "Hifiman Edition XS"
-          "Moondrop Starfield"
-          "Nothing Ear (a)"
+          "AKG-K7XX"
+          "Hifiman-Edition-XS"
+          "Moondrop-Starfield"
+          "Nothing-Ear-a"
           "7RYMS"
           "Yeti"
         ];
