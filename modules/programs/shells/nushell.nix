@@ -18,6 +18,7 @@ delib.module {
       users.users.${constants.username}.shell = lib.mkIf cfg.default pkgs.nushell;
     };
   home.ifEnabled = {
+    home.shell.enableNushellIntegration = false;
     programs = {
       nushell = {
         enable = true;

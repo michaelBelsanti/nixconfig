@@ -42,6 +42,7 @@ delib.module {
       whatweb
       gobuster
       sqlmap
+      feroxbuster
 
       responder
       wireshark
