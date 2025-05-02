@@ -31,6 +31,10 @@ delib.host {
     nix.lix.enable = true;
     desktops.cosmic.enable = true;
     programs = {
+      shells = {
+        nushell.default = true;
+        fish.default = false;
+      };
       scrobbler.enable = true;
       easyeffects.enable = true;
     };
