@@ -54,6 +54,7 @@ delib.module {
     nix-inspect
     nixos-rebuild-ng
     nixpkgs-review
+    nix-output-monitor
     nix-tree
     nix-update
     npins
