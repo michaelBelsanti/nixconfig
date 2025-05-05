@@ -9,7 +9,7 @@ delib.module {
   name = "programs.shells.nushell";
   options.programs.shells.nushell = with delib; {
     enable = boolOption true;
-    default = boolOption false;
+    default = boolOption true;
   };
   nixos.ifEnabled =
     { cfg, ... }:
@@ -32,6 +32,13 @@ delib.module {
           mkdir = lib.mkForce "mkdir";
           open = lib.mkForce "open";
         };
+        plugins = with pkgs.nushellPlugins; [
+          highlight
+          net
+          query
+          skim
+          units
+        ];
         extraConfig = ''
           $env.config = {
             show_banner: false
@@ -41,6 +48,10 @@ delib.module {
             }
           }
         '';
+      };
+      carapace = {
+        enable = true;
+        enableNushellIntegration = true;
       };
     };
   };

@@ -9,7 +9,7 @@ delib.module {
   name = "programs.shells.fish";
   options.programs.shells.fish = with delib; {
     enable = boolOption true;
-    default = boolOption true;
+    default = boolOption false;
   };
   nixos.ifEnabled =
     { cfg, ... }:
