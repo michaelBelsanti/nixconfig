@@ -12,7 +12,7 @@ in
 {
   options.programs.shells.nushell = {
     enable = mylib.mkBool true;
-    default = mylib.mkBool false;
+    default = mylib.mkBool true;
   };
   config = lib.mkIf cfg.enable {
     nixos = {
@@ -29,7 +29,17 @@ in
           lg = "lazygit";
           o = "xdg-open";
           cd = "z";
+          # overrides for global aliases
+          mkdir = lib.mkForce "mkdir";
+          open = lib.mkForce "open";
         };
+        plugins = with pkgs.nushellPlugins; [
+          # highlight
+          # net
+          # query
+          # skim
+          # units
+        ];
         extraConfig = ''
           $env.config = {
             show_banner: false
@@ -39,10 +49,10 @@ in
             }
           }
         '';
-        extraEnv = ''
-          sh -c "source /etc/profile"
-          sh -c "source ~/.profile"
-        '';
+      };
+      carapace = {
+        enable = true;
+        enableNushellIntegration = true;
       };
     };
   };

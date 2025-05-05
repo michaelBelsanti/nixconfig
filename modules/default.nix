@@ -19,7 +19,6 @@ in
     inputs.nix-gaming.result.nixosModules.pipewireLowLatency
     inputs.nix-gaming.result.nixosModules.platformOptimizations
     inputs.chaotic.result.nixosModules.default
-    inputs.nixos-cosmic.result.nixosModules.default
   ];
   home.imports = [
     inputs.catppuccin.result.homeModules.catppuccin

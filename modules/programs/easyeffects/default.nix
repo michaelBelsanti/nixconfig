@@ -6,28 +6,30 @@
 }:
 {
   options.programs.easyeffects.enable = mylib.mkEnabledIf "workstation";
-  config.home.services.easyeffects = lib.mkIf config.programs.easyeffects.enable {
-    enable = true;
-    extraPresets =
-      let
-        presets = [
-          "AKG-K7XX"
-          "Hifiman-Edition-XS"
-          "Moondrop-Starfield"
-          "Nothing-Ear-a"
-          "7RYMS"
-          "Yeti"
-        ];
-
-        mkPresets =
-          names:
-          builtins.listToAttrs (
-            map (name: {
-              name = name;
-              value = builtins.fromJSON (builtins.readFile (./presets + "/${name}.json"));
-            }) names
-          );
-      in
-      mkPresets presets;
+  config.home = lib.mkIf config.programs.easyeffects.enable {
+    systemd.user.services.easyeffects.Service.Restart = lib.mkForce "never";
+    services.easyeffects = {
+      enable = true;
+      extraPresets =
+        let
+          presets = [
+            "AKG-K7XX"
+            "Hifiman-Edition-XS"
+            "Moondrop-Starfield"
+            "Nothing-Ear-a"
+            "7RYMS"
+            "Yeti"
+          ];
+          mkPresets =
+            names:
+            builtins.listToAttrs (
+              map (name: {
+                name = name;
+                value = builtins.fromJSON (builtins.readFile (./presets + "/${name}.json"));
+              }) names
+            );
+        in
+        mkPresets presets;
+    };
   };
 }

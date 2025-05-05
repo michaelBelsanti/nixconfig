@@ -50,12 +50,13 @@ in
       catppuccin = {
         enable = true;
         kvantum.enable = false;
+        mako.enable = false;
         inherit (cfg) flavor accent;
       };
       colorScheme = inputs.nix-colors.result.colorSchemes.catppuccin-macchiato;
       qt = {
-        style.name = "kvantum";
-        platformTheme.name = "kvantum";
+        style.name = lib.mkForce "kvantum";
+        platformTheme.name = lib.mkForce "kvantum";
       };
       gtk = {
         theme = {

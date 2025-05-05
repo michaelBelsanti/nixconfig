@@ -39,6 +39,7 @@
       whatweb
       gobuster
       sqlmap
+      feroxbuster
 
       responder
       wireshark

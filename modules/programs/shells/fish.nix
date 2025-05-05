@@ -12,7 +12,7 @@ in
 {
   options.programs.shells.fish = {
     enable = mylib.mkBool true;
-    default = mylib.mkBool true;
+    default = mylib.mkBool false;
   };
   config = lib.mkIf cfg.enable {
     nixos = {
