@@ -1,7 +1,7 @@
 # nixconfig
 My systems and user configurations in a Nix Flake
 
-This flake is designed using [Denix](https://yunfachi.github.io/denix/).
+This flake is designed using [Unify](https://codeberg.org/quasigod/unify).
 
 # Inspiration and thanks
 - [Matthias Benaets](https://github.com/MatthiasBenaets/)

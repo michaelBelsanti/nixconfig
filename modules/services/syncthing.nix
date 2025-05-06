@@ -1,40 +1,35 @@
+{ constants, lib, ... }:
 {
-  constants,
-  lib,
-  mylib,
-  config,
-  ...
-}:
-let
-  cfg = config.services.syncthing;
-in
-{
-  options.services.syncthing = {
-    enable = mylib.mkBool true;
-    headless = mylib.mkEnabledIf "server";
-    devices = mylib.mkOption (lib.types.submodule (
-      { name, ... }:
-      {
-        options = {
-          name = mylib.mkOption lib.types.str name;
-          id = mylib.mkOption lib.types.str null;
-          addresses = mylib.mkOption (lib.types.listOf lib.types.str) [ "dynamic" ];
-        };
-      }
-    )) { };
-  };
-  config.nixos = lib.mkIf cfg.enable {
-    users.users.${constants.user}.extraGroups = [ "syncthing" ];
-    services.syncthing =
-      let
-        all_devices = builtins.attrNames cfg.devices;
-      in
-      lib.mkMerge [
+  unify = {
+    nixos = {
+      users.users.${constants.user}.extraGroups = [ "syncthing" ];
+      services.syncthing =
+        let
+          devices = {
+            hades = {
+              id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
+              addresses = "dynamic";
+            };
+            zagreus = {
+              id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
+              addresses = "dynamic";
+            };
+            nyx = {
+              id = "V3CJAAW-V5ZRINB-SIDYUZH-L6CRFTW-ZOOHA3W-KYMW5ZU-Q4IUMLS-47QSTQQ";
+              addresses = "dynamic";
+            };
+            # hypnos = {
+            #   id = "";
+            #   addresses = "dynamic";
+            # };
+          };
+          all_devices = builtins.attrNames devices;
+        in
         {
           enable = true;
           openDefaultPorts = true;
           settings = {
-            inherit (cfg) devices;
+            inherit devices;
             folders."~/sync" = {
               id = "general";
               devices = all_devices;
@@ -44,15 +39,12 @@ in
               devices = all_devices;
             };
           };
-        }
-        (lib.mkIf (!cfg.headless) {
-          inherit (constants) user;
-          dataDir = constants.home;
-        })
-        (lib.mkIf cfg.headless {
-          dataDir = "/var/lib/syncthing";
-          guiAddress = "0.0.0.0:8384";
-        })
-      ];
+        };
+    };
+    modules.server.nixos.services.syncthing.settings.dataDir = "/var/lib/syncthing";
+    modules.workstation.nixos.services.syncthing.settings = {
+      inherit (constants) user;
+      dataDir = constants.home;
+    };
   };
 }

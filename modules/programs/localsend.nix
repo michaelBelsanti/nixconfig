@@ -1,14 +1,10 @@
 {
-  pkgs,
-  mylib,
-  config,
-  lib,
-  ...
-}:
-{
-  options.programs.localsend.enable = mylib.mkEnabledIf "workstation";
-  config = lib.mkIf config.programs.localsend.enable {
+  unify.modules.workstation = {
     nixos.programs.localsend.enable = true;
-    home.home.packages = [ pkgs.localsend ];
+    home =
+      { pkgs, ... }:
+      {
+        home.packages = [ pkgs.localsend ];
+      };
   };
 }

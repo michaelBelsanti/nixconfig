@@ -1,25 +1,18 @@
 {
-  lib,
-  mylib,
-  config,
-  ...
-}:
-{
-  options.programs.topgrade = mylib.mkBool true;
-  config.home.programs.topgrade = lib.mkIf config.programs.topgrade {
+  unify.home.programs.topgrade = {
     enable = true;
     settings = {
       misc = {
         assume_yes = true;
-        sudo_command = lib.mkIf config.security.doas.enable "doas";
+        cleanup = true;
         disable = [
+          # Broken stuff on NixOS
           "system"
           "helix"
           "uv"
           "bun"
           "github_cli_extensions"
         ];
-        cleanup = true;
       };
     };
   };

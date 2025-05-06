@@ -1,22 +1,16 @@
+{ lib, ... }:
 {
-  mylib,
-  config,
-  lib,
-  ...
-}:
-{
-  options.programs.easyeffects.enable = mylib.mkEnabledIf "workstation";
-  config.home = lib.mkIf config.programs.easyeffects.enable {
+  unify.modules.workstation.home = {
     systemd.user.services.easyeffects.Service.Restart = lib.mkForce "never";
     services.easyeffects = {
       enable = true;
       extraPresets =
         let
           presets = [
-            "AKG-K7XX"
-            "Hifiman-Edition-XS"
-            "Moondrop-Starfield"
-            "Nothing-Ear-a"
+            "AKG K7XX"
+            "Hifiman Edition XS"
+            "Moondrop Starfield"
+            "Nothing Ear (a)"
             "7RYMS"
             "Yeti"
           ];

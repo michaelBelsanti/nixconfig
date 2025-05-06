@@ -1,11 +1,18 @@
-{ inputs, pkgs, ... }:
+{ inputs, config, ... }:
 {
-  host.zagreus = {
+  unify.hosts.zagreus = {
     tags = [
       "laptop"
       "workstation"
+      "hacking"
+      "remote"
+      "gaming"
+      "virtualisation"
+      "plymouth"
+      "secure-boot"
     ];
 
+    primaryDisplay = config.unify.hosts.zagreus.displays.eDP-1;
     displays = {
       eDP-1 = {
         refreshRate = 60;
@@ -15,43 +22,35 @@
       };
     };
 
-    desktops.cosmic.enable = true;
-    gaming.enable = true;
-    networking.tailscale.remote = true;
-    boot.lanzaboote = true;
+    nixos =
+      { pkgs, ... }:
+      {
+        system.stateVersion = "22.05";
+        imports = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
 
-    home.home.stateVersion = "22.05";
+        facter.reportPath = ./facter.json;
+        hardware.framework.enableKmod = false;
+        hardware.amdgpu.opencl.enable = true;
 
-    nixos = {
-      system.stateVersion = "22.05";
-      imports = [ inputs.nixos-hardware.result.nixosModules.framework-13-7040-amd ];
+        boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
-      facter.reportPath = ./facter.json;
-      hardware.framework.enableKmod = false;
-      hardware.amdgpu.opencl.enable = true;
+        networking.hostName = "zagreus"; # Define your hostname.
 
-      boot.kernelPackages = inputs.chaotic.result.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
+        boot = {
+          kernelParams = [ "acpi_backlight=native" ];
+          # initrd.kernelModules = [ "amdgpu" ];
+          plymouth.enable = true;
+        };
 
-      networking.hostName = "zagreus"; # Define your hostname.
+        environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
 
-      boot = {
-        kernelParams = [ "acpi_backlight=native" ];
-        # initrd.kernelModules = [ "amdgpu" ];
-        plymouth.enable = true;
-      };
-
-      environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
-
-      services = {
-        fprintd.enable = false; # Enable fingerprint scanner
-        fwupd = {
-          enable = true; # Enable firmware updates with `fwupdmgr update`
-          # extraRemotes = [ "lvfs-testing" ];
+        services = {
+          fprintd.enable = false; # Enable fingerprint scanner
+          fwupd = {
+            enable = true; # Enable firmware updates with `fwupdmgr update`
+            # extraRemotes = [ "lvfs-testing" ];
+          };
         };
       };
-    };
   };
-
-  services.syncthing.devices.zagreus.id =
-    "V3CJAAW-V5ZRINB-SIDYUZH-L6CRFTW-ZOOHA3W-KYMW5ZU-Q4IUMLS-47QSTQQ";
 }

@@ -1,76 +1,76 @@
 {
-  pkgs,
-  wrapper-manager,
+  inputs,
   constants,
-  mylib,
   lib,
-  config,
   ...
 }:
 {
-  options.packages.hacking.enable = mylib.mkEnabledIf "workstation";
-  config = lib.mkIf config.packages.hacking.enable {
+  unify.modules.hacking = {
     nixos.programs.wireshark.enable = true;
-    home.home.packages = with pkgs; [
-      # general
-      wordlists
-      (pkgs.writeScriptBin "wlfuzz" ''
-        ${lib.getExe fd} . ${wordlists}/share/wordlists | ${lib.getExe television} files
-      '')
+    home =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [
+          # general
+          wordlists
+          (pkgs.writeScriptBin "wlfuzz" ''
+            ${lib.getExe fd} . ${wordlists}/share/wordlists | ${lib.getExe television} files
+          '')
 
-      # crackers
-      thc-hydra
-      hashcat
-      hashcat-utils
-      john
+          # crackers
+          thc-hydra
+          hashcat
+          hashcat-utils
+          john
 
-      # web
-      burpsuite
-      zap
-      ffuf
-      mitmproxy
-      mitmproxy2swagger
+          # web
+          burpsuite
+          zap
+          ffuf
+          mitmproxy
+          mitmproxy2swagger
 
-      # enumeration
-      nmap
-      theharvester
-      enum4linux-ng
-      smbmap
-      whatweb
-      gobuster
-      sqlmap
-      feroxbuster
+          # enumeration
+          nmap
+          theharvester
+          enum4linux-ng
+          smbmap
+          whatweb
+          gobuster
+          sqlmap
+          feroxbuster
 
-      responder
-      wireshark
-      exploitdb
-      imhex
-      python3Packages.scapy
-      xh
+          responder
+          wireshark
+          exploitdb
+          imhex
+          python3Packages.scapy
+          xh
 
-      metasploit
+          metasploit
 
-      (pkgs.writeScriptBin "cyberchef" ''
-        echo ${pkgs.cyberchef}/share/cyberchef/index.html
-      '')
+          (pkgs.writeScriptBin "cyberchef" ''
+            echo ${pkgs.cyberchef}/share/cyberchef/index.html
+          '')
 
-      (wrapper-manager.lib.build {
-        inherit pkgs;
-        modules = [
-          {
-            wrappers.rustscan = {
-              basePackage = pkgs.rustscan;
-              flags = [ "-c ${constants.configHome}/rustscan.toml" ];
-            };
-          }
-          # {
-          #   wrappers.metasploit = {
-          #     basePackage = pkgs.metasploit;
-          #     flags = [ "--defer-module-loads" ];
-          #   };
-          # }
+          (inputs.wrapper-manager.lib.build {
+            inherit pkgs;
+            modules = [
+              {
+                wrappers.rustscan = {
+                  basePackage = pkgs.rustscan;
+                  flags = [ "-c ${constants.configHome}/rustscan.toml" ];
+                };
+              }
+              # {
+              #   wrappers.metasploit = {
+              #     basePackage = pkgs.metasploit;
+              #     flags = [ "--defer-module-loads" ];
+              #   };
+              # }
+            ];
+          })
         ];
-      })
-    ];
+      };
   };
 }

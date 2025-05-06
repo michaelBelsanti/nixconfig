@@ -1,19 +1,6 @@
 {
-  mylib,
-  config,
-  lib,
-  ...
-}:
-let
-  cfg = config.services.sshd;
-in
-{
-  options.services.sshd = {
-    enable = mylib.mkEnabledIf "server";
-    eternal-terminal.enable = mylib.mkEnabledIf "server";
-  };
-  config.nixos = lib.mkIf cfg.enable {
-    services.eternal-terminal.enable = cfg.eternal-terminal.enable;
+  unify.modules.ssh.nixos = {
+    enableAllTerminfo = true;
     services.openssh = {
       enable = true;
       settings = {

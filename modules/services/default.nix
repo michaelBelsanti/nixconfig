@@ -1,19 +1,23 @@
-# Services that don't need much configuration and won't need to be explicitly disabled on any systems.
-{ pkgs, ... }:
 {
-  home.services = {
-    ssh-agent.enable = true;
-    pueue.enable = true;
-  };
-  nixos.services = {
-    dbus.implementation = "broker";
-    printing = {
-      enable = true;
-      drivers = [ pkgs.hplip ];
+  unify = {
+    home.services = {
+      ssh-agent.enable = true;
+      pueue.enable = true;
     };
-    avahi = {
-      enable = true;
-      nssmdns4 = true;
-    };
+    nixos =
+      { pkgs, ... }:
+      {
+        services = {
+          dbus.implementation = "broker";
+          printing = {
+            enable = true;
+            drivers = [ pkgs.hplip ];
+          };
+          avahi = {
+            enable = true;
+            nssmdns4 = true;
+          };
+        };
+      };
   };
 }

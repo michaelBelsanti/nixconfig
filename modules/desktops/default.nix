@@ -1,44 +1,28 @@
+{ constants, ... }:
 {
-  config,
-  pkgs,
-  lib,
-  mylib,
-  constants,
-  ...
-}:
-let
-  cfg = config.desktops;
-in
-{
-  options.desktops = {
-    enable = mylib.mkEnabledIf "workstation";
-    wayland = mylib.mkBool false;
-  };
-  config = lib.mkIf cfg.enable {
-    nixos = {
-      services.xserver = lib.mkIf (!cfg.wayland) {
-        enable = true;
-        excludePackages = [ pkgs.xterm ];
-      };
-      programs = {
-        dconf.enable = true;
-        appimage = {
+  unify.modules.workstation = {
+    nixos =
+      { pkgs, ... }:
+      {
+        programs = {
+          dconf.enable = true;
+          appimage = {
+            enable = true;
+            binfmt = true;
+          };
+        };
+        services.pipewire = {
           enable = true;
-          binfmt = true;
+          alsa.enable = true;
+          alsa.support32Bit = true;
+          pulse.enable = true;
+          jack.enable = true;
+        };
+        environment = {
+          systemPackages = [ pkgs.wl-clipboard ];
+          sessionVariables.NIXOS_OZONE_WL = "1";
         };
       };
-      services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = true;
-      };
-      environment = lib.mkIf cfg.wayland {
-        systemPackages = [ pkgs.wl-clipboard ];
-        sessionVariables.NIXOS_OZONE_WL = "1";
-      };
-    };
 
     home = {
       qt.enable = true;
