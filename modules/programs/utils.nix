@@ -1,8 +1,6 @@
-{ mkCompat, ... }:
 {
-
   unify.home =
-    { pkgs, ... }:
+    { pkgs, mkCompat, ... }:
     {
       programs =
         {

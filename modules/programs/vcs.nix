@@ -1,54 +1,55 @@
-{ mkCompat, ... }:
 {
-  unify.home = {
-    home.shellAliases.jji = "jj --ignore-immutable";
-    programs = {
-      jujutsu = {
-        enable = true;
-        settings = {
-          user = {
-            name = "quasigod";
-            email = "quasigod-io@proton.me";
-          };
-          ui = {
-            paginate = "never";
-            default-command = "log";
-          };
-          git.private-commits = "description(glob:'private:*')";
-        };
-      };
-      git =
-        {
+  unify.home =
+    { mkCompat, ... }:
+    {
+      home.shellAliases.jji = "jj --ignore-immutable";
+      programs = {
+        jujutsu = {
           enable = true;
-          lfs.enable = true;
-          userName = "quasigod";
-          userEmail = "quasigod-io@proton.me";
-          difftastic.enable = true;
-          aliases = {
-            ci = "commit";
-            co = "checkout";
-            st = "status";
+          settings = {
+            user = {
+              name = "quasigod";
+              email = "quasigod-io@proton.me";
+            };
+            ui = {
+              paginate = "never";
+              default-command = "log";
+            };
+            git.private-commits = "description(glob:'private:*')";
           };
-          signing = {
-            key = "~/.ssh/id_ed25519.pub";
-            signByDefault = true;
-          };
-          extraConfig = {
-            init.defaultBranch = "main";
-            pull.rebase = true;
-            rerere.enabled = true;
-            column.ui = "auto";
-            fetch.prune = true;
-            interactive.singlekey = true;
-          };
-        }
-        // mkCompat
+        };
+        git =
           {
-            signing.format = "ssh";
+            enable = true;
+            lfs.enable = true;
+            userName = "quasigod";
+            userEmail = "quasigod-io@proton.me";
+            difftastic.enable = true;
+            aliases = {
+              ci = "commit";
+              co = "checkout";
+              st = "status";
+            };
+            signing = {
+              key = "~/.ssh/id_ed25519.pub";
+              signByDefault = true;
+            };
+            extraConfig = {
+              init.defaultBranch = "main";
+              pull.rebase = true;
+              rerere.enabled = true;
+              column.ui = "auto";
+              fetch.prune = true;
+              interactive.singlekey = true;
+            };
           }
-          {
-            extraConfig.gpg.format = "ssh";
-          };
+          // mkCompat
+            {
+              signing.format = "ssh";
+            }
+            {
+              extraConfig.gpg.format = "ssh";
+            };
+      };
     };
-  };
 }
