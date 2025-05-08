@@ -25,11 +25,11 @@
               open = lib.mkForce "open";
             };
             plugins = with pkgs.nushellPlugins; [
-              highlight
-              net
-              query
-              skim
-              units
+              # highlight
+              # net
+              # query
+              # skim
+              # units
             ];
             extraConfig = ''
               $env.config = {

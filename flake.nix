@@ -26,7 +26,7 @@
     };
 
     unify = {
-      url = "git+https://codeberg.org/quasigod/unify.git?ref=flake-parts";
+      url = "git+https://codeberg.org/quasigod/unify";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
@@ -96,7 +96,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     nilla-cli.url = "github:nilla-nix/cli";
-    nilla-nixos.url = "github:nilla-nix/nixos";
   };
   nixConfig = {
     extra-substituters = [
