@@ -30,7 +30,6 @@
     nixos =
       { pkgs, ... }:
       {
-        system.stateVersion = "22.05";
         imports = with inputs.nixos-hardware.nixosModules; [
           common-cpu-amd
           common-gpu-amd

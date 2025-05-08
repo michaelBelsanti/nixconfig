@@ -25,7 +25,6 @@
     nixos =
       { pkgs, ... }:
       {
-        system.stateVersion = "22.05";
         imports = [ inputs.nixos-hardware.nixosModules.framework-13-7040-amd ];
 
         facter.reportPath = ./facter.json;
