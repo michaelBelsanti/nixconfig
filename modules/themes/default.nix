@@ -1,36 +1,45 @@
+{ inputs, ... }:
 {
   unify.modules.workstation = {
     nixos =
       { pkgs, ... }:
       {
+        imports = [ inputs.stylix.nixosModules.stylix ];
+        stylix = {
+          enable = true;
+          fonts = {
+            sansSerif = {
+              package = pkgs.atkinson-hyperlegible-next;
+              name = "Atkinson Hyperlegible Next";
+            };
+            monospace = {
+              package = pkgs.jetbrains-mono;
+              name = "JetBrains Mono";
+            };
+            emoji = {
+              package = pkgs.openmoji-color;
+              name = "OpenMoji";
+            };
+          };
+        };
         fonts = {
+          enableDefaultPackages = true;
           packages = with pkgs; [
-            jetbrains-mono
             montserrat
             libertine
             inter
-            openmoji-color
             nerd-fonts.symbols-only
-            atkinson-hyperlegible-next
           ];
-          enableDefaultPackages = true;
-          fontDir.enable = true;
-          fontconfig.defaultFonts = {
-            sansSerif = [ "Atkinson Hyperlegible Next" ];
-            monospace = [ "JetBrains Mono" ];
-          };
         };
       };
 
     home =
       { pkgs, ... }:
       {
-        home = {
-          pointerCursor = {
-            package = pkgs.posy-cursors;
-            name = "Posy_Cursor";
-            gtk.enable = true;
-          };
+        home.pointerCursor = {
+          package = pkgs.posy-cursors;
+          name = "Posy_Cursor";
+          gtk.enable = true;
         };
       };
   };
