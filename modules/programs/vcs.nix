@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   unify.home =
     { mkCompat, ... }:
@@ -18,7 +19,7 @@
             git.private-commits = "description(glob:'private:*')";
           };
         };
-        git =
+        git = lib.mkMerge [
           {
             enable = true;
             lfs.enable = true;
@@ -43,13 +44,15 @@
               interactive.singlekey = true;
             };
           }
-          // mkCompat
+          (mkCompat
             {
               signing.format = "ssh";
             }
             {
               extraConfig.gpg.format = "ssh";
-            };
+            }
+          )
+        ];
       };
     };
 }
