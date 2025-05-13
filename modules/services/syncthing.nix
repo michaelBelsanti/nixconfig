@@ -18,10 +18,6 @@
               id = "V3CJAAW-V5ZRINB-SIDYUZH-L6CRFTW-ZOOHA3W-KYMW5ZU-Q4IUMLS-47QSTQQ";
               addresses = "dynamic";
             };
-            # hypnos = {
-            #   id = "";
-            #   addresses = "dynamic";
-            # };
           };
           all_devices = builtins.attrNames devices;
         in

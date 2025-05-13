@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   unify.modules.workstation = {
     home =
@@ -22,21 +21,7 @@
             withX = false;
           })
           obsidian
-          # (inputs.wrapper-manager.lib.build {
-          #   inherit pkgs;
-          #   modules = [
-          #     {
-          #       wrappers.obsidian = {
-          #         basePackage = (obsidian.override { electron = electron_35; });
-          #         flags = [ "--enable-unsafe-webgpu" ];
-          #       };
-          #     }
-          #   ];
-          # })
         ];
-        # ++ (with inputs; [
-        #   mypkgs.packages.${system}.grayjay
-        # ]);
       };
   };
 }

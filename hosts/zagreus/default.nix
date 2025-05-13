@@ -37,7 +37,6 @@
 
         boot = {
           kernelParams = [ "acpi_backlight=native" ];
-          # initrd.kernelModules = [ "amdgpu" ];
           plymouth.enable = true;
         };
 
@@ -45,10 +44,7 @@
 
         services = {
           fprintd.enable = false; # Enable fingerprint scanner
-          fwupd = {
-            enable = true; # Enable firmware updates with `fwupdmgr update`
-            # extraRemotes = [ "lvfs-testing" ];
-          };
+          fwupd.enable = true; # Enable firmware updates with `fwupdmgr update`
         };
       };
   };

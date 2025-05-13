@@ -30,13 +30,13 @@
     nixos =
       { pkgs, ... }:
       {
+        facter.reportPath = ./facter.json;
         imports = with inputs.nixos-hardware.nixosModules; [
           common-cpu-amd
           common-gpu-amd
           common-pc-ssd
         ];
 
-        facter.reportPath = ./facter.json;
         hardware = {
           keyboard.zsa.enable = true;
           keyboard.qmk.enable = true;
@@ -48,7 +48,6 @@
           wally-cli
         ];
 
-        # boot.kernelPackages = pkgs.linuxPackages_6_11;
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
         networking = {

@@ -55,20 +55,12 @@
 
           (inputs.wrapper-manager.lib.build {
             inherit pkgs;
-            modules = [
-              {
-                wrappers.rustscan = {
-                  basePackage = pkgs.rustscan;
-                  flags = [ "-c ${constants.configHome}/rustscan.toml" ];
-                };
-              }
-              # {
-              #   wrappers.metasploit = {
-              #     basePackage = pkgs.metasploit;
-              #     flags = [ "--defer-module-loads" ];
-              #   };
-              # }
-            ];
+            modules = lib.singleton {
+              wrappers.rustscan = {
+                basePackage = pkgs.rustscan;
+                flags = [ "-c ${constants.configHome}/rustscan.toml" ];
+              };
+            };
           })
         ];
       };
