@@ -1,5 +1,5 @@
 {
-  unify.modules.laptop.nixos.services = {
+  unify.modules.laptop.nixos = {
     services.power-profiles-daemon.enable = false;
     hardware.system76.power-daemon.enable = true;
     services.thermald.enable = true;
