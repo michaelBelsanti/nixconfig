@@ -1,4 +1,4 @@
-{ constants, lib, ... }:
+{ constants, ... }:
 {
   unify = {
     nixos = {
@@ -41,8 +41,7 @@
           };
         };
     };
-    modules.server.nixos.services.syncthing.settings.dataDir = "/var/lib/syncthing";
-    modules.workstation.nixos.services.syncthing.settings = {
+    modules.workstation.nixos.services.syncthing = {
       inherit (constants) user;
       dataDir = constants.home;
     };
