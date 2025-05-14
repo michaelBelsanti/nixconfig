@@ -1,4 +1,3 @@
-{ inputs, ... }:
 {
   unify.modules.workstation = {
     home =
@@ -12,7 +11,7 @@
         };
         gtk.iconTheme = {
           name = "Cosmic";
-          package = inputs.nixos-cosmic.packages.${pkgs.system}.cosmic-icons;
+          package = pkgs.cosmic-icons;
         };
       };
 
@@ -24,29 +23,21 @@
           displayManager.cosmic-greeter.enable = true;
           gnome.gnome-keyring.enable = true;
         };
-        environment.systemPackages =
-          (with pkgs; [
-            pwvucontrol
-            overskride
-            loupe
-            celluloid
-            gnome-disk-utility
-            file-roller
-            networkmanagerapplet
-            cosmic-ext-calculator
-            cosmic-ext-tweaks
-            cosmic-player
-            forecast
-            tasks
-          ])
-          ++ (with inputs.nixos-cosmic.packages.${pkgs.system}; [
-            andromeda
-            examine
-            observatory
-          ]);
-        environment.variables = {
-          COSMIC_DATA_CONTROL_ENABLED = 1;
-        };
+        environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
+        environment.systemPackages = with pkgs; [
+          pwvucontrol
+          overskride
+          loupe
+          celluloid
+          gnome-disk-utility
+          file-roller
+          networkmanagerapplet
+          cosmic-ext-calculator
+          cosmic-ext-tweaks
+          cosmic-player
+          forecast
+          tasks
+        ];
       };
   };
 }
