@@ -5,6 +5,8 @@
       { config, ... }:
       {
         _module.args.homeConfig = config.home-manager.users.${constants.user};
+        home-manager.useUserPackages = true;
+        home-manager.useGlobalPkgs = true;
       };
 
     home = {
