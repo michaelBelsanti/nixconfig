@@ -17,9 +17,9 @@
               plugins = with pkgs.nushellPlugins; [
                 highlight
                 net
-                # query
-                # skim
-                # units
+                query
+                skim
+                units
               ];
             } { }
             // {
