@@ -11,7 +11,6 @@
       { pkgs, mkCompat, ... }:
       {
         programs = {
-          # TODO reenable when fixed
           nushell =
             mkCompat {
               plugins = with pkgs.nushellPlugins; [
