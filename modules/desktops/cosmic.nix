@@ -18,6 +18,15 @@
     nixos =
       { pkgs, ... }:
       {
+        # maybe remove after Wayland Proton releases
+        # systemd.user = {
+        #   services."xwayland-primary-display" = {
+        #     script = "${lib.getExe pkgs.xorg.xrandr} --output ${
+        #       hostConfig.primaryDisplay.name
+        #     } --primary";
+        #     wantedBy = [ "graphical-session.target" ];
+        #   };
+        # };
         services = {
           desktopManager.cosmic.enable = true;
           displayManager.cosmic-greeter.enable = true;

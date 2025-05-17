@@ -67,10 +67,10 @@
           gamescope = {
             enable = true;
             args = [
-              "-W ${toString config.unify.hosts.${hostConfig.name}.primaryDisplay.width}"
-              "-H ${toString config.unify.hosts.${hostConfig.name}.primaryDisplay.height}"
-              "-r ${toString config.unify.hosts.${hostConfig.name}.primaryDisplay.refreshRate}"
-              "-O ${config.unify.hosts.${hostConfig.name}.primaryDisplay.name}"
+              "-W ${toString hostConfig.primaryDisplay.width}"
+              "-H ${toString hostConfig.primaryDisplay.height}"
+              "-r ${toString hostConfig.primaryDisplay.refreshRate}"
+              "-O ${hostConfig.primaryDisplay.name}"
               "-f"
               "--adaptive-sync"
               "--mangoapp"
