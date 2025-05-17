@@ -9,10 +9,18 @@
           email = "quasigod-io@proton.me";
         };
         ui = {
-          paginate = "never";
-          default-command = "log";
+          default-command = [
+            "log"
+            "--no-pager"
+          ];
+          show-cryptographic-signatures = true;
         };
         git.private-commits = "description(glob:'private:*')";
+        signing = {
+          behavior = "own";
+          backend = "ssh";
+          key = "~/.ssh/id_ed25519.pub";
+        };
       };
     };
   };
