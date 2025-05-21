@@ -16,22 +16,21 @@
       };
 
     nixos =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
-        # maybe remove after Wayland Proton releases
-        # systemd.user = {
-        #   services."xwayland-primary-display" = {
-        #     script = "${lib.getExe pkgs.xorg.xrandr} --output ${
-        #       hostConfig.primaryDisplay.name
-        #     } --primary";
-        #     wantedBy = [ "graphical-session.target" ];
-        #   };
-        # };
+        programs.uwsm = {
+          enable = true;
+          waylandCompositors.cosmic = {
+            prettyName = "COSMIC Desktop";
+            binPath = lib.getExe' pkgs.cosmic-session "start-cosmic";
+          };
+        };
         services = {
           desktopManager.cosmic.enable = true;
           displayManager.cosmic-greeter.enable = true;
           gnome.gnome-keyring.enable = true;
         };
+        environment.variables.RUST_BACKTRACE = 1;
         environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
         environment.systemPackages = with pkgs; [
           pwvucontrol
