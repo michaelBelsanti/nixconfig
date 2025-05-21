@@ -33,6 +33,7 @@
                 # overrides for global aliases
                 mkdir = lib.mkForce "mkdir";
                 open = lib.mkForce "open";
+                get = lib.mkForce "get";
               };
               extraConfig = ''
                 $env.config = {
