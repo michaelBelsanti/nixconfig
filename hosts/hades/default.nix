@@ -11,9 +11,9 @@
       "plymouth"
     ];
 
-    primaryDisplay = config.unify.hosts.hades.displays.DP-1;
+    primaryDisplay = config.unify.hosts.hades.displays.DP-3;
     displays = {
-      DP-1 = {
+      DP-3 = {
         primary = true;
         refreshRate = 240;
         width = 1920;
