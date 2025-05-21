@@ -2,13 +2,13 @@
 {
   unify.hosts.hades = {
     tags = [
-      "desktop"
       "workstation"
       "gaming"
       "replays"
       "hacking"
       "virtualisation"
       "plymouth"
+      "cachix"
     ];
 
     primaryDisplay = config.unify.hosts.hades.displays.DP-3;
