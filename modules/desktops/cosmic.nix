@@ -16,15 +16,8 @@
       };
 
     nixos =
-      { pkgs, lib, ... }:
+      { pkgs, ... }:
       {
-        programs.uwsm = {
-          enable = true;
-          waylandCompositors.cosmic = {
-            prettyName = "COSMIC Desktop";
-            binPath = lib.getExe' pkgs.cosmic-session "start-cosmic";
-          };
-        };
         services = {
           desktopManager.cosmic.enable = true;
           displayManager.cosmic-greeter.enable = true;
