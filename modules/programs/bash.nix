@@ -11,10 +11,9 @@
         cd = "z";
         lj = "lazyjj";
         lg = "lazygit";
-        open = "xdg-open";
+        o = "xdg-open";
         mkdir = "mkdir -p";
         tree = "eza -T";
-        get = "aria2c";
       };
       programs.bash = {
         enable = true;

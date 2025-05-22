@@ -27,13 +27,7 @@
                 l = "ls";
                 la = "ls -a";
                 ll = "ls -al";
-                lg = "lazygit";
-                o = "xdg-open";
-                cd = "z";
-                # overrides for global aliases
                 mkdir = lib.mkForce "mkdir";
-                open = lib.mkForce "open";
-                get = lib.mkForce "get";
               };
               extraConfig = ''
                 $env.config = {
