@@ -12,5 +12,6 @@
       i18n.defaultLocale = "en_US.UTF-8";
       i18n.supportedLocales = [ "all" ];
       system.stateVersion = "22.05";
+      system.rebuild.enableNg = true;
     };
 }
