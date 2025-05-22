@@ -13,6 +13,11 @@
           ./modules
         ])
       ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          formatter = pkgs.nixfmt-tree;
+        };
     };
 
   inputs = {
