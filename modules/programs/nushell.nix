@@ -8,37 +8,34 @@
         users.users.${constants.user}.shell = pkgs.nushell;
       };
     home =
-      { pkgs, mkCompat, ... }:
+      { pkgs, ... }:
       {
         programs = {
-          nushell =
-            mkCompat {
-              plugins = with pkgs.nushellPlugins; [
-                highlight
-                net
-                query
-                skim
-                units
-              ];
-            } { }
-            // {
-              enable = true;
-              shellAliases = {
-                l = "ls";
-                la = "ls -a";
-                ll = "ls -al";
-                mkdir = lib.mkForce "mkdir";
-              };
-              extraConfig = ''
-                $env.config = {
-                  show_banner: false
-                  display_errors: {
-                      exit_code: false
-                      termination_signal: true
-                  }
-                }
-              '';
+          nushell = {
+            plugins = with pkgs.nushellPlugins; [
+              highlight
+              net
+              query
+              skim
+              units
+            ];
+            enable = true;
+            shellAliases = {
+              l = "ls";
+              la = "ls -a";
+              ll = "ls -al";
+              mkdir = lib.mkForce "mkdir";
             };
+            extraConfig = ''
+              $env.config = {
+                show_banner: false
+                display_errors: {
+                    exit_code: false
+                    termination_signal: true
+                }
+              }
+            '';
+          };
           carapace = {
             enable = true;
             enableNushellIntegration = true;

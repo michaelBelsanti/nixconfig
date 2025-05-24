@@ -3,7 +3,7 @@
     let
       mkMkCompat =
         lib: unstableOptions: stableOptions:
-        if (lib.versionOlder lib.version "25.05pre") then stableOptions else unstableOptions;
+        if (lib.versionOlder lib.version "25.11pre") then stableOptions else unstableOptions;
     in
     {
       nixos =
