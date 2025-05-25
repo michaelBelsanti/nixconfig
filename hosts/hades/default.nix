@@ -7,7 +7,6 @@
       "replays"
       "hacking"
       "virtualisation"
-      "plymouth"
       "cachix"
     ];
 
