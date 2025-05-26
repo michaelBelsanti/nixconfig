@@ -67,7 +67,7 @@
             user = "ollama";
           };
           open-webui = {
-            enable = true;
+            # enable = true; # TODO
             port = 8008;
             environment.WEBUI_AUTH = "False";
           };
