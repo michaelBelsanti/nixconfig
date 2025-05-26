@@ -1,6 +1,6 @@
 {
   unify.modules.workstation = {
-    nixos.xdg.terminal-exec.settings.default = [ "com.mitchellh.ghostty.desktop" ];
+    # nixos.xdg.terminal-exec.settings.default = [ "com.mitchellh.ghostty.desktop" ];
     home.programs.ghostty = {
       enable = true;
       enableBashIntegration = true;

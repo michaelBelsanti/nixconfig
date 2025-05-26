@@ -25,6 +25,7 @@ in
         catppuccin = {
           enable = true;
           inherit flavor accent;
+          wezterm.apply = true;
         };
         colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
         qt = {
