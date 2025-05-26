@@ -8,6 +8,8 @@
       "hacking"
       "virtualisation"
       "cachix"
+      "localai"
+      "zsa-kb"
     ];
 
     primaryDisplay = config.unify.hosts.hades.displays.DP-3;
@@ -36,16 +38,7 @@
           common-pc-ssd
         ];
 
-        hardware = {
-          keyboard.zsa.enable = true;
-          keyboard.qmk.enable = true;
-          amdgpu.opencl.enable = true;
-        };
-
-        environment.systemPackages = with pkgs; [
-          keymapp
-          wally-cli
-        ];
+        hardware.amdgpu.opencl.enable = true;
 
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
@@ -60,22 +53,8 @@
         };
 
         services = {
-          ollama = {
-            enable = true;
-            acceleration = "rocm";
-            rocmOverrideGfx = "11.0.1";
-            user = "ollama";
-          };
-          open-webui = {
-            # enable = true; # TODO
-            port = 8008;
-            environment.WEBUI_AUTH = "False";
-          };
-          openssh = {
-            enable = true;
-            ports = [ 42069 ];
-            settings.PasswordAuthentication = false;
-          };
+          ollama.rocmOverrideGfx = "11.0.1";
+          openssh.ports = [ 42069 ];
         };
       };
   };

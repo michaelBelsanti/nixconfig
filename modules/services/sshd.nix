@@ -17,6 +17,7 @@
           "umac-128-etm@openssh.com"
         ];
         RequiredRSASize = 4095;
+        PasswordAuthentication = false;
       };
     };
   };
