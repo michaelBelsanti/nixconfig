@@ -1,11 +1,11 @@
-{ lib, constants, ... }:
+{ lib, ... }:
 {
   unify = {
     nixos =
-      { pkgs, ... }:
+      { pkgs, hostConfig, ... }:
       {
         environment.shells = [ pkgs.nushell ];
-        users.users.${constants.user}.shell = pkgs.nushell;
+        users.users.${hostConfig.primaryUser}.shell = pkgs.nushell;
       };
     home =
       { pkgs, ... }:

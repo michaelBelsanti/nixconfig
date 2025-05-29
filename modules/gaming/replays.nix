@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}:
+{ lib, ... }:
 {
   unify.modules.replays = {
     # Allows gpu-screen-recorder to record screens without escalating
@@ -24,9 +20,7 @@
           Unit.Description = "gpu-screen-recorder replay service";
           Install.WantedBy = [ "graphical-session.target" ];
           Service = {
-            ExecStart = "${lib.getExe pkgs.gpu-screen-recorder} -w ${
-              config.unify.hosts.${hostConfig.name}.primaryDisplay.name
-            } -f 60 -r 60 -a 'default_output|default_input' -c mp4 -q very_high -o %h/Videos/Replays -restore-portal-session yes -v no";
+            ExecStart = "${lib.getExe pkgs.gpu-screen-recorder} -w ${hostConfig.primaryDisplay.name} -f 60 -r 60 -a 'default_output|default_input' -c mp4 -q very_high -o %h/Videos/Replays -restore-portal-session yes -v no";
           };
         };
       };

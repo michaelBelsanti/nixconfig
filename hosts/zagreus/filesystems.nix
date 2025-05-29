@@ -1,5 +1,5 @@
 {
-  unify.hosts.zagreus = {
+  unify.hosts.nixos.zagreus = {
     nixos = {
       fileSystems."/" = {
         device = "/dev/disk/by-uuid/c3fde0b2-d7da-4109-b4cb-27c7a2e53e4b";

@@ -1,4 +1,3 @@
-{ constants, ... }:
 {
   unify.modules.workstation = {
     nixos =
@@ -24,21 +23,23 @@
         };
       };
 
-    home = {
-      qt.enable = true;
-      gtk = {
-        enable = true;
-        gtk2.configLocation = "${constants.configHome}/gtk-2.0/gtkrc";
-        gtk3 = {
-          bookmarks = [
-            "file:///home/quasi/Downloads Downloads"
-            "file:///home/quasi/Documents Documents"
-            "file:///home/quasi/Pictures Pictures"
-            "file:///home/quasi/Videos Videos"
-            "file:///home/quasi/Games Games"
-          ];
+    home =
+      { config, ... }:
+      {
+        qt.enable = true;
+        gtk = {
+          enable = true;
+          gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+          gtk3 = {
+            bookmarks = [
+              "file:///home/quasi/Downloads Downloads"
+              "file:///home/quasi/Documents Documents"
+              "file:///home/quasi/Pictures Pictures"
+              "file:///home/quasi/Videos Videos"
+              "file:///home/quasi/Games Games"
+            ];
+          };
         };
       };
-    };
   };
 }

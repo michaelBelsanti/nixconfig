@@ -1,11 +1,11 @@
-{ lib, constants, ... }:
+{ lib, ... }:
 {
   unify = {
     modules.virtualisation.nixos =
-      { pkgs, ... }:
+      { pkgs, hostConfig, ... }:
       {
         boot.kernelParams = [ "amd_iommu=on" ];
-        users.users.${constants.username}.extraGroups = [ "kvm" ];
+        users.users.${hostConfig.primaryUser}.extraGroups = [ "kvm" ];
         programs.virt-manager.enable = true;
         environment.systemPackages = with pkgs; [
           gnome-boxes

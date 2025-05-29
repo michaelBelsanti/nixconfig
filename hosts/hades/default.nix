@@ -1,18 +1,19 @@
 { inputs, config, ... }:
 {
-  unify.hosts.hades = {
-    tags = [
-      "workstation"
-      "gaming"
-      "replays"
-      "hacking"
-      "virtualisation"
-      "cachix"
-      "localai"
-      "zsa-kb"
+  unify.hosts.nixos.hades = {
+    modules = with config.unify.modules; [
+      workstation
+      gaming
+      replays
+      hacking
+      virtualisation
+      cachix
+      localai
+      zsa-kb
+      syncthing-client
     ];
 
-    primaryDisplay = config.unify.hosts.hades.displays.DP-3;
+    primaryDisplay = config.unify.hosts.nixos.hades.displays.DP-3;
     displays = {
       DP-3 = {
         primary = true;
@@ -27,6 +28,8 @@
         x = -1920;
       };
     };
+
+    users.quasi.modules = config.unify.hosts.nixos.hades.modules;
 
     nixos =
       { pkgs, ... }:

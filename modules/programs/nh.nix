@@ -1,17 +1,18 @@
-{ constants, ... }:
 {
   unify = {
-    nixos.programs.nh = {
-      enable = true;
-      flake = constants.flakePath;
-    };
+    nixos =
+      { hostConfig, ... }:
+      {
+        programs.nh = {
+          enable = true;
+          flake = "/home/${hostConfig.primaryUser}/.flake";
+        };
+      };
     home =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         home.packages = [ pkgs.nh ];
-        home.sessionVariables = {
-          FLAKE = constants.flakePath;
-        };
+        home.sessionVariables.FLAKE = "${config.home.homeDirectory}/.flake";
       };
   };
 }

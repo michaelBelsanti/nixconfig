@@ -1,9 +1,9 @@
-{ constants, inputs, ... }:
+{ inputs, ... }:
 let
   sops_config = {
     defaultSopsFile = ./secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "${constants.configHome}/sops/age/keys.txt";
+    age.keyFile = "/var/lib/secrets/sops/age/keys.txt";
   };
 in
 {
@@ -12,7 +12,7 @@ in
     {
       imports = [ inputs.sops-nix.homeManagerModules.sops ];
       sops = sops_config;
-      home.sessionVariables.SOPS_AGE_KEY_FILE = "${constants.configHome}/sops/age/keys.txt";
+      home.sessionVariables.SOPS_AGE_KEY_FILE = sops_config.age.keyFile;
       home.packages = [ pkgs.sops ];
     };
   unify.nixos = {

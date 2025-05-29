@@ -1,5 +1,5 @@
 {
-  unify.hosts.hades = {
+  unify.hosts.nixos.hades = {
     nixos = {
       fileSystems."/" = {
         device = "/dev/disk/by-label/NIXROOT";

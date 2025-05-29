@@ -1,19 +1,20 @@
 {
   inputs,
-  constants,
   lib,
   withSystem,
   ...
 }:
 {
   unify.modules.hacking = {
-    nixos = {
-      programs.wireshark.enable = true;
-      users.users.${constants.user}.extraGroups = [ "wireshark" ];
-      environment.etc.hosts.mode = "0644";
-    };
+    nixos =
+      { hostConfig, ... }:
+      {
+        programs.wireshark.enable = true;
+        users.users.${hostConfig.primaryUser}.extraGroups = [ "wireshark" ];
+        environment.etc.hosts.mode = "0644";
+      };
     home =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         home.packages = with pkgs; [
           # general
@@ -54,7 +55,6 @@
           netexec
           metasploit
           (withSystem pkgs.system (p: p.config.packages.xsstrike))
-          
 
           (pkgs.writeScriptBin "cyberchef" ''
             echo ${pkgs.cyberchef}/share/cyberchef/index.html
@@ -65,7 +65,7 @@
             modules = lib.singleton {
               wrappers.rustscan = {
                 basePackage = pkgs.rustscan;
-                flags = [ "-c ${constants.configHome}/rustscan.toml" ];
+                flags = [ "-c ${config.xdg.configHome}/rustscan.toml" ];
               };
             };
           })

@@ -1038,11 +1038,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747505198,
-        "narHash": "sha256-Yi9dC+Si2hqbVNhtiZYCBl28RYGevYU1mARTxpWIWVo=",
+        "lastModified": 1748917966,
+        "narHash": "sha256-bTun3Y2ZuaQi7BArn/VEeKLFBVt4uz9mTCEm4gowrxs=",
         "ref": "refs/heads/main",
-        "rev": "15afe60d16d4526d7c0e138f87e9a76f4ebf9c23",
-        "revCount": 24,
+        "rev": "ae47c971506ee5b58bb35f3326297b97e70d297e",
+        "revCount": 36,
         "type": "git",
         "url": "https://codeberg.org/quasigod/unify"
       },

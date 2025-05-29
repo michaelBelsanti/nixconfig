@@ -20,8 +20,8 @@
           heroic
           lunar-client
           (lutris.override {
-            extraPkgs = pkgs: [ umu-launcher ];
-            extraLibraries = pkgs: [ pkgs.latencyflex-vulkan ];
+            extraPkgs = _: [ umu-launcher ];
+            extraLibraries = _: [ latencyflex-vulkan ];
           })
           prismlauncher
           umu-launcher

@@ -1,18 +1,19 @@
 { inputs, config, ... }:
 {
-  unify.hosts.zagreus = {
-    tags = [
-      "laptop"
-      "workstation"
-      "hacking"
-      "remote"
-      "gaming"
-      "virtualisation"
-      "plymouth"
-      "secure-boot"
+  unify.hosts.nixos.zagreus = {
+    modules = with config.unify.modules; [
+      laptop
+      workstation
+      hacking
+      remote
+      gaming
+      virtualisation
+      plymouth
+      secure-boot
+      syncthing-client
     ];
 
-    primaryDisplay = config.unify.hosts.zagreus.displays.eDP-1;
+    primaryDisplay = config.unify.hosts.nixos.zagreus.displays.eDP-1;
     displays = {
       eDP-1 = {
         refreshRate = 60;
@@ -21,6 +22,8 @@
         scaling = 1.50;
       };
     };
+
+    users.quasi.modules = config.nixos.hosts.nixos.zagreus.modules;
 
     nixos =
       { pkgs, ... }:
