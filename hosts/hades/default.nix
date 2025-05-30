@@ -10,7 +10,6 @@
       "cachix"
       "localai"
       "zsa-kb"
-
     ];
 
     primaryDisplay = config.unify.hosts.hades.displays.DP-3;
