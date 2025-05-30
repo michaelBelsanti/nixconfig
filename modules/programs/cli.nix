@@ -70,7 +70,6 @@
           clipboard-jh
           codeberg-cli
           difftastic
-          distrobox
           dogdns
           du-dust
           edir
