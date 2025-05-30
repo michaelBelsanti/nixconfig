@@ -23,6 +23,7 @@
           displayManager.cosmic-greeter.enable = true;
           gnome.gnome-keyring.enable = true;
           geoclue2.enable = true; # expected by cosmic-settings-daemon, shutdown hangs without it
+          geoclue2.enableDemoAgent = false;
         };
         environment.variables.COSMIC_DATA_CONTROL_ENABLED = 1;
         environment.systemPackages = with pkgs; [
