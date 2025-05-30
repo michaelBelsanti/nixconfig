@@ -8,6 +8,7 @@
   unify.modules.hacking = {
     nixos = {
       programs.wireshark.enable = true;
+      users.users.${constants.user}.extraGroups = [ "wireshark" ];
       environment.etc.hosts.mode = "0644";
     };
     home =
