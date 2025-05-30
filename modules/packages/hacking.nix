@@ -6,7 +6,10 @@
 }:
 {
   unify.modules.hacking = {
-    nixos.programs.wireshark.enable = true;
+    nixos = {
+      programs.wireshark.enable = true;
+      environment.etc.hosts.mode = "0644";
+    };
     home =
       { pkgs, ... }:
       {
@@ -46,6 +49,7 @@
           imhex
           python3Packages.scapy
           xh
+          netexec
 
           metasploit
 
