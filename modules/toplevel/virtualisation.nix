@@ -15,7 +15,6 @@
         virtualisation = {
           libvirtd.enable = true;
           spiceUSBRedirection.enable = true;
-          podman.enable = true;
         };
       };
     modules.waydroid.nixos.virtualisation.waydroid.enable = true;
