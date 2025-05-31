@@ -2,6 +2,7 @@
   inputs,
   constants,
   lib,
+  withSystem,
   ...
 }:
 {
@@ -51,8 +52,9 @@
           python3Packages.scapy
           xh
           netexec
-
           metasploit
+          (withSystem pkgs.system (p: p.config.packages.xsstrike))
+          
 
           (pkgs.writeScriptBin "cyberchef" ''
             echo ${pkgs.cyberchef}/share/cyberchef/index.html
