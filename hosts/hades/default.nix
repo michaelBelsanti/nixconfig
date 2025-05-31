@@ -42,7 +42,16 @@
 
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
+        services.resolved.fallbackDns = [ ];
+        systemd.network.enable = true;
+        systemd.network.networks."01-ethernet" = {
+          matchConfig.Name = "enp8s0";
+          networkConfig.DHCP = "ipv4";
+          networkConfig.IPv6AcceptRA = "yes";
+        };
+
         networking = {
+          networkmanager.enable = false;
           hostName = "hades";
           firewall = {
             allowedUDPPorts = [
