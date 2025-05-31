@@ -15,7 +15,7 @@
           file
           git
           gptfdisk
-          inetutils
+          iputils
           killall
           pciutils
           traceroute
