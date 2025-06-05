@@ -68,16 +68,13 @@
           aria2
           choose
           clipboard-jh
-          codeberg-cli
           difftastic
           dogdns
           du-dust
           edir
-          eternal-terminal
           fd
           gdu
           gh
-          gh-dash
           glow
           imagemagick
           inotify-tools
@@ -91,7 +88,6 @@
           rclone
           ripgrep
           sd
-          superfile
           systeroid
           try
           waypipe
