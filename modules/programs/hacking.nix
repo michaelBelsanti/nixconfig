@@ -19,45 +19,76 @@
         home.packages = with pkgs; [
           # general
           wordlists
-          (pkgs.writeScriptBin "wlfuzz" ''
+          (writeScriptBin "wlfuzz" ''
             ${lib.getExe fd} . ${wordlists}/share/wordlists | ${lib.getExe television} files
           '')
 
-          # crackers
-          thc-hydra
-          hashcat
-          hashcat-utils
-          john
-
-          # web
-          burpsuite
-          zap
-          ffuf
-          mitmproxy
-          mitmproxy2swagger
-
-          # enumeration
+          # Information Gathering
           nmap
           theharvester
           enum4linux-ng
           smbmap
-          whatweb
           gobuster
-          sqlmap
           feroxbuster
+          sherlock
 
-          responder
-          wireshark
+          # Vulnerability Analysis
+          sqlmap
+
+          # Exploitation Tools
           exploitdb
-          imhex
-          python3Packages.scapy
-          xh
+          responder
           netexec
           metasploit
-          (withSystem pkgs.system (p: p.config.packages.xsstrike))
 
-          (pkgs.writeScriptBin "cyberchef" ''
-            echo ${pkgs.cyberchef}/share/cyberchef/index.html
+          # Wireless Attacks
+          aircrack-ng
+
+          # Forensics Tools
+          autopsy
+          volatility3
+          binwalk
+          exiftool
+          sleuthkit
+
+          # Stress Testing
+          stress-ng
+
+          # Sniffing & Spoofing
+          wireshark
+          bettercap
+          python3Packages.scapy
+          mitmproxy
+          mitmproxy2swagger
+
+          # Password Attacks
+          thc-hydra
+          hashcat
+          hashcat-utils
+          john
+          ophcrack
+
+          # Web Application Analysis
+          whatweb
+          burpsuite
+          zap
+          ffuf
+          xh
+          wpscan
+          (withSystem system (p: p.config.packages.xsstrike))
+
+          # Reverse Engineering
+          ghidra
+          cutter
+          imhex
+
+          # Social Engineering Tools
+          social-engineer-toolkit
+
+          # Miscellaneous
+          tor-browser
+          (writeScriptBin "cyberchef" ''
+            ${lib.getExe' xdg-utils "xdg-open"} ${cyberchef}/share/cyberchef/index.html
           '')
 
           (inputs.wrapper-manager.lib.build {
