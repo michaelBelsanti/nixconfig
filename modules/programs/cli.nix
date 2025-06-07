@@ -46,6 +46,7 @@
             python-pkgs.pandas
             python-pkgs.requests
           ]))
+          virtualenv
 
           # Nix
           deadnix
