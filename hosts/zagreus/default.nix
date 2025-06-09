@@ -23,7 +23,7 @@
       };
     };
 
-    users.quasi.modules = config.nixos.hosts.nixos.zagreus.modules;
+    users.quasi.modules = config.unify.hosts.nixos.zagreus.modules;
 
     nixos =
       { pkgs, ... }:
