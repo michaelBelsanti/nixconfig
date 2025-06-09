@@ -1,6 +1,6 @@
 { inputs, lib, ... }:
 {
-  unify.home =
+  unify.modules.workstation.home =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
