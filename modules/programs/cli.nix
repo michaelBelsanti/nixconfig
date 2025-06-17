@@ -71,6 +71,7 @@
           clipboard-jh
           difftastic
           dogdns
+          dua
           du-dust
           edir
           fd
@@ -80,6 +81,7 @@
           imagemagick
           inotify-tools
           isd
+          mprocs
           nitch
           nvtopPackages.full
           ouch
@@ -88,6 +90,7 @@
           psmisc
           rclone
           ripgrep
+          ripgrep-all
           sd
           systeroid
           try
