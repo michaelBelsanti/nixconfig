@@ -17,16 +17,7 @@
         networking = {
           nftables.enable = true;
           wireguard.enable = true;
-          firewall.interfaces.tailscale0 = {
-            allowedUDPPortRanges = lib.singleton {
-              from = 0;
-              to = 65535;
-            };
-            allowedTCPPortRanges = lib.singleton {
-              from = 0;
-              to = 65535;
-            };
-          };
+          firewall.trustedInterfaces = [ "tailscale0" ];
         };
         # nixpkgs #180175
         systemd.services.NetworkManager-wait-online.enable = false;
