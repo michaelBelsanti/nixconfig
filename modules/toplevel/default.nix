@@ -1,11 +1,12 @@
 {
   unify.nixos =
-    { pkgs, homeConfig, ... }:
+    { pkgs, lib, homeConfig, ... }:
     {
       environment = {
         binsh = "${pkgs.dash}/bin/dash";
         # fixes some issues, mainly root $PATH
         systemPackages = homeConfig.home.packages;
+        defaultPackages = lib.mkForce [];
       };
       zramSwap.enable = true;
       time.timeZone = "America/New_York";

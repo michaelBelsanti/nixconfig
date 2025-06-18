@@ -92,6 +92,7 @@
           ripgrep
           ripgrep-all
           sd
+          strace
           systeroid
           try
           waypipe
