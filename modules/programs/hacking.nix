@@ -39,7 +39,7 @@
           exploitdb
           responder
           netexec
-          metasploit
+          # metasploit
 
           # Wireless Attacks
           aircrack-ng
@@ -91,14 +91,13 @@
             ${lib.getExe' xdg-utils "xdg-open"} ${cyberchef}/share/cyberchef/index.html
           '')
 
-          (inputs.wrapper-manager.lib.build {
-            inherit pkgs;
-            modules = lib.singleton {
-              wrappers.rustscan = {
-                basePackage = pkgs.rustscan;
-                flags = [ "-c ${config.xdg.configHome}/rustscan.toml" ];
-              };
-            };
+          (inputs.wrapper-manager.lib.wrapWith pkgs {
+            basePackage = pkgs.rustscan;
+            prependFlags = [ "-c ${config.xdg.configHome}/rustscan.toml" ];
+          })
+          (inputs.wrapper-manager.lib.wrapWith pkgs {
+            basePackage = pkgs.metasploit;
+            programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
           })
         ];
       };

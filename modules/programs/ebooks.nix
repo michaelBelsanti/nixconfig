@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   unify.modules.workstation.home =
     { pkgs, ... }:
@@ -7,14 +7,9 @@
         calibre
         kcc
         p7zip # for kcc
-        (inputs.wrapper-manager.lib.build {
-          inherit pkgs;
-          modules = lib.singleton {
-            wrappers.hakuneko = {
-              basePackage = pkgs.hakuneko;
-              flags = [ "--no-sandbox" ]; # gpu errors without
-            };
-          };
+        (inputs.wrapper-manager.lib.wrapWith pkgs {
+          basePackage = pkgs.hakuneko;
+          prependFlags = [ "--no-sandbox" ]; # gpu errors without
         })
       ];
     };
