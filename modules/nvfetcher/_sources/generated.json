@@ -1,0 +1,65 @@
+{
+    "carapace": {
+        "cargoLocks": null,
+        "date": "2025-06-27",
+        "extract": null,
+        "name": "carapace",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "carapace-sh",
+            "repo": "carapace-bin",
+            "rev": "56a43de1f57d5487979d6fc336a33d1076dfae29",
+            "sha256": "sha256-qBGEQUB2DxjQcUDnCIiL6RhNe7WV2y6w5uKiaWql3hE=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "56a43de1f57d5487979d6fc336a33d1076dfae29"
+    },
+    "mpris-scrobbler": {
+        "cargoLocks": null,
+        "date": "2025-06-18",
+        "extract": null,
+        "name": "mpris-scrobbler",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "mariusor",
+            "repo": "mpris-scrobbler",
+            "rev": "4862b85ff7bd58ce72022eaf74463aea0f99d04e",
+            "sha256": "sha256-VYWS9OletI4QAC07rRuXvncDqUEG7YZRpVtsx500N9c=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "4862b85ff7bd58ce72022eaf74463aea0f99d04e"
+    },
+    "xsstrike": {
+        "cargoLocks": null,
+        "date": "2025-05-04",
+        "extract": null,
+        "name": "xsstrike",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "boffman",
+            "repo": "XSStrike",
+            "rev": "73d103ce9162f2edc40ebee808f302625dc90eb0",
+            "sha256": "sha256-I1QOvup07JeiXZYgoF0rxlEoMI398y3qEYC6qQ2x+l0=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "73d103ce9162f2edc40ebee808f302625dc90eb0"
+    }
+}

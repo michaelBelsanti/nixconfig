@@ -1,0 +1,12 @@
+[carapace]
+src.git = "https://github.com/carapace-sh/carapace-bin"
+src.branch = "master"
+fetch.github = "carapace-sh/carapace-bin"
+[xsstrike]
+src.git = "https://github.com/boffman/XSStrike"
+src.branch = "master"
+fetch.github = "boffman/XSStrike"
+[mpris-scrobbler]
+src.git = "https://github.com/mariusor/mpris-scrobbler"
+src.branch = "master"
+fetch.github = "mariusor/mpris-scrobbler"

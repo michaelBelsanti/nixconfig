@@ -1,16 +1,11 @@
-{ lib, ... }:
+{ lib, sources, ... }:
 {
   unify.modules.workstation = {
     home =
       { pkgs, ... }:
       let
         mpris-scrobbler = pkgs.mpris-scrobbler.overrideAttrs {
-          src = pkgs.fetchFromGitHub {
-            owner = "mariusor";
-            repo = "mpris-scrobbler";
-            rev = "da3442b7815264b1845b83b05c56bf1d3af5c324";
-            hash = "sha256-ZIRkcIKQVOYkj4Bus30E1jdLZc5kTanS6U+UZYAJXag=";
-          };
+          inherit (sources.mpris-scrobbler) src;
         };
       in
       {
