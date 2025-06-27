@@ -39,6 +39,17 @@
           carapace = {
             enable = true;
             enableNushellIntegration = true;
+            package = pkgs.carapace.overrideAttrs (
+              self: super: {
+                vendorHash = "sha256-6y1eolm+QGXc0ZXyPr1tEC23RnR3sxvKAjRC2i1A/hk=";
+                src = pkgs.fetchFromGitHub {
+                  owner = "carapace-sh";
+                  repo = "carapace-bin";
+                  rev = "6ea9333a5b65d0eee7e32d73383b1aa971814a06";
+                  hash = "sha256-q70wzvC3wnyXEFvfw/F6KH1c2LyLj/w6VmX1mtPfuQo=";
+                };
+              }
+            );
           };
         };
       };
