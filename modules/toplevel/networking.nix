@@ -1,10 +1,9 @@
-{ lib, ... }:
 {
   unify = {
     modules.remote.nixos.services.tailscale = {
       extraSetFlags = [
         "--accept-routes"
-        "--accept-dns=false"
+        "--accept-dns"
       ];
     };
     nixos =
