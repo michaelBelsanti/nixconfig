@@ -17,6 +17,7 @@
       { pkgs, config, ... }:
       {
         home.packages = with pkgs; [
+          # TODO remove overrides eventually
           # general
           wordlists
           (writeScriptBin "wlfuzz" ''
@@ -26,8 +27,12 @@
           # Information Gathering
           nmap
           theharvester
-          enum4linux-ng
-          smbmap
+          (enum4linux-ng.override {
+            python3 = pkgs.python312;
+          })
+          (smbmap.override {
+            python3 = pkgs.python312;
+          })
           gobuster
           feroxbuster
           sherlock
@@ -38,7 +43,9 @@
           # Exploitation Tools
           exploitdb
           responder
-          netexec
+          (netexec.override {
+            python3 = pkgs.python312;
+          })
           # metasploit
 
           # Wireless Attacks
@@ -83,7 +90,9 @@
           imhex
 
           # Social Engineering Tools
-          social-engineer-toolkit
+          (social-engineer-toolkit.override {
+            python3Packages = pkgs.python312Packages;
+          })
 
           # Miscellaneous
           tor-browser
