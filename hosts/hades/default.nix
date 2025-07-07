@@ -5,7 +5,7 @@
       workstation
       gaming
       replays
-      hacking
+      # hacking
       virtualisation
       cachix
       localai

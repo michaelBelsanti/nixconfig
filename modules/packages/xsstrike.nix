@@ -19,7 +19,7 @@
             rev = "73d103ce9162f2edc40ebee808f302625dc90eb0";
             hash = "sha256-I1QOvup07JeiXZYgoF0rxlEoMI398y3qEYC6qQ2x+l0=";
           };
-
+          pyproject = true;
           pythonImportsCheck = [ "xsstrike" ];
           build-system = with python3Packages; [ setuptools ];
           dependencies = with python3Packages; [
