@@ -21,6 +21,7 @@
             withX = false;
           })
           obsidian
+          grayjay
         ];
       };
   };
