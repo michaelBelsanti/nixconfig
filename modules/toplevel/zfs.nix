@@ -46,6 +46,7 @@
                   $"(cat ${config.sops.secrets.ntfy_url.path})
                   $status)
               }
+              exit 0
             ''}
           '';
         };
