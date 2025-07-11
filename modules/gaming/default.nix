@@ -1,8 +1,4 @@
-{
-  config,
-  inputs,
-  ...
-}:
+{ inputs, ... }:
 {
   unify.modules.gaming = {
     nixos =
@@ -13,6 +9,7 @@
           inputs.nix-gaming.nixosModules.platformOptimizations
           inputs.chaotic.nixosModules.default
         ];
+        boot.kernelModules = [ "ntsync" ];
         chaotic.nyx.overlay.enable = true;
         environment.systemPackages = with pkgs; [
           # Launchers
