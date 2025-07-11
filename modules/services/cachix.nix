@@ -4,7 +4,7 @@
     {
       sops.secrets.cachix_token = { };
       services.cachix-watch-store = {
-        enable = true;
+        enable = false;
         cacheName = "quasigod";
         cachixTokenFile = config.sops.secrets.cachix_token.path;
       };
