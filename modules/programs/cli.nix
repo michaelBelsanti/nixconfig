@@ -63,7 +63,7 @@
           npins
           nurl
           statix
-          vulnix
+          # vulnix
 
           # nice to have tools
           aria2
