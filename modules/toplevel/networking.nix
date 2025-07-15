@@ -16,7 +16,7 @@
         networking = {
           nftables.enable = true;
           wireguard.enable = true;
-          firewall.trustedInterfaces = [ "tailscale0" ];
+          firewall.trustedInterfaces = [ "tailscale0" "podman0" ];
         };
         # nixpkgs #180175
         systemd.services.NetworkManager-wait-online.enable = false;
