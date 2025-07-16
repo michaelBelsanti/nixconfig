@@ -4,6 +4,14 @@ config.font_size = 12.0
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "NONE",
+    action = wezterm.action.OpenLinkAtMouseCursor,
+  },
+}
+
 config.keys = {
   { key = '+',          mods = 'CTRL',        action = act.IncreaseFontSize },
   { key = '-',          mods = 'CTRL',        action = act.DecreaseFontSize },
