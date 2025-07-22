@@ -47,7 +47,7 @@
             color-modes = true;
             file-picker = {
               hidden = true;
-              git-ignore = false;
+              git-ignore = true;
             };
             line-number = "relative";
             lsp = {
