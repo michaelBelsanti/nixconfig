@@ -80,7 +80,7 @@
           glow
           imagemagick
           inotify-tools
-          isd
+          # isd # TODO
           mprocs
           nitch
           nvtopPackages.full

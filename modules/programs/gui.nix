@@ -22,6 +22,7 @@
           })
           obsidian
           grayjay
+          orca-slicer
         ];
       };
   };
