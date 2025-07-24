@@ -4,7 +4,7 @@
     modules = with config.unify.modules; [
       laptop
       workstation
-      # hacking
+      hacking
       remote
       gaming
       virtualisation
