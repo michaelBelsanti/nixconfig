@@ -43,9 +43,7 @@
           # Exploitation Tools
           exploitdb
           responder
-          (netexec.override {
-            python3 = pkgs.python312;
-          })
+          netexec
           # metasploit
 
           # Wireless Attacks
