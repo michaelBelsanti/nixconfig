@@ -49,8 +49,7 @@
         systemd.network.enable = true;
         systemd.network.networks."01-ethernet" = {
           matchConfig.Name = "enp8s0";
-          networkConfig.DHCP = "ipv4";
-          networkConfig.IPv6AcceptRA = "yes";
+          networkConfig.DHCP = "yes";
         };
 
         networking = {
