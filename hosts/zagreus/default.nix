@@ -34,14 +34,14 @@
         hardware.framework.enableKmod = false;
         hardware.amdgpu.opencl.enable = true;
 
-        boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
-
-        networking.hostName = "zagreus"; # Define your hostname.
-
         boot = {
+          kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos; # Define your hostname.
           kernelParams = [ "acpi_backlight=native" ];
           plymouth.enable = true;
+          binfmt.emulatedSystems = [ "aarch64-linux" ];
         };
+
+        networking.hostName = "zagreus";
 
         environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # fix crashes
 
