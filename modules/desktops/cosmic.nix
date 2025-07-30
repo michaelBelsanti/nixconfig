@@ -1,7 +1,7 @@
 {
   unify.modules.workstation = {
     home =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
         xdg.configFile = {
           # using cosmics automatic gtk theming
@@ -10,8 +10,8 @@
           "gtk-4.0/gtk-dark.css".enable = false;
         };
         gtk.iconTheme = {
-          name = "Cosmic";
-          package = pkgs.cosmic-icons;
+          name = lib.mkForce "Cosmic";
+          package = lib.mkForce pkgs.cosmic-icons;
         };
       };
 

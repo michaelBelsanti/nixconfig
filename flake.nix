@@ -78,11 +78,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.3-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";

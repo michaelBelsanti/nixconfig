@@ -52,18 +52,19 @@
           deadnix
           inputs.nilla-cli.packages.${system}.default
           inputs.nix-alien.packages.${system}.default
+          lixPackageSets.latest.nix-direnv
+          lixPackageSets.latest.nixpkgs-review
           nh
           nix-init
           nix-inspect
           nixos-rebuild-ng
-          nixpkgs-review
           nix-output-monitor
           nix-tree
           nix-update
           npins
           nurl
           statix
-          # vulnix
+          vulnix
 
           # nice to have tools
           aria2
