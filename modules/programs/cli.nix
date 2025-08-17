@@ -81,17 +81,18 @@
           glow
           imagemagick
           inotify-tools
-          # isd # TODO
+          isd
           mprocs
           nitch
           nvtopPackages.full
           ouch
-          progress
           procs
+          progress
           psmisc
           rclone
           ripgrep
           ripgrep-all
+          rsync
           sd
           strace
           systeroid
