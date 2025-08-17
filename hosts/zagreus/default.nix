@@ -5,7 +5,6 @@
       laptop
       workstation
       hacking
-      remote
       gaming
       virtualisation
       plymouth
