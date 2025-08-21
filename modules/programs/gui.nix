@@ -1,4 +1,3 @@
-{ withSystem, ... }:
 {
   unify.modules.workstation = {
     home =
@@ -24,7 +23,7 @@
           obsidian
           grayjay
           orca-slicer
-          (withSystem system (p: p.config.packages.astocad))
+          freecad
         ];
       };
   };
