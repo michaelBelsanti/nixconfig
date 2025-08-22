@@ -37,6 +37,9 @@
           # Recording
           gpu-screen-recorder
           gpu-screen-recorder-gtk
+
+          lsfg-vk
+          lsfg-vk-ui
         ];
         # Allows gpu-screen-recorder to record screens without escalating
         hardware = {
