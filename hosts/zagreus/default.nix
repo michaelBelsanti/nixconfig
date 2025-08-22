@@ -5,7 +5,6 @@
       laptop
       workstation
       hacking
-      gaming
       virtualisation
       plymouth
       secure-boot
