@@ -4,6 +4,8 @@
       enable = true;
       acceleration = "rocm";
       user = "ollama";
+      host = "[::]";
+      openFirewall = true;
     };
   };
 }
