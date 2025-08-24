@@ -24,6 +24,7 @@
           grayjay
           orca-slicer
           freecad
+          gearlever
         ];
       };
   };
