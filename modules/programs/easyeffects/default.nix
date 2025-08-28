@@ -12,7 +12,6 @@
             "Moondrop Starfield"
             "Nothing Ear (a)"
             "7RYMS"
-            "Yeti"
           ];
           mkPresets =
             names:
