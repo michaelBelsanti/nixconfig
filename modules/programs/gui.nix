@@ -12,7 +12,6 @@
           (bottles.override { removeWarningPopup = true; })
           varia
           proton-pass
-          jellyfin-media-player
           element-desktop
           gnome-frog
           legcord
