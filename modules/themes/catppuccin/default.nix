@@ -15,26 +15,27 @@ in
       };
     };
 
-    home =
+    home = {
+      imports = [
+        inputs.catppuccin.homeModules.catppuccin
+        inputs.nix-colors.homeManagerModule
+      ];
+      catppuccin = {
+        enable = true;
+        inherit flavor accent;
+        wezterm.apply = true;
+      };
+      colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+    };
+
+    modules.workstation.home =
       { pkgs, ... }:
       {
-        imports = [
-          inputs.catppuccin.homeModules.catppuccin
-          inputs.nix-colors.homeManagerModule
-        ];
-        catppuccin = {
-          enable = true;
-          inherit flavor accent;
-          wezterm.apply = true;
-        };
-        colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
         qt = {
           style.name = lib.mkForce "kvantum";
           platformTheme.name = lib.mkForce "kvantum";
           # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
-          kde.settings.kdeglobals = {
-            UI.ColorScheme = "*";
-          };
+          kde.settings.kdeglobals.UI.ColorScheme = "*";
         };
         gtk = {
           theme = {
@@ -42,7 +43,6 @@ in
             package = pkgs.adw-gtk3;
           };
         };
-
         home.file.".background-image".source = wallpaper;
         dconf.settings = {
           "org/gnome/desktop/background" = {
