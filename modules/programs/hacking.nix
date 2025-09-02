@@ -27,12 +27,8 @@
           # Information Gathering
           nmap
           theharvester
-          (enum4linux-ng.override {
-            python3 = pkgs.python312;
-          })
-          (smbmap.override {
-            python3 = pkgs.python312;
-          })
+          enum4linux-ng
+          smbmap
           gobuster
           feroxbuster
           sherlock
