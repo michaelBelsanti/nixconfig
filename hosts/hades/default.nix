@@ -66,6 +66,7 @@
         services = {
           ollama.rocmOverrideGfx = "11.0.1";
           openssh.ports = [ 42069 ];
+          fwupd.enable = true;
         };
       };
   };
