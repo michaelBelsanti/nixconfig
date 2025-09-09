@@ -91,6 +91,11 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     nilla-cli.url = "github:nilla-nix/cli";
+
+    moonlight = {
+      url = "github:moonlight-mod/moonlight"; # Add `/develop` to the flake URL to use nightly.
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   nixConfig = {
     extra-substituters = [

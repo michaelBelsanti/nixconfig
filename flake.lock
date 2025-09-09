@@ -455,6 +455,26 @@
         "type": "github"
       }
     },
+    "moonlight": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1757448266,
+        "narHash": "sha256-aLjHKVWkb9XHyoMmDBxLG2Ycg4CJFeieLdEg3CWeIwk=",
+        "owner": "moonlight-mod",
+        "repo": "moonlight",
+        "rev": "83debd7870e77e21694c9a76e3975baf842e435e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "moonlight-mod",
+        "repo": "moonlight",
+        "type": "github"
+      }
+    },
     "mypkgs": {
       "inputs": {
         "nixpkgs": [
@@ -813,6 +833,7 @@
         "import-tree": "import-tree",
         "infuse": "infuse",
         "lanzaboote": "lanzaboote",
+        "moonlight": "moonlight",
         "mypkgs": "mypkgs",
         "nilla-cli": "nilla-cli",
         "nix-alien": "nix-alien",

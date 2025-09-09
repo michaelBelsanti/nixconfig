@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   unify.modules.workstation = {
     home =
@@ -14,7 +15,6 @@
           proton-pass
           element-desktop
           gnome-frog
-          legcord
           (warpd.override {
             withWayland = true;
             withX = false;
@@ -24,6 +24,12 @@
           orca-slicer
           freecad
           gearlever
+          (pkgs.discord.override {
+            withOpenASAR = true;
+            enableAutoscroll = true;
+            withMoonlight = true;
+            moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+          })
         ];
       };
   };
