@@ -23,7 +23,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     mypkgs = {
       url = "git+https://codeberg.org/quasigod/nur.git";
       inputs.nixpkgs.follows = "nixpkgs";
