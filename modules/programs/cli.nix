@@ -82,6 +82,7 @@
           imagemagick
           inotify-tools
           isd
+          lurk
           mprocs
           nitch
           nvtopPackages.full
