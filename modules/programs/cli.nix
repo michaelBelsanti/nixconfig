@@ -26,7 +26,7 @@
           whois
 
           # Dev
-          # lazyjj # TODO
+          lazyjj
           lazygit
           jq
           ## Programming/Scripting

@@ -17,7 +17,6 @@
       { pkgs, config, ... }:
       {
         home.packages = with pkgs; [
-          # TODO remove overrides eventually
           # general
           wordlists
           (writeScriptBin "wlfuzz" ''
@@ -84,9 +83,7 @@
           imhex
 
           # Social Engineering Tools
-          (social-engineer-toolkit.override {
-            python3Packages = pkgs.python312Packages;
-          })
+          social-engineer-toolkit
 
           # Miscellaneous
           tor-browser

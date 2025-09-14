@@ -96,6 +96,11 @@
       url = "github:moonlight-mod/moonlight"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plover = {
+      url = "github:openstenoproject/plover-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   nixConfig = {
     extra-substituters = [

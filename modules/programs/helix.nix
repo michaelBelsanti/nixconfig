@@ -101,7 +101,7 @@
         golangci-lint
         taplo
         ruff
-        # python3Packages.jedi-language-server # TODO
+        python3Packages.jedi-language-server
         python3Packages.python-lsp-server
         lua-language-server
         haskell-language-server
