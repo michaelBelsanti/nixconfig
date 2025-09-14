@@ -11,6 +11,7 @@
       localai
       zsa-kb
       syncthing-client
+      plover
     ];
 
     primaryDisplay = config.unify.hosts.nixos.hades.displays.DP-3;
