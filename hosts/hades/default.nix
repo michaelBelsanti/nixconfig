@@ -47,6 +47,10 @@
 
         services.resolved.fallbackDns = [ ];
         systemd.network.enable = true;
+        systemd.network.links."01-ethernet" = {
+          matchConfig.Name = "enp8s0";
+          linkConfig.WakeOnLan = "magic";
+        };
         systemd.network.networks."01-ethernet" = {
           matchConfig.Name = "enp8s0";
           networkConfig.DHCP = "yes";
