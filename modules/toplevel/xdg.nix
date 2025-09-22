@@ -3,7 +3,11 @@
     home =
       { config, ... }:
       {
-        xdg.enable = true;
+        xdg = {
+          enable = true;
+          autostart.enable = true;
+          autostart.readOnly = true;
+        };
         home.sessionVariables = {
           # cleaning up ~
           ANDROID_USER_HOME = "${config.xdg.dataHome}/android";

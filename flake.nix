@@ -101,6 +101,8 @@
       url = "github:openstenoproject/plover-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    vicinae.url = "github:vicinaehq/vicinae";
   };
   nixConfig = {
     extra-substituters = [
