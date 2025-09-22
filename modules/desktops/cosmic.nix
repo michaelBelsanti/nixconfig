@@ -16,10 +16,22 @@
       };
 
     nixos =
-      { pkgs, ... }:
+      { pkgs, lib, ... }:
       {
         nixpkgs.overlays = [
           (self: super: {
+            cosmic-session = super.cosmic-session.overrideAttrs (
+              final: prev: {
+                postPatch = ''
+                  substituteInPlace data/start-cosmic \
+                    --replace-fail '/usr/bin/cosmic-session' "${placeholder "out"}/bin/cosmic-session" \
+                    --replace-fail '/usr/bin/dbus-run-session' "${lib.getBin pkgs.dbus}/bin/dbus-run-session" \
+                    --replace-fail 'systemctl --user import-environment ' 'dbus-update-activation-environment --verbose --all --systemd || systemctl --user import-environment #'
+                  substituteInPlace data/cosmic.desktop \
+                    --replace-fail '/usr/bin/start-cosmic' "${placeholder "out"}/bin/start-cosmic"
+                '';
+              }
+            );
             networkmanagerapplet = super.networkmanagerapplet.overrideAttrs {
               patches = (
                 super.fetchpatch {
@@ -30,6 +42,7 @@
             };
           })
         ];
+        xdg.portal.xdgOpenUsePortal = true;
         services = {
           desktopManager.cosmic.enable = true;
           displayManager.cosmic-greeter.enable = true;
