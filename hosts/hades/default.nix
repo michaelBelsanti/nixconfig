@@ -12,6 +12,7 @@
       zsa-kb
       syncthing-client
       plover
+      catppuccin
     ];
 
     primaryDisplay = config.unify.hosts.nixos.hades.displays.DP-3;

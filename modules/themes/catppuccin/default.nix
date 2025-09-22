@@ -6,7 +6,7 @@ let
   accent = "pink";
 in
 {
-  unify = {
+  unify.modules.catppuccin = {
     nixos = {
       imports = [ inputs.catppuccin.nixosModules.default ];
       catppuccin = {
@@ -15,22 +15,20 @@ in
       };
     };
 
-    home = {
-      imports = [
-        inputs.catppuccin.homeModules.catppuccin
-        inputs.nix-colors.homeManagerModule
-      ];
-      catppuccin = {
-        enable = true;
-        inherit flavor accent;
-        wezterm.apply = true;
-      };
-      colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
-    };
-
-    modules.workstation.home =
+    home =
       { pkgs, ... }:
       {
+        imports = [
+          inputs.catppuccin.homeModules.catppuccin
+          inputs.nix-colors.homeManagerModule
+        ];
+        catppuccin = {
+          enable = true;
+          inherit flavor accent;
+          wezterm.apply = true;
+        };
+        colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+
         qt = {
           style.name = lib.mkForce "kvantum";
           platformTheme.name = lib.mkForce "kvantum";

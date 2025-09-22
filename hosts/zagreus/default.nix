@@ -9,6 +9,7 @@
       plymouth
       secure-boot
       syncthing-client
+      catppuccin
     ];
 
     primaryDisplay = config.unify.hosts.nixos.zagreus.displays.eDP-1;
