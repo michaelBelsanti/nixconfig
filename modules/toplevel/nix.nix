@@ -27,6 +27,7 @@
             keep-outputs = true;
             keep-derivations = true;
             builders-use-substitutes = true;
+            use-xdg-base-directories = true;
           };
         };
       };
