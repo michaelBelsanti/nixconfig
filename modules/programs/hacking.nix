@@ -9,14 +9,20 @@
     nixos =
       { hostConfig, ... }:
       {
-        programs.wireshark.enable = true;
-        users.users.${hostConfig.primaryUser}.extraGroups = [ "wireshark" ];
         environment.etc.hosts.mode = "0644";
+        # until exegol supports podman
+        virtualisation.docker.enable = true;
+        programs.wireshark.enable = true;
+        users.users.${hostConfig.primaryUser}.extraGroups = [
+          "wireshark"
+          "docker"
+        ];
       };
     home =
       { pkgs, config, ... }:
       {
         home.packages = with pkgs; [
+          exegol
           # general
           wordlists
           (writeScriptBin "wlfuzz" ''
