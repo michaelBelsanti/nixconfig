@@ -1,15 +1,9 @@
 { inputs, ... }:
 {
   unify = {
-    nixos = {
-      imports = [ inputs.nix-index-database.nixosModules.nix-index ];
-      programs.nix-index-database.comma.enable = true;
-    };
     home =
       { pkgs, ... }:
       {
-        imports = [ inputs.nix-index-database.homeModules.nix-index ];
-        programs.nix-index-database.comma.enable = true;
         home.packages = with pkgs; [
           # essential utils
           file
@@ -49,6 +43,7 @@
           virtualenv
 
           # Nix
+          comma
           deadnix
           inputs.nilla-cli.packages.${system}.default
           inputs.nix-alien.packages.${system}.default

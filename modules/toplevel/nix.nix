@@ -4,6 +4,8 @@
     nixos =
       { pkgs, ... }:
       {
+        programs.command-not-found.enable = true;
+        programs.command-not-found.dbPath = "${pkgs.path}/programs.sqlite";
         nixpkgs.config.allowUnfree = true;
         nix = {
           package = pkgs.lixPackageSets.latest.lix;
