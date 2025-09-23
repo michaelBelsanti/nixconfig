@@ -4,12 +4,13 @@
     nixos =
       { pkgs, hostConfig, ... }:
       {
-        environment.shells = [ pkgs.nushell ];
-        users.users.${hostConfig.primaryUser}.shell = pkgs.nushell;
+        environment.systemPackages = [ pkgs.nushell ];
+        users.users.${hostConfig.primaryUser}.shell = pkgs.bash;
       };
     home =
       { pkgs, ... }:
       {
+
         programs = {
           nushell = {
             plugins = with pkgs.nushellPlugins; [
@@ -51,6 +52,18 @@
             enable = true;
             enableNushellIntegration = true;
           };
+          bash.initExtra = ''
+            # https://discourse.nixos.org/t/nushell-as-default-shell/68609/17
+            # Some programs launch interactive shells and pretend
+            # to use them; such programs always expect a form of POSIX
+            # shell.
+            #
+            # If you don't use programs like that, you can just skip
+            # this conditional.
+            if ! [ "$TERM" = "dumb" ]; then
+              exec nu
+            fi
+          '';
         };
       };
   };
