@@ -3,11 +3,7 @@
     home =
       { config, ... }:
       {
-        xdg = {
-          enable = true;
-          autostart.enable = true;
-          autostart.readOnly = true;
-        };
+        xdg.enable = true;
         home.sessionVariables = {
           # cleaning up ~
           ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
@@ -38,12 +34,17 @@
         portal.enable = true;
         terminal-exec.enable = true;
       };
-      home.xdg.userDirs = {
-        enable = true;
-        createDirectories = true;
-        desktop = null;
-        templates = null;
-        music = null;
+      home.xdg = {
+        autostart.enable = true;
+        autostart.readOnly = true;
+        userDirs = {
+          enable = true;
+          createDirectories = true;
+          desktop = null;
+          templates = null;
+          music = null;
+          publicShare = null;
+        };
       };
     };
   };
