@@ -45,7 +45,6 @@
           # Nix
           comma
           deadnix
-          inputs.nilla-cli.packages.${system}.default
           inputs.nix-alien.packages.${system}.default
           lixPackageSets.latest.nix-direnv
           lixPackageSets.latest.nixpkgs-review

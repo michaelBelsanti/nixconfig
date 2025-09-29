@@ -24,10 +24,6 @@
     import-tree.url = "github:vic/import-tree";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    mypkgs = {
-      url = "git+https://codeberg.org/quasigod/nur.git";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     unify = {
       url = "git+https://codeberg.org/quasigod/unify";
@@ -46,11 +42,6 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     wrapper-manager.url = "github:viperML/wrapper-manager";
-
-    nixpak = {
-      url = "github:nixpak/nixpak";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nix-colors.url = "github:misterio77/nix-colors";
     catppuccin = {
@@ -78,14 +69,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    infuse = {
-      url = "git+https://codeberg.org/amjoseph/infuse.nix.git";
-      flake = false;
-    };
-
     sops-nix.url = "github:Mic92/sops-nix";
-
-    nilla-cli.url = "github:nilla-nix/cli";
 
     moonlight = {
       url = "github:moonlight-mod/moonlight"; # Add `/develop` to the flake URL to use nightly.

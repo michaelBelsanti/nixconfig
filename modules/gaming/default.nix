@@ -61,7 +61,6 @@
             extraCompatPackages = with pkgs; [
               proton-ge-bin
               steamtinkerlaunch
-              inputs.mypkgs.packages.${pkgs.system}.proton-cachyos
             ];
           };
           gamescope = {
