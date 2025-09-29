@@ -105,6 +105,7 @@
             basePackage = pkgs.metasploit;
             programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
           })
+          caido
         ];
       };
   };
