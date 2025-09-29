@@ -13,7 +13,7 @@
         domain = "*";
         item = "nofile";
         type = "-";
-        value = "20480";
+        value = "unlimited";
       };
     };
   };
