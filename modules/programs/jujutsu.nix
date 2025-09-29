@@ -18,7 +18,10 @@
             ];
             show-cryptographic-signatures = true;
           };
-          git.private-commits = "description(glob:'private:*')";
+          git = {
+            private-commits = "description(glob:'private:*')";
+            write-change-id-header = true;
+          };
           signing = {
             behavior = "own";
             backend = "ssh";
