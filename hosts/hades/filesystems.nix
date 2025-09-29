@@ -4,11 +4,12 @@
       fileSystems."/" = {
         device = "/dev/disk/by-label/NIXROOT";
         fsType = "btrfs";
-        options = [ "compress=zstd" ];
+        options = [ "compress=zstd" "noatime" ];
       };
       fileSystems."/boot" = {
         device = "/dev/disk/by-label/NIXBOOT";
         fsType = "vfat";
+        options = [ "noatime" ];
       };
       services = {
         btrfs.autoScrub.enable = true;
