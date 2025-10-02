@@ -3,9 +3,10 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        calibre
-        kcc
-        p7zip # for kcc
+        # Dev
+        lazyjj
+        lazygit
+        jq
       ];
     };
 }

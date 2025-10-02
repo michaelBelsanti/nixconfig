@@ -1,8 +1,13 @@
 {
   unify.home =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       programs = {
+        bash = {
+          enable = true;
+          enableVteIntegration = true;
+          historyFile = "${config.xdg.configHome}/bash/history";
+        };
         starship = {
           enable = true;
           package = pkgs.starship.overrideAttrs {

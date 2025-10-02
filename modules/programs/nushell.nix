@@ -5,7 +5,7 @@
       { pkgs, hostConfig, ... }:
       {
         environment.systemPackages = [ pkgs.nushell ];
-        users.users.${hostConfig.primaryUser}.shell = pkgs.bash;
+        users.users.${hostConfig.primaryUser}.shell = pkgs.bashInteractive;
       };
     home =
       { pkgs, ... }:
