@@ -6,15 +6,15 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
       imports = [
+        inputs.clan-core.flakeModules.default
         inputs.unify.flakeModule
-        (import-tree [
-          ./hosts
-          ./modules
-        ])
+        (import-tree [ ./modules ])
       ];
+      clan.imports = [ ./clan.nix ];
       perSystem =
-        { pkgs, ... }:
+        { pkgs, inputs', ... }:
         {
+          devShells.default = pkgs.mkShell { packages = [ inputs'.clan-core.packages.clan-cli ]; };
           formatter = pkgs.nixfmt-tree;
         };
     };
@@ -24,6 +24,11 @@
     import-tree.url = "github:vic/import-tree";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    clan-core = {
+      url = "https://git.clan.lol/clan/clan-core/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
 
     unify = {
       url = "git+https://codeberg.org/quasigod/unify";
