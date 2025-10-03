@@ -2,6 +2,14 @@
   unify.home =
     { pkgs, config, ... }:
     {
+      home.shellAliases = {
+        cd = "z";
+        lj = "lazyjj";
+        lg = "lazygit";
+        o = "xdg-open";
+        mkdir = "mkdir -p";
+        tree = "eza -T";
+      };
       programs = {
         bash = {
           enable = true;
