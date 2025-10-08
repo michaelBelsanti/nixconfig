@@ -54,6 +54,7 @@
 
           # Vulnerability Analysis
           sqlmap
+          bruno
 
           # Exploitation Tools
           exploitdb
