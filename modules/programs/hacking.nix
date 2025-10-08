@@ -37,6 +37,20 @@
           gobuster
           feroxbuster
           sherlock
+          amass
+          # ProjectDiscovery tools
+          subfinder
+          dnsx
+          naabu
+          httpx
+          nuclei
+          uncover
+          cloudlist
+          tlsx
+          notify
+          mapcidr
+          interactsh
+          katana
 
           # Vulnerability Analysis
           sqlmap
