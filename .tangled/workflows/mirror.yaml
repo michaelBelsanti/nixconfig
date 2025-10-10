@@ -1,0 +1,38 @@
+when:
+  - event: [ "push", "manual" ]
+    branch: [ "main" ]
+
+dependencies:
+  nixpkgs:
+    - git
+    - openssh
+
+engine: "nixery"
+
+clone:
+  depth: 99999999
+
+steps:
+  - name: write codeberg key
+    command: |
+      echo $CODEBERG_DEPLOY_KEY > ./codeberg
+  - name: add codeberg remote
+    command: |
+      git remote add codeberg ssh://git@codeberg.org/quasigod/nixconfig.git
+  - name: push to codeberg 
+    environment:
+      GIT_SSH_COMMAND: "ssh -i ./codeberg"
+    command: |
+      git push codeberg --mirror
+
+  - name: write github key
+    command: |
+      echo $GITHUB_DEPLOY_KEY > ./github
+  - name: add github remote
+    command: |
+      git remote add github git@github.com:michaelBelsanti/nixconfig.git
+  - name: push to githuub
+    environment:
+      GIT_SSH_COMMAND: "ssh -i ./github"
+    command: |
+      git push github --mirror
