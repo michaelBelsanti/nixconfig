@@ -96,7 +96,7 @@
           ffuf
           xh
           wpscan
-          (withSystem system (p: p.config.packages.xsstrike))
+          dalfox
 
           # Reverse Engineering
           ghidra
