@@ -12,6 +12,7 @@
       zsa-kb
       syncthing-client
       plover
+      radicle
       catppuccin
     ];
 
