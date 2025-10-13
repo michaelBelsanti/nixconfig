@@ -62,6 +62,13 @@
             }
           ) hostConfig.displays;
 
+          cursor.theme = config.home.pointerCursor.name;
+
+          layout = {
+            border.enable = false;
+            focus-ring.enable = true;
+          };
+
           binds =
             with config.lib.niri.actions;
             let
