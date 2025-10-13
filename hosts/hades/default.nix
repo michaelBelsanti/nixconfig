@@ -3,6 +3,7 @@
   unify.hosts.nixos.hades = {
     modules = with config.unify.modules; [
       workstation
+      niri
       gaming
       replays
       hacking
@@ -20,12 +21,13 @@
     displays = {
       DP-3 = {
         primary = true;
-        refreshRate = 240;
+        refresh = 240.0;
         width = 1920;
         height = 1080;
+        vrr = true;
       };
       HDMI-A-1 = {
-        refreshRate = 60;
+        refresh = 100.0;
         width = 1920;
         height = 1080;
         x = -1920;

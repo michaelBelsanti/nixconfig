@@ -68,7 +68,7 @@
             args = [
               "-W ${toString hostConfig.primaryDisplay.width}"
               "-H ${toString hostConfig.primaryDisplay.height}"
-              "-r ${toString hostConfig.primaryDisplay.refreshRate}"
+              "-r ${toString hostConfig.primaryDisplay.refresh}"
               "-O ${hostConfig.primaryDisplay.name}"
               "-f"
               "--adaptive-sync"

@@ -4,6 +4,7 @@
     modules = with config.unify.modules; [
       laptop
       workstation
+      niri
       hacking
       virtualisation
       plymouth
@@ -15,7 +16,6 @@
     primaryDisplay = config.unify.hosts.nixos.zagreus.displays.eDP-1;
     displays = {
       eDP-1 = {
-        refreshRate = 60;
         width = 2256;
         height = 1504;
         scaling = 1.50;
