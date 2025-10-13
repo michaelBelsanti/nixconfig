@@ -16,7 +16,7 @@ in
     };
 
     home =
-      { pkgs, ... }:
+      { pkgs, config, ... }:
       {
         imports = [
           inputs.catppuccin.homeModules.catppuccin
@@ -50,6 +50,16 @@ in
           "org/gnome/desktop/screensaver" = {
             picture-uri = "${wallpaper}";
           };
+        };
+        programs = lib.optionalAttrs (config.programs ? niri) {
+          niri.settings.layout.focus-ring =
+            let
+              palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${flavor}.colors;
+            in
+            {
+              active.color = palette.${accent}.hex;
+              inactive.color = palette.base.hex;
+            };
         };
       };
   };
