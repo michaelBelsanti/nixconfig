@@ -15,6 +15,7 @@
       }:
       {
         imports = [ inputs.dank-material-shell.nixosModules.greeter ];
+        environment.systemPackages = [ pkgs.xwayland-satellite ];
         programs.niri.enable = true;
         programs.niri.package = pkgs.niri;
         services.greetd.settings.default_session.user = "${hostConfig.primaryUser}";
@@ -64,10 +65,29 @@
 
           cursor.theme = config.home.pointerCursor.name;
 
+          prefer-no-csd = true;
+
           layout = {
-            border.enable = false;
+            border = {
+              enable = false;
+              width = 2;
+            };
             focus-ring.enable = true;
+            shadow.enable = true;
+            gaps = 8;
           };
+
+          window-rules = [
+            {
+              geometry-corner-radius = {
+                top-left = 12.0;
+                top-right = 12.0;
+                bottom-left = 12.0;
+                bottom-right = 12.0;
+              };
+              clip-to-geometry = true;
+            }
+          ];
 
           binds =
             with config.lib.niri.actions;
@@ -136,18 +156,27 @@
                 # "Mod+Shift+Tab".action = focus-window-up-or-column-left;
 
                 "Mod+G".action = switch-focus-between-floating-and-tiling;
+
+                "Mod+H".action = focus-column-or-monitor-left;
+                "Mod+J".action = focus-window-or-monitor-down;
+                "Mod+K".action = focus-window-or-monitor-up;
+                "Mod+L".action = focus-column-or-monitor-right;
+
+                "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
+                "Mod+Shift+J".action = move-window-down;
+                "Mod+Shift+K".action = move-window-up;
+                "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
+
+                "Mod+WheelScrollDown".action = focus-column-right;
+                "Mod+WheelScrollUp".action = focus-column-left;
               }
               (binds {
-                suffixes."H" = "column-left";
-                suffixes."J" = "window-down";
-                suffixes."K" = "window-up";
-                suffixes."L" = "column-right";
-                prefixes."Mod" = "focus";
-                prefixes."Mod+Shift" = "move";
-                prefixes."Mod+Ctrl" = "focus-monitor";
-                prefixes."Mod+Shift+Ctrl" = "move-window-to-monitor";
-                substitutions."monitor-column" = "monitor";
-                substitutions."monitor-window" = "monitor";
+                suffixes."H" = "monitor-left";
+                suffixes."J" = "monitor-down";
+                suffixes."K" = "monitor-up";
+                suffixes."L" = "monitor-right";
+                prefixes."Mod+Ctrl" = "focus";
+                prefixes."Mod+Ctrl+Shift" = "move-column-to";
               })
               (binds {
                 suffixes."Home" = "first";
@@ -156,42 +185,31 @@
                 prefixes."Mod+Ctrl" = "move-column-to";
               })
               (binds {
-                suffixes."D" = "workspace-down";
-                suffixes."U" = "workspace-up";
-                prefixes."Mod" = "focus";
-                prefixes."Mod+Ctrl" = "move-window-to";
-                prefixes."Mod+Shift" = "move";
-              })
-              (binds {
                 suffixes = builtins.listToAttrs (
                   map (n: {
                     name = toString n;
                     value = [
                       "workspace"
-                      (n + 1)
-                    ]; # workspace 1 is empty; workspace 2 is the logical first.
+                      n
+                    ];
                   }) (lib.range 1 9)
                 );
                 prefixes."Mod" = "focus";
-                prefixes."Mod+Shift" = "move-window-to";
+                prefixes."Mod+Shift" = "move-column-to";
               })
               {
                 "Mod+Comma".action = consume-window-into-column;
                 "Mod+Period".action = expel-window-from-column;
 
                 "Mod+R".action = switch-preset-column-width;
+                "Mod+Shift+R".action = switch-preset-column-width-back;
                 "Mod+F".action = maximize-column;
                 "Mod+Shift+F".action = fullscreen-window;
                 "Mod+C".action = center-column;
 
-                "Mod+Minus".action = set-column-width "-10%";
-                "Mod+Plus".action = set-column-width "+10%";
-                "Mod+Shift+Minus".action = set-window-height "-10%";
-                "Mod+Shift+Plus".action = set-window-height "+10%";
-
                 "Mod+Shift+Escape".action = toggle-keyboard-shortcuts-inhibit;
-
                 "Mod+Shift+Ctrl+T".action = toggle-debug-tint;
+                "Ctrl+Alt+Delete".action = quit;
               }
             ];
         };
