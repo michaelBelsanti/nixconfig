@@ -1,5 +1,5 @@
 {
-  unify.modules.workstation = {
+  unify.modules.cosmic = {
     home =
       { pkgs, lib, ... }:
       {
