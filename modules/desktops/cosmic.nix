@@ -3,6 +3,7 @@
     home =
       { pkgs, lib, ... }:
       {
+        services.vicinae.useLayerShell = false;
         xdg.configFile = {
           # using cosmics automatic gtk theming
           "gtk-4.0/assets".enable = false;

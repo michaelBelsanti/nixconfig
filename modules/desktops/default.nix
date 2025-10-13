@@ -1,3 +1,4 @@
+{ inputs, ... }:
 {
   unify.modules.workstation = {
     nixos =
@@ -26,6 +27,8 @@
     home =
       { config, ... }:
       {
+        imports = [ inputs.vicinae.homeManagerModules.default ];
+        services.vicinae.enable = true;
         qt.enable = true;
         gtk = {
           enable = true;
