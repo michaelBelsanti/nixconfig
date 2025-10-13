@@ -17,7 +17,9 @@
           fontDir.enable = true;
           fontconfig.defaultFonts = {
             sansSerif = [ "Atkinson Hyperlegible Next" ];
+            serif = [ "Liberation Serif" ];
             monospace = [ "JetBrains Mono" ];
+            emoji = [ "OpenMoji Color" ];
           };
         };
       };
