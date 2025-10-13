@@ -21,7 +21,7 @@
     displays = {
       DP-3 = {
         primary = true;
-        refresh = 240.0;
+        refresh = 239.760;
         width = 1920;
         height = 1080;
         vrr = true;

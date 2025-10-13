@@ -11,6 +11,8 @@
             binfmt = true;
           };
         };
+        location.provider = "geoclue2";
+        services.geoclue2.enable = true;
         services.pipewire = {
           enable = true;
           alsa.enable = true;
