@@ -30,7 +30,12 @@
         };
       };
     home =
-      { hostConfig, config, ... }:
+      {
+        pkgs,
+        hostConfig,
+        config,
+        ...
+      }:
       {
         imports = [
           inputs.niri.homeModules.config
@@ -39,6 +44,10 @@
         programs.dankMaterialShell = {
           enable = true;
           enableSystemd = true;
+        };
+        gtk.theme = {
+          package = pkgs.colloid-gtk-theme;
+          name = "Colloid";
         };
         programs.niri.settings = {
           input = {

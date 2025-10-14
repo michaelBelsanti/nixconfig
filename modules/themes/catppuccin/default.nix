@@ -16,7 +16,7 @@ in
     };
 
     home =
-      { pkgs, config, ... }:
+      { config, ... }:
       {
         imports = [
           inputs.catppuccin.homeModules.catppuccin
@@ -34,12 +34,6 @@ in
           platformTheme.name = lib.mkForce "kvantum";
           # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
           kde.settings.kdeglobals.UI.ColorScheme = "*";
-        };
-        gtk = {
-          theme = {
-            name = "adw-gtk3";
-            package = pkgs.adw-gtk3;
-          };
         };
         home.file.".background-image".source = wallpaper;
         dconf.settings = {
