@@ -51,6 +51,9 @@
           mapcidr
           interactsh
           katana
+          cvemap
+          (withSystem system (p: p.config.packages.shuffledns))
+          massdns
 
           # Vulnerability Analysis
           sqlmap
