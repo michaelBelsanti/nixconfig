@@ -15,7 +15,11 @@
       }:
       {
         imports = [ inputs.dank-material-shell.nixosModules.greeter ];
-        environment.systemPackages = [ pkgs.xwayland-satellite ];
+        environment.systemPackages = with pkgs; [
+          xwayland-satellite
+          cosmic-files
+          satty
+        ];
         programs.niri.enable = true;
         programs.niri.package = pkgs.niri;
         services.greetd.settings.default_session.user = "${hostConfig.primaryUser}";
@@ -42,7 +46,7 @@
             warp-mouse-to-focus.enable = true;
             focus-follows-mouse = {
               enable = true;
-              max-scroll-amount = "10%";
+              max-scroll-amount = "0%";
             };
             touchpad = {
               tap = true;
@@ -75,6 +79,7 @@
             focus-ring.enable = true;
             shadow.enable = true;
             gaps = 8;
+            default-column-width.proportion = 0.5;
           };
 
           window-rules = [
@@ -109,9 +114,9 @@
 
                 "Mod+Escape".action = dms "lock" "lock";
 
-                # "Mod+Shift+S".action = screenshot;
-                # "Print".action.screenshot-screen = [ ];
-                # "Mod+Print".action = screenshot-window;
+                "Mod+Shift+S".action = screenshot;
+                "Mod+S".action.screenshot-window = [ ];
+                "Mod+Ctrl+S".action = spawn-sh "niri msg action screenshot-screen &&wl-paste | satty -f -";
 
                 # "Mod+Insert".action = set-dynamic-cast-window;
                 # "Mod+Shift+Insert".action = set-dynamic-cast-monitor;
