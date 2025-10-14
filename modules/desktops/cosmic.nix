@@ -10,6 +10,10 @@
           "gtk-4.0/gtk.css".enable = false;
           "gtk-4.0/gtk-dark.css".enable = false;
         };
+        gtk.theme = {
+          name = "adw-gtk3";
+          package = pkgs.adw-gtk3;
+        };
         gtk.iconTheme = {
           name = lib.mkForce "Cosmic";
           package = lib.mkForce pkgs.cosmic-icons;
