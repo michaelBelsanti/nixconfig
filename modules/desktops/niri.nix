@@ -45,6 +45,8 @@
           enable = true;
           enableSystemd = true;
         };
+        dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
         gtk.theme = {
           package = pkgs.colloid-gtk-theme;
           name = "Colloid";
@@ -88,7 +90,7 @@
             focus-ring.enable = true;
             shadow.enable = true;
             gaps = 8;
-            default-column-width.proportion = 0.5;
+            default-column-width.proportion = 1.0;
           };
 
           window-rules = [

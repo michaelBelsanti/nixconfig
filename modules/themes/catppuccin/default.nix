@@ -36,6 +36,7 @@ in
           kde.settings.kdeglobals.UI.ColorScheme = "*";
         };
         home.file.".background-image".source = wallpaper;
+        xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
         dconf.settings = {
           "org/gnome/desktop/background" = {
             picture-uri = "${wallpaper}";
@@ -46,13 +47,14 @@ in
           };
         };
         programs = lib.optionalAttrs (config.programs ? niri) {
-          niri.settings.layout.focus-ring =
+          niri.settings.layout =
             let
               palette = (lib.importJSON "${config.catppuccin.sources.palette}/palette.json").${flavor}.colors;
             in
             {
-              active.color = palette.${accent}.hex;
-              inactive.color = palette.base.hex;
+              focus-ring.active.color = palette.${accent}.hex;
+              focus-ring.inactive.color = palette.base.hex;
+              background-color = palette.mantle.hex;
             };
         };
       };
