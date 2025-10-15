@@ -26,7 +26,7 @@
           # general
           wordlists
           (writeScriptBin "wlfuzz" ''
-            ${lib.getExe fd} . ${wordlists}/share/wordlists | ${lib.getExe television} files
+            ${lib.getExe television} files ${wordlists}/share/wordlists -s "fd . -t l" -p "${lib.getExe bat} {}" | tee /dev/tty | ${lib.getExe' wl-clipboard "wl-copy"}
           '')
 
           # Information Gathering
