@@ -49,6 +49,7 @@
           sd
           strace
           systeroid
+          tcpdump
           try
           waypipe
           xxd
