@@ -12,18 +12,6 @@
       { pkgs, ... }:
       {
         home.packages = with pkgs; [
-          file
-          git
-          gptfdisk
-          psutils
-          killall
-          pciutils
-          traceroute
-          unrar
-          unzip
-          usbutils
-          wget
-          whois
           aria2
           choose
           difftastic
@@ -31,17 +19,26 @@
           dua
           du-dust
           edir
+          eva
           fd
+          file
           gdu
           gh
+          git
           glow
+          gptfdisk
+          hexyl
           isd
+          killall
+          lemmeknow
           lurk
           mprocs
           ouch
+          pciutils
           procs
           progress
           psmisc
+          psutils
           rclone
           ripgrep
           ripgrep-all
@@ -50,9 +47,14 @@
           strace
           systeroid
           tcpdump
+          traceroute
           try
+          unrar
+          unzip
+          usbutils
           waypipe
-          xxd
+          wget
+          whois
         ];
       };
   };
