@@ -63,12 +63,12 @@
           # Vulnerability Analysis
           sqlmap
           bruno
+          (withSystem system (p: p.config.packages.arjun))
 
           # Exploitation Tools
           exploitdb
           responder
           netexec
-          # metasploit
 
           # Wireless Attacks
           aircrack-ng
