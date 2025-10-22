@@ -22,6 +22,14 @@
           "noatime"
         ];
       };
+
+      swapDevices = [
+        {
+          device = "/var/lib/swapfile";
+          size = 32 * 1024; # 16 GB
+        }
+      ];
+
       services = {
         btrfs.autoScrub.enable = true;
         beesd.filesystems.root = {
