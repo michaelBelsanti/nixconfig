@@ -4,7 +4,10 @@
       fileSystems."/" = {
         device = "/dev/disk/by-uuid/c3fde0b2-d7da-4109-b4cb-27c7a2e53e4b";
         fsType = "btrfs";
-        options = [ "subvol=nixos" ];
+        options = [
+          "subvol=nixos"
+          "noatime"
+        ];
       };
 
       boot.initrd.luks.devices."nixroot".device =
@@ -16,6 +19,7 @@
         options = [
           "fmask=0022"
           "dmask=0022"
+          "noatime"
         ];
       };
       services = {
