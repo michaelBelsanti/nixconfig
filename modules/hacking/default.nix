@@ -21,6 +21,10 @@
     home =
       { pkgs, config, ... }:
       {
+        sops.secrets.shodan_api_key = { };
+        sops.templates."subfinder-providers.yaml".content = lib.generators.toYAML { } {
+          shodan = [ config.sops.placeholder.shodan_api_key ];
+        };
         home.packages = with pkgs; [
           exegol
           # general
@@ -43,8 +47,12 @@
           feroxbuster
           sherlock
           amass
+          waymore
           # ProjectDiscovery tools
-          subfinder
+          (inputs.wrapper-manager.lib.wrapWith pkgs {
+            basePackage = pkgs.subfinder;
+            env.SUBFINDER_PROVIDER_CONFIG.value = "${config.sops.templates."subfinder-providers.yaml".path}";
+          })
           dnsx
           naabu
           httpx
