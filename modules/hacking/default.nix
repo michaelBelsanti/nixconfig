@@ -53,6 +53,7 @@
             basePackage = pkgs.subfinder;
             env.SUBFINDER_PROVIDER_CONFIG.value = "${config.sops.templates."subfinder-providers.yaml".path}";
           })
+          alterx
           dnsx
           naabu
           httpx

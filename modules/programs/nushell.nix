@@ -13,6 +13,12 @@
 
         programs = {
           nushell = {
+            package = pkgs.nushell.override {
+              additionalFeatures = _: [
+                "full"
+                "mcp"
+              ];
+            };
             plugins = with pkgs.nushellPlugins; [
               # highlight
               # net
