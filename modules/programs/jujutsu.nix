@@ -11,6 +11,14 @@
             name = "quasigod";
             email = "quasigod-io@proton.me";
           };
+          aliases.tug = [
+            "bookmark"
+            "move"
+            "--from"
+            "heads(::@- & bookmarks())"
+            "--to"
+            "@-"
+          ];
           ui = {
             default-command = [
               "log"
