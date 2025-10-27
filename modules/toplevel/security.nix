@@ -9,12 +9,20 @@
     polkit.enable = true;
     pam = {
       services.systemd-run0 = { };
-      loginLimits = lib.singleton {
-        domain = "*";
-        item = "nofile";
-        type = "-";
-        value = "unlimited";
-      };
+      loginLimits = [
+        {
+          domain = "*";
+          item = "nofile";
+          type = "hard";
+          value = "128000";
+        }
+        {
+          domain = "*";
+          item = "nofile";
+          type = "soft";
+          value = "20480";
+        }
+      ];
     };
   };
 }
