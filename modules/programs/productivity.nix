@@ -23,12 +23,6 @@
           orca-slicer
           freecad
           gearlever
-          (pkgs.discord.override {
-            withOpenASAR = true;
-            enableAutoscroll = true;
-            withMoonlight = true;
-            moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
-          })
           halloy
           dino
         ];
