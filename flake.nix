@@ -76,6 +76,7 @@
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-compat.follows = "lanzaboote/flake-compat";
+      inputs.nix-index-database.follows = "nix-index-database";
     };
 
     lanzaboote = {
@@ -101,6 +102,11 @@
 
     vicinae = {
       url = "github:vicinaehq/vicinae";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

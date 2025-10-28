@@ -4,9 +4,9 @@
     nixos =
       { pkgs, ... }:
       {
-        programs.command-not-found.enable = true;
-        programs.command-not-found.dbPath = "${pkgs.path}/programs.sqlite";
+        imports = [ inputs.nix-index-database.nixosModules.nix-index ];
         nixpkgs.config.allowUnfree = true;
+        programs.nix-index-database.comma.enable = true;
         nix = {
           package = pkgs.lixPackageSets.latest.lix;
           # much is copied from https://github.com/nix-community/srvos/blob/main/nixos/common/nix.nix
@@ -33,16 +33,21 @@
           };
         };
       };
-    home.nix.registry = {
-      develop = {
-        exact = true;
-        from = {
-          id = "develop";
-          type = "indirect";
-        };
-        to = {
-          type = "git";
-          url = "https://codeberg.org/quasigod/develop";
+    home = {
+      imports = [ inputs.nix-index-database.homeModules.nix-index ];
+      programs.nix-index-database.comma.enable = true;
+      programs.nix-index.enable = true;
+      nix.registry = {
+        develop = {
+          exact = true;
+          from = {
+            id = "develop";
+            type = "indirect";
+          };
+          to = {
+            type = "git";
+            url = "https://codeberg.org/quasigod/develop";
+          };
         };
       };
     };

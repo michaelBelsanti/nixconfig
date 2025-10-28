@@ -12,7 +12,6 @@
       {
         home.packages = with pkgs; [
           # Nix
-          comma
           deadnix
           inputs.nix-alien.packages.${system}.default
           lixPackageSets.latest.nix-direnv

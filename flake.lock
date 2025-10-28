@@ -279,7 +279,9 @@
           "lanzaboote",
           "flake-compat"
         ],
-        "nix-index-database": "nix-index-database",
+        "nix-index-database": [
+          "nix-index-database"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -369,16 +371,15 @@
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
-          "nix-alien",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1760241904,
-        "narHash": "sha256-OD7QnaGEVNdukYEbJbUNWPsvnDrpbZOZxVIk6Pt9Jhw=",
+        "lastModified": 1761451000,
+        "narHash": "sha256-qBJL6xEIjqYq9zOcG2vf2nPTeVBppNJzvO0LuQWMwMo=",
         "owner": "nix-community",
         "repo": "nix-index-database",
-        "rev": "c9f5ea45f25652ec2f771f9426ccacb21cbbaeaa",
+        "rev": "ed6b293161b378a7368cda38659eb8d3d9a0dac4",
         "type": "github"
       },
       "original": {
@@ -608,6 +609,7 @@
         "nix-alien": "nix-alien",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
+        "nix-index-database": "nix-index-database",
         "nixos-facter-modules": "nixos-facter-modules",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

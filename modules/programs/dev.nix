@@ -7,6 +7,7 @@
         lazyjj
         lazygit
         jq
+        kondo
       ];
     };
 }
