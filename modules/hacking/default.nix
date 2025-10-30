@@ -114,6 +114,7 @@
           xh
           wpscan
           dalfox
+          caido
 
           # Reverse Engineering
           ghidra
@@ -137,7 +138,14 @@
             basePackage = pkgs.metasploit;
             programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
           })
-          caido
+          (inputs.wrapper-manager.lib.wrapWith pkgs {
+            basePackage = (withSystem system (p: p.config.packages.mcp-zap-server));
+            env = {
+              ZAP_API_PORT.value = "8080";
+              ZAP_API_URL.value = "localhost";
+              ZAP_API_KEY.value = "h8a0huc1mmp3efmjbu2e8hqhs";
+            };
+          })
         ];
       };
   };
