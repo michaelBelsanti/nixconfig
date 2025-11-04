@@ -51,6 +51,7 @@
         services.pipewire.lowLatency = {
           enable = true;
           rate = 48000;
+          quantum = 128;
         };
 
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
