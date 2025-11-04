@@ -37,6 +37,7 @@
             git_state.disabled = true;
             git_metrics.disabled = true;
             git_status.disabled = true;
+            jobs.disabled = true; # TODO atuin creates a job during the prompt closure and the symbol_threshold option is bugged
           };
         };
         atuin = {

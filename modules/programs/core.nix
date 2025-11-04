@@ -17,7 +17,7 @@
           difftastic
           dogdns
           dua
-          du-dust
+          dust
           edir
           eva
           fd
