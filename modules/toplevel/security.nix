@@ -1,4 +1,3 @@
-{ lib, ... }:
 {
   unify.nixos.security = {
     sudo.enable = false;
@@ -14,13 +13,13 @@
           domain = "*";
           item = "nofile";
           type = "hard";
-          value = "128000";
+          value = 128000;
         }
         {
           domain = "*";
           item = "nofile";
           type = "soft";
-          value = "20480";
+          value = 20480;
         }
       ];
     };

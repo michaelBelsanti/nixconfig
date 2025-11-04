@@ -3,6 +3,7 @@
   unify.hosts.nixos.hades = {
     modules = with config.unify.modules; [
       workstation
+      desktop
       gaming
       replays
       hacking
@@ -38,13 +39,19 @@
       { pkgs, ... }:
       {
         facter.reportPath = ./facter.json;
-        imports = with inputs.nixos-hardware.nixosModules; [
-          common-cpu-amd
-          common-gpu-amd
-          common-pc-ssd
+        imports = with inputs; [
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+          nix-gaming.nixosModules.pipewireLowLatency
         ];
 
         hardware.amdgpu.opencl.enable = true;
+
+        services.pipewire.lowLatency = {
+          enable = true;
+          rate = 48000;
+        };
 
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 

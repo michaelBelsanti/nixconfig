@@ -5,7 +5,6 @@
       { pkgs, hostConfig, ... }:
       {
         imports = [
-          inputs.nix-gaming.nixosModules.pipewireLowLatency
           inputs.nix-gaming.nixosModules.platformOptimizations
           inputs.chaotic.nixosModules.default
         ];
@@ -47,7 +46,6 @@
           graphics.enable32Bit = true;
         };
         services = {
-          pipewire.lowLatency.enable = true;
           input-remapper.enable = true;
           system76-scheduler.enable = true;
         };
