@@ -57,14 +57,16 @@
         boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
 
         services.resolved.fallbackDns = [ ];
-        systemd.network.enable = true;
-        systemd.network.links."01-ethernet" = {
-          matchConfig.Name = "enp8s0";
-          linkConfig.WakeOnLan = "magic";
-        };
-        systemd.network.networks."01-ethernet" = {
-          matchConfig.Name = "enp8s0";
-          networkConfig.DHCP = "yes";
+        systemd.network = {
+          enable = true;
+          links."01-ethernet" = {
+            matchConfig.Type = "ether";
+            linkConfig.WakeOnLan = "magic";
+          };
+          networks."01-ethernet" = {
+            matchConfig.Name = "enp8s0";
+            networkConfig.DHCP = "yes";
+          };
         };
 
         networking = {
