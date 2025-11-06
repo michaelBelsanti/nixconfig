@@ -40,6 +40,9 @@
                     exit_code: false
                     termination_signal: true
                 }
+                completions: {
+                  algorithm: "fuzzy"
+                }
               }
 
               # fix paths in distrobox
