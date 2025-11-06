@@ -69,6 +69,9 @@
           (withSystem system (p: p.config.packages.shuffledns))
           massdns
 
+          (withSystem system (p: p.config.packages.uro))
+          (withSystem system (p: p.config.packages.gf))
+
           # Vulnerability Analysis
           sqlmap
           bruno
