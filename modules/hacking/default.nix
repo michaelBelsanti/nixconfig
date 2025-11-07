@@ -71,6 +71,7 @@
 
           (withSystem system (p: p.config.packages.uro))
           (withSystem system (p: p.config.packages.gf))
+          (withSystem system (p: p.config.packages.secrethound))
 
           # Vulnerability Analysis
           sqlmap
