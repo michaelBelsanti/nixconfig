@@ -1,10 +1,10 @@
 { inputs, ... }:
 {
   unify = {
-    modules.workstations.home =
+    modules.workstation.home =
       { pkgs, ... }:
       {
-        home.packages = [ inputs.nix-alien.packages.${pkgs.system}.default ];
+        home.packages = [ inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.default ];
       };
 
     home =
@@ -13,7 +13,6 @@
         home.packages = with pkgs; [
           # Nix
           deadnix
-          inputs.nix-alien.packages.${system}.default
           lixPackageSets.latest.nix-direnv
           lixPackageSets.latest.nixpkgs-review
           nh

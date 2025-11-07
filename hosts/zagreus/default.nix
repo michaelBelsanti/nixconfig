@@ -34,7 +34,7 @@
         hardware.amdgpu.opencl.enable = true;
 
         boot = {
-          kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
+          kernelPackages = inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
           kernelParams = [ "acpi_backlight=native" ];
           plymouth.enable = true;
           binfmt.emulatedSystems = [ "aarch64-linux" ];

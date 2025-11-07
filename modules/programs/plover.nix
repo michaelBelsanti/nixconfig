@@ -18,7 +18,7 @@
         imports = [ inputs.plover.homeManagerModules.plover ];
         programs.plover = {
           enable = true;
-          package = inputs.plover.packages.${pkgs.system}.plover-full;
+          package = inputs.plover.packages.${pkgs.stdenv.hostPlatform.system}.plover-full;
         };
       };
   };

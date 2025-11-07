@@ -22,7 +22,7 @@
             withOpenASAR = true;
             enableAutoscroll = true;
             withMoonlight = true;
-            moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+            moonlight = inputs.moonlight.packages.${stdenv.hostPlatform.system}.moonlight;
           })
         ];
       };

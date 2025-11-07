@@ -54,7 +54,7 @@
           quantum = 128;
         };
 
-        boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.system}.linuxPackages_cachyos;
+        boot.kernelPackages = inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
 
         services.resolved.fallbackDns = [ ];
         systemd.network = {
