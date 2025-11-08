@@ -13,13 +13,12 @@
           varia
           proton-pass
           element-desktop
-          # gnome-frog
+          gnome-frog
           (warpd.override {
             withWayland = true;
             withX = false;
           })
           obsidian
-          grayjay
           orca-slicer
           freecad
           gearlever
