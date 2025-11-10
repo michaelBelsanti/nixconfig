@@ -4,8 +4,7 @@
     {
       home.packages = with pkgs; [
         # Dev
-        lazyjj
-        lazygit
+        jjui
         jq
         kondo
       ];

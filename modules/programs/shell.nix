@@ -4,8 +4,6 @@
     {
       home.shellAliases = {
         cd = "z";
-        lj = "lazyjj";
-        lg = "lazygit";
         o = "xdg-open";
         mkdir = "mkdir -p";
         tree = "eza -T";
