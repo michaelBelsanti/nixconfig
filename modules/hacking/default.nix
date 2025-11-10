@@ -120,6 +120,8 @@
           wpscan
           dalfox
           caido
+          wafw00f
+          graphw00f
 
           # Reverse Engineering
           ghidra
