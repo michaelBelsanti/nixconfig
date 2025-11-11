@@ -15,10 +15,10 @@
           cartridges
           heroic
           lunar-client
-          # (lutris.override {
-          #   extraPkgs = _: [ umu-launcher ];
-          #   extraLibraries = _: [ latencyflex-vulkan ];
-          # })
+          (lutris.override {
+            extraPkgs = _: [ umu-launcher ];
+            extraLibraries = _: [ latencyflex-vulkan ];
+          })
           prismlauncher
           umu-launcher
 
