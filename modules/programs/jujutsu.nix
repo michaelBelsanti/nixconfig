@@ -23,6 +23,7 @@
             default-command = [
               "log"
               "--no-pager"
+              "--reversed"
             ];
             show-cryptographic-signatures = true;
           };
