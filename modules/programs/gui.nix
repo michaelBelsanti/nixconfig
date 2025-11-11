@@ -18,6 +18,7 @@
           freecad
           gearlever
           dino
+          ungoogled-chromium
           (pkgs.discord.override {
             withOpenASAR = true;
             enableAutoscroll = true;
