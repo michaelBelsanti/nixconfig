@@ -1,6 +1,6 @@
 {
-  unify = {
-    home =
+  den = {
+    default.homeManager =
       { config, ... }:
       {
         xdg.enable = true;
@@ -29,12 +29,9 @@
           _Z_DATA = "${config.xdg.dataHome}/z";
         };
       };
-    modules.workstation = {
-      nixos.xdg = {
-        portal.enable = true;
-        terminal-exec.enable = true;
-      };
-      home.xdg = {
+    aspects.workstation = {
+      nixos.xdg.terminal-exec.enable = true;
+      homeManager.xdg = {
         autostart.enable = true;
         autostart.readOnly = true;
         userDirs = {

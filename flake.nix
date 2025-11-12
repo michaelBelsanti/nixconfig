@@ -6,6 +6,8 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
+    den.url = "github:vic/den";
+    flake-aspects.url = "github:vic/flake-aspects";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
 
@@ -76,11 +78,6 @@
 
     moonlight = {
       url = "github:moonlight-mod/moonlight"; # Add `/develop` to the flake URL to use nightly.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    plover = {
-      url = "github:openstenoproject/plover-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

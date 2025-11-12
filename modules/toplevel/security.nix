@@ -1,5 +1,5 @@
 {
-  unify.nixos.security = {
+  den.default.nixos.security = {
     sudo.enable = false;
     sudo-rs = {
       enable = true;

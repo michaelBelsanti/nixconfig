@@ -2,23 +2,24 @@
   inputs,
   lib,
   withSystem,
+  den,
   ...
 }:
 {
-  unify.modules.hacking = {
-    nixos =
-      { hostConfig, ... }:
-      {
-        environment.etc.hosts.mode = "0644";
-        # until exegol supports podman
-        virtualisation.docker.enable = true;
-        programs.wireshark.enable = true;
-        users.users.${hostConfig.primaryUser}.extraGroups = [
-          "wireshark"
-          "docker"
-        ];
-      };
-    home =
+  den.aspects.hax = {
+    includes = [ den.aspects.hax._.subfinder ];
+    nixos = {
+      environment.etc.hosts.mode = "0644";
+      # TODO until exegol supports podman
+      virtualisation.docker.enable = true;
+      programs.wireshark.enable = true;
+      users.users.quasi.extraGroups = [
+        # TODO
+        "wireshark"
+        "docker"
+      ];
+    };
+    homeManager =
       { pkgs, config, ... }:
       {
         sops.secrets.shodan_api_key = { };
@@ -88,7 +89,7 @@
           aircrack-ng
 
           # Forensics Tools
-          autopsy
+          # autopsy # TODO
           volatility3
           binwalk
           exiftool
@@ -126,7 +127,7 @@
           # Reverse Engineering
           ghidra
           cutter
-          imhex
+          # imhex # TODO
 
           # Social Engineering Tools
           social-engineer-toolkit
@@ -145,14 +146,14 @@
             basePackage = pkgs.metasploit;
             programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
           })
-          (inputs.wrapper-manager.lib.wrapWith pkgs {
-            basePackage = (withSystem system (p: p.config.packages.mcp-zap-server));
-            env = {
-              ZAP_API_PORT.value = "8080";
-              ZAP_API_URL.value = "localhost";
-              ZAP_API_KEY.value = "h8a0huc1mmp3efmjbu2e8hqhs";
-            };
-          })
+          # (inputs.wrapper-manager.lib.wrapWith pkgs {
+          #   basePackage = (withSystem system (p: p.config.packages.mcp-zap-server));
+          #   env = {
+          #     ZAP_API_PORT.value = "8080";
+          #     ZAP_API_URL.value = "localhost";
+          #     ZAP_API_KEY.value = "h8a0huc1mmp3efmjbu2e8hqhs";
+          #   };
+          # })
         ];
       };
   };

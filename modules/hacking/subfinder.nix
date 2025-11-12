@@ -1,5 +1,5 @@
 {
-  unify.modules.hacking.home =
+  den.aspects.hax._.subfinder.homeManager =
     { lib, config, ... }:
     {
       sops.secrets = {

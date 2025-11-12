@@ -1,10 +1,10 @@
 {
-  unify.modules.cachix.nixos =
+  den.aspects.services._.cachix.nixos =
     { config, ... }:
     {
       sops.secrets.cachix_token = { };
       services.cachix-watch-store = {
-        enable = false;
+        enable = true;
         cacheName = "quasigod";
         cachixTokenFile = config.sops.secrets.cachix_token.path;
       };

@@ -1,5 +1,5 @@
 {
-  unify =
+  den.aspects.services._.syncthing =
     let
       devices = {
         hades.id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";
@@ -23,10 +23,10 @@
       };
     in
     {
-      modules.syncthing-client.home.services = {
+      provides.client.homeManager.services = {
         inherit syncthing;
       };
-      modules.syncthing-server.nixos.services.syncthing = syncthing // {
+      provides.server.nixos.services.syncthing = syncthing // {
         openDefaultPorts = true;
       };
     };

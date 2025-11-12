@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  unify.modules.workstation.home = {
+  den.aspects.services._.easyeffects.homeManager = {
     systemd.user.services.easyeffects.Service.Restart = lib.mkForce "never";
     services.easyeffects = {
       enable = true;

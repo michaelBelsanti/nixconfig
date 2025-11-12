@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  unify = {
+  den.default = {
     nixos =
       { pkgs, ... }:
       {
@@ -19,7 +19,7 @@
             auto-optimise-store = true;
             trusted-users = [
               "root"
-              "quasi"
+              "@wheel"
             ];
             experimental-features = [
               "nix-command"
@@ -33,7 +33,7 @@
           };
         };
       };
-    home = {
+    homeManager = {
       imports = [ inputs.nix-index-database.homeModules.nix-index ];
       programs.nix-index-database.comma.enable = true;
       programs.nix-index.enable = true;
