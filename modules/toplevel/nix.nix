@@ -38,15 +38,15 @@
       programs.nix-index-database.comma.enable = true;
       programs.nix-index.enable = true;
       nix.registry = {
-        develop = {
+        quix = {
           exact = true;
           from = {
-            id = "develop";
+            id = "quix";
             type = "indirect";
           };
           to = {
             type = "git";
-            url = "https://codeberg.org/quasigod/develop";
+            url = "https://tangled.org/@belsanti.xyz/quix";
           };
         };
       };
