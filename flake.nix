@@ -1,23 +1,7 @@
 {
   description = "Quasigod's NixOS config";
 
-  outputs =
-    { flake-parts, import-tree, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-      imports = [
-        inputs.unify.flakeModule
-        (import-tree [
-          ./hosts
-          ./modules
-        ])
-      ];
-      perSystem =
-        { pkgs, ... }:
-        {
-          formatter = pkgs.nixfmt-tree;
-        };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
