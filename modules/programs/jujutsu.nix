@@ -26,6 +26,7 @@
               "--reversed"
             ];
             show-cryptographic-signatures = true;
+            diff-formatter = "difft";
           };
           git = {
             private-commits = "description(glob:'private:*')";
