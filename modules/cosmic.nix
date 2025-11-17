@@ -1,7 +1,7 @@
 { den, ... }:
 {
-  den.aspects.cosmic = {
-    includes = [ den.aspects.wayland ];
+  den.aspects.wayland._.cosmic = den.lib.parametric {
+    includes = [ den.aspects.wayland._.base ];
     homeManager =
       { pkgs, lib, ... }:
       {

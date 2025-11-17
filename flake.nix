@@ -6,7 +6,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
-    den.url = "github:vic/den";
+    den.url = "github:vic/den/f6169af6eec59ce64fcce6656a60e8d0c62d2a34";
     flake-aspects.url = "github:vic/flake-aspects";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";

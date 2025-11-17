@@ -8,6 +8,7 @@
   den.aspects = {
     boot = {
       nixos.boot = {
+        # grub.enable = false;
         initrd.systemd.enable = true;
         loader = {
           systemd-boot.enable = lib.mkDefault true; # needs to be overridden for secure boot

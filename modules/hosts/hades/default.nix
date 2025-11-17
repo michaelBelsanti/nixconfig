@@ -27,6 +27,8 @@
   den.aspects.hades = {
     includes = with den.aspects; [
       desktop
+      wayland._.cosmic
+      boot
       hax
       gaming._.min
       gaming._.max
@@ -38,7 +40,6 @@
         quantum = 256;
         rate = 48000;
       })
-      # wayland
     ];
 
     nixos =
@@ -88,9 +89,7 @@
             ];
           };
         };
-
         services.fwupd.enable = true;
-
       };
   };
 }
