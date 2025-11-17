@@ -1,68 +1,6 @@
 {
  "!comment": "This is a nixpkgs Gradle dependency lockfile. For more details, refer to the Gradle section in the nixpkgs manual.",
  "!version": 1,
- "https://central.sonatype.com/repository/maven-snapshots": {
-  "io/modelcontextprotocol/sdk#mcp-core/0.15.0-20251030.154540-13/SNAPSHOT": {
-   "jar": "sha256-xNR2QT8nkUN7ZmTQcrRvLpjLH+vgRSsOWPVhjkYNUVk=",
-   "pom": "sha256-0Tlk8N3h4XCu4ujk2Fx90ZUjjh4ea1pMAkVxt+Wxafg="
-  },
-  "io/modelcontextprotocol/sdk#mcp-json-jackson2/0.15.0-20251030.154540-13/SNAPSHOT": {
-   "jar": "sha256-qw+1LKtPm/qhEQEsv2Iovtq7pUoW6DOq2CJWgoX3Www=",
-   "pom": "sha256-5l4N8dqnMfe23VJn7pfDBQdvxMwQmRfXaQzjz0e1gpw="
-  },
-  "io/modelcontextprotocol/sdk#mcp-json/0.15.0-20251030.154540-13/SNAPSHOT": {
-   "jar": "sha256-szbaWgqT0Eugcb1C5rKSjhrSVYSkgKVvqLZ3NiKKBZs=",
-   "pom": "sha256-gEQCE6M4T4UhuozkgvfadnEvqoQYCUGpU7DyQK/+WWY="
-  },
-  "io/modelcontextprotocol/sdk#mcp-spring-webflux/0.15.0-20251030.154540-13/SNAPSHOT": {
-   "jar": "sha256-stk7VKnokRMvk3KtcTeAbH75xFYSh0Z9NE3SJE7acK0=",
-   "pom": "sha256-z1pZB3kufQdyjEu7m06lOT3R167mR8xLv9BASv9V+d8="
-  },
-  "io/modelcontextprotocol/sdk#mcp/0.15.0-20251030.154540-13/SNAPSHOT": {
-   "jar": "sha256-IV/JSU7fGkwga/AerPtBbrJKDdp8JH7od87UU+KYO1g=",
-   "pom": "sha256-cxjOJ8z0Ju2FGBzw7y6Ankdh0nzy6mwJGt2+yQjkPHw="
-  },
-  "io/modelcontextprotocol/sdk/mcp-core/0.15.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "io.modelcontextprotocol.sdk",
-    "lastUpdated": "20251030154540"
-   }
-  },
-  "io/modelcontextprotocol/sdk/mcp-json-jackson2/0.15.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "io.modelcontextprotocol.sdk",
-    "lastUpdated": "20251030154540"
-   }
-  },
-  "io/modelcontextprotocol/sdk/mcp-json/0.15.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "io.modelcontextprotocol.sdk",
-    "lastUpdated": "20251030154540"
-   }
-  },
-  "io/modelcontextprotocol/sdk/mcp-spring-webflux/0.15.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "io.modelcontextprotocol.sdk",
-    "lastUpdated": "20251030154540"
-   }
-  },
-  "io/modelcontextprotocol/sdk/mcp/0.15.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "io.modelcontextprotocol.sdk",
-    "lastUpdated": "20251030154540"
-   }
-  },
-  "org/springaicommunity#mcp-annotations/0.6.0-20251015.153228-8/SNAPSHOT": {
-   "jar": "sha256-Hj76ZntRflHLUiSvOynEoJAFx0SSTWv674+W1P2+r9o=",
-   "pom": "sha256-RzWyJ3piFgTj9ky4I5ZY2+l1dl15l/YaMcMD8JTOeTU="
-  },
-  "org/springaicommunity/mcp-annotations/0.6.0-SNAPSHOT/maven-metadata": {
-   "xml": {
-    "groupId": "org.springaicommunity",
-    "lastUpdated": "20251015153228"
-   }
-  }
- },
  "https://plugins.gradle.org/m2": {
   "com/fasterxml#oss-parent/69": {
    "pom": "sha256-OFbVhKqhyOM86UxnJE9x9vcFOKJZ/+jngXYbn6qth18="
@@ -261,9 +199,9 @@
   "ch/qos/logback#logback-parent/1.5.20": {
    "pom": "sha256-Fwus2jsPfYA9jteOcPEg7Ncmu5qKk8F6MmfzP8HryiA="
   },
-  "com/ethlo/time#itu/1.10.3": {
-   "jar": "sha256-I9O6hAldSJpZUkD4kEUIXqUGb7b8HcCRJY1XffnXSrw=",
-   "pom": "sha256-shihqWmXfQEerG6Ttzo6uwuIQGMK0aHxbr//JOWIbXQ="
+  "com/ethlo/time#itu/1.14.0": {
+   "jar": "sha256-XPQKsMx3goqyuHWx8+zXHIKV13IZM0dqvC4I/dzqFko=",
+   "pom": "sha256-DVrgvsCUlVKcY8yKbBMlOHBoaDKk47IGwTgWUDWuS8U="
   },
   "com/fasterxml#classmate/1.7.1": {
    "jar": "sha256-zDKZ5d9PwkGA5pR3yJDQfTjbed0t7MDvIOdKmGiXwKE=",
@@ -370,9 +308,9 @@
    "module": "sha256-QxxAPs80ROw72ZNJIvNpOf1vCClXmpolySdBmSzVjC8=",
    "pom": "sha256-cfjoMOMzqx9I5NAy7FSiu4J6Zk+crtGlo8h815W+8eA="
   },
-  "com/networknt#json-schema-validator/1.5.7": {
-   "jar": "sha256-LHHpcNwbZ0mbme+vZZgmlumM7QAoVI1Dv066Bu3Yg08=",
-   "pom": "sha256-qQU6VxFYaUiNK879i+139s2czA5HL7gDlUXCpFv1VTQ="
+  "com/networknt#json-schema-validator/2.0.0": {
+   "jar": "sha256-7pQCQQQ64BgB31lUvDdEv3I8RJ/w2nGfl+G5poiXOdc=",
+   "pom": "sha256-k1SvFT2v0SLKW3LRr+szoE0CYqZKTBW/sNjzCNmC0jE="
   },
   "com/querydsl#querydsl-bom/5.1.0": {
    "pom": "sha256-iFPc4TLJ7OTClcf01PPCgy7uDX1EkwhwwGZvpyBDylY="
@@ -406,6 +344,26 @@
   },
   "io/micrometer#micrometer-tracing-bom/1.5.5": {
    "pom": "sha256-WuYKSYVEi1wMNZuRW91azQmYuNQqxVXFjGcngCPUFgg="
+  },
+  "io/modelcontextprotocol/sdk#mcp-core/0.16.0": {
+   "jar": "sha256-VjEtGnuYt+PlvnjgeRH6JQZCf77m++rUoeeU2tErOS4=",
+   "pom": "sha256-uDhAYWI8Xkp6uzLIVgq2WBtlWNSCKbzfgfDL+mh7ibk="
+  },
+  "io/modelcontextprotocol/sdk#mcp-json-jackson2/0.16.0": {
+   "jar": "sha256-o9BuuPLGG31flGgKE6ipD1BNRgLNPEsR2yx2svfxMgU=",
+   "pom": "sha256-cvZt1hEPVpfF+fVgJat9OgMbLF3QYRwyRsj/nxtSQxM="
+  },
+  "io/modelcontextprotocol/sdk#mcp-json/0.16.0": {
+   "jar": "sha256-06iQPY6b6EFYIX1U5sKPvjaixh1l1PTQMdok3ONVvC8=",
+   "pom": "sha256-maNvN0gUOfNEUfu5gDPjddLwtLb8Cq+IpD5T2p2nX/Y="
+  },
+  "io/modelcontextprotocol/sdk#mcp-spring-webflux/0.16.0": {
+   "jar": "sha256-JjANjbheIRqYm+zOu3gK8VusWwlgKVxpv4yaKR237B4=",
+   "pom": "sha256-540lwVGoMvBwZG9JpaTCE77K2Rv9SJVUbDTdOw9e5uE="
+  },
+  "io/modelcontextprotocol/sdk#mcp/0.16.0": {
+   "jar": "sha256-u3rEC/52n5XXGM9YMcvbHgSMuVQYJwsn0LHHYzpP63I=",
+   "pom": "sha256-Squ1urccWSV2u8kt2B0xS8bl3GD/hLu+12T9a1yxnM8="
   },
   "io/netty#netty-bom/4.1.128.Final": {
    "pom": "sha256-6EgBU0x4auPRUcKkhzZyrehbCxxlKXM1Y8134bo5XIQ="
@@ -847,6 +805,10 @@
   "org/sonatype/oss#oss-parent/9": {
    "pom": "sha256-+0AmX5glSCEv+C42LllzKyGH7G8NgBgohcFO8fmCgno="
   },
+  "org/springaicommunity#mcp-annotations/0.7.0": {
+   "jar": "sha256-ArVMZO/21mmDiHblhaiif7/stA9Ghh52XtnWrhUNCs8=",
+   "pom": "sha256-NzaSA7IXLtLw2AbhY7MMTPN1vtH6+w4uVoc+8YQVBBA="
+  },
   "org/springframework#spring-aop/6.2.12": {
    "jar": "sha256-vvwdwJLeYtqzquPHoOEfeXxgYP/8ISHh/o+5XJQnJlU=",
    "module": "sha256-2pOR4oMV65vX+vAE5Dv5n/Xie7cDxMR3EeCzEeiX3W8=",
@@ -1026,93 +988,93 @@
   }
  },
  "https://repo.spring.io/snapshot/org/springframework": {
-  "ai#spring-ai-autoconfigure-mcp-server-common/1.1.0-20251027.164536-370/SNAPSHOT": {
-   "jar": "sha256-6Cc0X6reqHJ+0ZVPhqFpTpG8t+2Jda6A5lraYn6O0AA=",
-   "pom": "sha256-nPOrqA8CAPCoas/M3Yl4Icr9z8HZhjVWo12XYulTckY="
+  "ai#spring-ai-autoconfigure-mcp-server-common/1.1.0-20251112.185236-409/SNAPSHOT": {
+   "jar": "sha256-SMOuKmO38dmTRCMxYttSMa+n2RCwuTBPxUl69axM54U=",
+   "pom": "sha256-ZKndpZpee7IlimomqjNhiYJAJkyQE2TaRhNuYGFPRbY="
   },
-  "ai#spring-ai-autoconfigure-mcp-server-webflux/1.1.0-20251030.150029-368/SNAPSHOT": {
-   "jar": "sha256-rVEHt9pVOKs9zePAiiwBxz7r1rZhn6oMR0fxsxSc4GM=",
-   "pom": "sha256-bIMM9KM5wk3Iz+eJKOMlSbxrdlbJnM3jqnT/70wq42k="
+  "ai#spring-ai-autoconfigure-mcp-server-webflux/1.1.0-20251112.185236-406/SNAPSHOT": {
+   "jar": "sha256-+M8FBJlI6TArdP01GgbfdZdGobnQH+OpJOBThNc0M7Q=",
+   "pom": "sha256-x+zccC8F/zMYZmhmQti9hEqjb9+voe3h3bA0jkbSLt4="
   },
-  "ai#spring-ai-bom/1.1.0-20251030.164754-758/SNAPSHOT": {
-   "pom": "sha256-Rt9xN3mPGiaO18pRUC8/vRK/X9mpjvY1usg3SUf6Nuk="
+  "ai#spring-ai-bom/1.1.0-20251112.185236-805/SNAPSHOT": {
+   "pom": "sha256-ccB9KJP0u6G9Ydxyux7I92ZhK8ZjDhzvICI9JirDJb4="
   },
-  "ai#spring-ai-commons/1.1.0-20251030.164754-761/SNAPSHOT": {
-   "jar": "sha256-oKN147oOJTHS6X5+bg3gEBg5TQSjrd96IYvonFMrPXE=",
+  "ai#spring-ai-commons/1.1.0-20251112.185236-807/SNAPSHOT": {
+   "jar": "sha256-iHDCp5pROYk14OI6bclCk7WdF3hAKkHE6+K5ribGrfY=",
    "pom": "sha256-reojjZ7s3IHmASL7U02vcNaxqICcxbJ1fXoLa3TDy3c="
   },
-  "ai#spring-ai-mcp-annotations/1.1.0-20251030.164754-351/SNAPSHOT": {
-   "jar": "sha256-m83pSXg9YPXzGb2wFEzxP7uFIuDTngmhIv/b0qLObrg=",
-   "pom": "sha256-SycIGB8Ksq1f3S+t+ZTb1NZQABFAYKwDTYvl4mI4C2c="
+  "ai#spring-ai-mcp-annotations/1.1.0-20251112.185236-396/SNAPSHOT": {
+   "jar": "sha256-YKTDVThxSFLvqJVpsH7Y0UGQfpTebzqRqIsF81QpqDU=",
+   "pom": "sha256-zDRlE4vEgcGJhkbbxNEn+tXu5aj9fFOwTzwyNM/fTEs="
   },
-  "ai#spring-ai-mcp/1.1.0-20251030.164754-624/SNAPSHOT": {
-   "jar": "sha256-Nc1UgMJaqbHS+aFcxKchRmGRgYi55EKnTeaX9fL245U=",
-   "pom": "sha256-VnK0raH2sGezUeRaTWnTHZUVjSRwqfC/g6VOwG+vGwY="
+  "ai#spring-ai-mcp/1.1.0-20251112.185236-670/SNAPSHOT": {
+   "jar": "sha256-5ZUQeum6Zcv7Bw6q3mOpuKMiElh/HuIl9cIoCpL2o1M=",
+   "pom": "sha256-o1GF+lZqmjDEfaEAKiqXnRmouj4tSMemNQDyJGc/7/g="
   },
-  "ai#spring-ai-model/1.1.0-20251030.164754-774/SNAPSHOT": {
-   "jar": "sha256-dac7TjHeUTMbHEzXLk1M0T8UvQD+8UQEf81F+UFia0o=",
+  "ai#spring-ai-model/1.1.0-20251112.185236-824/SNAPSHOT": {
+   "jar": "sha256-+wg8ZUvO8TsECCviS3TJDTCOA76plInrdY3npw8tvWk=",
    "pom": "sha256-qpuK/zoNVB0hSIG7tojSep1j92pHHKCabiTqxj75Czk="
   },
-  "ai#spring-ai-starter-mcp-server-webflux/1.1.0-20251013.091536-510/SNAPSHOT": {
-   "jar": "sha256-er5kXwoM4ZG7LVUS0MZupxTaxY5VSNVf8DiAM4e1XE8=",
-   "pom": "sha256-c61diCS0FH95TItTYPsLsQlwTpfw6oCOaYlylnsbPVc="
+  "ai#spring-ai-starter-mcp-server-webflux/1.1.0-20251112.185236-544/SNAPSHOT": {
+   "jar": "sha256-Y3kfELTgCAkbvRhPkj8flZz6uBzYb3nXRlQdU2u9txo=",
+   "pom": "sha256-CtGdUUlKnKGC3AxBBEFTpE1h6E4LL2NLsCzEgekHHX8="
   },
-  "ai#spring-ai-template-st/1.1.0-20251030.164754-756/SNAPSHOT": {
-   "jar": "sha256-g/SPyQxzQStCr8uwZn3fAvDdhk3QsQgW+JHGQmggoD4=",
+  "ai#spring-ai-template-st/1.1.0-20251112.185236-802/SNAPSHOT": {
+   "jar": "sha256-VBoQE1v5cv1GAMmZxNVGDZTEEpd4WMHV2qu4y9TlnQI=",
    "pom": "sha256-DcizN1I299qaFbEWApWLqK5sZVCv+0B83hkMswDuwoA="
   },
   "ai/spring-ai-autoconfigure-mcp-server-common/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251027181548"
+    "lastUpdated": "20251112190230"
    }
   },
   "ai/spring-ai-autoconfigure-mcp-server-webflux/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030150547"
+    "lastUpdated": "20251112190230"
    }
   },
   "ai/spring-ai-bom/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030165047"
+    "lastUpdated": "20251112185549"
    }
   },
   "ai/spring-ai-commons/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030165229"
+    "lastUpdated": "20251112185441"
    }
   },
   "ai/spring-ai-mcp-annotations/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030171551"
+    "lastUpdated": "20251112185943"
    }
   },
   "ai/spring-ai-mcp/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030171940"
+    "lastUpdated": "20251112185548"
    }
   },
   "ai/spring-ai-model/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030165547"
+    "lastUpdated": "20251112185550"
    }
   },
   "ai/spring-ai-starter-mcp-server-webflux/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251013102834"
+    "lastUpdated": "20251112190440"
    }
   },
   "ai/spring-ai-template-st/1.1.0-SNAPSHOT/maven-metadata": {
    "xml": {
     "groupId": "org.springframework.ai",
-    "lastUpdated": "20251030165229"
+    "lastUpdated": "20251112185441"
    }
   }
  }
