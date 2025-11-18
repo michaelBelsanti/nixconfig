@@ -29,7 +29,7 @@
           _Z_DATA = "${config.xdg.dataHome}/z";
         };
       };
-    aspects.workstation = {
+    aspects.xdg = {
       nixos.xdg.terminal-exec.enable = true;
       homeManager.xdg = {
         autostart.enable = true;

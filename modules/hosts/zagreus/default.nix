@@ -20,6 +20,7 @@
   den.hosts.x86_64-linux.zagreus = { inherit (config.hostConfig.zagreus) displays primaryDisplay; };
   den.aspects.zagreus = {
     includes = with den.aspects; [
+      wayland._.cosmic
       laptop
       hax
     ];
@@ -33,8 +34,8 @@
         hardware.amdgpu.opencl.enable = true;
 
         boot = {
-          kernelPackages =
-            inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
+          # kernelPackages =
+          #   inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
           kernelParams = [ "acpi_backlight=native" ];
           plymouth.enable = true;
           binfmt.emulatedSystems = [ "aarch64-linux" ];
