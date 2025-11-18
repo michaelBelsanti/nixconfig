@@ -15,6 +15,7 @@
 
         <virt/podman>
         <virt/qemu>
+        <tailscale>
       ];
     };
     laptop = {
