@@ -5,6 +5,7 @@
       environment.enableAllTerminfo = true;
       services.openssh = {
         enable = true;
+        openFirewall = true;
         settings = {
           # following ssh-audit: nixos default minus 2048 bit modules
           KexAlgorithms = [

@@ -1,21 +1,28 @@
 { den, ... }:
 {
   den.aspects.wayland._.cosmic = den.lib.parametric {
-    includes = [ den.aspects.wayland._.base ];
-    homeManager =
-      { pkgs, lib, ... }:
-      {
-        xdg.configFile = {
-          # using cosmics automatic gtk theming
-          "gtk-4.0/assets".enable = false;
-          "gtk-4.0/gtk.css".enable = false;
-          "gtk-4.0/gtk-dark.css".enable = false;
-        };
-        gtk.iconTheme = {
-          name = lib.mkForce "Cosmic";
-          package = lib.mkForce pkgs.cosmic-icons;
-        };
-      };
+    includes = [
+      den.aspects.wayland._.base
+      (
+        { host, ... }:
+        {
+          homeManager =
+            { pkgs, lib, ... }:
+            {
+              xdg.configFile = {
+                # using cosmics automatic gtk theming
+                "gtk-4.0/assets".enable = false;
+                "gtk-4.0/gtk.css".enable = false;
+                "gtk-4.0/gtk-dark.css".enable = false;
+              };
+              gtk.iconTheme = {
+                name = lib.mkForce "Cosmic";
+                package = lib.mkForce pkgs.cosmic-icons;
+              };
+            };
+        }
+      )
+    ];
     nixos =
       { pkgs, lib, ... }:
       {

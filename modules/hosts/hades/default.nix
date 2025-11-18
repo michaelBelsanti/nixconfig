@@ -28,7 +28,6 @@
     includes = with den.aspects; [
       desktop
       wayland._.cosmic
-      boot
       hax
       gaming._.min
       gaming._.max
