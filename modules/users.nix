@@ -1,7 +1,7 @@
 { den, ... }:
 {
   den.aspects.quasi = {
-    includes = [ den.provides.primary-user ];
+    includes = [ den.provides.primary-user den.provides.primary-user ];
     homeManager.services.ssh-agent.enable = true;
   };
   den.aspects.groups =

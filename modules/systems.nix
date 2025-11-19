@@ -1,7 +1,7 @@
 { den, __findFile, ... }:
 {
   den.aspects = {
-    workstation = {
+    workstation = den.lib.parametric.atLeast {
       includes = [
         <boot>
         <secrets>
@@ -11,7 +11,7 @@
         <services/ssh/client>
         <services/syncthing/client>
         <theming>
-        # <wayland/cosmic>
+        <wayland/cosmic>
 
         <virt/podman>
         <virt/qemu>
@@ -21,7 +21,7 @@
         <xdg>
       ];
     };
-    laptop = {
+    laptop = den.lib.parametric.atLeast {
       includes = [
         <boot/graphical>
         <boot/secure>
@@ -30,14 +30,14 @@
         <workstation>
       ];
     };
-    desktop = {
+    desktop = den.lib.parametric.atLeast {
       includes = [
         <performance/max>
         <services/ssh>
         <workstation>
       ];
     };
-    server = {
+    server = den.lib.parametric.atLeast {
       includes = [
         <filesystem/zfs>
         <performance>

@@ -27,7 +27,6 @@
   den.aspects.hades = {
     includes = with den.aspects; [
       desktop
-      wayland._.cosmic
       hax
       gaming._.min
       gaming._.max
