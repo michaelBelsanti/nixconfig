@@ -34,48 +34,52 @@
       apps._.radicle
       apps._.zsa
       services._.syncthing._.client
+      # (pipewire._.lowlatency {
+      #   quantum = 48000;
+      #   rate = 128;
+      # })
     ];
 
     nixos =
       { pkgs, ... }:
       {
         facter.reportPath = ./_facter.json;
+        facter.detected.dhcp.enable = false;
         imports = with inputs; [
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
-          nix-gaming.nixosModules.pipewireLowLatency
+          # nix-gaming.nixosModules.pipewireLowLatency
         ];
 
         hardware.amdgpu.opencl.enable = true;
         nixpkgs.config.rocmSupport = true;
         environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.1";
         services = {
-          # pipewire.lowLatency = {
-          #   enable = true;
-          #   rate = 48000;
-          #   quantum = 256;
-          # };
           resolved.fallbackDns = [ ];
           fwupd.enable = true;
         };
 
         boot.kernelPackages =
           inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
+
         systemd.network = {
           enable = true;
-          links."01-ethernet" = {
+          links."10-ethernet" = {
             matchConfig.Type = "ether";
             linkConfig.WakeOnLan = "magic";
+            linkConfig.Name = "lan";
           };
-          networks."01-ethernet" = {
-            matchConfig.Name = "enp8s0";
+          networks."10-ethernet" = {
+            matchConfig.Type = "ether";
             networkConfig.DHCP = "yes";
           };
         };
 
         networking = {
+          useDHCP = false;
           networkmanager.enable = false;
+          networkmanager.unmanaged = [ "lan" ];
           hostName = "hades";
           firewall = {
             allowedUDPPorts = [
