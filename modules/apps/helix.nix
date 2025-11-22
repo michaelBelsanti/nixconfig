@@ -99,34 +99,9 @@
         delve
         golangci-lint-langserver
         golangci-lint
-        taplo
-        ruff
-        python3Packages.jedi-language-server
-        python3Packages.python-lsp-server
-        lua-language-server
-        haskell-language-server
+        ty
         nodePackages.bash-language-server
-        shellcheck
-        vscode-langservers-extracted
         nodePackages_latest.typescript-language-server
-        marksman
-        markdown-oxide
-        ltex-ls-plus
-
-        (writeScriptBin "toggle" ''
-          #!${lib.getExe pkgs.nushell}
-
-          def main [x] {
-            let sx = $x | into string
-            match $sx {
-              'true' => 'false',
-              'True' => 'False',
-              'false' => 'true',
-              'False' => 'True',
-              _ => $sx
-            } 
-          }
-        '')
       ];
     };
 }
