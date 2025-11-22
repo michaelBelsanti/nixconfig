@@ -38,14 +38,5 @@
         <styx/workstation>
       ];
     };
-    server = den.lib.parametric.atLeast {
-      includes = [
-        <styx/filesystem/zfs>
-        <styx/performance>
-        <styx/services/ssh>
-        <styx/virt/podman>
-        <styx/networking/static>
-      ];
-    };
   };
 }
