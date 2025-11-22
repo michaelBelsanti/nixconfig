@@ -21,11 +21,9 @@
                 ];
               };
               plugins = with pkgs.nushellPlugins; [
-                # highlight
-                # net
-                # query
-                # skim
-                # units
+                highlight
+                query
+                skim
               ];
               enable = true;
               shellAliases = {

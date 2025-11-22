@@ -61,14 +61,13 @@
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "lanzaboote/flake-compat";
       inputs.nix-index-database.follows = "nix-index-database";
     };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
+      inputs.pre-commit.inputs.flake-compat.follows = "nix-alien/flake-compat";
     };
 
     sops-nix = {
