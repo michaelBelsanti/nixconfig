@@ -13,6 +13,7 @@
         <styx/services/syncthing/client>
         <styx/theming>
         <styx/wayland/cosmic>
+        <styx/filesystems/ntfs>
 
         <styx/virt/podman>
         <styx/virt/qemu>

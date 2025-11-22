@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   styx.filesystems.provides = {
-    nixos.boot.supportedFilesystems = [ "ntfs" ];
+    ntfs.nixos.boot.supportedFilesystems = [ "ntfs" ];
     zfs.nixos =
       { config, pkgs, ... }:
       {
