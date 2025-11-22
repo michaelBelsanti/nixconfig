@@ -37,9 +37,9 @@
             );
             networkmanagerapplet = super.networkmanagerapplet.overrideAttrs {
               patches = super.fetchpatch {
-                  url = "https://github.com/pop-os/network-manager-applet/commit/8af78f7ebfa770f24cf46693cb215c5c22dbacfb.patch";
-                  hash = "sha256-Q9oB6s2LDuzoj1jQbC+EARL9CguoacLAdeSlx+KQ+Yw=";
-                };
+                url = "https://github.com/pop-os/network-manager-applet/commit/8af78f7ebfa770f24cf46693cb215c5c22dbacfb.patch";
+                hash = "sha256-Q9oB6s2LDuzoj1jQbC+EARL9CguoacLAdeSlx+KQ+Yw=";
+              };
             };
           })
         ];

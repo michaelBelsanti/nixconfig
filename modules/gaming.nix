@@ -1,7 +1,7 @@
 { styx, inputs, ... }:
 {
-  styx.gaming = {
-    provides.min =
+  styx.gaming.provides = {
+    min =
       { host, ... }:
       {
         nixos =
@@ -44,7 +44,7 @@
           };
       };
 
-    provides.max = {
+    max = {
       includes = [ styx.gaming._.replays ];
       nixos =
         { pkgs, ... }:
@@ -85,7 +85,7 @@
         };
     };
 
-    provides.replays.homeManager =
+    replays.homeManager =
       { pkgs, lib, ... }:
       {
         home.packages = [ pkgs.gpu-screen-recorder ];

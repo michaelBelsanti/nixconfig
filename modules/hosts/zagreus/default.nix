@@ -1,5 +1,6 @@
 {
-  den, styx,
+  den,
+  styx,
   config,
   inputs,
   ...

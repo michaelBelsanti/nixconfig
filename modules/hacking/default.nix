@@ -2,7 +2,8 @@
   inputs,
   lib,
   withSystem,
-  den, styx,
+  den,
+  styx,
   ...
 }:
 {

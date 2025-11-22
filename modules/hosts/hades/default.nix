@@ -51,11 +51,11 @@
         nixpkgs.config.rocmSupport = true;
         environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.1";
         services = {
-          pipewire.lowLatency = {
-            # enable = true;
-            # rate = 48000;
-            # quantum = 256;
-          };
+          # pipewire.lowLatency = {
+          #   enable = true;
+          #   rate = 48000;
+          #   quantum = 256;
+          # };
           resolved.fallbackDns = [ ];
           fwupd.enable = true;
         };
