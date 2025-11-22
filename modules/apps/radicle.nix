@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.radicle.homeManager =
+  styx.apps._.radicle.homeManager =
     { pkgs, config, ... }:
     {
       home = {

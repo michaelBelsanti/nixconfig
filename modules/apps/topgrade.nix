@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.topgrade.homeManager.programs.topgrade = {
+  styx.apps._.topgrade.homeManager.programs.topgrade = {
     enable = true;
     settings = {
       misc = {

@@ -7,7 +7,7 @@ let
   };
 in
 {
-  den.aspects.secrets = {
+  styx.secrets = {
     homeManager =
       { pkgs, ... }:
       {

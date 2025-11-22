@@ -1,48 +1,50 @@
 { den, __findFile, ... }:
 {
-  den.aspects = {
+  styx = {
     workstation = den.lib.parametric.atLeast {
       includes = [
-        <boot>
-        <secrets>
-        <services/easyeffects>
-        <services/flatpak>
-        <services/printing>
-        <services/ssh/client>
-        <services/syncthing/client>
-        <theming>
-        <wayland/cosmic>
+        <styx/boot>
+        <styx/networking>
+        <styx/secrets>
+        <styx/services/easyeffects>
+        <styx/services/flatpak>
+        <styx/services/printing>
+        <styx/services/ssh/client>
+        <styx/services/syncthing/client>
+        <styx/theming>
+        <styx/wayland/cosmic>
 
-        <virt/podman>
-        <virt/qemu>
-        <tailscale>
+        <styx/virt/podman>
+        <styx/virt/qemu>
+        <styx/tailscale>
 
-        <udev>
-        <xdg>
+        <styx/udev>
+        <styx/xdg>
       ];
     };
     laptop = den.lib.parametric.atLeast {
       includes = [
-        <boot/graphical>
-        <boot/secure>
-        <performance/responsive>
-        <power-management>
-        <workstation>
+        <styx/boot/graphical>
+        <styx/boot/secure>
+        <styx/performance/responsive>
+        <styx/power-management>
+        <styx/workstation>
       ];
     };
     desktop = den.lib.parametric.atLeast {
       includes = [
-        <performance/max>
-        <services/ssh>
-        <workstation>
+        <styx/performance/max>
+        <styx/services/ssh>
+        <styx/workstation>
       ];
     };
     server = den.lib.parametric.atLeast {
       includes = [
-        <filesystem/zfs>
-        <performance>
-        <services/ssh>
-        <virt/podman>
+        <styx/filesystem/zfs>
+        <styx/performance>
+        <styx/services/ssh>
+        <styx/virt/podman>
+        <styx/networking/static>
       ];
     };
   };

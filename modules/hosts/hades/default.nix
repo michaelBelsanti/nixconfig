@@ -1,5 +1,5 @@
 {
-  den,
+  styx,
   config,
   inputs,
   ...
@@ -25,7 +25,7 @@
 
   den.hosts.x86_64-linux.hades = { inherit (config.hostConfig.hades) displays primaryDisplay; };
   den.aspects.hades = {
-    includes = with den.aspects; [
+    includes = with styx; [
       desktop
       hax
       gaming._.min
@@ -34,10 +34,6 @@
       apps._.radicle
       apps._.zsa
       services._.syncthing._.client
-      (pipewire._.lowlatency {
-        quantum = 256;
-        rate = 48000;
-      })
     ];
 
     nixos =
@@ -48,23 +44,24 @@
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
-          # nix-gaming.nixosModules.pipewireLowLatency
+          nix-gaming.nixosModules.pipewireLowLatency
         ];
 
         hardware.amdgpu.opencl.enable = true;
         nixpkgs.config.rocmSupport = true;
         environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.1";
-
-        # services.pipewire.lowLatency = {
-        #   enable = true;
-        #   rate = 48000;
-        #   quantum = 256;
-        # };
+        services = {
+          pipewire.lowLatency = {
+            # enable = true;
+            # rate = 48000;
+            # quantum = 256;
+          };
+          resolved.fallbackDns = [ ];
+          fwupd.enable = true;
+        };
 
         boot.kernelPackages =
           inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
-
-        services.resolved.fallbackDns = [ ];
         systemd.network = {
           enable = true;
           links."01-ethernet" = {
@@ -87,7 +84,6 @@
             ];
           };
         };
-        services.fwupd.enable = true;
       };
   };
 }

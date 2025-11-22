@@ -1,17 +1,20 @@
-{ den, ... }:
+{ den, styx, ... }:
 {
   den.aspects.quasi = {
-    includes = [ den.provides.primary-user den.provides.primary-user ];
+    includes = [
+      den.provides.primary-user
+      styx.groups
+    ];
     homeManager.services.ssh-agent.enable = true;
   };
-  den.aspects.groups =
+  styx.groups =
     { user, ... }:
     {
       nixos.users = {
-        groups.${user.username} = { };
-        users.${user.username} = {
+        groups.${user.userName} = { };
+        users.${user.userName} = {
           isNormalUser = true;
-          initialPassword = user.username;
+          initialPassword = user.userName;
           extraGroups = [
             "wheel"
             "video"

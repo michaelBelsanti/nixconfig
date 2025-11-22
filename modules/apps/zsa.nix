@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.zsa.nixos =
+  styx.apps._.zsa.nixos =
     { pkgs, ... }:
     {
       hardware.keyboard.zsa.enable = true;

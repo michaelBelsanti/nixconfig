@@ -1,5 +1,5 @@
 {
-  den.aspects.services._.ssh = {
+  styx.services._.ssh = {
     provides.client.homeManager.services.ssh-agent.enable = true;
     nixos = {
       environment.enableAllTerminfo = true;

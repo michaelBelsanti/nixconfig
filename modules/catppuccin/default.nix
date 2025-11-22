@@ -4,7 +4,7 @@ let
   wallpaper = ./background_upscaled.png;
 in
 {
-  den.aspects.theming._.catppuccin = flavor: accent: {
+  styx.theming._.catppuccin = flavor: accent: {
     nixos = {
       imports = [ inputs.catppuccin.nixosModules.default ];
       catppuccin = {

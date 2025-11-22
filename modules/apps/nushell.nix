@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  den.aspects.nushell =
+  styx.nushell =
     { user, ... }:
     {
       nixos =

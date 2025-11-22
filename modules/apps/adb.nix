@@ -1,5 +1,5 @@
 {
-  den.aspects.apps.provides.adb =
+  styx.apps.provides.adb =
     { user, ... }:
     {
       nixos = {

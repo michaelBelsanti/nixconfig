@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  den.aspects.apps._.nix-tools = {
+  styx.apps._.nix-tools = {
     homeManager =
       { pkgs, ... }:
       {

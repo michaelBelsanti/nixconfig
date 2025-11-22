@@ -1,5 +1,5 @@
 {
-  den.aspects.shell.homeManager =
+  styx.shell.homeManager =
     { pkgs, config, ... }:
     {
       home.shellAliases = {
@@ -34,7 +34,7 @@
                     surround("\"", "\"", truncate_end(24, description.first_line(), "…")),
                     if(conflict, "conflict"),
                     if(divergent, "divergent"),
-                    if(hidden, "hidden"),
+                    if(hidden, styx, "hidden"),
                   )
                 '
               '';

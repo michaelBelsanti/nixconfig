@@ -1,9 +1,22 @@
 {
-  den = {
-    default.homeManager =
+  styx.xdg = {
+    nixos.xdg.terminal-exec.enable = true;
+    homeManager =
       { config, ... }:
       {
-        xdg.enable = true;
+        xdg = {
+          enable = true;
+          autostart.enable = true;
+          autostart.readOnly = true;
+          userDirs = {
+            enable = true;
+            createDirectories = true;
+            desktop = null;
+            templates = null;
+            music = null;
+            publicShare = null;
+          };
+        };
         home.sessionVariables = {
           # cleaning up ~
           ANDROID_USER_HOME = "${config.xdg.dataHome}/android";
@@ -29,20 +42,5 @@
           _Z_DATA = "${config.xdg.dataHome}/z";
         };
       };
-    aspects.xdg = {
-      nixos.xdg.terminal-exec.enable = true;
-      homeManager.xdg = {
-        autostart.enable = true;
-        autostart.readOnly = true;
-        userDirs = {
-          enable = true;
-          createDirectories = true;
-          desktop = null;
-          templates = null;
-          music = null;
-          publicShare = null;
-        };
-      };
-    };
   };
 }

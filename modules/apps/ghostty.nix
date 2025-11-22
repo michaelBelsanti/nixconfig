@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.ghostty.homeManager.programs.ghostty = {
+  styx.apps._.ghostty.homeManager.programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;

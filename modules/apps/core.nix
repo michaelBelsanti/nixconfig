@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.coreutils.homeManager =
+  styx.apps._.coreutils.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

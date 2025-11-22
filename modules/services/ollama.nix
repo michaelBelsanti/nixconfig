@@ -1,5 +1,5 @@
 {
-  den.aspects.ai._.ollama.nixos =
+  styx.ai._.ollama.nixos =
     { lib, config, ... }:
     {
       services.ollama = {

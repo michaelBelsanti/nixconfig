@@ -1,14 +1,13 @@
 {
-  den,
+  styx,
   lib,
   inputs,
   ...
 }:
 {
-  den.aspects = {
+  styx = {
     boot = {
       nixos.boot = {
-        # grub.enable = false;
         initrd.systemd.enable = true;
         loader = {
           systemd-boot.enable = lib.mkDefault true; # needs to be overridden for secure boot
@@ -18,7 +17,7 @@
       };
 
       provides.secure = {
-        includes = [ den.aspects.boot ];
+        includes = [ styx.boot ];
         nixos = {
           imports = [ inputs.lanzaboote.nixosModules.lanzaboote ];
           boot = {

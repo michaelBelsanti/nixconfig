@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.wezterm = {
+  styx.apps._.wezterm = {
     homeManager.programs.wezterm = {
       enable = true;
       extraConfig = builtins.readFile ./config.lua;

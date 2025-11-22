@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  den.aspects.apps._.helix.homeManager =
+  styx.apps._.helix.homeManager =
     { pkgs, ... }:
     {
       home.sessionVariables = {

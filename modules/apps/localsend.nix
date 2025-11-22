@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.localsend = {
+  styx.apps._.localsend = {
     nixos.programs.localsend.enable = true;
     homeManager =
       { pkgs, ... }:

@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.halloy.homeManager =
+  styx.apps._.halloy.homeManager =
     { config, ... }:
     {
       sops.secrets.libera_pass = { };

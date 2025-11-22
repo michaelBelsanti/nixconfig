@@ -2,12 +2,12 @@
   inputs,
   lib,
   withSystem,
-  den,
+  den, styx,
   ...
 }:
 {
-  den.aspects.hax = {
-    includes = [ den.aspects.hax._.subfinder ];
+  styx.hax = {
+    includes = [ styx.hax._.subfinder ];
     nixos = {
       environment.etc.hosts.mode = "0644";
       # TODO until exegol supports podman
@@ -152,7 +152,7 @@
               programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
             })
             (inputs.wrapper-manager.lib.wrapWith pkgs {
-              basePackage = (withSystem system (p: p.config.packages.mcp-zap-server));
+              basePackage = withSystem system (p: p.config.packages.mcp-zap-server);
               env = {
                 ZAP_API_PORT.value = "8080";
                 ZAP_API_URL.value = "localhost";

@@ -1,5 +1,5 @@
 {
-  den.default.nixos =
+  styx.nixos =
     { lib, ... }:
     {
       virtualisation.vmVariant = {

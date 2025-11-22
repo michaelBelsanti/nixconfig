@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  den.aspects.apps._.gui.homeManager =
+  styx.apps._.gui.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

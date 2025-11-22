@@ -1,32 +1,29 @@
 { __findFile, ... }:
 {
-  den.aspects = {
-    quasi.includes = [
-      <nushell>
-      <fish>
-      <shell>
-      <apps/coreutils>
-    ];
-    workstation.includes = [
-      <dev>
-      <apps/gui>
+  den.aspects.quasi.includes = [
+    <styx/nushell>
+    <styx/fish>
+    <styx/shell>
+    <styx/apps/coreutils>
+  ];
+  styx.workstation.includes = [
+    <styx/dev>
+    <styx/apps/gui>
 
-      <apps/distrobox>
-      <apps/ghostty>
-      <apps/git>
-      <apps/jujutsu>
-      <apps/halloy>
-      <apps/helix>
-      <apps/localsend>
-      <apps/nh>
-      <apps/nix-tools>
-      <apps/radicle>
-      <apps/topgrade>
-      <apps/vicinae>
-      <apps/wezterm>
-      <apps/zen>
-      <apps/zsa>
-    ];
-  };
-
+    <styx/apps/distrobox>
+    <styx/apps/ghostty>
+    <styx/apps/git>
+    <styx/apps/jujutsu>
+    <styx/apps/halloy>
+    <styx/apps/helix>
+    <styx/apps/localsend>
+    <styx/apps/nh>
+    <styx/apps/nix-tools>
+    <styx/apps/radicle>
+    <styx/apps/topgrade>
+    <styx/apps/vicinae>
+    <styx/apps/wezterm>
+    <styx/apps/zen>
+    <styx/apps/zsa>
+  ];
 }

@@ -1,5 +1,5 @@
 {
-  den.aspects.services._.printing.nixos =
+  styx.services._.printing.nixos =
     { pkgs, ... }:
     {
       services = {

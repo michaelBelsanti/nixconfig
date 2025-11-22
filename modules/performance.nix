@@ -1,6 +1,6 @@
-{ den, ... }:
+{ styx, ... }:
 {
-  den.aspects.performance = {
+  styx.performance = {
     nixos.boot = {
       kernel.sysctl = {
         "transparent_hugepage" = "always";
@@ -13,7 +13,7 @@
     };
     provides = {
       responsive = {
-        includes = [ den.aspects.performance ];
+        includes = [ styx.performance ];
         nixos.boot = {
           kernel.sysctl."vm.swappiness" = 1;
           kernelParams = [
@@ -28,7 +28,7 @@
         };
       };
       max = {
-        includes = [ den.aspects.performance._.responsive ];
+        includes = [ styx.performance._.responsive ];
         nixos.boot.kernelParams = [
           "usbcore.autosuspend=60"
           "workqueue.power_efficient=false"

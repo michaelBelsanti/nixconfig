@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  den.aspects.services._.easyeffects.homeManager = {
+  styx.services._.easyeffects.homeManager = {
     systemd.user.services.easyeffects.Service.Restart = lib.mkForce "never";
     services.easyeffects = {
       enable = true;
@@ -17,7 +17,7 @@
             names:
             builtins.listToAttrs (
               map (name: {
-                name = name;
+                inherit name;
                 value = builtins.fromJSON (builtins.readFile (./presets + "/${name}.json"));
               }) names
             );

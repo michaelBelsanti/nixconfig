@@ -1,5 +1,5 @@
 {
-  den.aspects.fish = {
+  styx.fish = {
     nixos.programs.fish.enable = true;
     homeManager =
       { pkgs, ... }:

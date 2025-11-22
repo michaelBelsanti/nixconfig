@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  den.aspects.filesystems.provides = {
+  styx.filesystems.provides = {
     nixos.boot.supportedFilesystems = [ "ntfs" ];
     zfs.nixos =
       { config, pkgs, ... }:

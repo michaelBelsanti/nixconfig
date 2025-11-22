@@ -6,7 +6,7 @@ let
 in
 
 {
-  den.aspects.apps._.git.homeManager =
+  styx.apps._.git.homeManager =
     { lib, ... }:
     let
       git_settings = {

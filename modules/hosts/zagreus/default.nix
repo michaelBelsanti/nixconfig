@@ -1,5 +1,5 @@
 {
-  den,
+  den, styx,
   config,
   inputs,
   ...
@@ -19,7 +19,7 @@
 
   den.hosts.x86_64-linux.zagreus = { inherit (config.hostConfig.zagreus) displays primaryDisplay; };
   den.aspects.zagreus = {
-    includes = with den.aspects; [
+    includes = with styx; [
       # wayland._.cosmic
       laptop
       hax

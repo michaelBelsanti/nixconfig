@@ -1,5 +1,5 @@
 {
-  den.aspects.hax._.subfinder.homeManager =
+  styx.hax._.subfinder.homeManager =
     { lib, config, ... }:
     {
       sops.secrets = {

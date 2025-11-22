@@ -1,5 +1,6 @@
 { den, inputs, ... }:
 {
+  # Some preferred defaults
   den.default = {
     nixos =
       { pkgs, lib, ... }:
@@ -22,22 +23,16 @@
         home-manager.useGlobalPkgs = true;
       };
     homeManager = {
+      programs.home-manager.enable = true;
       home = {
         sessionPath = [ "$HOME/.local/bin" ];
         sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
         stateVersion = "22.05";
       };
-      programs.home-manager.enable = true;
     };
     includes = [
       den.provides.home-manager
       den.provides.define-user
-      # (den.lib.take.exactly (
-      #   { OS, host }:
-      #   {
-      #     nixos.networking.hostName = host.hostName;
-      #   }
-      # ))
     ];
   };
 }

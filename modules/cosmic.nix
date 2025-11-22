@@ -1,8 +1,8 @@
-{ den, ... }:
+{ den, styx, ... }:
 {
-  den.aspects.wayland._.cosmic = den.lib.parametric {
+  styx.wayland._.cosmic = den.lib.parametric {
     includes = [
-      den.aspects.wayland._.base
+      styx.wayland._.base
     ];
     homeManager =
       { pkgs, lib, ... }:
@@ -36,12 +36,10 @@
               }
             );
             networkmanagerapplet = super.networkmanagerapplet.overrideAttrs {
-              patches = (
-                super.fetchpatch {
+              patches = super.fetchpatch {
                   url = "https://github.com/pop-os/network-manager-applet/commit/8af78f7ebfa770f24cf46693cb215c5c22dbacfb.patch";
                   hash = "sha256-Q9oB6s2LDuzoj1jQbC+EARL9CguoacLAdeSlx+KQ+Yw=";
-                }
-              );
+                };
             };
           })
         ];

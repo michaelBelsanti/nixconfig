@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.jujutsu.homeManager =
+  styx.apps._.jujutsu.homeManager =
     { pkgs, ... }:
     {
       home.shellAliases.jji = "jj --ignore-immutable";

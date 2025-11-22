@@ -1,13 +1,13 @@
-{den,...}:
+{ den, styx, ... }:
 {
-  den.aspects.virt.provides = {
+  styx.virt.provides = {
     qemu = {
-      # includes = [ den.aspects.virt._.qemu._.group ];
-      # provides.group =
-      #   { user, ... }:
-      #   {
-      #     nixos.users.users.${user.userName}.extraGroups = [ "kvm" ];
-      #   };
+      # includes = [ styx.virt._.qemu._.group ];
+      provides.group =
+        { user, ... }:
+        {
+          nixos.users.users.${user.userName}.extraGroups = [ "kvm" ];
+        };
       nixos =
         { pkgs, ... }:
         {

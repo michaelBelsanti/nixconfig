@@ -1,5 +1,5 @@
 {
-  den.aspects.services._.cachix.nixos =
+  styx.services._.cachix.nixos =
     { config, ... }:
     {
       sops.secrets.cachix_token = { };

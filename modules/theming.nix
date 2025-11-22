@@ -1,7 +1,7 @@
-{ den, ... }:
+{ styx, ... }:
 {
-  den.aspects.theming = {
-    includes = [ (den.aspects.theming._.catppuccin "mocha" "pink") ];
+  styx.theming = {
+    includes = [ (styx.theming._.catppuccin "mocha" "pink") ];
     nixos =
       { pkgs, ... }:
       {

@@ -1,5 +1,5 @@
 {
-  den.aspects.wayland._.base =
+  styx.wayland._.base =
     { host, ... }:
     {
       nixos =

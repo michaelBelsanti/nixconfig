@@ -1,5 +1,5 @@
 {
-  den.aspects.tailscale.nixos.services.tailscale = {
+  styx.tailscale.nixos.services.tailscale = {
     enable = true;
     openFirewall = true;
   };

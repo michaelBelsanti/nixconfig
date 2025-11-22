@@ -1,5 +1,5 @@
 {
-  den.aspects.apps._.nh = {
+  styx.apps._.nh = {
     homeManager =
       { config, ... }:
       {

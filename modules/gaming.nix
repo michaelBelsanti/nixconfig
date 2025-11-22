@@ -1,6 +1,6 @@
-{ den, inputs, ... }:
+{ styx, inputs, ... }:
 {
-  den.aspects.gaming = {
+  styx.gaming = {
     provides.min =
       { host, ... }:
       {
@@ -45,7 +45,7 @@
       };
 
     provides.max = {
-      includes = [ den.aspects.gaming._.replays ];
+      includes = [ styx.gaming._.replays ];
       nixos =
         { pkgs, ... }:
         {
