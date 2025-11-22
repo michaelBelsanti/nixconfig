@@ -1,5 +1,5 @@
 {
-  styx.aspects.networking = {
+  styx.networking = {
     provides.static.nixos.networking.tempAddresses = "disabled";
     nixos = {
       networking = {
