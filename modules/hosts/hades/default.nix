@@ -77,8 +77,6 @@
         };
 
         networking = {
-          useDHCP = false;
-          networkmanager.enable = false;
           networkmanager.unmanaged = [ "lan" ];
           hostName = "hades";
           firewall = {
