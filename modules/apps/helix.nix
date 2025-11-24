@@ -25,7 +25,11 @@
             C-l = "jump_view_right";
             C-r = ":reload";
             A-r = ":reset-diff-change";
-            "space"."=" = ":format";
+            C-d = ":half-page-down-smooth";
+            C-u = ":half-page-up-smooth";
+            pageup = ":page-up-smooth";
+            pagedown = ":page-down-smooth";
+            space."=" = ":format";
           };
           editor = {
             shell = [
