@@ -1,4 +1,9 @@
-{ styx, inputs, ... }:
+{
+  styx,
+  inputs,
+  den,
+  ...
+}:
 {
   styx.gaming.provides = {
     min =
@@ -44,8 +49,11 @@
           };
       };
 
-    max = {
-      includes = [ styx.gaming._.replays ];
+    max = den.lib.parametric {
+      includes = [
+        styx.gaming._.replays
+        styx.gaming._.min
+      ];
       nixos =
         { pkgs, ... }:
         {

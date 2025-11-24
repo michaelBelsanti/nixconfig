@@ -28,7 +28,6 @@
     includes = with styx; [
       desktop
       hax
-      gaming._.min
       gaming._.max
       ai._.ollama
       apps._.radicle
