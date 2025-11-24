@@ -78,9 +78,8 @@
             massdns
 
             (withSystem system (p: p.config.packages.uro))
-            (withSystem system (p: p.config.packages.gf))
             (withSystem system (p: p.config.packages.secrethound))
-            (withSystem system (p: p.config.packages.secretfinder))
+            inputs.nur.packages.${system}.gf
 
             # Vulnerability Analysis
             sqlmap
@@ -123,6 +122,7 @@
             whatweb
             burpsuite
             zap
+            firefox-bin # for zap
             ffuf
             xh
             wpscan
@@ -134,12 +134,13 @@
             # Reverse Engineering
             ghidra
             cutter
-            # imhex # TODO
+            imhex
 
             # Social Engineering Tools
             social-engineer-toolkit
 
             # Miscellaneous
+            inputs.nur.packages.${system}.strix
             tor-browser
             (writeScriptBin "cyberchef" ''
               ${lib.getExe' xdg-utils "xdg-open"} ${cyberchef}/share/cyberchef/index.html
@@ -152,14 +153,6 @@
             (inputs.wrapper-manager.lib.wrapWith pkgs {
               basePackage = pkgs.metasploit;
               programs.msfconsole.prependFlags = [ "--defer-module-loads" ];
-            })
-            (inputs.wrapper-manager.lib.wrapWith pkgs {
-              basePackage = withSystem system (p: p.config.packages.mcp-zap-server);
-              env = {
-                ZAP_API_PORT.value = "8080";
-                ZAP_API_URL.value = "localhost";
-                ZAP_API_KEY.value = "h8a0huc1mmp3efmjbu2e8hqhs";
-              };
             })
           ];
       };

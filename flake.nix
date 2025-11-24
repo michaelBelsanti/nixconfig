@@ -10,17 +10,14 @@
     flake-aspects.url = "github:vic/flake-aspects";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-
-    unify = {
-      url = "git+https://codeberg.org/quasigod/unify";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-parts.follows = "flake-parts";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nur = {
+      url = "git+https://tangled.org/belsanti.xyz/nur";
+      inputs.flake-parts.follows = "flake-parts";
     };
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
