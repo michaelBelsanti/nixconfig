@@ -62,21 +62,7 @@
         boot.kernelPackages =
           inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
 
-        systemd.network = {
-          enable = true;
-          links."10-ethernet" = {
-            matchConfig.Type = "ether";
-            linkConfig.WakeOnLan = "magic";
-            linkConfig.Name = "lan";
-          };
-          networks."10-ethernet" = {
-            matchConfig.Type = "ether";
-            networkConfig.DHCP = "yes";
-          };
-        };
-
         networking = {
-          networkmanager.unmanaged = [ "lan" ];
           hostName = "hades";
           firewall = {
             allowedUDPPorts = [

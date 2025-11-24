@@ -37,6 +37,7 @@
         <styx/performance/max>
         <styx/services/ssh/server>
         <styx/workstation>
+        <styx/networking/wired>
       ];
     };
   };
