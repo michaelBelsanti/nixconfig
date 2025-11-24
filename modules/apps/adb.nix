@@ -1,10 +1,7 @@
+{ styx, den, ... }:
 {
-  styx.apps.provides.adb =
-    { user, ... }:
-    {
-      nixos = {
-        users.users.${user.userName}.extraGroups = [ "adbusers" ];
-        programs.adb.enable = true;
-      };
-    };
+  styx.apps.provides.adb = den.lib.parametric {
+    includes = [ (styx.groups "adbusers") ];
+    nixos.programs.adb.enable = true;
+  };
 }

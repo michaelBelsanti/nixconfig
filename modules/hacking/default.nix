@@ -2,23 +2,24 @@
   inputs,
   lib,
   withSystem,
-  den,
   styx,
+  den,
   ...
 }:
 {
-  styx.hax = {
-    includes = [ styx.hax._.subfinder ];
+  styx.hax = den.lib.parametric {
+    includes = [
+      styx.hax._.subfinder
+      (styx.groups [
+        "wireshark"
+        "docker"
+      ])
+    ];
     nixos = {
       environment.etc.hosts.mode = "0644";
       # TODO until exegol supports podman
       virtualisation.docker.enable = true;
       programs.wireshark.enable = true;
-      users.users.quasi.extraGroups = [
-        # TODO
-        "wireshark"
-        "docker"
-      ];
     };
     homeManager =
       { pkgs, config, ... }:

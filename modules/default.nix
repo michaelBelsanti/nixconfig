@@ -2,12 +2,24 @@
 {
   # Some preferred defaults
   den.default = {
+    includes = [
+      den.provides.home-manager
+      den.provides.define-user
+      (
+        { host, ... }:
+        {
+          ${host.class}.networking.hostName = host.name;
+        }
+      )
+    ];
+
     nixos =
       { pkgs, lib, ... }:
       {
-        imports = [
-          inputs.nixos-facter-modules.nixosModules.facter
-          inputs.srvos.nixosModules.desktop
+        imports = with inputs; [
+          nixos-facter-modules.nixosModules.facter
+          srvos.nixosModules.desktop
+          srvos.nixosModules.mixins-systemd-boot
         ];
 
         environment = {
@@ -34,9 +46,5 @@
         stateVersion = "22.05";
       };
     };
-    includes = [
-      den.provides.home-manager
-      den.provides.define-user
-    ];
   };
 }

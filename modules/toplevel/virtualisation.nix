@@ -1,17 +1,11 @@
 { den, styx, ... }:
 {
   styx.virt.provides = {
-    qemu = {
-      # includes = [ styx.virt._.qemu._.group ];
-      provides.group =
-        { user, ... }:
-        {
-          nixos.users.users.${user.userName}.extraGroups = [ "kvm" ];
-        };
+    qemu = den.lib.parametric {
+      includes = [ (styx.groups "kvm") ];
       nixos =
         { pkgs, ... }:
         {
-          users.users.quasi.extraGroups = [ "kvm" ];
           boot.kernelParams = [ "amd_iommu=on" ];
           programs.virt-manager.enable = true;
           environment.systemPackages = with pkgs; [
