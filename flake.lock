@@ -180,6 +180,31 @@
         "type": "github"
       }
     },
+    "helix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "lanzaboote",
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763950724,
+        "narHash": "sha256-HoGhLWTqiwr2GCUPSen7f20snqxyTGWhcd84VClHmI4=",
+        "owner": "mattwparas",
+        "repo": "helix",
+        "rev": "92bc3db129c639b4133a0a117cc8f3943b840886",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattwparas",
+        "ref": "steel-event-system",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -463,6 +488,7 @@
         "den": "den",
         "flake-aspects": "flake-aspects",
         "flake-parts": "flake-parts",
+        "helix": "helix",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",

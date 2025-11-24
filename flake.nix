@@ -89,6 +89,12 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helix = {
+      url = "github:mattwparas/helix/steel-event-system";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "lanzaboote/rust-overlay";
+    };
   };
   nixConfig = {
     extra-substituters = [

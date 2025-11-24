@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, ... }:
 {
   styx.apps._.helix.homeManager =
     { pkgs, ... }:
@@ -10,22 +10,12 @@
       };
       programs.helix = {
         enable = true;
-        languages = {
-          language = [
-            {
-              name = "nix";
-              formatter.command = "nixfmt";
-            }
-            {
-              name = "markdown";
-              language-servers = [
-                "ltex-ls-plus"
-                "marksman"
-                "markdown-oxide"
-              ];
-            }
-          ];
-        };
+        package = inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix.overrideAttrs (
+          _final: prev: {
+            cargoBuildFeatures = [ "steel" ];
+          }
+        );
+
         settings = {
           keys.normal = {
             X = "extend_line_above";
