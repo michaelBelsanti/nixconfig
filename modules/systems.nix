@@ -28,7 +28,7 @@
         <styx/boot/graphical>
         <styx/boot/secure>
         <styx/performance/responsive>
-        <styx/power-management>
+        <styx/power-mgmt>
         <styx/workstation>
       ];
     };

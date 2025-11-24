@@ -1,7 +1,7 @@
 {
-  styx.power-management.nixos = {
-    services.power-profiles-daemon.enable = false;
-    hardware.system76.power-daemon.enable = true;
-    services.thermald.enable = true;
+  styx.power-mgmt.nixos.services = {
+    tuned.enable = true;
+    thermald.enable = true;
+    power-profiles-daemon.enable = false;
   };
 }
