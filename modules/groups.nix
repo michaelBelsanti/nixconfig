@@ -1,12 +1,15 @@
+{ den, lib, ... }:
+let
+  groupsModule = groups: user: {
+    nixos.users.users.${user.userName}.extraGroups = lib.flatten [ groups ];
+  };
+in
 {
   styx.groups =
     groups:
-    { user, ... }:
-    {
-      nixos =
-        { lib, ... }:
-        {
-          users.users.${user.userName}.extraGroups = lib.flatten [ groups ];
-        };
+    den.lib.parametric {
+      includes = [
+        ({ user, ... }: groupsModule groups user)
+      ];
     };
 }
