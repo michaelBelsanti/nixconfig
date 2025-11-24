@@ -1,5 +1,6 @@
 {
   styx.apps._.nh = {
+    nixos.srvos.update-diff.enable = false;
     homeManager =
       { config, ... }:
       {

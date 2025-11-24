@@ -5,7 +5,11 @@
     nixos =
       { pkgs, lib, ... }:
       {
-        imports = [ inputs.nixos-facter-modules.nixosModules.facter ];
+        imports = [
+          inputs.nixos-facter-modules.nixosModules.facter
+          inputs.srvos.nixosModules.desktop
+        ];
+
         environment = {
           binsh = "${pkgs.dash}/bin/dash";
           defaultPackages = lib.mkForce [ ];

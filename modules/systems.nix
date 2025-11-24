@@ -35,7 +35,7 @@
     desktop = den.lib.parametric.atLeast {
       includes = [
         <styx/performance/max>
-        <styx/services/ssh>
+        <styx/services/ssh/server>
         <styx/workstation>
       ];
     };

@@ -27,6 +27,11 @@
 
     nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
 
+    srvos = {
+      url = "github:nix-community/srvos";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";

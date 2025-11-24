@@ -7,13 +7,10 @@
 {
   styx = {
     boot = {
-      nixos.boot = {
-        initrd.systemd.enable = true;
-        loader = {
-          systemd-boot.enable = lib.mkDefault true; # needs to be overridden for secure boot
-          efi.canTouchEfiVariables = true;
-          timeout = 3;
-        };
+      nixos.boot.loader = {
+        systemd-boot.enable = lib.mkDefault true; # needs to be overridden for secure boot
+        efi.canTouchEfiVariables = true;
+        timeout = 3;
       };
 
       provides.secure = {
