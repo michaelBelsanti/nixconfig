@@ -1,7 +1,6 @@
 {
   inputs,
   lib,
-  withSystem,
   styx,
   den,
   ...
@@ -74,17 +73,25 @@
             interactsh
             katana
             cvemap
-            (withSystem system (p: p.config.packages.shuffledns))
+            shuffledns
             massdns
 
-            (withSystem system (p: p.config.packages.uro))
-            (withSystem system (p: p.config.packages.secrethound))
+            uro
+            secrethound
             inputs.nur.packages.${system}.gf
 
             # Vulnerability Analysis
             sqlmap
             bruno
-            (withSystem system (p: p.config.packages.arjun))
+            (arjun.overrideAttrs {
+              version = "0-unstable-2025-02-20";
+              src = pkgs.fetchFromGitHub {
+                owner = "s0md3v";
+                repo = "Arjun";
+                rev = "d1fb995cb1e064d4e171d83f19f6af79b0a3c5ce";
+                hash = "sha256-z6YGCwypp69+98KSC1YUzJETfwb3V4Qp1sV5V3N9zMI=";
+              };
+            })
 
             # Exploitation Tools
             exploitdb

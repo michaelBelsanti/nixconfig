@@ -9,7 +9,8 @@
     den.url = "github:vic/den";
     flake-aspects.url = "github:vic/flake-aspects";
 
-    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    # nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "github:michaelBelsanti/nixpkgs/nixos-unstable-cosmic-fix";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -91,6 +92,11 @@
       url = "github:mattwparas/helix/steel-event-system";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "lanzaboote/rust-overlay";
+    };
+
+    moonlight = {
+      url = "github:moonlight-mod/moonlight";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
   nixConfig = {
