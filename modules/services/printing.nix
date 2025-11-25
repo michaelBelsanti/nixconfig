@@ -2,15 +2,9 @@
   styx.services._.printing.nixos =
     { pkgs, ... }:
     {
-      services = {
-        printing = {
-          enable = true;
-          drivers = [ pkgs.hplip ];
-        };
-        avahi = {
-          enable = true;
-          nssmdns4 = true;
-        };
+      services.printing = {
+        enable = true;
+        drivers = [ pkgs.hplip ];
       };
     };
 }

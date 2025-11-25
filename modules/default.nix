@@ -26,6 +26,7 @@
           binsh = "${pkgs.dash}/bin/dash";
           defaultPackages = lib.mkForce [ ];
         };
+        services.avahi.enable = false; # in favor of srvos mdns config
         documentation.doc.enable = false;
         documentation.info.enable = false;
         i18n.defaultLocale = "en_US.UTF-8";

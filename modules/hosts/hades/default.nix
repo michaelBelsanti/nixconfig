@@ -43,7 +43,8 @@
       { pkgs, ... }:
       {
         facter.reportPath = ./_facter.json;
-        facter.detected.dhcp.enable = false;
+        facter.detected.dhcp.interfaces = [ "eth0" ];
+
         imports = with inputs; [
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
@@ -63,6 +64,7 @@
           inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
 
         networking = {
+          networkmanager.unmanaged = [ "eth0" ];
           hostName = "hades";
           firewall = {
             allowedUDPPorts = [
