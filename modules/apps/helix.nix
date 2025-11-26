@@ -16,6 +16,21 @@
           }
         );
 
+        languages = {
+          language-server.ucm = {
+            command = "nc";
+            args = [
+              "localhost"
+              "5757"
+            ];
+          };
+          language = [
+            {
+              name = "unison";
+              language-servers = [ "ucm" ];
+            }
+          ];
+        };
         settings = {
           keys.normal = {
             X = "extend_line_above";
