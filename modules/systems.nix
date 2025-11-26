@@ -14,11 +14,9 @@
         <styx/theming>
         <styx/wayland/cosmic>
         <styx/filesystems/ntfs>
-
         <styx/virt/podman>
         <styx/virt/qemu>
         <styx/tailscale>
-
         <styx/udev>
         <styx/xdg>
       ];

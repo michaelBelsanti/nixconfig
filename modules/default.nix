@@ -1,10 +1,10 @@
-{ den, inputs, ... }:
+{ inputs, __findFile, ... }:
 {
   # Some preferred defaults
   den.default = {
     includes = [
-      den.provides.home-manager
-      den.provides.define-user
+      <den/home-manager>
+      <den/define-user>
       (
         { host, ... }:
         {
