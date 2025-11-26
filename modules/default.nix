@@ -32,12 +32,12 @@
         i18n.defaultLocale = "en_US.UTF-8";
         i18n.supportedLocales = [ "all" ];
         services.dbus.implementation = "broker";
-        system.rebuild.enableNg = true;
         system.stateVersion = "22.05";
         time.timeZone = "America/New_York";
         zramSwap.enable = true;
         home-manager.useUserPackages = true;
         home-manager.useGlobalPkgs = true;
+        boot.initrd.systemd.enable = true;
       };
     homeManager = {
       programs.home-manager.enable = true;
