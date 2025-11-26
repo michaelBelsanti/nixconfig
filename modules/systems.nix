@@ -6,11 +6,11 @@
         <styx/boot>
         <styx/networking>
         <styx/secrets>
-        <styx/services/easyeffects>
-        <styx/services/flatpak>
-        <styx/services/printing>
-        <styx/services/ssh/client>
-        <styx/services/syncthing/client>
+        <styx/easyeffects>
+        <styx/flatpak>
+        <styx/printing>
+        <styx/ssh/client>
+        <styx/syncthing/client>
         <styx/theming>
         <styx/wayland/cosmic>
         <styx/filesystems/ntfs>
@@ -35,7 +35,7 @@
     desktop = den.lib.parametric.atLeast {
       includes = [
         <styx/performance/max>
-        <styx/services/ssh/server>
+        <styx/ssh/server>
         <styx/workstation>
         <styx/networking/wol>
       ];

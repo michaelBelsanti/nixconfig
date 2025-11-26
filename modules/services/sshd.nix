@@ -1,5 +1,5 @@
 {
-  styx.services._.ssh.provides = {
+  styx.ssh.provides = {
     client.homeManager.services.ssh-agent.enable = true;
     server.nixos = {
       environment.enableAllTerminfo = true;

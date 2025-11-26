@@ -1,6 +1,6 @@
 { lib, ... }:
 {
-  styx.services._.easyeffects.homeManager = {
+  styx.easyeffects.homeManager = {
     systemd.user.services.easyeffects.Service.Restart = lib.mkForce "never";
     services.easyeffects = {
       enable = true;

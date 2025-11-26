@@ -1,5 +1,5 @@
 {
-  styx.services._.printing.nixos =
+  styx.printing.nixos =
     { pkgs, ... }:
     {
       services.printing = {

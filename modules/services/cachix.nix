@@ -1,5 +1,5 @@
 {
-  styx.services._.cachix.nixos =
+  styx.cachix.nixos =
     { config, ... }:
     {
       sops.secrets.cachix_token = { };

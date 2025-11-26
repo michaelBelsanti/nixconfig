@@ -1,5 +1,5 @@
 {
-  styx.services._.syncthing =
+  styx.syncthing =
     let
       devices = {
         hades.id = "EI3OAYC-BEJG55M-AP5OIOR-ZVDT5UE-P2GBSEY-7UJIQEQ-2IJ5CZ2-FSG6EQF";

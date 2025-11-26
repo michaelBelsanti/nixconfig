@@ -32,7 +32,6 @@
       ai._.ollama
       apps._.radicle
       apps._.zsa
-      services._.syncthing._.client
       # (pipewire._.lowlatency {
       #   quantum = 48000;
       #   rate = 128;
