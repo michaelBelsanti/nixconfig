@@ -1,7 +1,12 @@
-{ den, ... }:
+{ den, __findFile, ... }:
 {
   den.aspects.quasi = {
-    includes = [ den.provides.primary-user ];
+    includes = [
+      <den/primary-user>
+      <styx/helix/with-tools>
+      <styx/nushell>
+      <styx/shell>
+    ];
     nixos.users.users.quasi.extraGroups = [
       "adb"
       "docker"
