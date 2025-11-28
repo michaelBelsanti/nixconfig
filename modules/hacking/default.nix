@@ -127,14 +127,12 @@
 
             # Web Application Analysis
             whatweb
-            burpsuite
             zap
             firefox-bin # for zap
             ffuf
             xh
             wpscan
             dalfox
-            caido
             wafw00f
             graphw00f
 
