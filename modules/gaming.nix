@@ -77,6 +77,7 @@
           chaotic.nyx.overlay.enable = true;
           environment.systemPackages = with pkgs; [
             # Utility
+            deadlock-mod-manager
             goverlay
             gpu-screen-recorder-gtk
             latencyflex-vulkan

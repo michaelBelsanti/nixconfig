@@ -5,12 +5,11 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "github:vic/import-tree";
-    den.url = "github:vic/den";
-    flake-aspects.url = "github:vic/flake-aspects";
+    import-tree.url = "git+https://tangled.org/oeiuwq.com/import-tree";
+    den.url = "git+https://tangled.org/oeiuwq.com/den";
+    flake-aspects.url = "git+https://tangled.org/oeiuwq.com/flake-aspects";
 
-    # nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    nixpkgs.url = "github:michaelBelsanti/nixpkgs/nixos-unstable-cosmic-fix";
+    nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

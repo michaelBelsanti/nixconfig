@@ -11,13 +11,10 @@
       styx.hax._.subfinder
       (styx.groups [
         "wireshark"
-        "docker"
       ])
     ];
     nixos = {
       environment.etc.hosts.mode = "0644";
-      # TODO until exegol supports podman
-      virtualisation.docker.enable = true;
       programs.wireshark.enable = true;
     };
     homeManager =
@@ -33,7 +30,6 @@
             inherit (stdenv.hostPlatform) system;
           in
           [
-            exegol
             # general
             wordlists
             (writeScriptBin "wlfuzz" ''
@@ -102,7 +98,7 @@
             aircrack-ng
 
             # Forensics Tools
-            # autopsy # TODO
+            autopsy
             volatility3
             binwalk
             exiftool

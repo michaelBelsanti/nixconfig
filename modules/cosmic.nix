@@ -21,7 +21,6 @@
     nixos =
       { pkgs, lib, ... }:
       {
-        services.orca.enable = false; # TODO
         nixpkgs.overlays = [
           (self: super: {
             cosmic-session = super.cosmic-session.overrideAttrs (
