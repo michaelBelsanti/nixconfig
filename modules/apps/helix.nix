@@ -48,32 +48,28 @@
               space."=" = ":format";
             };
             editor = {
-              shell = [
-                "bash"
-                "-c"
-              ];
-              cursorline = true;
-              cursorcolumn = true;
               color-modes = true;
-              file-picker = {
-                hidden = true;
-                git-ignore = true;
-              };
-              line-number = "relative";
-              lsp = {
-                # display-messages = true;
-                display-inlay-hints = true;
-              };
-              inline-diagnostics = {
-                cursor-line = "hint";
-              };
+              cursorcolumn = true;
+              cursorline = true;
               end-of-line-diagnostics = "error";
+              inline-diagnostics.cursor-line = "hint";
+              line-number = "relative";
+              lsp.display-inlay-hints = true;
+              rainbow-brackets = true;
               soft-wrap.enable = true;
+              indent-guides = {
+                render = true;
+                skip-levels = 1;
+              };
               cursor-shape = {
                 insert = "bar";
                 normal = "block";
                 select = "underline";
               };
+              shell = [
+                "bash"
+                "-c"
+              ];
               statusline = {
                 left = [
                   "mode"
@@ -90,10 +86,6 @@
                   "position-percentage"
                 ];
                 separator = "|";
-              };
-              indent-guides = {
-                render = true;
-                skip-levels = 1;
               };
             };
           };
