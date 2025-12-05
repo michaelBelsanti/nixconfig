@@ -58,7 +58,7 @@
         { pkgs, ... }:
         {
           imports = [
-            inputs.nix-gaming.nixosModules.platformOptimizations # TODO needed?
+            inputs.nix-gaming.nixosModules.platformOptimizations
             inputs.chaotic.nixosModules.default
           ];
           hardware.opentabletdriver.enable = true;
