@@ -29,13 +29,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.rust-overlay.follows = "lanzaboote/rust-overlay";
-    };
-
     wrapper-manager.url = "github:viperML/wrapper-manager";
 
     nix-colors = {
@@ -96,6 +89,13 @@
     moonlight = {
       url = "github:moonlight-mod/moonlight";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "nix-alien/flake-compat";
     };
   };
   nixConfig = {

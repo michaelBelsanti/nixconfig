@@ -60,7 +60,7 @@
         };
 
         boot.kernelPackages =
-          inputs.chaotic.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages_cachyos;
+          inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
 
         networking = {
           networkmanager.unmanaged = [ "eth0" ];

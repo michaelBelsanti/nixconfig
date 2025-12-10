@@ -17,10 +17,10 @@
               # Launchers
               cartridges
               heroic
-              (lutris.override {
-                extraPkgs = _: [ umu-launcher ];
-                extraLibraries = _: [ latencyflex-vulkan ];
-              })
+              lutris
+              # (lutris.override {
+              #   extraPkgs = _: [ umu-launcher ];
+              # })
               prismlauncher
               umu-launcher
             ];
@@ -57,10 +57,7 @@
       nixos =
         { pkgs, ... }:
         {
-          imports = [
-            inputs.nix-gaming.nixosModules.platformOptimizations
-            inputs.chaotic.nixosModules.default
-          ];
+          imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
           hardware.opentabletdriver.enable = true;
           services = {
             input-remapper.enable = true;
@@ -71,16 +68,13 @@
               platformOptimizations.enable = true;
               remotePlay.openFirewall = true;
               localNetworkGameTransfers.openFirewall = true;
-              extraPackages = [ pkgs.latencyflex-vulkan ];
             };
           };
-          chaotic.nyx.overlay.enable = true;
           environment.systemPackages = with pkgs; [
             # Utility
             deadlock-mod-manager
             goverlay
             gpu-screen-recorder-gtk
-            latencyflex-vulkan
             lsfg-vk
             lsfg-vk-ui
             ludusavi
