@@ -16,6 +16,8 @@
           nurl
           statix
           vulnix
+
+          inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
         ];
       };
   };
