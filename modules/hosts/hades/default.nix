@@ -58,6 +58,7 @@
         services = {
           resolved.fallbackDns = [ ];
           fwupd.enable = true;
+          # firewalld.enable = true;
         };
 
         hardware.maccel = {
