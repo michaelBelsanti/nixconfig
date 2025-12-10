@@ -97,6 +97,8 @@
       inputs.flake-parts.follows = "flake-parts";
       inputs.flake-compat.follows = "nix-alien/flake-compat";
     };
+
+    maccel.url = "github:Gnarus-G/maccel";
   };
   nixConfig = {
     extra-substituters = [

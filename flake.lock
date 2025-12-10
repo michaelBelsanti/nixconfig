@@ -251,6 +251,21 @@
         "type": "github"
       }
     },
+    "maccel": {
+      "locked": {
+        "lastModified": 1757387438,
+        "narHash": "sha256-H+D9fswlmEuZl58GJ2TACwr+Leoo5+KnfDQnqcAdFeA=",
+        "owner": "Gnarus-G",
+        "repo": "maccel",
+        "rev": "43b624c72b04a62f55155b99c2ebe2f531abc1b9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gnarus-G",
+        "repo": "maccel",
+        "type": "github"
+      }
+    },
     "moonlight": {
       "inputs": {
         "nixpkgs": [
@@ -536,6 +551,7 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree",
         "lanzaboote": "lanzaboote",
+        "maccel": "maccel",
         "moonlight": "moonlight",
         "nix-alien": "nix-alien",
         "nix-cachyos-kernel": "nix-cachyos-kernel",

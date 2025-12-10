@@ -49,6 +49,7 @@
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
           # nix-gaming.nixosModules.pipewireLowLatency
+          maccel.nixosModules.default
         ];
 
         hardware.amdgpu.opencl.enable = true;
@@ -57,6 +58,11 @@
         services = {
           resolved.fallbackDns = [ ];
           fwupd.enable = true;
+        };
+
+        hardware.maccel = {
+          enable = true;
+          enableCli = true;
         };
 
         boot.kernelPackages =
