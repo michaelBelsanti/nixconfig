@@ -17,7 +17,6 @@
     <styx/apps/nix-tools>
     <styx/apps/radicle>
     <styx/apps/topgrade>
-    <styx/apps/vicinae>
     <styx/apps/wezterm>
     <styx/apps/zen>
     <styx/apps/zsa>
