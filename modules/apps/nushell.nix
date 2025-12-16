@@ -14,6 +14,7 @@
         {
           programs = {
             nushell = {
+              enable = true;
               package = pkgs.nushell.override {
                 additionalFeatures = _: [
                   "full"
@@ -25,7 +26,6 @@
                 query
                 skim
               ];
-              enable = true;
               shellAliases = {
                 l = "ls";
                 la = "ls -a";

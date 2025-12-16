@@ -13,24 +13,20 @@
         };
       };
     nixos =
-      { pkgs, lib, ... }:
+      { pkgs, ... }:
       {
         nixpkgs.overlays = [
-          (self: super: {
-            cosmic-session = super.cosmic-session.overrideAttrs (
-              final: prev: {
-                postPatch = ''
+          (final: prev: {
+            cosmic-session = prev.cosmic-session.overrideAttrs (
+              _: prev': {
+                postPatch = prev'.postPatch + ''
                   substituteInPlace data/start-cosmic \
-                    --replace-fail '/usr/bin/cosmic-session' "${placeholder "out"}/bin/cosmic-session" \
-                    --replace-fail '/usr/bin/dbus-run-session' "${lib.getBin pkgs.dbus}/bin/dbus-run-session" \
                     --replace-fail 'systemctl --user import-environment ' 'dbus-update-activation-environment --verbose --all --systemd || systemctl --user import-environment #'
-                  substituteInPlace data/cosmic.desktop \
-                    --replace-fail '/usr/bin/start-cosmic' "${placeholder "out"}/bin/start-cosmic"
                 '';
               }
             );
-            networkmanagerapplet = super.networkmanagerapplet.overrideAttrs {
-              patches = super.fetchpatch {
+            networkmanagerapplet = prev.networkmanagerapplet.overrideAttrs {
+              patches = final.fetchpatch {
                 url = "https://github.com/pop-os/network-manager-applet/commit/8af78f7ebfa770f24cf46693cb215c5c22dbacfb.patch";
                 hash = "sha256-Q9oB6s2LDuzoj1jQbC+EARL9CguoacLAdeSlx+KQ+Yw=";
               };
