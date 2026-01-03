@@ -6,7 +6,7 @@
         aria2
         choose
         difftastic
-        dogdns
+        doggo
         dua
         dust
         edir

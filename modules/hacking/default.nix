@@ -98,11 +98,11 @@
             aircrack-ng
 
             # Forensics Tools
-            autopsy
+            # autopsy
             volatility3
             binwalk
             exiftool
-            sleuthkit
+            # sleuthkit
 
             # Stress Testing
             stress-ng

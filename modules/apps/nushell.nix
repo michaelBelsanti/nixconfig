@@ -22,9 +22,9 @@
                 ];
               };
               plugins = with pkgs.nushellPlugins; [
-                highlight
-                query
-                skim
+                # highlight
+                # query
+                # skim
               ];
               shellAliases = {
                 l = "ls";
