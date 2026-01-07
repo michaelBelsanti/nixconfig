@@ -69,6 +69,9 @@
         boot.kernelPackages =
           inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
 
+        virtualisation.docker.enable = true;
+        users.users.quasi.extraGroups = ["docker"];
+
         networking = {
           networkmanager.unmanaged = [ "eth0" ];
           hostName = "hades";
