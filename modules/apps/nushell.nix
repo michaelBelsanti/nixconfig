@@ -40,7 +40,7 @@
                       termination_signal: true
                   }
                   completions: {
-                    algorithm: "fuzzy"
+                    algorithm: "substring"
                   }
                 }
               '';

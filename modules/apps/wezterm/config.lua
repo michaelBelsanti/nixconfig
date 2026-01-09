@@ -8,56 +8,79 @@ config.mouse_bindings = {
   {
     event = { Up = { streak = 1, button = "Left" } },
     mods = "NONE",
+    action = wezterm.action.DisableDefaultAssignment,
+  },
+
+  {
+    event = { Up = { streak = 1, button = "Left" } },
+    mods = "CTRL",
     action = wezterm.action.OpenLinkAtMouseCursor,
+  },
+
+  {
+    event = { Down = { streak = 1, button = "Left" } },
+    mods = "CTRL",
+    action = wezterm.action.Nop,
   },
 }
 
 config.keys = {
-  { key = '+',          mods = 'CTRL',        action = act.IncreaseFontSize },
-  { key = '-',          mods = 'CTRL',        action = act.DecreaseFontSize },
-  { key = '0',          mods = 'CTRL',        action = act.ResetFontSize },
-  { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo 'Clipboard' },
-  { key = 'f',          mods = 'CTRL|SHIFT',  action = act.Search 'CurrentSelectionOrEmptyString' },
-  { key = 'Return',     mods = 'ALT',         action = act.SpawnWindow },
-  { key = 'r',          mods = 'CTRL|SHIFT',  action = act.ReloadConfiguration },
-  { key = 'e',          mods = 'CTRL|SHIFT',  action = act.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
-  { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom 'Clipboard' },
-  { key = 'x',          mods = 'CTRL|SHIFT',  action = act.ActivateCopyMode },
-  { key = 'phys:Space', mods = 'CTRL|SHIFT',  action = act.QuickSelect },
-  { key = 'PageUp',     mods = 'SHIFT',       action = act.ScrollByPage(-1) },
-  { key = 'PageDown',   mods = 'SHIFT',       action = act.ScrollByPage(1) },
+  { key = '+',          mods = 'CTRL',       action = act.IncreaseFontSize },
+  { key = '-',          mods = 'CTRL',       action = act.DecreaseFontSize },
+  { key = '0',          mods = 'CTRL',       action = act.ResetFontSize },
+  { key = 'c',          mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
+  { key = 'f',          mods = 'CTRL|SHIFT', action = act.Search 'CurrentSelectionOrEmptyString' },
+  { key = 'Return',     mods = 'ALT',        action = act.SpawnWindow },
+  { key = 'r',          mods = 'CTRL|SHIFT', action = act.ReloadConfiguration },
+  -- { key = 'e',          mods = 'CTRL|SHIFT', action = act.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
+  { key = 'v',          mods = 'CTRL|SHIFT', action = act.PasteFrom 'Clipboard' },
+  { key = 'x',          mods = 'CTRL|SHIFT', action = act.ActivateCopyMode },
+  { key = 'phys:Space', mods = 'CTRL|SHIFT', action = act.QuickSelect },
+  { key = 'PageUp',     mods = 'SHIFT',      action = act.ScrollByPage(-1) },
+  { key = 'PageDown',   mods = 'SHIFT',      action = act.ScrollByPage(1) },
+
   -- Multiplexing
-  { key = 'v',          mods = 'CTRL|ALT',    action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
-  { key = 's',          mods = 'CTRL|ALT',    action = act.SplitVertical { domain = "CurrentPaneDomain" } },
-  { key = 'w',          mods = 'CTRL|SHIFT',  action = act.CloseCurrentPane { confirm = false } },
-  { key = 'h',          mods = 'CTRL|SHIFT',  action = act.ActivatePaneDirection "Left" },
-  { key = 'j',          mods = 'CTRL|SHIFT',  action = act.ActivatePaneDirection "Down" },
-  { key = 'k',          mods = 'CTRL|SHIFT',  action = act.ActivatePaneDirection "Up" },
-  { key = 'l',          mods = 'CTRL|SHIFT',  action = act.ActivatePaneDirection "Right" },
-  { key = 'Return',     mods = 'CTRL|SHIFT',  action = act.TogglePaneZoomState },
+  { key = 'v',          mods = 'CTRL|ALT',   action = act.SplitHorizontal { domain = "CurrentPaneDomain" } },
+  { key = 's',          mods = 'CTRL|ALT',   action = act.SplitVertical { domain = "CurrentPaneDomain" } },
+  { key = 'w',          mods = 'CTRL|SHIFT', action = act.CloseCurrentPane { confirm = false } },
+  { key = 'h',          mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection "Left" },
+  { key = 'j',          mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection "Down" },
+  { key = 'k',          mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection "Up" },
+  { key = 'l',          mods = 'CTRL|SHIFT', action = act.ActivatePaneDirection "Right" },
+  { key = 'Return',     mods = 'CTRL|SHIFT', action = act.TogglePaneZoomState },
+
+
+  {
+    key = "E",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action_callback(function(window, pane)
+      local ansi = window:get_selection_escapes_for_pane(pane)
+      window:copy_to_clipboard(ansi)
+    end)
+  },
 
   -- Software should never use the super key.
-  { key = '-',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '0',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '1',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '2',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '3',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '4',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '5',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '6',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '7',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '8',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '9',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '=',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = '[',          mods = 'SHIFT|SUPER', action = act.DisableDefaultAssignment },
-  { key = ']',          mods = 'SHIFT|SUPER', action = act.DisableDefaultAssignment },
-  { key = 'c',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = 'f',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = 'k',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = 'm',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = 'n',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-  { key = 'r',          mods = 'SUPER',       action = act.DisableDefaultAssignment },
-
+  { key = '-', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '0', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '1', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '2', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '3', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '4', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '5', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '6', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '7', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '8', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '9', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '=', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = '[', mods = 'SHIFT|SUPER', action = act.DisableDefaultAssignment },
+  { key = ']', mods = 'SHIFT|SUPER', action = act.DisableDefaultAssignment },
+  { key = 'c', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'f', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'k', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'm', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'n', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'r', mods = 'SUPER',       action = act.DisableDefaultAssignment },
+  { key = 'q', mods = 'CTRL|SHIFT',  action = act.DisableDefaultAssignment },
 }
 
 config.key_tables = {
