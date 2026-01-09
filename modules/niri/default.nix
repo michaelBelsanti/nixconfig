@@ -18,15 +18,21 @@
         { config, pkgs, ... }:
         {
           imports = [ inputs.dank-material-shell.nixosModules.greeter ];
-          environment.systemPackages = with pkgs; [
-            xwayland-satellite
-            cosmic-files
-            file-roller
-            nautilus
-            satty
-            celluloid
-            loupe
-          ];
+          environment = {
+            # fixes zap proxy
+            # making gui apps with java should be banned.
+            variables.AWT_TOOLKIT = "MToolkit";
+            variables._JAVA_AWT_WM_NONREPARENTING = 1;
+            systemPackages = with pkgs; [
+              xwayland-satellite
+              cosmic-files
+              file-roller
+              nautilus
+              satty
+              celluloid
+              loupe
+            ];
+          };
           programs = {
             niri.enable = true;
             niri.package = pkgs.niri;
@@ -34,30 +40,16 @@
               enable = true;
               configHome = "/home/quasi";
               compositor.name = "niri";
-              compositor.customConfig =
-                inputs.niri.lib.kdl.serialize.nodes (
-                  builtins.filter (
-                    n:
-                    lib.elem n.name [
-                      "output"
-                      "layout"
-                      "hotkey-overlay"
-                      "input"
-                      "cursor"
-                    ]
-                  ) config.home-manager.users.quasi.programs.niri.config
-                )
-                + ''
-                  environment {
-                      DMS_RUN_GREETER "1"
-                  }
-
-                  gestures {
-                    hot-corners {
-                      off
-                    }
-                  }
-                '';
+              compositor.customConfig = inputs.niri.lib.kdl.serialize.nodes (
+                builtins.filter (
+                  n:
+                  lib.elem n.name [
+                    "hotkey-overlay"
+                    "input"
+                    "output"
+                  ]
+                ) config.home-manager.users.quasi.programs.niri.config
+              );
             };
           };
           services = {
@@ -130,6 +122,7 @@
                 argv = [
                   "swww"
                   "img"
+                  "-o HDMI-A-1"
                   (inputs.self + /assets/campfire.gif)
                 ];
               }
@@ -144,6 +137,8 @@
               skip-at-startup = true;
             };
 
+            clipboard.disable-primary = true;
+
             layout = {
               border = {
                 enable = false;
@@ -152,16 +147,16 @@
               focus-ring.enable = true;
               shadow.enable = true;
               gaps = 8;
-              default-column-width.proportion = 1.0;
+              default-column-width.proportion = 0.66667;
             };
 
             window-rules = [
               {
                 geometry-corner-radius = {
-                  top-left = 12.0;
-                  top-right = 12.0;
-                  bottom-left = 12.0;
-                  bottom-right = 12.0;
+                  top-left = 8.0;
+                  top-right = 8.0;
+                  bottom-left = 8.0;
+                  bottom-right = 8.0;
                 };
                 clip-to-geometry = true;
               }
@@ -227,7 +222,7 @@
                   XF86MonBrightnessUp.action = dms "brightness increment 5";
                   XF86MonBrightnessDown.action = dms "brightness decrement 5";
 
-                  "Mod+T".action.toggle-column-tabbed-display = [ ];
+                  "Mod+Shift+T".action.toggle-column-tabbed-display = [ ];
 
                   # "Mod+Tab".action = focus-window-down-or-column-right;
                   # "Mod+Shift+Tab".action = focus-window-up-or-column-left;
@@ -283,6 +278,7 @@
                   "Mod+F".action.maximize-column = [ ];
                   "Mod+Shift+F".action.fullscreen-window = [ ];
                   "Mod+C".action.center-column = [ ];
+                  "Mod+T".action.toggle-window-floating = [ ];
 
                   "Mod+Shift+Escape".action.toggle-keyboard-shortcuts-inhibit = [ ];
                   "Mod+Shift+Ctrl+T".action.toggle-debug-tint = [ ];
