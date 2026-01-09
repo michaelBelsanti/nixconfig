@@ -1,7 +1,7 @@
 { inputs, lib, ... }:
 # https://catppuccin.com/palette/
 let
-  wallpaper = ./background_upscaled.png;
+  wallpaper = inputs.self + /assets/background_upscaled.png;
 in
 {
   styx.theming._.catppuccin = flavor: accent: {
@@ -14,7 +14,7 @@ in
     };
 
     homeManager =
-      { pkgs, ... }:
+      { config, pkgs, ... }:
       {
         imports = [
           inputs.catppuccin.homeModules.catppuccin
@@ -28,14 +28,29 @@ in
         colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
         qt = {
-          style.name = lib.mkForce "kvantum";
-          platformTheme.name = lib.mkForce "kvantum";
+          # style.catppuccin.enable = (config.qt.platformTheme.name == "kvantum");
+          style.name = lib.mkDefault "kvantum";
+          platformTheme.name = lib.mkDefault "kvantum";
           # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
           kde.settings.kdeglobals.UI.ColorScheme = "*";
         };
         gtk.gtk3.theme = {
           name = "adw-gtk3";
           package = pkgs.adw-gtk3;
+        };
+
+        programs = lib.optionalAttrs (config.programs ? niri) {
+          niri.settings =
+            let
+              palette =
+                (builtins.fromJSON (builtins.readFile (config.catppuccin.sources.palette + /palette.json)))
+                .${flavor}.colors;
+            in
+            {
+              overview.backdrop-color = palette.base.hex;
+              layout.focus-ring.active.color = palette.${accent}.hex;
+              layout.focus-ring.urgent.color = if accent == "red" then palette.blue.hex else palette.red.hex;
+            };
         };
 
         home.file.".background-image".source = wallpaper;

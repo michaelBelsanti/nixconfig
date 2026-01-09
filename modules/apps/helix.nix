@@ -101,7 +101,7 @@
             lldb
             nil
             nixd
-            nixfmt-rfc-style
+            nixfmt
             rust-analyzer
             gopls
             delve

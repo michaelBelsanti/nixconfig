@@ -26,8 +26,8 @@ in
                       type = types.bool;
                       default = false;
                     };
-                    refreshRate = mkOption {
-                      type = types.int;
+                    refresh = mkOption {
+                      type = types.float;
                       default = 60;
                     };
                     width = mkOption {
@@ -53,6 +53,14 @@ in
                     roundScaling = mkOption {
                       type = types.int;
                       default = builtins.ceil config.scaling;
+                    };
+                    vrr = mkOption {
+                      type = types.enum [
+                        true
+                        false
+                        "on-demand"
+                      ];
+                      default = false;
                     };
                   };
                 }

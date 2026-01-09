@@ -1,5 +1,4 @@
 {
-  den,
   styx,
   config,
   inputs,
@@ -10,7 +9,7 @@
     primaryDisplay = config.hostConfig.zagreus.displays.eDP-1;
     displays = {
       eDP-1 = {
-        refreshRate = 60;
+        refresh = 60.0;
         width = 2256;
         height = 1504;
         scaling = 1.50;

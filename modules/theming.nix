@@ -1,7 +1,7 @@
 { styx, ... }:
 {
   styx.theming = {
-    includes = [ (styx.theming._.catppuccin "mocha" "pink") ];
+    includes = [ (styx.theming._.catppuccin "mocha" "mauve") ];
     nixos =
       { pkgs, ... }:
       {

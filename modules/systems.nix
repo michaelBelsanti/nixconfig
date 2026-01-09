@@ -12,7 +12,7 @@
         <styx/ssh/client>
         <styx/syncthing/client>
         <styx/theming>
-        <styx/wayland/cosmic>
+        <styx/wayland/niri>
         <styx/filesystems/ntfs>
         <styx/virt/podman>
         <styx/virt/qemu>

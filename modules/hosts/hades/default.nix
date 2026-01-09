@@ -10,15 +10,17 @@
     displays = {
       DP-3 = {
         primary = true;
-        refreshRate = 240;
+        refresh = 239.760;
         width = 1920;
         height = 1080;
+        vrr = true;
       };
       HDMI-A-1 = {
-        refreshRate = 60;
+        refresh = 100.0;
         width = 1920;
         height = 1080;
         x = -1920;
+        vrr = "on-demand";
       };
     };
   };
@@ -70,7 +72,7 @@
           inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
 
         virtualisation.docker.enable = true;
-        users.users.quasi.extraGroups = ["docker"];
+        users.users.quasi.extraGroups = [ "docker" ];
 
         networking = {
           networkmanager.unmanaged = [ "eth0" ];
