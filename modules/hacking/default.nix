@@ -93,6 +93,7 @@
             exploitdb
             responder
             netexec
+            python3Packages.impacket
 
             # Wireless Attacks
             aircrack-ng
