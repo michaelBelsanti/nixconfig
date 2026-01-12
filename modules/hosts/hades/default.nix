@@ -53,8 +53,6 @@
           # nix-gaming.nixosModules.pipewireLowLatency
           maccel.nixosModules.default
         ];
-
-        hardware.amdgpu.opencl.enable = true;
         nixpkgs.config.rocmSupport = true;
         environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.1";
         services = {
@@ -63,9 +61,13 @@
           # firewalld.enable = true;
         };
 
-        hardware.maccel = {
-          enable = true;
-          enableCli = true;
+        hardware = {
+          amdgpu.opencl.enable = true;
+          bluetooth.enable = true;
+          maccel = {
+            enable = true;
+            enableCli = true;
+          };
         };
 
         boot.kernelPackages =
