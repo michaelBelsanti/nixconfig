@@ -4,7 +4,7 @@ My systems and user configurations in a Nix Flake
 This flake is designed using [Den](https://den.oeiuwq.com/).
 
 Hades running [Niri](https://github.com/YaLTeR/niri) + [DankMaterialShell](https://danklinux.com/) with the Catppuccin Mocha theme:
-![image](./assets/hades-screenshot.png)
+![image](./assets/screenshot.png)
 
 # Inspirations
 - [Matthias Benaets](https://github.com/MatthiasBenaets/)
