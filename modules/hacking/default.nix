@@ -94,6 +94,7 @@
             responder
             netexec
             python3Packages.impacket
+            penelope
 
             # Wireless Attacks
             aircrack-ng
