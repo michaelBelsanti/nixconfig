@@ -25,7 +25,6 @@
             variables._JAVA_AWT_WM_NONREPARENTING = 1;
             systemPackages = with pkgs; [
               xwayland-satellite
-              cosmic-files
               file-roller
               nautilus
               satty
@@ -54,6 +53,7 @@
           };
           services = {
             greetd.settings.default_session.user = "quasi";
+            gvfs.enable = true;
             geoclue2 = {
               enable = true;
               enableDemoAgent = true;
