@@ -41,11 +41,12 @@
         };
 
         networking.hostName = "zagreus";
+        networking.networkmanager.enable = true;
 
         environment.sessionVariables.COSMIC_DISABLE_DIRECT_SCANOUT = 1; # TODO fix crashes
 
         services = {
-          fprintd.enable = false; # Enable fingerprint scanner
+          fprintd.enable = true; # Enable fingerprint scanner
           fwupd.enable = true; # Enable firmware updates with `fwupdmgr update`
         };
       };

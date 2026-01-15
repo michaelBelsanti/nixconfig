@@ -52,6 +52,7 @@
             };
           };
           services = {
+            accounts-daemon.enable = true;
             greetd.settings.default_session.user = "quasi";
             gvfs.enable = true;
             geoclue2 = {
