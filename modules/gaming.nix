@@ -82,7 +82,6 @@
             lsfg-vk-ui
             ludusavi
             mangohud
-            nexusmods-app
             protonplus
             protontricks
             r2modman

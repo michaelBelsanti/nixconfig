@@ -51,7 +51,6 @@
         nixpkgs.config.rocmSupport = true;
         environment.sessionVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.1";
         services = {
-          resolved.fallbackDns = [ ];
           fwupd.enable = true;
           # firewalld.enable = true;
         };
