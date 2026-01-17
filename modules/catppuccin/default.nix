@@ -24,15 +24,18 @@ in
           enable = true;
           inherit flavor accent;
           wezterm.apply = true;
+          kvantum.enable = false;
+          qt5ct.enable = true;
         };
         colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
         qt = {
-          # style.catppuccin.enable = (config.qt.platformTheme.name == "kvantum");
-          style.name = lib.mkDefault "kvantum";
-          platformTheme.name = lib.mkDefault "kvantum";
-          # https://github.com/NixOS/nixpkgs/issues/355602#issuecomment-2495539792 - i hate theming kde apps
-          kde.settings.kdeglobals.UI.ColorScheme = "*";
+          platformTheme.name = "qtct";
+          style.package = pkgs.darkly;
+          kde.settings.kdeglobals.UiSettings.ColorScheme = "catppuccin-mocha-mauve";
+          kde.settings.kdeglobals.UiSettings.IconTheme = "papirus-dark";
+          qt5ctSettings.Appearance.style = "Darkly";
+          qt6ctSettings.Appearance.style = "Darkly";
         };
         gtk.gtk3.theme = {
           name = "adw-gtk3";
@@ -53,7 +56,6 @@ in
             };
         };
 
-        home.file.".background-image".source = wallpaper;
         dconf.settings = {
           "org/gnome/desktop/background" = {
             picture-uri = "${wallpaper}";

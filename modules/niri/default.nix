@@ -77,7 +77,6 @@
             # Used by vicinae extensions
             playerctl
             pulseaudio # pactl
-            brotab
             swww
           ];
           programs.dank-material-shell = {
@@ -86,7 +85,6 @@
           };
           dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
           xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
-          qt.platformTheme.name = "qtct";
           gtk.theme = {
             package = pkgs.colloid-gtk-theme;
             name = "Colloid";
@@ -119,14 +117,7 @@
             ) host.displays;
 
             spawn-at-startup = [
-              {
-                argv = [
-                  "swww"
-                  "img"
-                  "-o HDMI-A-1"
-                  (inputs.self + /assets/campfire.gif)
-                ];
-              }
+              { sh = "swww img -o HDMI-A-1 ${inputs.self + /assets/campfire.gif}"; }
             ];
 
             cursor.theme = config.home.pointerCursor.name;

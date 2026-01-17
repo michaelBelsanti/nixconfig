@@ -67,6 +67,13 @@
           maccel = {
             enable = true;
             enableCli = true;
+            parameters = {
+              sensMultiplier = 0.6;
+              inputDpi = 800.0;
+              mode = "natural";
+              decayRate = 0.1;
+              limit = 3.0;
+            };
           };
         };
 
