@@ -34,10 +34,6 @@
       ai._.ollama
       apps._.radicle
       apps._.zsa
-      # (pipewire._.lowlatency {
-      #   quantum = 48000;
-      #   rate = 128;
-      # })
     ];
 
     nixos =
@@ -50,7 +46,6 @@
           nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-gpu-amd
           nixos-hardware.nixosModules.common-pc-ssd
-          # nix-gaming.nixosModules.pipewireLowLatency
           maccel.nixosModules.default
         ];
         nixpkgs.config.rocmSupport = true;

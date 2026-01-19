@@ -57,11 +57,14 @@
       nixos =
         { pkgs, ... }:
         {
-          imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
+          imports = [
+            inputs.nix-gaming.nixosModules.platformOptimizations
+            inputs.nix-gaming.nixosModules.pipewireLowLatency
+          ];
           hardware.opentabletdriver.enable = true;
           services = {
             input-remapper.enable = true;
-            system76-scheduler.enable = true;
+            pipewire.lowLatency.enable = true;
           };
           programs = {
             steam = {
