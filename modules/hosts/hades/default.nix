@@ -73,6 +73,17 @@
           };
         };
 
+        programs.obs-studio = {
+          enable = true;
+          plugins = with pkgs.obs-studio-plugins; [
+            obs-multi-rtmp
+            obs-vkcapture
+            obs-tuna
+            obs-gstreamer
+            wlrobs
+          ];
+        };
+
         boot.kernelPackages =
           inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
 
