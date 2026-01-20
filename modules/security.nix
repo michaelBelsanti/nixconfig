@@ -21,6 +21,18 @@
           type = "soft";
           value = 20480;
         }
+        {
+          domain = "quasi";
+          item = "rtprio";
+          type = "-";
+          value = "98";
+        }
+        {
+          domain = "quasi";
+          item = "nice";
+          type = "-";
+          value = -20;
+        }
       ];
     };
   };

@@ -55,6 +55,8 @@
           # firewalld.enable = true;
         };
 
+        security.rtkit.enable = false;
+
         hardware = {
           amdgpu.opencl.enable = true;
           bluetooth.enable = true;

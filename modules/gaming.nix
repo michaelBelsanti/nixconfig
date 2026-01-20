@@ -64,7 +64,10 @@
           hardware.opentabletdriver.enable = true;
           services = {
             input-remapper.enable = true;
-            pipewire.lowLatency.enable = true;
+            pipewire.lowLatency = {
+              enable = true;
+              quantum = 32;
+            };
           };
           programs = {
             steam = {
