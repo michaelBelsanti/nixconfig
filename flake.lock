@@ -588,11 +588,11 @@
         "rev": "2e8e2d1afb76835c8d245e0bab5d73352b002d79",
         "revCount": 4,
         "type": "git",
-        "url": "https://tangled.org/belsanti.xyz/nur"
+        "url": "https://tangled.org/quasigod.xyz/nur"
       },
       "original": {
         "type": "git",
-        "url": "https://tangled.org/belsanti.xyz/nur"
+        "url": "https://tangled.org/quasigod.xyz/nur"
       }
     },
     "pkgs-by-name-for-flake-parts": {

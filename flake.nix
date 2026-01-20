@@ -16,7 +16,7 @@
     };
 
     nur = {
-      url = "git+https://tangled.org/belsanti.xyz/nur";
+      url = "git+https://tangled.org/quasigod.xyz/nur";
       inputs.flake-parts.follows = "flake-parts";
     };
 

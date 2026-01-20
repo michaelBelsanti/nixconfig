@@ -24,7 +24,7 @@
         };
         to = {
           type = "git";
-          url = "https://tangled.org/@belsanti.xyz/quix";
+          url = "https://tangled.org/quasigod.xyz/quix";
         };
       };
     };
