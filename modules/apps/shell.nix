@@ -81,7 +81,20 @@
           icons = "auto";
           enableNushellIntegration = false;
         };
-        nix-your-shell.enable = true;
+        nix-your-shell = {
+          enable = true;
+          package = pkgs.nix-your-shell.overrideAttrs (
+            final: prev: {
+              # TODO
+              src = pkgs.fetchFromGitHub {
+                owner = "michaelBelsanti";
+                repo = "nix-your-shell";
+                rev = "82818ee6f0f6bead0c18b9bae92bfb972d54e980";
+                hash = "sha256-l36yzuqHb1v2uw0L0go/ckbA4Gss3rPwI2hoJAxF4N8=";
+              };
+            }
+          );
+        };
         skim.enable = true;
         tealdeer = {
           enable = true;
