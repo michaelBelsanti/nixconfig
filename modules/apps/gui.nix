@@ -14,7 +14,7 @@
         element-desktop
         obsidian
         orca-slicer
-        # freecad # TODO
+        freecad
         gearlever
         dino
         ungoogled-chromium

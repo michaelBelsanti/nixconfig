@@ -30,6 +30,7 @@
               satty
               celluloid
               loupe
+              dsearch
             ];
           };
           programs = {
@@ -162,7 +163,7 @@
                 {
                   "Mod+Q".action.close-window = [ ];
 
-                  "Mod+Space".action.spawn-sh = "vicinae toggle";
+                  "Mod+Space".action = dms "spotlight toggle";
                   "Mod+Shift+Space".action.spawn-sh = "systemctl --user restart vicinae.service";
 
                   "Mod+Return".action.spawn = "wezterm";
