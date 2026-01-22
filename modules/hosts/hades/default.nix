@@ -55,7 +55,7 @@
           # firewalld.enable = true;
         };
 
-        security.rtkit.enable = false;
+        security.rtkit.enable = true;
 
         hardware = {
           amdgpu.opencl.enable = true;
