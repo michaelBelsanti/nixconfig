@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   styx.syncthing =
     let
@@ -11,13 +12,15 @@
         enable = true;
         settings = {
           inherit devices;
-          folders."~/sync" = {
-            id = "general";
-            devices = all_devices;
-          };
-          folders."~/projects" = {
-            id = "projects";
-            devices = all_devices;
+          folders = {
+            "~/projects" = {
+              id = "projects";
+              devices = all_devices;
+            };
+            "~/Documents" = {
+              id = "documents";
+              devices = all_devices;
+            };
           };
         };
       };
@@ -26,8 +29,12 @@
       provides.client.homeManager.services = {
         inherit syncthing;
       };
-      provides.server.nixos.services.syncthing = syncthing // {
-        openDefaultPorts = true;
-      };
+      provides.server.nixos.services.syncthing = lib.mkMerge [
+        syncthing
+        {
+          openDefaultPorts = true;
+          devices = lib.mapAttrs (name: value: value // { autoAcceptFolders = true; }) devices;
+        }
+      ];
     };
 }
