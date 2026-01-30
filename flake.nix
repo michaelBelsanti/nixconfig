@@ -98,10 +98,25 @@
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      # not using unstable, so just override them to avoid cloning
+      inputs.niri-unstable.follows = "niri/niri-stable";
+      inputs.xwayland-satellite-unstable.follows = "niri/xwayland-satellite-stable";
     };
 
     dank-material-shell = {
       url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.blueprint.inputs.nixpkgs.follows = "nixpkgs";
+      inputs.treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    scx_cake = {
+      url = "github:michaelBelsanti/scx?dir=.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -112,6 +127,7 @@
       "https://nix-gaming.cachix.org"
       "https://quasigod.cachix.org"
       "https://attic.xuyh0120.win/lantian" # cachyos kernels
+      "https://cache.numtide.com" # llm-agents
     ];
     extra-trusted-public-keys = [
       "chaotic-nyx.cachix.org-1:HfnXSw4pj95iI/n17rIDy40agHj12WfF+Gqk6SonIT8="
@@ -119,6 +135,7 @@
       "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
       "quasigod.cachix.org-1:z+auA/0uS8vy6DDtUZhRQagZvVdl5WYnE/7lveoM3Do="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
 }

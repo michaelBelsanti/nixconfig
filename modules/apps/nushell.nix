@@ -43,6 +43,16 @@
                     algorithm: "substring"
                   }
                 }
+
+                $env.config.keybindings ++= [
+                  {
+                    name: deleteword
+                    modifier: control
+                    keycode: backspace
+                    mode: [ emacs vi_normal vi_insert ]
+                    event: { edit: BackspaceWord }
+                  }
+                ]
               '';
             };
             carapace = {

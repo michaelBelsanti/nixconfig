@@ -174,6 +174,8 @@
 
                   "Mod+Escape".action = dms "lock lock";
 
+                  "Mod+V".action= dms "clipboard toggle";
+
                   "Mod+Shift+S".action.screenshot = [ ];
                   "Mod+S".action.screenshot-window = [ ];
                   "Mod+Ctrl+S".action.spawn-sh = "niri msg action screenshot-screen && wl-paste | satty -f -";

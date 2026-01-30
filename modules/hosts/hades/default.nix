@@ -2,6 +2,7 @@
   styx,
   config,
   inputs,
+  lib,
   ...
 }:
 {
@@ -83,6 +84,27 @@
             wlrobs
           ];
         };
+
+        # services.scx.scheduler uses an enum with the upstream schedulers hardcoded
+        systemd.services.scx =
+          let
+            scx_cake = inputs.scx_cake.packages.${pkgs.stdenv.hostPlatform.system}.scx_cake;
+          in
+          {
+            description = "SCX scheduler daemon";
+            # SCX service should be started only if the kernel supports sched-ext
+            unitConfig.ConditionPathIsDirectory = "/sys/kernel/sched_ext";
+            startLimitIntervalSec = 30;
+            startLimitBurst = 2;
+            serviceConfig = {
+              Type = "simple";
+              ExecStart = ''
+                ${pkgs.runtimeShell} -c 'exec ${scx_cake}/bin/scx_cake'
+              '';
+              Restart = "on-failure";
+            };
+            wantedBy = [ "multi-user.target" ];
+          };
 
         boot.kernelPackages =
           inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
