@@ -666,6 +666,45 @@
         "type": "github"
       }
     },
+    "nixpkgs-patch-falcond": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-lkj13UFtv2Bc5FZsjJTVa+usZ7G1Yy3fEi7cJD+jxy0=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/compare/master...michaelBelsanti:nixpkgs:falcond.diff"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/compare/master...michaelBelsanti:nixpkgs:falcond.diff"
+      }
+    },
+    "nixpkgs-patch-scx-loader": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-X4dZmMro+GHbbuLR3bQStXTh2N6KSfpU4clcGiUTexY=",
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/483360.diff"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://github.com/NixOS/nixpkgs/pull/483360.diff"
+      }
+    },
+    "nixpkgs-patcher": {
+      "locked": {
+        "lastModified": 1769207991,
+        "narHash": "sha256-SwGLSB3H/Lq2gPa2/yCtmcUn8E/fVuPtZ5qnjrDj62s=",
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "rev": "2e59a7b94478f67e3ac2b221f737fe75c2175edc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gepbird",
+        "repo": "nixpkgs-patcher",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1769900590,
@@ -806,6 +845,9 @@
         "nixos-facter-modules": "nixos-facter-modules",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-patch-falcond": "nixpkgs-patch-falcond",
+        "nixpkgs-patch-scx-loader": "nixpkgs-patch-scx-loader",
+        "nixpkgs-patcher": "nixpkgs-patcher",
         "nur": "nur",
         "scx_cake": "scx_cake",
         "sops-nix": "sops-nix",

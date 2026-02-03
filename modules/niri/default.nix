@@ -31,6 +31,7 @@
               celluloid
               loupe
               dsearch
+              pwvucontrol
             ];
           };
           programs = {
@@ -50,6 +51,10 @@
                   ]
                 ) config.home-manager.users.quasi.programs.niri.config
               );
+            };
+            kdeconnect = {
+              enable = true;
+              package = pkgs.valent;
             };
           };
           services = {
@@ -85,7 +90,10 @@
             systemd.enable = true;
           };
           dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-          xdg.configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
+          xdg = {
+            autostart.enable = true;
+            configFile."gtk-4.0/gtk.css".enable = lib.mkForce false;
+          };
           gtk.theme = {
             package = pkgs.colloid-gtk-theme;
             name = "Colloid";
@@ -174,7 +182,7 @@
 
                   "Mod+Escape".action = dms "lock lock";
 
-                  "Mod+V".action= dms "clipboard toggle";
+                  "Mod+V".action = dms "clipboard toggle";
 
                   "Mod+Shift+S".action.screenshot = [ ];
                   "Mod+S".action.screenshot-window = [ ];

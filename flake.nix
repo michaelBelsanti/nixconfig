@@ -10,6 +10,16 @@
     flake-aspects.url = "git+https://tangled.org/oeiuwq.com/flake-aspects";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
+    nixpkgs-patch-scx-loader = {
+      url = "https://github.com/NixOS/nixpkgs/pull/483360.diff";
+      flake = false;
+    };
+    nixpkgs-patch-falcond = {
+      url = "https://github.com/NixOS/nixpkgs/compare/master...michaelBelsanti:nixpkgs:falcond.diff";
+      flake = false;
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

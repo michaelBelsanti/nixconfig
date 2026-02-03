@@ -66,7 +66,7 @@
             input-remapper.enable = true;
             pipewire.lowLatency = {
               enable = true;
-              quantum = 32;
+              quantum = 512; # apparently my cpu cant handle any lower
             };
           };
           programs = {

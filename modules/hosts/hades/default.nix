@@ -26,7 +26,11 @@
     };
   };
 
-  den.hosts.x86_64-linux.hades = { inherit (config.hostConfig.hades) displays primaryDisplay; };
+  den.hosts.x86_64-linux.hades = {
+    inherit (config.hostConfig.hades) displays primaryDisplay;
+    instantiate =
+      args: inputs.nixpkgs-patcher.lib.nixosSystem ({ nixpkgsPatcher.inputs = inputs; } // args);
+  };
   den.aspects.hades = {
     includes = with styx; [
       desktop
@@ -54,6 +58,47 @@
         services = {
           fwupd.enable = true;
           # firewalld.enable = true;
+          falcond = {
+            enable = true;
+            settings = {
+              scx_sched = "cake";
+              # start_script = toString (
+              #   pkgs.writeScript "falcond_start" ''
+              #     #!${lib.getExe pkgs.nushell}
+              #     if not (dms ipc call notifications getDoNotDisturb | into bool) then {
+              #       dms ipc call notifications toggleDoNotDisturb
+              #     }
+              #   ''
+              # );
+              # stop_script = toString (
+              #   pkgs.writeScript "falcond_stop" ''
+              #     #!${lib.getExe pkgs.nushell}
+              #     if (dms ipc call notifications getDoNotDisturb | into bool) then {
+              #       dms ipc call notifications toggleDoNotDisturb
+              #     }
+              #   ''
+              # );
+            };
+            profiles.deadlock = {
+              name = "deadlock.exe";
+              scx_sched_props = "lowlatency";
+            };
+          };
+          scx-loader = {
+            enable = true;
+            schedsPackages = [ inputs.scx_cake.packages.${pkgs.stdenv.hostPlatform.system}.scx_cake ];
+            settings = { };
+            package = pkgs.scx.loader.overrideAttrs (
+              final: prev: {
+                src = pkgs.fetchFromGitHub {
+                  owner = "michaelBelsanti";
+                  repo = "scx-loader";
+                  rev = "70064e94d51ea56a6f2fed0368cf787b03c60e96";
+                  hash = "sha256-LQCfM7z57kVxRBY3GJJFUbopefoyRvQLt+MLJjuWmMY=";
+                };
+              }
+            );
+          };
         };
 
         security.rtkit.enable = true;
@@ -86,25 +131,25 @@
         };
 
         # services.scx.scheduler uses an enum with the upstream schedulers hardcoded
-        systemd.services.scx =
-          let
-            scx_cake = inputs.scx_cake.packages.${pkgs.stdenv.hostPlatform.system}.scx_cake;
-          in
-          {
-            description = "SCX scheduler daemon";
-            # SCX service should be started only if the kernel supports sched-ext
-            unitConfig.ConditionPathIsDirectory = "/sys/kernel/sched_ext";
-            startLimitIntervalSec = 30;
-            startLimitBurst = 2;
-            serviceConfig = {
-              Type = "simple";
-              ExecStart = ''
-                ${pkgs.runtimeShell} -c 'exec ${scx_cake}/bin/scx_cake'
-              '';
-              Restart = "on-failure";
-            };
-            wantedBy = [ "multi-user.target" ];
-          };
+        # systemd.services.scx =
+        #   let
+        #     scx_cake = inputs.scx_cake.packages.${pkgs.stdenv.hostPlatform.system}.scx_cake;
+        #   in
+        #   {
+        #     description = "SCX scheduler daemon";
+        #     # SCX service should be started only if the kernel supports sched-ext
+        #     unitConfig.ConditionPathIsDirectory = "/sys/kernel/sched_ext";
+        #     startLimitIntervalSec = 30;
+        #     startLimitBurst = 2;
+        #     serviceConfig = {
+        #       Type = "simple";
+        #       ExecStart = ''
+        #         ${pkgs.runtimeShell} -c 'exec ${scx_cake}/bin/scx_cake'
+        #       '';
+        #       Restart = "on-failure";
+        #     };
+        #     wantedBy = [ "multi-user.target" ];
+        #   };
 
         boot.kernelPackages =
           inputs.nix-cachyos-kernel.legacyPackages.${pkgs.stdenv.hostPlatform.system}.linuxPackages-cachyos-latest;
