@@ -27,10 +27,11 @@
                 # skim
               ];
               shellAliases = {
+                o = "xdg-open";
                 l = "ls";
                 la = "ls -a";
                 ll = "ls -al";
-                mkdir = lib.mkForce "mkdir";
+                tree = "eza -T";
               };
               extraConfig = ''
                 $env.config = {
@@ -70,6 +71,32 @@
               if ! [ "$TERM" = "dumb" ]; then
                 exec nu
               fi
+            '';
+          };
+          xdg.configFile = {
+            "nushell/autoload/def.nu".text = ''
+              # zoxide poorly handles trailing /
+              def cd --env --wrapped (...rest: string) {
+              let trimmed = if ($rest | is-empty) {
+                  $rest
+              } else {
+                  $rest | update ($rest | length | $in - 1) { str trim -r -c '/' }
+              }
+                __zoxide_z ...$trimmed
+              }
+
+              # faster nix shell command when needing many packages
+              def --wrapped nxs (...input: string) {
+                let flags = $input | where ($it | str starts-with "-")
+                let packages = $input | where not ($it | str starts-with "-")
+                let formatted_packages = $packages | each {|package|
+                  if not ($package | str contains "#") {
+                    return $"nixpkgs#($package)"
+                  }
+                  $package
+                }
+                ^nix shell ...$formatted_packages ...$flags
+              }
             '';
           };
         };

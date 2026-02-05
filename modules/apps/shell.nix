@@ -2,12 +2,6 @@
   styx.shell.homeManager =
     { pkgs, config, ... }:
     {
-      home.shellAliases = {
-        cd = "z";
-        o = "xdg-open";
-        mkdir = "mkdir -p";
-        tree = "eza -T";
-      };
       programs = {
         bash = {
           enable = true;
