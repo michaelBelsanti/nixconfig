@@ -7,6 +7,7 @@
       {
         fonts = {
           packages = with pkgs; [
+            maple-mono.NF
             jetbrains-mono
             montserrat
             libertine
@@ -20,7 +21,7 @@
           fontconfig.defaultFonts = {
             sansSerif = [ "Atkinson Hyperlegible Next" ];
             serif = [ "Liberation Serif" ];
-            monospace = [ "JetBrains Mono" ];
+            monospace = [ "Maple Mono NF" ];
             emoji = [ "OpenMoji Color" ];
           };
         };
