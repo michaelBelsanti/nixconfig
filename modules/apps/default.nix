@@ -6,7 +6,6 @@
   ];
   styx.workstation.includes = [
     <styx/dev>
-    <styx/nushell>
     <styx/apps/gui>
     <styx/apps/distrobox>
     <styx/apps/ghostty>

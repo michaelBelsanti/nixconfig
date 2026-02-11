@@ -60,29 +60,41 @@
           # firewalld.enable = true;
           falcond = {
             enable = true;
-            settings = {
-              scx_sched = "cake";
-              # start_script = toString (
-              #   pkgs.writeScript "falcond_start" ''
-              #     #!${lib.getExe pkgs.nushell}
-              #     if not (dms ipc call notifications getDoNotDisturb | into bool) then {
-              #       dms ipc call notifications toggleDoNotDisturb
-              #     }
-              #   ''
-              # );
-              # stop_script = toString (
-              #   pkgs.writeScript "falcond_stop" ''
-              #     #!${lib.getExe pkgs.nushell}
-              #     if (dms ipc call notifications getDoNotDisturb | into bool) then {
-              #       dms ipc call notifications toggleDoNotDisturb
-              #     }
-              #   ''
-              # );
-            };
-            profiles.deadlock = {
-              name = "deadlock.exe";
-              scx_sched_props = "lowlatency";
-            };
+            package = pkgs.falcond.overrideAttrs (finalAttrs: {
+              src = pkgs.fetchFromGitHub {
+                owner = "michaelBelsanti";
+                repo = "falcond";
+                rev = "38e9a823ff31b47671a7d209cc69f9d7c27f637a";
+                hash = "sha256-ZNifsY3eut78Hg+xZ5A8I4h1NJqRTnfDE4OfOi/gu6Q=";
+                rootDir = "falcond";
+              };
+            });
+            configText =
+              let
+                falcon_start = pkgs.writeScript "falcond_start" ''
+                  #!${lib.getExe pkgs.nushell}
+                  let st = dms ipc call notifications getDoNotDisturb | complete
+                  print $st
+                  # if not (dms ipc call notifications getDoNotDisturb | into bool) {
+                  #   dms ipc call notifications toggleDoNotDisturb
+                  # }
+                '';
+                falcon_stop = pkgs.writeScript "falcond_stop" ''
+                  #!${lib.getExe pkgs.nushell}
+                  if (dms ipc call notifications getDoNotDisturb | into bool) {
+                    dms ipc call notifications toggleDoNotDisturb
+                  }
+                '';
+              in
+              ''
+                scx_sched = cake
+              '';
+            # start_script = "${falcon_start}"
+            # stop_script = "${falcon_stop}"
+            profiles.deadlock = ''
+              name = "deadlock.exe"
+              scx_sched_props = latency
+            '';
           };
           scx-loader = {
             enable = true;
@@ -93,8 +105,8 @@
                 src = pkgs.fetchFromGitHub {
                   owner = "michaelBelsanti";
                   repo = "scx-loader";
-                  rev = "70064e94d51ea56a6f2fed0368cf787b03c60e96";
-                  hash = "sha256-LQCfM7z57kVxRBY3GJJFUbopefoyRvQLt+MLJjuWmMY=";
+                  rev = "9487aac11f6b106d4ce35f7ef53cfbe143c15f64";
+                  hash = "sha256-3Ox7vo7OSf9ylyaP/iBrtvQ+SxhyET2fah3TqLwdGvc=";
                 };
               }
             );
