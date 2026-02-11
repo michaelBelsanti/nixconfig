@@ -7,6 +7,7 @@
         <styx/networking>
         <styx/secrets>
         <styx/easyeffects>
+        <styx/emacs>
         <styx/flatpak>
         <styx/printing>
         <styx/ssh/client>
