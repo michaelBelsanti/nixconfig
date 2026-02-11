@@ -8,7 +8,6 @@
       <styx/shell>
     ];
     nixos.users.users.quasi.extraGroups = [
-      "adb"
       "docker"
       "wireshark"
     ];

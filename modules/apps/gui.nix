@@ -11,7 +11,7 @@
         (bottles.override { removeWarningPopup = true; })
         varia
         proton-pass
-        element-desktop
+        # element-desktop
         obsidian
         orca-slicer
         freecad

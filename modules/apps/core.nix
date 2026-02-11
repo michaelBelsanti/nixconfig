@@ -10,7 +10,6 @@
         dua
         dust
         edir
-        emacs
         eva # calculator repl
         fd
         file
