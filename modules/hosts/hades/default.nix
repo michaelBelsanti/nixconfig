@@ -2,7 +2,6 @@
   styx,
   config,
   inputs,
-  lib,
   ...
 }:
 {
@@ -69,28 +68,9 @@
                 rootDir = "falcond";
               };
             });
-            configText =
-              let
-                falcon_start = pkgs.writeScript "falcond_start" ''
-                  #!${lib.getExe pkgs.nushell}
-                  let st = dms ipc call notifications getDoNotDisturb | complete
-                  print $st
-                  # if not (dms ipc call notifications getDoNotDisturb | into bool) {
-                  #   dms ipc call notifications toggleDoNotDisturb
-                  # }
-                '';
-                falcon_stop = pkgs.writeScript "falcond_stop" ''
-                  #!${lib.getExe pkgs.nushell}
-                  if (dms ipc call notifications getDoNotDisturb | into bool) {
-                    dms ipc call notifications toggleDoNotDisturb
-                  }
-                '';
-              in
-              ''
-                scx_sched = cake
-              '';
-            # start_script = "${falcon_start}"
-            # stop_script = "${falcon_stop}"
+            configText = ''
+              scx_sched = cake
+            '';
             profiles.deadlock = ''
               name = "deadlock.exe"
               scx_sched_props = latency
@@ -98,15 +78,26 @@
           };
           scx-loader = {
             enable = true;
-            schedsPackages = [ inputs.scx_cake.packages.${pkgs.stdenv.hostPlatform.system}.scx_cake ];
+            schedsPackages = [
+              (pkgs.scx.rustscheds.overrideAttrs (
+                final: prev: {
+                  src = pkgs.fetchFromGitHub {
+                    owner = "sched-ext";
+                    repo = "scx";
+                    rev = "0f379644a0e2d31986fde8f2faf76f85717207d9";
+                    hash = "sha256-JqTq000cAHp2F66Q/z9yFAVrLNdOteqxGhEE1rMjijk=";
+                  };
+                }
+              ))
+            ];
             settings = { };
             package = pkgs.scx.loader.overrideAttrs (
               final: prev: {
                 src = pkgs.fetchFromGitHub {
-                  owner = "michaelBelsanti";
+                  owner = "sched-ext";
                   repo = "scx-loader";
-                  rev = "9487aac11f6b106d4ce35f7ef53cfbe143c15f64";
-                  hash = "sha256-3Ox7vo7OSf9ylyaP/iBrtvQ+SxhyET2fah3TqLwdGvc=";
+                  rev = "0a52e98197721b396bdbc1632b8e35e8f6b27a03";
+                  hash = "sha256-skKJiXMrFxRrhnxgE/dtrFda0v9Qy10zqSTVJoQblsk=";
                 };
               }
             );
