@@ -51,8 +51,11 @@ in
             in
             {
               overview.backdrop-color = palette.base.hex;
-              layout.focus-ring.active.color = palette.${accent}.hex;
-              layout.focus-ring.urgent.color = if accent == "red" then palette.blue.hex else palette.red.hex;
+              layout = {
+                focus-ring.active.color = palette.${accent}.hex;
+                focus-ring.urgent.color = if accent == "red" then palette.blue.hex else palette.red.hex;
+                tab-indicator.active.color = if accent == "peach" then palette.blue.hex else palette.peach.hex;
+              };
             };
         };
 

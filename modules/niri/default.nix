@@ -149,6 +149,7 @@
               shadow.enable = true;
               gaps = 8;
               default-column-width.proportion = 0.66667;
+              tab-indicator.place-within-column = true;
             };
 
             window-rules = [
@@ -176,6 +177,10 @@
 
                   "Mod+Return".action.spawn = "wezterm";
                   "Mod+B".action.spawn = "zen";
+
+                  "Mod+Shift+E".action.spawn = toString (
+                    pkgs.writeScript "open-emacs" ("#!${lib.getExe pkgs.nushell}" + builtins.readFile ./emacs.nu)
+                  );
 
                   "Mod+W".action.toggle-overview = [ ];
                   "Mod+O".action.show-hotkey-overlay = [ ];

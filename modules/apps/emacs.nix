@@ -8,7 +8,6 @@
     {
       services.emacs = {
         enable = true;
-        package = emacs;
         client.enable = true;
         startWithUserSession = "graphical";
       };
