@@ -1,13 +1,20 @@
+{ inputs, ... }:
 {
   styx.emacs.homeManager =
     { pkgs, ... }:
+    let
+      emacs = inputs.emacs-overlay.packages.${pkgs.stdenv.hostPlatform.system}.emacs-unstable-pgtk;
+    in
     {
       services.emacs = {
         enable = true;
+        package = emacs;
         client.enable = true;
+        startWithUserSession = "graphical";
       };
       programs.emacs = {
         enable = true;
+        package = emacs;
         extraPackages =
           # Only packages that should be installed globally
           epkgs: with epkgs; [
