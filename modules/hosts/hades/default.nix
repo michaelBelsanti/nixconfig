@@ -57,59 +57,60 @@
         services = {
           fwupd.enable = true;
           # firewalld.enable = true;
-          # falcond = {
-          #   enable = true;
-          #   package = pkgs.falcond.overrideAttrs (finalAttrs: {
-          #     src = pkgs.fetchFromGitHub {
-          #       owner = "michaelBelsanti";
-          #       repo = "falcond";
-          #       rev = "38e9a823ff31b47671a7d209cc69f9d7c27f637a";
-          #       hash = "sha256-ZNifsY3eut78Hg+xZ5A8I4h1NJqRTnfDE4OfOi/gu6Q=";
-          #       rootDir = "falcond";
-          #     };
-          #   });
-          #   configText = ''
-          #     scx_sched = cake
-          #     vcache_mode = freqency
-          #   '';
-          #   profiles.deadlock = ''
-          #     name = "deadlock.exe"
-          #     scx_sched_props = latency
-          #   '';
-          # };
-          # scx-loader = {
-          #   enable = true;
-          #   schedsPackages = [
-          #     (pkgs.scx.rustscheds.overrideAttrs (
-          #       final: prev: {
-          #         src = pkgs.fetchFromGitHub {
-          #           owner = "sched-ext";
-          #           repo = "scx";
-          #           rev = "0f379644a0e2d31986fde8f2faf76f85717207d9";
-          #           hash = "sha256-JqTq000cAHp2F66Q/z9yFAVrLNdOteqxGhEE1rMjijk=";
-          #         };
-          #         cargoDeps = prev.cargoDeps.overrideAttrs (prev': {
-          #           vendorStaging = prev'.vendorStaging.overrideAttrs {
-          #             inherit (final) src;
-          #             outputHash = "sha256-wdo127ngL1h4oiFK7ryLb0/qqx6IuZyDBu34DzDmiaE=";
-          #           };
-          #         });
-          #       }
-          #     ))
-          #   ];
-          #   settings = { };
-          #   package = pkgs.scx.loader.overrideAttrs (
-          #     final: prev: {
-          #       src = pkgs.fetchFromGitHub {
-          #         owner = "sched-ext";
-          #         repo = "scx-loader";
-          #         rev = "0a52e98197721b396bdbc1632b8e35e8f6b27a03";
-          #         hash = "sha256-skKJiXMrFxRrhnxgE/dtrFda0v9Qy10zqSTVJoQblsk=";
-          #       };
-          #     }
-          #   );
-          # };
-        };
+        #   falcond = {
+        #     enable = true;
+        #     package = pkgs.falcond.overrideAttrs (finalAttrs: {
+        #       src = pkgs.fetchFromGitHub {
+        #         owner = "michaelBelsanti";
+        #         repo = "falcond";
+        #         rev = "38e9a823ff31b47671a7d209cc69f9d7c27f637a";
+        #         hash = "sha256-ZNifsY3eut78Hg+xZ5A8I4h1NJqRTnfDE4OfOi/gu6Q=";
+        #         rootDir = "falcond";
+        #       };
+        #     });
+        #     configText = ''
+        #       scx_sched = cake
+        #       vcache_mode = freqency
+        #     '';
+        #     profiles.deadlock = ''
+        #       name = "deadlock.exe"
+        #       scx_sched_props = latency
+        #     '';
+        #   };
+        #   scx-loader = {
+        #     enable = true;
+        #     schedsPackages = [
+        #       (pkgs.scx.rustscheds.overrideAttrs (
+        #         final: prev: {
+        #           src = pkgs.fetchFromGitHub {
+        #             owner = "sched-ext";
+        #             repo = "scx";
+        #             rev = "0f379644a0e2d31986fde8f2faf76f85717207d9";
+        #             hash = "sha256-JqTq000cAHp2F66Q/z9yFAVrLNdOteqxGhEE1rMjijk=";
+        #           };
+        #           doCheck = false;
+        #           cargoDeps = prev.cargoDeps.overrideAttrs (prev': {
+        #             vendorStaging = prev'.vendorStaging.overrideAttrs {
+        #               inherit (final) src;
+        #               outputHash = "sha256-wdo127ngL1h4oiFK7ryLb0/qqx6IuZyDBu34DzDmiaE=";
+        #             };
+        #           });
+        #         }
+        #       ))
+        #     ];
+        #     settings = { };
+        #     package = pkgs.scx.loader.overrideAttrs (
+        #       final: prev: {
+        #         src = pkgs.fetchFromGitHub {
+        #           owner = "sched-ext";
+        #           repo = "scx-loader";
+        #           rev = "0a52e98197721b396bdbc1632b8e35e8f6b27a03";
+        #           hash = "sha256-skKJiXMrFxRrhnxgE/dtrFda0v9Qy10zqSTVJoQblsk=";
+        #         };
+        #       }
+        #     );
+        #   };
+        # };
 
         security.rtkit.enable = true;
 
