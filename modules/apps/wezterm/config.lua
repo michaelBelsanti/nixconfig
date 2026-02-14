@@ -26,9 +26,9 @@ config.mouse_bindings = {
 }
 
 config.keys = {
-  { key = '+',          mods = 'CTRL',       action = act.IncreaseFontSize },
-  { key = '-',          mods = 'CTRL',       action = act.DecreaseFontSize },
-  { key = '0',          mods = 'CTRL',       action = act.ResetFontSize },
+  -- { key = '+',          mods = 'CTRL',       action = act.IncreaseFontSize },
+  -- { key = '-',          mods = 'CTRL',       action = act.DecreaseFontSize },
+  -- { key = '0',          mods = 'CTRL',       action = act.ResetFontSize },
   { key = 'c',          mods = 'CTRL|SHIFT', action = act.CopyTo 'Clipboard' },
   { key = 'f',          mods = 'CTRL|SHIFT', action = act.Search 'CurrentSelectionOrEmptyString' },
   { key = 'Return',     mods = 'ALT',        action = act.SpawnWindow },
