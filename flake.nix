@@ -98,7 +98,7 @@
 
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.flake-compat.follows = "nix-alien/flake-compat";
     };

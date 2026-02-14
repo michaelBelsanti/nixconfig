@@ -38,7 +38,7 @@
         rsync
         sd
         strace
-        systeroid
+        # systeroid # TODO
         tcpdump
         traceroute
         try
