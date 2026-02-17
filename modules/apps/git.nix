@@ -14,6 +14,10 @@
               key = "~/.ssh/id_ed25519.pub";
               signByDefault = true;
             };
+            ignores = [
+              ".scratch"
+              "*sync-conflict*"
+            ];
             settings = {
               user.name = "quasigod";
               user.email = "quasigod-io@proton.me";
