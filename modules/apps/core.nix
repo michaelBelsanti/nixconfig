@@ -32,6 +32,7 @@
         progress
         psmisc
         psutils
+        python3
         rclone
         ripgrep
         ripgrep-all
