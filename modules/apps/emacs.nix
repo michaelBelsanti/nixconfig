@@ -20,6 +20,7 @@
             treesit-grammars.with-all-grammars
             tree-sitter-langs
             jinx
+            xeft
           ];
       };
       home.packages = with pkgs; [
