@@ -31,6 +31,7 @@
           NODE_REPL_HISTORY = "${config.xdg.stateHome}/node_repl_history";
           NPM_CONFIG_INIT_MODULE = "${config.xdg.configHome}/npm/config/npm-init.js";
           NPM_CONFIG_CACHE = "${config.xdg.cacheHome}/npm";
+          NXC_PATH = "${config.xdg.configHome}/nxc";
           NUGET_PACKAGES = "${config.xdg.cacheHome}/NuGetPackages";
           OCTAVE_HISTFILE = "${config.xdg.cacheHome}/octave-hsts";
           OCTAVE_SITE_INITFILE = "${config.xdg.configHome}/octave/octaverc";
