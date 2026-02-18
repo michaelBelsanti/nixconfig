@@ -79,12 +79,6 @@
             inputs.dank-material-shell.homeModules.dank-material-shell
           ];
           services.swww.enable = true;
-          home.packages = with pkgs; [
-            # Used by vicinae extensions
-            playerctl
-            pulseaudio # pactl
-            swww
-          ];
           programs.dank-material-shell = {
             enable = true;
             systemd.enable = true;

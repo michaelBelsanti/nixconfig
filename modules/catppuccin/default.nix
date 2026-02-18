@@ -50,8 +50,9 @@ in
                 .${flavor}.colors;
             in
             {
-              overview.backdrop-color = palette.base.hex;
+              overview.backdrop-color = palette.crust.hex;
               layout = {
+                background-color = palette.crust.hex;
                 focus-ring.active.color = palette.${accent}.hex;
                 focus-ring.urgent.color = if accent == "red" then palette.blue.hex else palette.red.hex;
                 tab-indicator.active.color = if accent == "peach" then palette.blue.hex else palette.peach.hex;
