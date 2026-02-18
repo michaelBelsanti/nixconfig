@@ -79,6 +79,9 @@
             inputs.dank-material-shell.homeModules.dank-material-shell
           ];
           services.swww.enable = true;
+          systemd.user.services.swww.Service.ExecStartPost = lib.mapAttrsToList (
+            name: display: "${lib.getExe pkgs.swww} img -o ${name} ${display.wallpaper}"
+          ) host.displays;
           programs.dank-material-shell = {
             enable = true;
             systemd.enable = true;
@@ -118,10 +121,6 @@
                 focus-at-startup = lib.mkIf primary true;
               }
             ) host.displays;
-
-            spawn-at-startup = [
-              { sh = "swww img -o HDMI-A-1 ${inputs.self + /assets/campfire.gif}"; }
-            ];
 
             cursor.theme = config.home.pointerCursor.name;
 

@@ -13,6 +13,7 @@
         width = 2256;
         height = 1504;
         scaling = 1.50;
+        wallpaper = /assets/background_upscaled.png;
       };
     };
   };

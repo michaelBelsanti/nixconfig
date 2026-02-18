@@ -14,6 +14,7 @@
         width = 1920;
         height = 1080;
         vrr = true;
+        wallpaper = /assets/background.png;
       };
       HDMI-A-1 = {
         refresh = 100.0;
@@ -21,6 +22,7 @@
         height = 1080;
         x = -1920;
         vrr = "on-demand";
+        wallpaper = /assets/campfire.gif;
       };
     };
   };

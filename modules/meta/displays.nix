@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 let
   inherit (lib) mkOption types;
 in
@@ -61,6 +61,10 @@ in
                         "on-demand"
                       ];
                       default = false;
+                    };
+                    wallpaper = mkOption {
+                      type = types.path;
+                      apply = v: builtins.path { path = (inputs.self + v); };
                     };
                   };
                 }
