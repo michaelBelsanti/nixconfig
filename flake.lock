@@ -142,17 +142,18 @@
     },
     "den": {
       "locked": {
-        "lastModified": 1770894221,
-        "narHash": "sha256-ypeLNfVJnh5+NO0ZhFdW3Yqh+tFLrA+mjXeYIAo9bDA=",
-        "ref": "refs/heads/main",
-        "rev": "53bc73d78da4f39c3ffa9e8ab38ecea14ef12fcd",
-        "revCount": 200,
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/den"
+        "lastModified": 1771966650,
+        "narHash": "sha256-z0HHD6Yd+nWVCyZl7o6W54BfmGUPckU4gjt8lNHo03E=",
+        "owner": "vic",
+        "repo": "den",
+        "rev": "4b17c105489271edf2ddb1a05bfa7db0e9fe4a93",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/den"
+        "owner": "vic",
+        "ref": "v0.10.0",
+        "repo": "den",
+        "type": "github"
       }
     },
     "emacs-overlay": {
@@ -200,17 +201,18 @@
     },
     "flake-aspects": {
       "locked": {
-        "lastModified": 1769723924,
-        "narHash": "sha256-U15OaMr9AcJiB1wW2uCFzFO+DnQ3jJSvln+ZR/+Q0vE=",
-        "ref": "refs/heads/main",
-        "rev": "61524836788ef6991a82e7d34ebb0ccc05d374ed",
-        "revCount": 71,
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/flake-aspects"
+        "lastModified": 1771320365,
+        "narHash": "sha256-t1FKnPRvg/l376pM+hMS0hPMTmxu7S4eVS2s+A25SbU=",
+        "owner": "vic",
+        "repo": "flake-aspects",
+        "rev": "f338a5062628c9b9fda0796a141ca1a6eb4dcf75",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/flake-aspects"
+        "owner": "vic",
+        "ref": "v0.5.0",
+        "repo": "flake-aspects",
+        "type": "github"
       }
     },
     "flake-compat": {
@@ -333,17 +335,17 @@
     },
     "import-tree": {
       "locked": {
-        "lastModified": 1763762820,
-        "narHash": "sha256-ZvYKbFib3AEwiNMLsejb/CWs/OL/srFQ8AogkebEPF0=",
-        "ref": "refs/heads/main",
-        "rev": "3c23749d8013ec6daa1d7255057590e9ca726646",
-        "revCount": 87,
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/import-tree"
+        "lastModified": 1771045967,
+        "narHash": "sha256-oYO4poyw0Sb/db2PigqugMlDwsvwLg6CSpFrMUWxA3Q=",
+        "owner": "vic",
+        "repo": "import-tree",
+        "rev": "c968d3b54d12cf5d9c13f16f7c545a06c9d1fde6",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://tangled.org/oeiuwq.com/import-tree"
+        "owner": "vic",
+        "repo": "import-tree",
+        "type": "github"
       }
     },
     "lanzaboote": {
@@ -429,11 +431,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1770835386,
-        "narHash": "sha256-Yp0ooU66hXjGq0cAG9WwhmLCfqCVzRxGXx7+nggPlqI=",
+        "lastModified": 1772060071,
+        "narHash": "sha256-hQwSkkpRgB2H9AFJ02oaaCtVfj/2Y1W24QVzjEeA9A8=",
         "owner": "moonlight-mod",
         "repo": "moonlight",
-        "rev": "6e0829e81d363e4ebb7c3f04601a50853f752c99",
+        "rev": "010a156b12a7ea254ceff242642d4be505f8bf32",
         "type": "github"
       },
       "original": {

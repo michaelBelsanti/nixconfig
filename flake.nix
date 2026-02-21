@@ -5,9 +5,9 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    import-tree.url = "git+https://tangled.org/oeiuwq.com/import-tree";
-    den.url = "git+https://tangled.org/oeiuwq.com/den";
-    flake-aspects.url = "git+https://tangled.org/oeiuwq.com/flake-aspects";
+    import-tree.url = "github:vic/import-tree";
+    den.url = "github:vic/den/v0.10.0";
+    flake-aspects.url = "github:vic/flake-aspects/v0.5.0";
 
     nixpkgs.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
     # nixpkgs-patcher.url = "github:gepbird/nixpkgs-patcher";
