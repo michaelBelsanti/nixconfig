@@ -16,10 +16,22 @@
           folders = {
             "~/projects" = {
               id = "projects";
-              devices = all_devices;
+              devices = [
+                "hades"
+                "zagreus"
+                "nyx"
+              ];
             };
             "~/Documents" = {
               id = "documents";
+              devices = [
+                "hades"
+                "zagreus"
+                "nyx"
+              ];
+            };
+            "~/elysium" = {
+              id = "elysium";
               devices = all_devices;
             };
           };
