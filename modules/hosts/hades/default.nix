@@ -29,8 +29,8 @@
 
   den.hosts.x86_64-linux.hades = {
     inherit (config.hostConfig.hades) displays primaryDisplay;
-    instantiate =
-      args: inputs.nixpkgs-patcher.lib.nixosSystem ({ nixpkgsPatcher.inputs = inputs; } // args);
+    # instantiate =
+    #   args: inputs.nixpkgs-patcher.lib.nixosSystem ({ nixpkgsPatcher.inputs = inputs; } // args);
   };
   den.aspects.hades = {
     includes = with styx; [
