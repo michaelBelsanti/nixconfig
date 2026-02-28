@@ -169,7 +169,7 @@
                   "Mod+Shift+Space".action.spawn-sh = "systemctl --user restart vicinae.service";
 
                   "Mod+Return".action.spawn = "wezterm";
-                  "Mod+B".action.spawn = "zen";
+                  "Mod+B".action.spawn = "zen-beta";
 
                   "Mod+Shift+E".action.spawn = toString (
                     pkgs.writeScript "open-emacs" ("#!${lib.getExe pkgs.nushell}" + builtins.readFile ./emacs.nu)
