@@ -32,6 +32,7 @@
               loupe
               dsearch
               pwvucontrol
+              bazaar
             ];
           };
           programs = {
